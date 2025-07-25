@@ -1,0 +1,9 @@
+model_name: gemini-2.5-flash-preview-05-20
+generation_config:
+  max_output_tokens: 8192
+  top_p: 0.95
+  temperature: 1.0
+  top_k: 64
+  thinking_config:
+    thinking_budget: -1
+wait_time: 7

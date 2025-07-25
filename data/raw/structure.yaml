@@ -1,0 +1,172 @@
+barman:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+blocksworld:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+childsnack:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+depots:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+driverlog:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+grippers:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+logistics:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+satellite:
+  path: generated_domain.pddl
+  instances:
+    indistribution:
+      number:
+        total: 4200
+        train: 3200
+        validation: 800
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+    outdistribution:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic_longer_plan_len
+hanoi:
+  path: generated_domain.pddl
+  instances:
+    unseen:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+storage:
+  path: generated_domain.pddl
+  instances:
+    unseen:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+mystery_blocksworld:
+  path: generated_domain.pddl
+  instances:
+    obfuscated:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
+obfuscated_deceptive_logistics:
+  path: generated_domain.pddl
+  instances:
+    obfuscated:
+      number:
+        total: 200
+        test: 200
+      regex: (instance-[0-9]+)\.pddl
+      dir: generated_basic
