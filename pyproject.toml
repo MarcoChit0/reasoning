@@ -1,0 +1,32 @@
+[project]
+name = "reasoning"
+version = "0.1.0"
+description = "Testing reasoning capabilities of LLMs."
+authors = [{name = "Marco Chitolina <68135699+MarcoChit0@users.noreply.github.com>"}]
+readme = "README.md"
+requires-python = "==3.11.*"
+
+dependencies = [
+"numpy",
+"pandas",
+"transformers",
+"torch",
+"torchvision",
+"torchaudio",
+"accelerate",
+"scikit-learn",
+"aiohttp",
+"datasets",
+"aiofiles",
+"dotenv",
+"bitsandbytes",
+"peft",
+"google-genai"
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.setuptools.packages.find]
+where = ["src"]

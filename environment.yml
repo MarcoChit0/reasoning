@@ -1,0 +1,19 @@
+name: reasoning
+
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+  - cmake
+  - make
+  - cxx-compiler
+  - flex
+  - bison
+
+  - pip:
+      - -e .
