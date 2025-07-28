@@ -31,7 +31,7 @@ class GoogleModel:
     
         return {
             "response" : candidate_response,
-            "usage_metadata" : {
+            "metadata" : {
                 "prompt_token_count" : response.usage_metadata.prompt_token_count,
                 "candidates_token_count" : response.usage_metadata.candidates_token_count,
                 "total_tokens_count" : response.usage_metadata.total_token_count,

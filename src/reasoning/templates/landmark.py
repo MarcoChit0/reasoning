@@ -1,8 +1,8 @@
 from string import Template
 
-PDDL_TEMPLATE = Template("""<problem-description>
-You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. You will be given the PDDL domain file and the PDDL instance file, and you need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
-</problem-description> 
+LANDMARK_TEMPLATE = Template("""<problem-description-with-landmarks>
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
+</problem-description-with-landmarks> 
 
 This is the PDDL domain file of the $name domain:
 <domain-file>
@@ -13,6 +13,11 @@ This is the PDDL instance file, for which you need to generate a plan:
 <instance-file>
 $instance
 </instance-file>
+
+This is a set of action landmarks for the instance you need to generate a plan for:
+<landmarks-set>
+$landmarks
+</landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
 <domain-file-storage-example>
@@ -172,6 +177,17 @@ This is an example of a PDDL instance file from the Storage domain:
 )
 </instance-file-storage-example>
 
+This is a set of action landmarks for the Storage instance above:
+<landmarks-set-storage-example>
+(lift hoist0 crate2 container-0-2 loadarea container0)
+(lift hoist0 crate3 container-0-3 loadarea container0)
+(lift hoist0 crate1 container-0-1 loadarea container0)
+(lift hoist0 crate0 container-0-0 loadarea container0)
+(drop hoist0 crate1 depot49-1-1 loadarea depot49)
+(drop hoist0 crate0 depot48-1-1 loadarea depot48)
+(go-out hoist0 depot49-1-1 loadarea)
+</landmarks-set-storage-example>
+
 This is a plan for the Storage instance above:
 <plan-storage-example>
 (go-out hoist0 depot49-1-1 loadarea)
@@ -247,6 +263,11 @@ This is an example of a PDDL instance file from the Hanoi domain:
     )
 )
 </instance-file-hanoi-example>
+
+This is a set of action landmarks for the Hanoi instance above:
+<landmarks-set-hanoi-example>
+
+</landmarks-set-hanoi-example>
 
 This is a plan for the Hanoi instance above:
 <plan-hanoi-example>

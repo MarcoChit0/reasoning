@@ -25,11 +25,11 @@ model = GoogleModel(
 wait_time = config.get("wait_time", 0)
 generation_config = config.get("generation_config", {})
 
-template = "pddl"
+template = "landmark"
 instances = 1
 samples = 1
-domain = "blocksworld"
-experiment = "test"
+domain = "hanoi"
+experiment = "test-landmark"
 instance_type = "outdistribution"
 
 path = os.path.join("data", "experiments", experiment, domain, instance_type)
@@ -54,7 +54,7 @@ progress_bar = tqdm.tqdm(total=len(tasks) * samples, desc="Generating content", 
 for task in tasks:
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    log_file = os.path.join(path, f"{task.instance}.log")
+    log_file = os.path.join(path, f"{task.instance.name}.log")
     handler = logging.FileHandler(log_file, mode='w')
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
@@ -64,15 +64,14 @@ for task in tasks:
         logging.info(f"Processing task: {task}")
         logging.info(f"Using model: {model_name}")
         logging.info(f"Generation parameters: {generation_config}")
-        prompt = build_prompt(task, template)
-        logging.info(f"Prompt:\n<prompt>\n{prompt}\n</prompt>\n")
+        prompt = build_prompt(task, template, logger)
         for i in range(samples):
             logging.info(f"Sample: {i + 1}.")
             sample = "\n<sample>\n"
             try:
                 response = model.generate_response(prompt, **generation_config)
                 sample += f"<response>\n{response['response']}\n</response>\n"
-                sample += f"<usage_metadata>\n{str(response['usage_metadata'])}\n</usage_metadata>\n"
+                sample += f"<metadata>\n{str(response['metadata'])}\n</metadata>\n"
                 success = True
             except RuntimeError as e:
                 sample += f"<error>\n{str(e)}\n</error>\n"

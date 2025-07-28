@@ -1,13 +1,31 @@
 from reasoning.task import Task
-
-def build_prompt(task : Task, template : str):
+from reasoning.utils import get_action_landmarks
+import logging
+def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
+    metadata = {"template": template}
     if template == "pddl":
         from reasoning.templates.pddl import PDDL_TEMPLATE
 
-        name = task.domain
-        domain = task.read_domain()
-        instance = task.read_instance()
-        return PDDL_TEMPLATE.substitute(name=name, domain=domain, instance=instance)
-
+        name = task.domain.name
+        domain = task.domain.read()
+        instance = task.instance.read()
+        prompt = PDDL_TEMPLATE.substitute(name=name, domain=domain, instance=instance)
+    elif template == "landmark":
+        from reasoning.templates.landmark import LANDMARK_TEMPLATE
+        try:
+            action_landmarks = get_action_landmarks(task)
+            landmarks = "\n".join(action_landmarks) if len(action_landmarks) > 0 else ""
+        except RuntimeError as e:
+            raise RuntimeError(f"Failed to get action landmarks: {e}")
+        
+        name = task.domain.name
+        domain = task.domain.read()
+        instance = task.instance.read()
+        prompt = LANDMARK_TEMPLATE.substitute(name=name, domain=domain, instance=instance, landmarks=landmarks)
+        metadata["action_landmarks"] = action_landmarks
+        metadata["num_action_landmarks"] = len(action_landmarks)
     else:
         raise ValueError(f"Unknown template value: {template}")
+    logger.info(f"Prompt:\n<prompt>\n{prompt}\n</prompt>\n")
+    logger.info(f"Prompt metadata:\n<prompt_metadata>\n{metadata}\n</prompt_metadata>\n")
+    return prompt
