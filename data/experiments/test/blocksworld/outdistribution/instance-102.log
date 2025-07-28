@@ -1,7 +1,8 @@
-2025-07-25 18:58:37,028 - INFO - Processing task: Task(domain=data/raw/blocksworld/generated_domain.pddl, instance=data/raw/blocksworld/generated_basic_longer_plan_len/instance-102.pddl)
-2025-07-25 18:58:37,028 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-07-25 18:58:37,028 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': 0}}
-2025-07-25 18:58:37,029 - INFO - Prompt:
+2025-07-28 10:29:53,342 - INFO - Processing task: Task(domain=data/raw/blocksworld/generated_domain.pddl, instance=data/raw/blocksworld/generated_basic_longer_plan_len/instance-102.pddl)
+2025-07-28 10:29:53,342 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-28 10:29:53,342 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': 0}}
+2025-07-28 10:29:53,343 - INFO - Prompt:
+<prompt>
 <problem-description>
 You are a highly-skilled professor in AI planning generating a plan for a PDDL task from the domain <domain>blocksworld</domain>. You will be given the PDDL domain and the PDDL task, and you need to return the plan between the tags <plan> and </plan>. You will receive a two examples to help you in generating the plan.
 </problem-description> 
@@ -341,12 +342,44 @@ Provide only the plan for the given task. Here is a checklist to help you with y
 3) The actions in the plan must be from the set of actions in the domain described above, that is, they must use the same name and the same number of parameters as one of the action schemas.
 4) The plan must be valid, that is, each action must be applicable in the state it is applied, and the plan must end in a goal state.
 </checklist>
+</prompt>
 
-2025-07-25 18:58:37,029 - INFO - Sample: 1.
-2025-07-25 18:58:37,030 - ERROR - 
+2025-07-28 10:29:53,343 - INFO - Sample: 1.
+2025-07-28 10:29:53,343 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-28 10:29:55,726 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-28 10:29:55,730 - INFO - AFC remote call 1 is done.
+2025-07-28 10:29:55,731 - INFO - 
 <sample>
-<error>
-Failed to generate content: 'GenerationConfig' object has no attribute 'tools'
-</error>
+<response>
+<plan>
+(unstack g a)
+(unstack c g)
+(unstack h c)
+(put-down h)
+(unstack e h)
+(put-down e)
+(unstack b d)
+(put-down b)
+(unstack a f)
+(put-down a)
+(pick-up f)
+(stack f c)
+(pick-up e)
+(stack e a)
+(pick-up a)
+(stack a b)
+(pick-up d)
+(stack d h)
+(pick-up c)
+(stack c d)
+(pick-up b)
+(stack b f)
+(pick-up g)
+(stack g e)
+</plan>
+</response>
+<usage_metadata>
+{'prompt_token_count': 3402, 'candidates_token_count': 168, 'total_tokens_count': 3570}
+</usage_metadata>
 </sample>
 

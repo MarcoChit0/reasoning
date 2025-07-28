@@ -6,4 +6,5 @@ generation_config:
   top_k: 64
   thinking_config:
     thinking_budget: -1
+  tool_config:
 wait_time: 7

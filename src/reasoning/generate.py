@@ -65,7 +65,7 @@ for task in tasks:
         logging.info(f"Using model: {model_name}")
         logging.info(f"Generation parameters: {generation_config}")
         prompt = build_prompt(task, template)
-        logging.info(f"Prompt:\n{prompt}\n")
+        logging.info(f"Prompt:\n<prompt>\n{prompt}\n</prompt>\n")
         for i in range(samples):
             logging.info(f"Sample: {i + 1}.")
             sample = "\n<sample>\n"

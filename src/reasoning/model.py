@@ -13,7 +13,7 @@ class GoogleModel:
 
     def generate_response(self, prompt: str, **params) -> dict[str, str]:
         print(params)
-        generation_config = types.GenerationConfig(**params)
+        generation_config = types.GenerateContentConfig(**params)
         print(generation_config)
         try:
             response = self.client.models.generate_content(
