@@ -1,23 +1,73 @@
-from string import Template
+2025-07-29 12:55:02,074 - INFO - Processing task: Task(domain=blocksworld, instance=instance-175)
+2025-07-29 12:55:02,074 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-29 12:55:02,074 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
+2025-07-29 12:55:02,074 - INFO - Prompt:
+<prompt>
+<problem-description>
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file and the PDDL instance file, and you need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
+</problem-description> 
 
-LANDMARK_TEMPLATE = Template("""<problem-description-with-landmarks>
-You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
-</problem-description-with-landmarks> 
-
-This is the PDDL domain file of the $name domain:
+This is the PDDL domain file of the blocksworld domain:
 <domain-file>
-$domain
+(define (domain blocksworld-4ops)
+(:requirements :strips)
+(:predicates (clear ?x)
+(ontable ?x)
+(handempty)
+(holding ?x)
+(on ?x ?y))
+(:action pick-up
+:parameters (?ob)
+:precondition (and (clear ?ob) (ontable ?ob) (handempty))
+:effect (and (holding ?ob) (not (clear ?ob)) (not (ontable ?ob))
+(not (handempty))))
+(:action put-down
+:parameters  (?ob)
+:precondition (holding ?ob)
+:effect (and (clear ?ob) (handempty) (ontable ?ob)
+(not (holding ?ob))))
+(:action stack
+:parameters  (?ob ?underob)
+:precondition (and (clear ?underob) (holding ?ob))
+:effect (and (handempty) (clear ?ob) (on ?ob ?underob)
+(not (clear ?underob)) (not (holding ?ob))))
+(:action unstack
+:parameters  (?ob ?underob)
+:precondition (and (on ?ob ?underob) (clear ?ob) (handempty))
+:effect (and (holding ?ob) (clear ?underob)
+(not (on ?ob ?underob)) (not (clear ?ob)) (not (handempty)))))
 </domain-file>
 
 This is the PDDL instance file, for which you need to generate a plan:
 <instance-file>
-$instance
+(define (problem BW-rand-9)
+(:domain blocksworld-4ops)
+(:objects a b c d e f g h i )
+(:init
+(handempty)
+(on a c)
+(on b d)
+(on c i)
+(on d e)
+(on e g)
+(ontable f)
+(on g h)
+(on h f)
+(on i b)
+(clear a)
+)
+(:goal
+(and
+(on a d)
+(on b a)
+(on c f)
+(on d g)
+(on e i)
+(on h b)
+(on i h))
+)
+)
 </instance-file>
-
-This is a set of action landmarks for the instance you need to generate a plan for:
-<landmarks-set>
-$landmarks
-</landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
 <domain-file-storage-example>
@@ -176,17 +226,6 @@ This is an example of a PDDL instance file from the Storage domain:
 	)
 )
 </instance-file-storage-example>
-
-This is a set of action landmarks for the Storage instance above:
-<landmarks-set-storage-example>
-(lift hoist0 crate2 container-0-2 loadarea container0)
-(lift hoist0 crate3 container-0-3 loadarea container0)
-(lift hoist0 crate1 container-0-1 loadarea container0)
-(lift hoist0 crate0 container-0-0 loadarea container0)
-(drop hoist0 crate1 depot49-1-1 loadarea depot49)
-(drop hoist0 crate0 depot48-1-1 loadarea depot48)
-(go-out hoist0 depot49-1-1 loadarea)
-</landmarks-set-storage-example>
 
 This is a plan for the Storage instance above:
 <plan-storage-example>
@@ -412,17 +451,6 @@ This is an example of a PDDL instance file from the Rovers domain:
 )
 </instance-file-rovers-example>
 
-This is a set of action landmarks for the Rovers instance above:
-<landmarks-set-rovers-example>
-(navigate rover1 waypoint2 waypoint4)
-(sample_soil rover1 rover1store waypoint4)
-(sample_soil rover1 rover1store waypoint1)
-(sample_rock rover1 rover1store waypoint1)
-(calibrate rover1 camera1 objective1 waypoint2)
-(take_image rover1 waypoint2 objective1 camera1 low_res)
-(take_image rover1 waypoint2 objective1 camera1 colour)
-</landmarks-set-rovers-example>
-
 This is a plan for the Rovers instance above:
 <plan-rovers-example>
 (sample_rock rover1 rover1store waypoint1)
@@ -449,4 +477,56 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 2) The plan should be preceded by the <plan> tag and should be followed by the </plan> tag.
 3) The actions in the plan must be from the set of actions in the domain described above, that is, they must use the same name and the same number of parameters as one of the action schemas.
 4) The plan must be valid, that is, each action must be applicable in the state it is applied, and the plan must end in a goal state.
-</checklist>""")
+</checklist>
+</prompt>
+
+2025-07-29 12:55:02,074 - INFO - Prompt metadata:
+<prompt_metadata>
+{'template': 'pddl'}
+</prompt_metadata>
+
+2025-07-29 12:55:02,074 - INFO - Sample: 1.
+2025-07-29 12:55:02,074 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-29 12:55:26,220 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-29 12:55:26,220 - INFO - AFC remote call 1 is done.
+2025-07-29 12:55:26,220 - INFO - 
+<sample>
+<response>
+<plan>
+(unstack a c)
+(put-down a)
+(unstack c i)
+(put-down c)
+(unstack i b)
+(put-down i)
+(unstack b d)
+(put-down b)
+(unstack d e)
+(put-down d)
+(unstack e g)
+(put-down e)
+(unstack g h)
+(put-down g)
+(unstack h f)
+(put-down h)
+(pick-up c)
+(stack c f)
+(pick-up d)
+(stack d g)
+(pick-up a)
+(stack a d)
+(pick-up b)
+(stack b a)
+(pick-up h)
+(stack h b)
+(pick-up i)
+(stack i h)
+(pick-up e)
+(stack e i)
+</plan>
+</response>
+<metadata>
+{'prompt_token_count': 4797, 'candidates_token_count': 210, 'total_tokens_count': 10109}
+</metadata>
+</sample>
+

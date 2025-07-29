@@ -187,114 +187,234 @@ This is a plan for the Storage instance above:
 (drop hoist0 crate2 depot50-1-1 loadarea depot50)
 </plan-storage-example>
 
-This is the PDDL domain file of another domain, called Spanner, which serves as an example:
-<domain-file-spanner-example>
-(define (domain spanner)
-        (:requirements :typing :strips)
-        (:types
-                location locatable - object
-                man nut spanner - locatable
-        )
+This is the PDDL domain file of another domain, called Rovers, which serves as an example:
+<domain-file-rovers-example>
+(define (domain rover)
+    (:requirements :strips :typing)
+    (:types
+        rover waypoint store camera mode lander objective
+    )
 
-        (:predicates
-                (at ?m - locatable ?l - location)
-                (carrying ?m - man ?s - spanner)
-                (usable ?s - spanner)
-                (link ?l1 - location ?l2 - location)
-                (tightened ?n - nut)
-                (loose ?n - nut)
-        )
+    (:predicates
+        (at ?x - rover ?y - waypoint)
+        (at_lander ?x - lander ?y - waypoint)
+        (can_traverse ?r - rover ?x - waypoint ?y - waypoint)
+        (equipped_for_soil_analysis ?r - rover)
+        (equipped_for_rock_analysis ?r - rover)
+        (equipped_for_imaging ?r - rover)
+        (empty ?s - store)
+        (have_rock_analysis ?r - rover ?w - waypoint)
+        (have_soil_analysis ?r - rover ?w - waypoint)
+        (full ?s - store)
+        (calibrated ?c - camera ?r - rover)
+        (supports ?c - camera ?m - mode)
+        (visible ?w - waypoint ?p - waypoint)
+        (have_image ?r - rover ?o - objective ?m - mode)
+        (communicated_soil_data ?w - waypoint)
+        (communicated_rock_data ?w - waypoint)
+        (communicated_image_data ?o - objective ?m - mode)
+        (at_soil_sample ?w - waypoint)
+        (at_rock_sample ?w - waypoint)
+        (visible_from ?o - objective ?w - waypoint)
+        (store_of ?s - store ?r - rover)
+        (calibration_target ?i - camera ?o - objective)
+        (on_board ?i - camera ?r - rover)
+    )
 
-        (:action walk
-                :parameters (?start - location ?end - location ?m - man)
-                :precondition (and (at ?m ?start)
-                        (link ?start ?end))
-                :effect (and (not (at ?m ?start)) (at ?m ?end))
-        )
+    (:action navigate
+        :parameters (?x - rover ?y - waypoint ?z - waypoint)
+        :precondition (and
+            (can_traverse ?x ?y ?z)
+            (at ?x ?y)
+            (visible ?y ?z))
+        :effect (and
+            (not (at ?x ?y))
+            (at ?x ?z))
+    )
 
-        (:action pickup_spanner
-                :parameters (?l - location ?s - spanner ?m - man)
-                :precondition (and (at ?m ?l)
-                        (at ?s ?l))
-                :effect (and (not (at ?s ?l))
-                        (carrying ?m ?s))
-        )
+    (:action sample_soil
+        :parameters (?x - rover ?s - store ?p - waypoint)
+        :precondition (and
+            (at ?x ?p)
+            (at_soil_sample ?p)
+            (equipped_for_soil_analysis ?x)
+            (store_of ?s ?x)
+            (empty ?s))
+        :effect (and
+            (not (empty ?s))
+            (full ?s)
+            (have_soil_analysis ?x ?p)
+            (not (at_soil_sample ?p)))
+    )
 
-        (:action tighten_nut
-                :parameters (?l - location ?s - spanner ?m - man ?n - nut)
-                :precondition (and (at ?m ?l)
-                        (at ?n ?l)
-                        (carrying ?m ?s)
-                        (usable ?s)
-                        (loose ?n))
-                :effect (and (not (loose ?n))
-                        (not (usable ?s)) (tightened ?n))
-        )
+    (:action sample_rock
+        :parameters (?x - rover ?s - store ?p - waypoint)
+        :precondition (and
+            (at ?x ?p)
+            (at_rock_sample ?p)
+            (equipped_for_rock_analysis ?x)
+            (store_of ?s ?x)
+            (empty ?s))
+        :effect (and
+            (not (empty ?s))
+            (full ?s)
+            (have_rock_analysis ?x ?p)
+            (not (at_rock_sample ?p)))
+    )
+
+    (:action drop
+        :parameters (?x - rover ?y - store)
+        :precondition (and
+            (store_of ?y ?x)
+            (full ?y))
+        :effect (and
+            (not (full ?y))
+            (empty ?y))
+    )
+
+    (:action calibrate
+        :parameters (?r - rover ?i - camera ?t - objective ?w - waypoint)
+        :precondition (and
+            (equipped_for_imaging ?r)
+            (calibration_target ?i ?t)
+            (at ?r ?w)
+            (visible_from ?t ?w)
+            (on_board ?i ?r))
+        :effect (and
+            (calibrated ?i ?r))
+    )
+
+    (:action take_image
+        :parameters (?r - rover ?p - waypoint ?o - objective ?i - camera ?m - mode)
+        :precondition (and
+            (calibrated ?i ?r)
+            (on_board ?i ?r)
+            (equipped_for_imaging ?r)
+            (supports ?i ?m)
+            (visible_from ?o ?p)
+            (at ?r ?p))
+        :effect (and
+            (have_image ?r ?o ?m)
+            (not (calibrated ?i ?r)))
+    )
+
+    (:action communicate_soil_data
+        :parameters (?r - rover ?l - lander ?p - waypoint ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_soil_analysis ?r ?p)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_soil_data ?p))
+    )
+
+    (:action communicate_rock_data
+        :parameters (?r - rover ?l - lander ?p - waypoint ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_rock_analysis ?r ?p)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_rock_data ?p))
+    )
+
+    (:action communicate_image_data
+        :parameters (?r - rover ?l - lander ?o - objective ?m - mode ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_image ?r ?o ?m)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_image_data ?o ?m))
+    )
 )
-</domain-file-spanner-example>
+</domain-file-rovers-example>
 
-This is an example of a PDDL instance file from the Spanner domain:
-<instance-file-spanner-example>
-(define (problem spanner-15)
-   (:domain spanner)
+This is an example of a PDDL instance file from the Rovers domain:
+<instance-file-rovers-example>
+(define (problem rover-04)
+   (:domain rover)
    (:objects
-      bob - man
-      spanner1 spanner2 spanner3 spanner4 spanner5 - spanner
-      nut1 nut2 nut3 - nut
-      shed location1 location2 location3 location4 location5 location6 location7 gate - location
+      general - lander
+      colour high_res low_res - mode
+      rover1 - rover
+      rover1store - store
+      waypoint1 waypoint2 waypoint3 waypoint4 - waypoint
+      camera1 - camera
+      objective1 objective2 - objective
    )
    (:init
-      (at bob shed)
-      (at spanner1 location5)
-      (usable spanner1)
-      (at spanner2 location5)
-      (usable spanner2)
-      (at spanner3 location2)
-      (usable spanner3)
-      (at spanner4 location5)
-      (usable spanner4)
-      (at spanner5 location2)
-      (usable spanner5)
-      (at nut1 gate)
-      (loose nut1)
-      (at nut2 gate)
-      (loose nut2)
-      (at nut3 gate)
-      (loose nut3)
-      (link shed location1)
-      (link location7 gate)
-      (link location1 location2)
-      (link location2 location3)
-      (link location3 location4)
-      (link location4 location5)
-      (link location5 location6)
-      (link location6 location7)
+      (at_lander general waypoint2)
+      (at rover1 waypoint1)
+      (equipped_for_soil_analysis rover1)
+      (equipped_for_rock_analysis rover1)
+      (equipped_for_imaging rover1)
+      (empty rover1store)
+      (store_of rover1store rover1)
+      (at_rock_sample waypoint1)
+      (at_rock_sample waypoint2)
+      (at_rock_sample waypoint4)
+      (at_soil_sample waypoint1)
+      (at_soil_sample waypoint4)
+      (visible waypoint2 waypoint4)
+      (visible waypoint1 waypoint2)
+      (visible waypoint2 waypoint1)
+      (visible waypoint3 waypoint1)
+      (visible waypoint4 waypoint2)
+      (visible waypoint1 waypoint3)
+      (visible waypoint2 waypoint3)
+      (visible waypoint3 waypoint2)
+      (visible waypoint1 waypoint4)
+      (visible waypoint4 waypoint1)
+      (can_traverse rover1 waypoint2 waypoint4)
+      (can_traverse rover1 waypoint1 waypoint2)
+      (can_traverse rover1 waypoint2 waypoint1)
+      (can_traverse rover1 waypoint3 waypoint1)
+      (can_traverse rover1 waypoint4 waypoint2)
+      (can_traverse rover1 waypoint1 waypoint3)
+      (can_traverse rover1 waypoint2 waypoint3)
+      (can_traverse rover1 waypoint3 waypoint2)
+      (calibration_target camera1 objective1)
+      (on_board camera1 rover1)
+      (supports camera1 low_res)
+      (supports camera1 colour)
+      (supports camera1 high_res)
+      (visible_from objective1 waypoint2)
+      (visible_from objective2 waypoint4)
    )
    (:goal
-      (and (tightened nut1)
-         (tightened nut2)
-         (tightened nut3))
+      (and
+         (communicated_rock_data waypoint1)
+         (communicated_soil_data waypoint1)
+         (communicated_soil_data waypoint4)
+         (communicated_image_data objective1 low_res)
+         (communicated_image_data objective1 colour))
    )
 )
-</instance-file-spanner-example>
+</instance-file-rovers-example>
 
-This is a plan for the Spanner instance above:
-<plan-spanner-example>
-(walk shed location1 bob)
-(walk location1 location2 bob)
-(walk location2 location3 bob)
-(walk location3 location4 bob)
-(walk location4 location5 bob)
-(pickup_spanner location5 spanner4 bob)
-(pickup_spanner location5 spanner2 bob)
-(pickup_spanner location5 spanner1 bob)
-(walk location5 location6 bob)
-(walk location6 location7 bob)
-(walk location7 gate bob)
-(tighten_nut gate spanner4 bob nut1)
-(tighten_nut gate spanner2 bob nut2)
-(tighten_nut gate spanner1 bob nut3)
-</plan-spanner-example>
+This is a plan for the Rovers instance above:
+<plan-rovers-example>
+(sample_rock rover1 rover1store waypoint1)
+(drop rover1 rover1store)
+(communicate_rock_data rover1 general waypoint1 waypoint1 waypoint2)
+(sample_soil rover1 rover1store waypoint1)
+(drop rover1 rover1store)
+(communicate_soil_data rover1 general waypoint1 waypoint1 waypoint2)
+(navigate rover1 waypoint1 waypoint2)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 colour)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 low_res)
+(navigate rover1 waypoint2 waypoint4)
+(sample_soil rover1 rover1store waypoint4)
+(communicate_soil_data rover1 general waypoint4 waypoint4 waypoint2)
+(communicate_image_data rover1 general objective1 colour waypoint4 waypoint2)
+(communicate_image_data rover1 general objective1 low_res waypoint4 waypoint2)
+</plan-rovers-example>
 
 Provide only the plan for the given instance. Here is a checklist to help you with your problem:
 <checklist>

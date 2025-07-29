@@ -9,9 +9,7 @@ from reasoning.prompt import build_prompt
 import logging
 import numpy as np
 import time
-
-
-
+from reasoning.settings import EXPERIMENTS_DIR
 dotenv.load_dotenv()
 api_key = dotenv.get_key(dotenv.find_dotenv(), "GOOGLE_API_KEY")
 
@@ -27,8 +25,16 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
     )
     wait_time = config.get("wait_time", 0)
     generation_config = config.get("generation_config", {})
+    config_name = config_path.split('/')[-1].split('.')[0].strip()
 
-    path = os.path.join("data", "experiments", experiment, domain, instance_type)
+    path = os.path.join(
+        EXPERIMENTS_DIR, 
+        experiment, 
+        config_name,
+        template,
+        domain, 
+        instance_type
+    )
     os.makedirs(path, exist_ok=True)
 
     tasks : list[Task] = get_tasks_from_raw(domain, instance_type=instance_type)
@@ -90,22 +96,22 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
             handler.close()
 
 if __name__ == "__main__":
-    experiment = "reasoning-experiment-with-spanner"
+    experiment = "many-models"
     instance_type = "outdistribution"
     samples = 1
     templates = ["pddl", "landmark"]
     instances = 20
-    domains = ["blocksworld", "grippers"]
+    domains = ["blocksworld", "childsnack", "grippers", "logistics", "satellite"]
     config_paths = [
         "src/configs/gemini.yaml", 
-        "src/configs/gemini-thinking.yaml"
+        "src/configs/gemini-thinking.yaml",
+        "src/configs/gemma.yaml",
     ]
 
-    for template in templates:
-        for domain in domains:
-            for config_path in config_paths:
-                exp = f"{experiment}-{template}"
-                print(f"Experiment '{exp}': generating content for domain '{domain}', instance type '{instance_type}', template '{template}', using config '{config_path}'.")
+    for config_path in config_paths:
+        for template in templates:
+            for domain in domains:
+                print(f"Experiment '{experiment}': generating content for domain '{domain}', instance type '{instance_type}', template '{template}', using config '{config_path}'.")
                 generate(
                     config_path=config_path,
                     domain=domain,
@@ -113,5 +119,5 @@ if __name__ == "__main__":
                     template=template,
                     instances=instances,
                     samples=samples,
-                    experiment=exp
+                    experiment=experiment
                 )

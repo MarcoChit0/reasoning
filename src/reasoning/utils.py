@@ -15,11 +15,11 @@ pyperplan -s astar -H actionlandmark ./data/raw/blocksworld/generated_domain.pdd
 2025-07-28 15:42:30,521 INFO     Grounding end: bw-rand-3
 2025-07-28 15:42:30,521 INFO     19 Variables created
 2025-07-28 15:42:30,521 INFO     24 Operators created
-<action_landmarks>
+<landmarks-set>
 (pick-up b)
 (stack b a)
 (unstack c b)
-</action_landmarks>
+</landmarks-set>
 """
 
 def get_action_landmarks(task : Task) -> list[str]:
@@ -41,35 +41,29 @@ def get_action_landmarks(task : Task) -> list[str]:
         raise RuntimeError(f"Error running pyperplan: {result.stderr}")
     
     output = result.stdout
-    start_index = output.find("<action_landmarks>")
-    end_index = output.find("</action_landmarks>")
+    start_index = output.find("<landmarks-set>")
+    end_index = output.find("</landmarks-set>")
     
     if start_index == -1 or end_index == -1:
         raise ValueError("Action landmarks not found in the output.")
 
-    action_landmarks_str = output[start_index + len("<action_landmarks>"):end_index].strip()
+    action_landmarks_str = output[start_index + len("<landmarks-set>"):end_index].strip()
     action_landmarks = action_landmarks_str.splitlines()
     
     return [landmark.strip() for landmark in action_landmarks if landmark.strip()]
 
-if __name__ == "__main__":
-    from reasoning.task import get_tasks_from_raw
+def call_val(domain_path : str, instance_path: str, plan_path : str) -> str:
+    command = [
+        f"res/val/build/bin/Validate",
+        "-v",
+        "-t", "0.001",
+        domain_path,
+        instance_path,
+        plan_path
+    ]
 
-    domain = "storage"
-    
-    tasks = get_tasks_from_raw(domain)
-    m = {}
-    for task in tasks:
-        try:
-            landmarks = get_action_landmarks(task)
-            if len(landmarks) > 0:
-                if len(landmarks) not in m:
-                    m[len(landmarks)] = []
-                m[len(landmarks)].append(task.instance.name)
-        except Exception as e:
-            print(f"Error getting action landmarks for task {task.instance.name}: {e}")
-    
-    max_len = max(m.keys())
-    print(f"Max action landmarks: {max_len}")
-    print(f"Tasks with {max_len} action landmarks:")
-    print(m[max_len])
+    try:
+        result = subprocess.run(command, capture_output=True, text=True, check=False)
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(f"Error validating plan: {e.stderr.strip()}")

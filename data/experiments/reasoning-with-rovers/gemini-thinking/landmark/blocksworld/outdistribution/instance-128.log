@@ -1,22 +1,95 @@
-from string import Template
-
-LANDMARK_TEMPLATE = Template("""<problem-description-with-landmarks>
-You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
+2025-07-29 13:23:36,907 - INFO - Processing task: Task(domain=blocksworld, instance=instance-128)
+2025-07-29 13:23:36,907 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-29 13:23:36,907 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
+2025-07-29 13:23:37,178 - INFO - Prompt:
+<prompt>
+<problem-description-with-landmarks>
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
 </problem-description-with-landmarks> 
 
-This is the PDDL domain file of the $name domain:
+This is the PDDL domain file of the blocksworld domain:
 <domain-file>
-$domain
+(define (domain blocksworld-4ops)
+(:requirements :strips)
+(:predicates (clear ?x)
+(ontable ?x)
+(handempty)
+(holding ?x)
+(on ?x ?y))
+(:action pick-up
+:parameters (?ob)
+:precondition (and (clear ?ob) (ontable ?ob) (handempty))
+:effect (and (holding ?ob) (not (clear ?ob)) (not (ontable ?ob))
+(not (handempty))))
+(:action put-down
+:parameters  (?ob)
+:precondition (holding ?ob)
+:effect (and (clear ?ob) (handempty) (ontable ?ob)
+(not (holding ?ob))))
+(:action stack
+:parameters  (?ob ?underob)
+:precondition (and (clear ?underob) (holding ?ob))
+:effect (and (handempty) (clear ?ob) (on ?ob ?underob)
+(not (clear ?underob)) (not (holding ?ob))))
+(:action unstack
+:parameters  (?ob ?underob)
+:precondition (and (on ?ob ?underob) (clear ?ob) (handempty))
+:effect (and (holding ?ob) (clear ?underob)
+(not (on ?ob ?underob)) (not (clear ?ob)) (not (handempty)))))
 </domain-file>
 
 This is the PDDL instance file, for which you need to generate a plan:
 <instance-file>
-$instance
+(define (problem BW-rand-9)
+(:domain blocksworld-4ops)
+(:objects a b c d e f g h i )
+(:init
+(handempty)
+(on a e)
+(on b f)
+(on c b)
+(on d i)
+(on e g)
+(on f a)
+(on g d)
+(ontable h)
+(ontable i)
+(clear c)
+(clear h)
+)
+(:goal
+(and
+(on a c)
+(on b i)
+(on c f)
+(on d g)
+(on e d)
+(on f h)
+(on h b)
+(on i e))
+)
+)
 </instance-file>
 
 This is a set of action landmarks for the instance you need to generate a plan for:
 <landmarks-set>
-$landmarks
+(pick-up h)
+(pick-up i)
+(stack b i)
+(stack a c)
+(stack f h)
+(stack c f)
+(stack h b)
+(stack d g)
+(stack i e)
+(stack e d)
+(unstack b f)
+(unstack a e)
+(unstack f a)
+(unstack c b)
+(unstack d i)
+(unstack g d)
+(unstack e g)
 </landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
@@ -449,4 +522,56 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 2) The plan should be preceded by the <plan> tag and should be followed by the </plan> tag.
 3) The actions in the plan must be from the set of actions in the domain described above, that is, they must use the same name and the same number of parameters as one of the action schemas.
 4) The plan must be valid, that is, each action must be applicable in the state it is applied, and the plan must end in a goal state.
-</checklist>""")
+</checklist>
+</prompt>
+
+2025-07-29 13:23:37,179 - INFO - Prompt metadata:
+<prompt_metadata>
+{'template': 'landmark', 'action_landmarks': ['(pick-up h)', '(pick-up i)', '(stack b i)', '(stack a c)', '(stack f h)', '(stack c f)', '(stack h b)', '(stack d g)', '(stack i e)', '(stack e d)', '(unstack b f)', '(unstack a e)', '(unstack f a)', '(unstack c b)', '(unstack d i)', '(unstack g d)', '(unstack e g)'], 'num_action_landmarks': 17}
+</prompt_metadata>
+
+2025-07-29 13:23:37,179 - INFO - Sample: 1.
+2025-07-29 13:23:37,179 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-29 13:24:07,510 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-29 13:24:07,512 - INFO - AFC remote call 1 is done.
+2025-07-29 13:24:07,512 - INFO - 
+<sample>
+<response>
+<plan>
+(unstack c b)
+(put-down c)
+(unstack b f)
+(put-down b)
+(unstack f a)
+(put-down f)
+(unstack a e)
+(put-down a)
+(unstack e g)
+(put-down e)
+(unstack g d)
+(put-down g)
+(unstack d i)
+(put-down d)
+(pick-up d)
+(stack d g)
+(pick-up e)
+(stack e d)
+(pick-up i)
+(stack i e)
+(pick-up b)
+(stack b i)
+(pick-up h)
+(stack h b)
+(pick-up f)
+(stack f h)
+(pick-up c)
+(stack c f)
+(pick-up a)
+(stack a c)
+</plan>
+</response>
+<metadata>
+{'prompt_token_count': 5269, 'candidates_token_count': 209, 'total_tokens_count': 11444}
+</metadata>
+</sample>
+
