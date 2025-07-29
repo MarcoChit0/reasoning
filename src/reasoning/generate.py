@@ -90,12 +90,12 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
             handler.close()
 
 if __name__ == "__main__":
+    experiment = "reasoning-experiment-with-spanner"
+    instance_type = "outdistribution"
+    samples = 1
     templates = ["pddl", "landmark"]
     instances = 20
-    samples = 1
     domains = ["blocksworld", "grippers"]
-    experiment = "reasoning-experiment"
-    instance_type = "outdistribution"
     config_paths = [
         "src/configs/gemini.yaml", 
         "src/configs/gemini-thinking.yaml"

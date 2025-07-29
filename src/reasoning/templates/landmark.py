@@ -203,82 +203,126 @@ This is a plan for the Storage instance above:
 (drop hoist0 crate2 depot50-1-1 loadarea depot50)
 </plan-storage-example>
 
-This is the PDDL domain file of another domain, called Hanoi, which serves as an example:
-<domain-file-hanoi-example>
-(define (domain hanoi)
-    (:requirements :strips)
-    (:predicates
-        (clear ?x)
-        (on ?x ?y)
-        (smaller ?x ?y)
-    )
-
-    (:action move
-        :parameters (?disc ?from ?to)
-        :precondition (and (smaller ?to ?disc)
-            (on ?disc ?from)
-            (clear ?disc)
-            (clear ?to))
-        :effect (and (clear ?from)
-            (on ?disc ?to)
-            (not (on ?disc ?from))
-            (not (clear ?to)))
-    )
-)
-</domain-file-hanoi-example>
-
-This is an example of a PDDL instance file from the Hanoi domain:
-<instance-file-hanoi-example>
-(define (problem hanoi-101)
-    (:domain hanoi)
-    (:objects
-        peg1 peg2 peg3 d243 d481 d302
-    )
-    (:init
-        (smaller peg1 d243)
-        (smaller peg1 d481)
-        (smaller peg1 d302)
-        (smaller peg2 d243)
-        (smaller peg2 d481)
-        (smaller peg2 d302)
-        (smaller peg3 d243)
-        (smaller peg3 d481)
-        (smaller peg3 d302)
-        (smaller d481 d243)
-        (smaller d302 d243)
-        (smaller d302 d481)
-        (clear peg2)
-        (clear peg3)
-        (clear d243)
-        (on d302 peg1)
-        (on d481 d302)
-        (on d243 d481)
-    )
-    (:goal
-        (and
-            (on d302 peg3)
-            (on d481 d302)
-            (on d243 d481)
+This is the PDDL domain file of another domain, called Spanner, which serves as an example:
+<domain-file-spanner-example>
+(define (domain spanner)
+        (:requirements :typing :strips)
+        (:types
+                location locatable - object
+                man nut spanner - locatable
         )
-    )
+
+        (:predicates
+                (at ?m - locatable ?l - location)
+                (carrying ?m - man ?s - spanner)
+                (usable ?s - spanner)
+                (link ?l1 - location ?l2 - location)
+                (tightened ?n - nut)
+                (loose ?n - nut)
+        )
+
+        (:action walk
+                :parameters (?start - location ?end - location ?m - man)
+                :precondition (and (at ?m ?start)
+                        (link ?start ?end))
+                :effect (and (not (at ?m ?start)) (at ?m ?end))
+        )
+
+        (:action pickup_spanner
+                :parameters (?l - location ?s - spanner ?m - man)
+                :precondition (and (at ?m ?l)
+                        (at ?s ?l))
+                :effect (and (not (at ?s ?l))
+                        (carrying ?m ?s))
+        )
+
+        (:action tighten_nut
+                :parameters (?l - location ?s - spanner ?m - man ?n - nut)
+                :precondition (and (at ?m ?l)
+                        (at ?n ?l)
+                        (carrying ?m ?s)
+                        (usable ?s)
+                        (loose ?n))
+                :effect (and (not (loose ?n))
+                        (not (usable ?s)) (tightened ?n))
+        )
 )
-</instance-file-hanoi-example>
+</domain-file-spanner-example>
 
-This is a set of action landmarks for the Hanoi instance above:
-<landmarks-set-hanoi-example>
+This is an example of a PDDL instance file from the Spanner domain:
+<instance-file-spanner-example>
+(define (problem spanner-15)
+   (:domain spanner)
+   (:objects
+      bob - man
+      spanner1 spanner2 spanner3 spanner4 spanner5 - spanner
+      nut1 nut2 nut3 - nut
+      shed location1 location2 location3 location4 location5 location6 location7 gate - location
+   )
+   (:init
+      (at bob shed)
+      (at spanner1 location5)
+      (usable spanner1)
+      (at spanner2 location5)
+      (usable spanner2)
+      (at spanner3 location2)
+      (usable spanner3)
+      (at spanner4 location5)
+      (usable spanner4)
+      (at spanner5 location2)
+      (usable spanner5)
+      (at nut1 gate)
+      (loose nut1)
+      (at nut2 gate)
+      (loose nut2)
+      (at nut3 gate)
+      (loose nut3)
+      (link shed location1)
+      (link location7 gate)
+      (link location1 location2)
+      (link location2 location3)
+      (link location3 location4)
+      (link location4 location5)
+      (link location5 location6)
+      (link location6 location7)
+   )
+   (:goal
+      (and (tightened nut1)
+         (tightened nut2)
+         (tightened nut3))
+   )
+)
+</instance-file-spanner-example>
 
-</landmarks-set-hanoi-example>
+This is a set of action landmarks for the Spanner instance above:
+<landmarks-set-spanner-example>
+(walk location3 location4 bob)
+(walk location1 location2 bob)
+(walk location2 location3 bob)
+(walk location6 location7 bob)
+(walk location4 location5 bob)
+(walk shed location1 bob)
+(walk location7 gate bob)
+(walk location5 location6 bob)
+</landmarks-set-spanner-example>
 
-This is a plan for the Hanoi instance above:
-<plan-hanoi-example>
-(move d243 d481 peg3)
-(move d481 d302 peg2)
-(move d243 peg3 d481)
-(move d302 peg1 peg3)
-(move d243 d481 peg1)
-(move d481 peg2 d302)
-(move d243 peg1 d481)
-</plan-hanoi-example>
+This is a plan for the Spanner instance above:
+<plan-spanner-example>
+(walk shed location1 bob)
+(walk location1 location2 bob)
+(walk location2 location3 bob)
+(walk location3 location4 bob)
+(walk location4 location5 bob)
+(pickup_spanner location5 spanner4 bob)
+(pickup_spanner location5 spanner2 bob)
+(pickup_spanner location5 spanner1 bob)
+(walk location5 location6 bob)
+(walk location6 location7 bob)
+(walk location7 gate bob)
+(tighten_nut gate spanner4 bob nut1)
+(tighten_nut gate spanner2 bob nut2)
+(tighten_nut gate spanner1 bob nut3)
+</plan-spanner-example>
 
 Provide only the plan for the given instance. Here is a checklist to help you with your problem:
 <checklist>

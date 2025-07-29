@@ -2,17 +2,11 @@ import threading
 
 lock = threading.Lock()
 
-def read_pddl(pddl_path : str) -> str:
-    with lock:
-        with open(pddl_path, "r", encoding='utf-8') as f:
-            content = f.read()
-            return "\n".join([line for line in content.splitlines() if not line.strip().startswith(";") or line.strip() == ""])
-
 class PDDLResource:
     def __init__(self, name : str, path : str):
-        self.name = name
-        self.path = path
-    
+        self.name : str = name
+        self.path : str = path
+
     def __eq__(self, other):
         if not isinstance(other, PDDLResource):
             return False
@@ -47,9 +41,15 @@ class Domain(PDDLResource):
         super().__init__(name, path)
 
 class Instance(PDDLResource):
-    def __init__(self, name : str, path : str, type : str):
+    def __init__(self, name : str, path : str, id: int, type : str):
         super().__init__(name, path)
-        self.type = type
+        self.type : str = type
+        self.id : int = id
+    
+    def __lt__(self, other):
+        if not isinstance(other, Instance):
+            return NotImplemented
+        return (self.type, self.id) < (other.type, other.id)
 
 class Task:
     def __init__(self, domain : Domain, instance : Instance):
@@ -85,41 +85,37 @@ def get_tasks_from_raw(domain : str, instance_type : Optional[str] = None)-> lis
 
     assert domain in structure, f"Domain '{domain}' not found in {settings.STRUCTURE_FILE}."
     domain_info = structure[domain]
-
-    domain_dir = os.path.join(settings.RAW_DIR, domain)
-    domain_path = os.path.join(domain_dir, domain_info['path'])
+    assert 'path' in domain_info, f"Path for domain '{domain}' not specified in structure."
+    domain_path = domain_info['path']
     assert os.path.exists(domain_path), f"Domain file '{domain_path}' does not exist."
     
     _domain = Domain(name=domain, path=domain_path)
     tasks : list[Task] = []
 
-    for inst_type in domain_info.get('instances', {}):
-        if instance_type and inst_type != instance_type:
+    assert 'instances' in domain_info, f"Instances for domain '{domain}' not specified in structure."
+    instances_info = domain_info['instances']
+    assert instance_type in instances_info, f"Instance type '{instance_type}' not found in domain '{domain}'."
+
+    assert "dir_path" in instances_info[instance_type], f"Directory path for instances of type '{instance_type}' not specified in structure."
+    instance_dir = instances_info[instance_type]['dir_path']
+
+    assert "regex" in instances_info[instance_type], f"Regex pattern for instances of type '{instance_type}' not specified in structure."
+    regex_pattern = instances_info[instance_type]['regex']
+
+    for file in os.listdir(instance_dir):
+        if not re.match(regex_pattern, file):
             continue
 
-        if not domain_info['instances'][inst_type].get('dir', None):
-            raise ValueError(f"Instance directory for type '{inst_type}' not specified in structure.")
-        
-        instance_dir = os.path.join(domain_dir, domain_info['instances'][inst_type]['dir'])
-        assert os.path.exists(instance_dir), f"Instance directory '{instance_dir}' does not exist in domain '{domain}'."
+        instance_path = os.path.join(instance_dir, file)
+        if not os.path.isfile(instance_path):
+            continue
 
-        regex_pattern = domain_info['instances'][inst_type].get('regex', None)
-        assert regex_pattern, f"Regex pattern for instances of type '{inst_type}' not specified in structure."
-
-
-        for file in os.listdir(instance_dir):
-            if not re.match(regex_pattern, file):
-                continue
-
-            instance_path = os.path.join(instance_dir, file)
-            if not os.path.isfile(instance_path):
-                continue
-
-            _instance = Instance(
-                name=re.match(regex_pattern, file).group(1),
-                path=instance_path,
-                type=inst_type
-            )
-            tasks.append(Task(_domain, _instance))
+        _instance = Instance(
+            name=file.split('/')[-1].replace('.pddl', '').strip(),
+            path=instance_path,
+            id=int(re.match(regex_pattern, file).group(1)),
+            type=instance_type
+        )
+        tasks.append(Task(_domain, _instance))
 
     return tasks

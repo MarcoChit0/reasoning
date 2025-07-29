@@ -1,5 +1,5 @@
 barman:
-  path: generated_domain.pddl
+  path: data/raw/barman/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -7,16 +7,16 @@ barman:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/barman/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/barman/generated_basic_longer_plan_len
 blocksworld:
-  path: generated_domain.pddl
+  path: data/raw/blocksworld/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -24,16 +24,16 @@ blocksworld:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/blocksworld/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/blocksworld/generated_basic_longer_plan_len
 childsnack:
-  path: generated_domain.pddl
+  path: data/raw/childsnack/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -41,16 +41,16 @@ childsnack:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/childsnack/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/childsnack/generated_basic_longer_plan_len
 depots:
-  path: generated_domain.pddl
+  path: data/raw/depots/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -58,16 +58,16 @@ depots:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/depots/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/depots/generated_basic_longer_plan_len
 driverlog:
-  path: generated_domain.pddl
+  path: data/raw/driverlog/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -75,16 +75,16 @@ driverlog:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/driverlog/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/driverlog/generated_basic_longer_plan_len
 grippers:
-  path: generated_domain.pddl
+  path: data/raw/grippers/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -92,16 +92,16 @@ grippers:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/grippers/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/grippers/generated_basic_longer_plan_len
 logistics:
-  path: generated_domain.pddl
+  path: data/raw/logistics/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -109,16 +109,16 @@ logistics:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/logistics/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/logistics/generated_basic_longer_plan_len
 satellite:
-  path: generated_domain.pddl
+  path: data/raw/satellite/generated_domain.pddl
   instances:
     indistribution:
       number:
@@ -126,47 +126,47 @@ satellite:
         train: 3200
         validation: 800
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/satellite/generated_basic
     outdistribution:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic_longer_plan_len
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/satellite/generated_basic_longer_plan_len
 hanoi:
-  path: generated_domain.pddl
+  path: data/raw/hanoi/generated_domain.pddl
   instances:
     unseen:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/hanoi/generated_basic
 storage:
-  path: generated_domain.pddl
+  path: data/raw/storage/generated_domain.pddl
   instances:
     unseen:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/storage/generated_basic
 mystery_blocksworld:
-  path: generated_domain.pddl
+  path: data/raw/mystery_blocksworld/generated_domain.pddl
   instances:
     obfuscated:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/mystery_blocksworld/generated_basic
 obfuscated_deceptive_logistics:
-  path: generated_domain.pddl
+  path: data/raw/obfuscated_deceptive_logistics/generated_domain.pddl
   instances:
     obfuscated:
       number:
         total: 200
         test: 200
-      regex: (instance-[0-9]+)\.pddl
-      dir: generated_basic
+      regex: instance-([0-9]+)\.pddl
+      dir_path: data/raw/obfuscated_deceptive_logistics/generated_basic
