@@ -28,12 +28,12 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
     config_name = config_path.split('/')[-1].split('.')[0].strip()
 
     path = os.path.join(
-        EXPERIMENTS_DIR, 
-        experiment, 
+        EXPERIMENTS_DIR,
+        experiment,
+        domain,
+        instance_type,
         config_name,
-        template,
-        domain, 
-        instance_type
+        template
     )
     os.makedirs(path, exist_ok=True)
 

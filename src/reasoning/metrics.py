@@ -22,7 +22,7 @@ def process_data(experiment_path):
     df = pd.read_csv(validation_path)
     df['valid'] = pd.to_numeric(df['valid'], errors='coerce').fillna(0).astype(bool)
 
-    grouped = df.groupby(['experiment', 'config_name', 'template', 'domain', 'instance_type'])
+    grouped = df.groupby(['experiment', 'domain', 'instance_type', 'model', 'template'])
     agg_funcs = {
         'sample_id': 'max',
         'valid': ['sum', 'count']
@@ -66,4 +66,4 @@ if __name__ == "__main__":
     
     metrics_path = os.path.join(EXPERIMENTS_DIR, METRICS_FILE_NAME)
     df.to_csv(metrics_path, index=False)
-    print(df.groupby(['experiment', 'config_name', 'template', 'domain', 'instance_type']).mean())
+    print(df.groupby(['experiment', 'domain', 'instance_type', 'model', 'template']).mean())

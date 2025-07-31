@@ -3,6 +3,7 @@ from reasoning.utils import call_val
 import pandas as pd
 
 def process_sample(sample: str) -> str:
+    # This function remains the same
     error_fidx = sample.find("<error>")
     error_lidx = sample.find("</error>")
     if error_fidx != -1 and error_lidx != -1:
@@ -34,10 +35,10 @@ def validate_experiment(experiment_path: str) -> None:
     Validate an experiment.
     The experiment structure should be the following:
     experiment_path/
-        <config_name>/
-            <template>/
-                <domain>/
-                    <instance_type>/
+        <domain>/
+            <instance_type>/
+                <model>/
+                    <template>/
                         <instance_file>.log
                         ...
                     ...
@@ -47,10 +48,11 @@ def validate_experiment(experiment_path: str) -> None:
     
     It returns a CSV file with the validation results in the experiment_path.
     Each row contains:
-    - config_name
-    - template
+    - experiment
     - domain
     - instance_type
+    - model
+    - template
     - instance
     - sample_id
     - valid (True/False)
@@ -60,39 +62,39 @@ def validate_experiment(experiment_path: str) -> None:
     data = []
     experiment = experiment_path.split('/')[-1].strip()
     print(f"Experiment: {experiment}")
-    for config_name in os.listdir(experiment_path):
-        config_path = os.path.join(experiment_path, config_name)
-        if not os.path.isdir(config_path):
+    
+    for domain in os.listdir(experiment_path):
+        domain_path = os.path.join(experiment_path, domain)
+        if not os.path.isdir(domain_path):
             continue
-        print(f"\tConfig: {config_name}")
-        
-        for template in os.listdir(config_path):
-            template_path = os.path.join(config_path, template)
-            if not os.path.isdir(template_path):
-                continue    
-            print(f"\t\tTemplate: {template}")
+        print(f"\tDomain: {domain}")
+        temp_domain_path = os.path.join(domain_path, "temp_domain.pddl")
 
-            for domain in os.listdir(template_path):
-                domain_path = os.path.join(template_path, domain)
-                if not os.path.isdir(domain_path):
+        for instance_type in os.listdir(domain_path):
+            instance_type_path = os.path.join(domain_path, instance_type)
+            if not os.path.isdir(instance_type_path):
+                continue
+            print(f"\t\tInstance Type: {instance_type}")
+
+            for model in os.listdir(instance_type_path):
+                model_path = os.path.join(instance_type_path, model)
+                if not os.path.isdir(model_path):
                     continue
-                print(f"\t\t\tDomain: {domain}")
-                temp_domain_path = os.path.join(domain_path, "temp_domain.pddl")
+                print(f"\t\t\tModel: {model}")
+                
+                for template in os.listdir(model_path):
+                    template_path = os.path.join(model_path, template)
+                    if not os.path.isdir(template_path):
+                        continue    
+                    print(f"\t\t\t\tTemplate: {template}")
 
-                for instance_type in os.listdir(domain_path):
-                    instance_type_path = os.path.join(domain_path, instance_type)
-                    if not os.path.isdir(instance_type_path):
-                        continue
-                    print(f"\t\t\t\tInstance Type: {instance_type}")
-
-                    for instance_file in os.listdir(instance_type_path):
+                    for instance_file in os.listdir(template_path):
                         if not instance_file.endswith(".log"):
                             continue
                         instance = instance_file.replace(".log", "")
-                        instance_path = os.path.join(instance_type_path, instance_file)
+                        instance_path = os.path.join(template_path, instance_file)
                         temp_instance_path = os.path.join(instance_type_path, "temp_instance.pddl")
                         
-
                         with open(instance_path, 'r') as f:
                             content = f.read()
 
@@ -107,7 +109,6 @@ def validate_experiment(experiment_path: str) -> None:
                                 f.write(_instance)
                         except:
                             raise ValueError(f"Could not properly parse domain {domain} and instance from {instance_file}.")
-
 
                         samples = []
                         while True:
@@ -146,10 +147,10 @@ def validate_experiment(experiment_path: str) -> None:
                             finally:
                                 data.append({
                                     "experiment": experiment,
-                                    "config_name": config_name,
-                                    "template": template,
                                     "domain": domain,
                                     "instance_type": instance_type,
+                                    "model": model,
+                                    "template": template,
                                     "instance": instance,
                                     "sample_id": sample_id,
                                     "valid": valid,
@@ -158,11 +159,11 @@ def validate_experiment(experiment_path: str) -> None:
 
                         if os.path.exists(temp_instance_path): os.remove(temp_instance_path)
                 if os.path.exists(temp_domain_path): os.remove(temp_domain_path)
+    
     if len(data) == 0:
         return
     df = pd.DataFrame(data)
     df.reset_index(drop=True, inplace=True)  # drop=True to avoid creating an extra column
-    df.columns = data[-1].keys()
     df.to_csv(os.path.join(experiment_path, VALIDATION_FILE_NAME))
 
 if __name__ == "__main__":
