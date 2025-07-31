@@ -39,11 +39,12 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
 
     tasks : list[Task] = get_tasks_from_raw(domain, instance_type=instance_type)
     print(f"Found {len(tasks)} tasks for domain '{domain}' with instance type '{instance_type}'.")
-
-    # Equally distribute tasks
-    if instances < len(tasks):
-        idx = np.linspace(0, len(tasks) - 1, num=instances, dtype=int)
-        tasks = [tasks[i] for i in idx]
+    
+    # Set random seed for reproducibility
+    np.random.seed(42)
+    # Randomly select instances number of tasks
+    indices = np.random.choice(len(tasks), min(instances, len(tasks)), replace=False)
+    tasks = [tasks[i] for i in indices]
 
     already_generated_instances = [f.split(".")[0] for f in os.listdir(path) if f.endswith(".log")]
     print(f"Already generated instances: {len(already_generated_instances)}")
@@ -101,7 +102,7 @@ if __name__ == "__main__":
     samples = 1
     templates = ["pddl", "landmark"]
     instances = 20
-    domains = ["blocksworld", "childsnack", "grippers", "logistics", "satellite"]
+    domains = ["blocksworld", "grippers"]
     config_paths = [
         "src/configs/gemini.yaml", 
         "src/configs/gemini-thinking.yaml",

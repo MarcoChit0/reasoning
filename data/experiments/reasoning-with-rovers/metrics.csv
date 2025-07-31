@@ -1,5 +1,0 @@
-experiment,config_name,template,domain,instance_type,max_samples,correct_instances,total_instances,accuracy,pass@1
-reasoning-with-rovers,gemini-thinking,landmark,blocksworld,outdistribution,1,14,20,0.7,0.7
-reasoning-with-rovers,gemini-thinking,landmark,grippers,outdistribution,1,20,20,1.0,1.0
-reasoning-with-rovers,gemini-thinking,pddl,blocksworld,outdistribution,1,8,20,0.4,0.4
-reasoning-with-rovers,gemini-thinking,pddl,grippers,outdistribution,1,20,20,1.0,1.0

@@ -90,7 +90,6 @@ def validate_experiment(experiment_path: str) -> None:
                             continue
                         instance = instance_file.replace(".log", "")
                         instance_path = os.path.join(instance_type_path, instance_file)
-                        print(f"\t\t\t\t\tInstance: {instance_path}")
                         temp_instance_path = os.path.join(instance_type_path, "temp_instance.pddl")
                         
 
@@ -159,9 +158,11 @@ def validate_experiment(experiment_path: str) -> None:
 
                         if os.path.exists(temp_instance_path): os.remove(temp_instance_path)
                 if os.path.exists(temp_domain_path): os.remove(temp_domain_path)
-    
+    if len(data) == 0:
+        return
     df = pd.DataFrame(data)
     df.reset_index(drop=True, inplace=True)  # drop=True to avoid creating an extra column
+    print(data)
     df.columns = data[-1].keys()
     df.to_csv(os.path.join(experiment_path, VALIDATION_FILE_NAME))
 
