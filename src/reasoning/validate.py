@@ -1,8 +1,9 @@
 import os
 from reasoning.utils import call_val
 import pandas as pd
+import ast
 
-def process_sample(sample: str) -> str:
+def process_sample(sample: str) -> tuple[str, dict[str, str]]:
     # This function remains the same
     error_fidx = sample.find("<error>")
     error_lidx = sample.find("</error>")
@@ -28,7 +29,16 @@ def process_sample(sample: str) -> str:
     plan = response[plan_fidx + len("<plan>"):plan_lidx].strip()
     if not plan:
         raise ValueError("Empty plan in response.")
-    return plan
+    
+    metadata_fidx = sample.find("<metadata>")
+    metadata_lidx = sample.find("</metadata>")
+    if metadata_fidx != -1 and metadata_lidx != -1:
+        metadata = sample[metadata_fidx + len("<metadata>"):metadata_lidx].strip()
+        metadata = ast.literal_eval(metadata)
+    else:
+        metadata = {}
+
+    return plan, metadata
 
 def validate_experiment(experiment_path: str) -> None:
     """
@@ -109,6 +119,18 @@ def validate_experiment(experiment_path: str) -> None:
                                 f.write(_instance)
                         except:
                             raise ValueError(f"Could not properly parse domain {domain} and instance from {instance_file}.")
+                        
+                        prompt_metadata = {}
+                        try:
+                            prompt_metadata_fidx = content.find("<prompt_metadata>")
+                            prompt_metadata_lidx = content.find("</prompt_metadata>")
+                            if prompt_metadata_fidx != -1 and prompt_metadata_lidx != -1:
+                                metadata_str = content[prompt_metadata_fidx + len("<prompt_metadata>"):prompt_metadata_lidx].strip()
+                                if metadata_str:
+                                    prompt_metadata = ast.literal_eval(metadata_str)
+                        except Exception:
+                            # If metadata is malformed, we treat it as empty.
+                            prompt_metadata = {}
 
                         samples = []
                         while True:
@@ -126,8 +148,9 @@ def validate_experiment(experiment_path: str) -> None:
                             sample_id += 1
                             error = None
                             valid = False
+                            plan_metadata = {}
                             try:
-                                plan = process_sample(sample)
+                                plan, plan_metadata = process_sample(sample)
                                 temp_plan_path = os.path.join(instance_type_path, "temp_plan.txt")
                                 with open(temp_plan_path, 'w') as f:
                                     f.write(plan)
@@ -145,6 +168,9 @@ def validate_experiment(experiment_path: str) -> None:
                             except Exception as e:
                                 error = "Error processing Sample {}: {}".format(sample_id, str(e))
                             finally:
+                                num_action_landmarks = prompt_metadata.get("num_action_landmarks", None)
+                                candidates_token_count = plan_metadata.get("candidates_token_count", None)
+
                                 data.append({
                                     "experiment": experiment,
                                     "domain": domain,
@@ -154,7 +180,9 @@ def validate_experiment(experiment_path: str) -> None:
                                     "instance": instance,
                                     "sample_id": sample_id,
                                     "valid": valid,
-                                    "error": error
+                                    "error": error,
+                                    "num_action_landmarks": num_action_landmarks,
+                                    "candidates_token_count": candidates_token_count
                                 })
 
                         if os.path.exists(temp_instance_path): os.remove(temp_instance_path)

@@ -25,11 +25,13 @@ def process_data(experiment_path):
     grouped = df.groupby(['experiment', 'domain', 'instance_type', 'model', 'template'])
     agg_funcs = {
         'sample_id': 'max',
-        'valid': ['sum', 'count']
+        'valid': ['sum', 'count'],
+        'candidates_token_count': 'mean',
+        'num_action_landmarks': 'mean',
     }
     results_df = grouped.agg(agg_funcs)
 
-    results_df.columns = ['max_samples', 'correct_instances', 'total_instances']
+    results_df.columns = ['max_samples', 'correct_instances', 'total_instances', 'candidates_token_count', 'num_action_landmarks']
     results_df = results_df.reset_index()
 
     results_df['accuracy'] = results_df['correct_instances'] / results_df['total_instances']
