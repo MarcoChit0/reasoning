@@ -98,11 +98,11 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
 
 if __name__ == "__main__":
     experiment = "many-models"
-    instance_type = "outdistribution"
+    instance_type = "indistribution"
     samples = 1
     templates = ["pddl", "landmark"]
     instances = 20
-    domains = ["blocksworld", "grippers"]
+    domains = ["logistics"]
     config_paths = [
         "src/configs/gemini.yaml", 
         "src/configs/gemini-thinking.yaml",
