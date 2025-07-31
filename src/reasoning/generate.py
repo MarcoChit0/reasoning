@@ -49,7 +49,7 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
     already_generated_instances = [f.split(".")[0] for f in os.listdir(path) if f.endswith(".log")]
     print(f"Already generated instances: {len(already_generated_instances)}")
 
-    tasks = [task for task in tasks if task.instance not in already_generated_instances]
+    tasks = [task for task in tasks if task.instance.name not in already_generated_instances]
     print(f"Remaining tasks to generate: {len(tasks)}")
 
     progress_bar = tqdm.tqdm(total=len(tasks) * samples, desc="Generating content", unit="sample")

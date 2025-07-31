@@ -1,29 +1,29 @@
 ,experiment,config_name,template,domain,instance_type,instance,sample_id,valid,error
-0,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-43,1,False,Error processing Sample 1: Empty response in sample.
+0,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-43,1,True,
 1,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-118,1,False,Error processing Sample 1: Plan not found in response.
-2,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-17,1,False,Error processing Sample 1: Empty response in sample.
+2,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-17,1,True,
 3,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-65,1,True,
-4,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-129,1,False,Error processing Sample 1: Empty response in sample.
-5,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-171,1,False,Error processing Sample 1: Empty response in sample.
-6,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-117,1,False,Error processing Sample 1: Empty response in sample.
-7,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-167,1,False,Error processing Sample 1: Empty response in sample.
+4,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-129,1,True,
+5,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-171,1,True,
+6,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-117,1,True,
+7,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-167,1,True,
 8,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-6,1,True,
 9,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-2,1,True,
 10,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-107,1,True,
 11,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-30,1,True,
 12,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-181,1,True,
-13,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-163,1,False,Error processing Sample 1: Empty response in sample.
+13,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-163,1,True,
 14,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-105,1,True,
-15,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-48,1,False,Error processing Sample 1: Empty response in sample.
-16,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-22,1,False,Error processing Sample 1: Empty response in sample.
+15,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-48,1,True,
+16,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-22,1,True,
 17,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-35,1,True,
 18,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-192,1,True,
-19,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-39,1,False,Error processing Sample 1: Empty response in sample.
+19,many-models,gemini-thinking,landmark,blocksworld,outdistribution,instance-39,1,True,
 20,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-43,1,True,
 21,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-118,1,True,
 22,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-17,1,True,
 23,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-65,1,True,
-24,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-129,1,False,Error processing Sample 1: Empty response in sample.
+24,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-129,1,True,
 25,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-171,1,True,
 26,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-117,1,True,
 27,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-167,1,True,
@@ -40,22 +40,22 @@
 38,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-192,1,True,
 39,many-models,gemini-thinking,landmark,grippers,outdistribution,instance-39,1,True,
 40,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-43,1,True,
-41,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-118,1,False,Error processing Sample 1: Empty response in sample.
+41,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-118,1,True,
 42,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-17,1,True,
 43,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-65,1,True,
-44,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-129,1,False,Error processing Sample 1: Empty response in sample.
+44,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-129,1,False,
 45,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-171,1,True,
-46,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-117,1,False,Error processing Sample 1: Empty response in sample.
+46,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-117,1,True,
 47,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-167,1,True,
-48,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-6,1,False,Error processing Sample 1: Empty response in sample.
+48,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-6,1,True,
 49,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-2,1,True,
 50,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-107,1,True,
 51,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-30,1,True,
 52,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-181,1,True,
-53,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-163,1,False,Error processing Sample 1: Empty response in sample.
+53,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-163,1,True,
 54,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-105,1,False,
-55,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-48,1,False,Error processing Sample 1: Empty response in sample.
-56,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-22,1,False,Error processing Sample 1: Empty response in sample.
+55,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-48,1,True,
+56,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-22,1,True,
 57,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-35,1,True,
 58,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-192,1,True,
 59,many-models,gemini-thinking,pddl,blocksworld,outdistribution,instance-39,1,True,
@@ -64,7 +64,7 @@
 62,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-17,1,True,
 63,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-65,1,True,
 64,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-129,1,False,
-65,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-171,1,False,Error processing Sample 1: Empty response in sample.
+65,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-171,1,True,
 66,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-117,1,True,
 67,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-167,1,True,
 68,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-6,1,True,
@@ -74,7 +74,7 @@
 72,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-181,1,True,
 73,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-163,1,True,
 74,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-105,1,True,
-75,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-48,1,False,Error processing Sample 1: Empty response in sample.
+75,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-48,1,True,
 76,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-22,1,True,
 77,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-35,1,True,
 78,many-models,gemini-thinking,pddl,grippers,outdistribution,instance-192,1,True,

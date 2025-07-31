@@ -1,7 +1,7 @@
-2025-07-30 16:56:37,866 - INFO - Processing task: Task(domain=blocksworld, instance=instance-171)
-2025-07-30 16:56:37,866 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-07-30 16:56:37,867 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
-2025-07-30 16:56:38,040 - INFO - Prompt:
+2025-07-31 08:49:58,626 - INFO - Processing task: Task(domain=blocksworld, instance=instance-171)
+2025-07-31 08:49:58,626 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-31 08:49:58,626 - INFO - Generation parameters: {'max_output_tokens': 16384, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
+2025-07-31 08:49:58,962 - INFO - Prompt:
 <prompt>
 <problem-description-with-landmarks>
 You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
@@ -75,20 +75,20 @@ This is a set of action landmarks for the instance you need to generate a plan f
 <landmarks-set>
 (pick-up b)
 (pick-up d)
-(stack f h)
-(stack b f)
+(stack g e)
 (stack e c)
 (stack a b)
-(stack d i)
+(stack f h)
+(stack b f)
 (stack h g)
-(stack g e)
-(unstack f c)
-(unstack e g)
-(unstack c d)
-(unstack i b)
-(unstack a f)
-(unstack h a)
+(stack d i)
 (unstack g h)
+(unstack e g)
+(unstack a f)
+(unstack c d)
+(unstack f c)
+(unstack h a)
+(unstack i b)
 </landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
@@ -524,22 +524,53 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>
 </prompt>
 
-2025-07-30 16:56:38,040 - INFO - Prompt metadata:
+2025-07-31 08:49:58,962 - INFO - Prompt metadata:
 <prompt_metadata>
-{'template': 'landmark', 'action_landmarks': ['(pick-up b)', '(pick-up d)', '(stack f h)', '(stack b f)', '(stack e c)', '(stack a b)', '(stack d i)', '(stack h g)', '(stack g e)', '(unstack f c)', '(unstack e g)', '(unstack c d)', '(unstack i b)', '(unstack a f)', '(unstack h a)', '(unstack g h)'], 'num_action_landmarks': 16}
+{'template': 'landmark', 'action_landmarks': ['(pick-up b)', '(pick-up d)', '(stack g e)', '(stack e c)', '(stack a b)', '(stack f h)', '(stack b f)', '(stack h g)', '(stack d i)', '(unstack g h)', '(unstack e g)', '(unstack a f)', '(unstack c d)', '(unstack f c)', '(unstack h a)', '(unstack i b)'], 'num_action_landmarks': 16}
 </prompt_metadata>
 
-2025-07-30 16:56:38,040 - INFO - Sample: 1.
-2025-07-30 16:56:38,040 - INFO - AFC is enabled with max remote calls: 10.
-2025-07-30 16:57:16,103 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
-2025-07-30 16:57:16,106 - INFO - AFC remote call 1 is done.
-2025-07-30 16:57:16,106 - INFO - 
+2025-07-31 08:49:58,962 - INFO - Sample: 1.
+2025-07-31 08:49:58,962 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-31 08:50:34,289 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-31 08:50:34,290 - INFO - AFC remote call 1 is done.
+2025-07-31 08:50:34,291 - INFO - 
 <sample>
 <response>
-
+<plan>
+(unstack i b)
+(put-down i)
+(unstack e g)
+(put-down e)
+(unstack g h)
+(put-down g)
+(unstack h a)
+(put-down h)
+(unstack a f)
+(put-down a)
+(unstack f c)
+(put-down f)
+(unstack c d)
+(put-down c)
+(pick-up d)
+(stack d i)
+(pick-up c)
+(stack c d)
+(pick-up e)
+(stack e c)
+(pick-up g)
+(stack g e)
+(pick-up h)
+(stack h g)
+(pick-up f)
+(stack f h)
+(pick-up b)
+(stack b f)
+(pick-up a)
+(stack a b)
+</plan>
 </response>
 <metadata>
-{'prompt_token_count': 5263, 'candidates_token_count': None, 'total_tokens_count': 13454}
+{'prompt_token_count': 5263, 'candidates_token_count': 209, 'total_tokens_count': 12788}
 </metadata>
 </sample>
 

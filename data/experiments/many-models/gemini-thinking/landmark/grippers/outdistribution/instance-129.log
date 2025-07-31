@@ -1,7 +1,7 @@
-2025-07-30 17:05:27,067 - INFO - Processing task: Task(domain=grippers, instance=instance-129)
-2025-07-30 17:05:27,067 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-07-30 17:05:27,067 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
-2025-07-30 17:05:27,317 - INFO - Prompt:
+2025-07-31 08:52:01,854 - INFO - Processing task: Task(domain=grippers, instance=instance-129)
+2025-07-31 08:52:01,854 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-31 08:52:01,854 - INFO - Generation parameters: {'max_output_tokens': 16384, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
+2025-07-31 08:52:02,293 - INFO - Prompt:
 <prompt>
 <problem-description-with-landmarks>
 You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>grippers</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
@@ -525,22 +525,42 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>
 </prompt>
 
-2025-07-30 17:05:27,317 - INFO - Prompt metadata:
+2025-07-31 08:52:02,293 - INFO - Prompt metadata:
 <prompt_metadata>
 {'template': 'landmark', 'action_landmarks': [], 'num_action_landmarks': 0}
 </prompt_metadata>
 
-2025-07-30 17:05:27,317 - INFO - Sample: 1.
-2025-07-30 17:05:27,317 - INFO - AFC is enabled with max remote calls: 10.
-2025-07-30 17:06:03,634 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
-2025-07-30 17:06:03,636 - INFO - AFC remote call 1 is done.
-2025-07-30 17:06:03,636 - INFO - 
+2025-07-31 08:52:02,294 - INFO - Sample: 1.
+2025-07-31 08:52:02,294 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-31 08:52:24,323 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-31 08:52:24,326 - INFO - AFC remote call 1 is done.
+2025-07-31 08:52:24,326 - INFO - 
 <sample>
 <response>
-
+<plan>
+(move robot1 room2 room5)
+(pick robot1 ball3 room5 rgripper1)
+(move robot1 room5 room2)
+(drop robot1 ball3 room2 rgripper1)
+(move robot2 room3 room4)
+(pick robot2 ball6 room4 rgripper2)
+(move robot2 room4 room3)
+(drop robot2 ball6 room3 rgripper2)
+(move robot2 room3 room5)
+(pick robot2 ball1 room5 rgripper2)
+(move robot2 room5 room4)
+(drop robot2 ball1 room4 rgripper2)
+(move robot2 room4 room6)
+(pick robot2 ball4 room6 rgripper2)
+(pick robot2 ball5 room6 lgripper2)
+(move robot2 room6 room4)
+(drop robot2 ball4 room4 rgripper2)
+(move robot2 room4 room1)
+(drop robot2 ball5 room1 lgripper2)
+</plan>
 </response>
 <metadata>
-{'prompt_token_count': 5264, 'candidates_token_count': None, 'total_tokens_count': 13455}
+{'prompt_token_count': 5264, 'candidates_token_count': 229, 'total_tokens_count': 9983}
 </metadata>
 </sample>
 

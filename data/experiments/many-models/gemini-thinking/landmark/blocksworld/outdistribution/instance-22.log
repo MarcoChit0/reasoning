@@ -1,7 +1,7 @@
-2025-07-30 17:03:37,869 - INFO - Processing task: Task(domain=blocksworld, instance=instance-22)
-2025-07-30 17:03:37,869 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-07-30 17:03:37,870 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
-2025-07-30 17:03:37,939 - INFO - Prompt:
+2025-07-31 09:00:13,733 - INFO - Processing task: Task(domain=blocksworld, instance=instance-22)
+2025-07-31 09:00:13,737 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-31 09:00:13,738 - INFO - Generation parameters: {'max_output_tokens': 32000, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
+2025-07-31 09:00:13,811 - INFO - Prompt:
 <prompt>
 <problem-description-with-landmarks>
 You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
@@ -67,13 +67,13 @@ This is a set of action landmarks for the instance you need to generate a plan f
 <landmarks-set>
 (pick-up d)
 (stack f c)
-(stack d a)
 (stack e d)
+(stack d a)
 (unstack f e)
-(unstack a b)
 (unstack c d)
-(unstack e c)
 (unstack b f)
+(unstack e c)
+(unstack a b)
 </landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
@@ -509,22 +509,41 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>
 </prompt>
 
-2025-07-30 17:03:37,939 - INFO - Prompt metadata:
+2025-07-31 09:00:13,811 - INFO - Prompt metadata:
 <prompt_metadata>
-{'template': 'landmark', 'action_landmarks': ['(pick-up d)', '(stack f c)', '(stack d a)', '(stack e d)', '(unstack f e)', '(unstack a b)', '(unstack c d)', '(unstack e c)', '(unstack b f)'], 'num_action_landmarks': 9}
+{'template': 'landmark', 'action_landmarks': ['(pick-up d)', '(stack f c)', '(stack e d)', '(stack d a)', '(unstack f e)', '(unstack c d)', '(unstack b f)', '(unstack e c)', '(unstack a b)'], 'num_action_landmarks': 9}
 </prompt_metadata>
 
-2025-07-30 17:03:37,939 - INFO - Sample: 1.
-2025-07-30 17:03:37,939 - INFO - AFC is enabled with max remote calls: 10.
-2025-07-30 17:04:14,864 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
-2025-07-30 17:04:14,866 - INFO - AFC remote call 1 is done.
-2025-07-30 17:04:14,867 - INFO - 
+2025-07-31 09:00:13,811 - INFO - Sample: 1.
+2025-07-31 09:00:13,811 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-31 09:00:47,709 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-31 09:00:47,712 - INFO - AFC remote call 1 is done.
+2025-07-31 09:00:47,712 - INFO - 
 <sample>
 <response>
-
+<plan>
+(unstack a b)
+(put-down a)
+(unstack b f)
+(put-down b)
+(unstack f e)
+(put-down f)
+(unstack e c)
+(put-down e)
+(unstack c d)
+(put-down c)
+(pick-up a)
+(stack a b)
+(pick-up d)
+(stack d a)
+(pick-up e)
+(stack e d)
+(pick-up f)
+(stack f c)
+</plan>
 </response>
 <metadata>
-{'prompt_token_count': 5168, 'candidates_token_count': None, 'total_tokens_count': 13359}
+{'prompt_token_count': 5168, 'candidates_token_count': 129, 'total_tokens_count': 12275}
 </metadata>
 </sample>
 

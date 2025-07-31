@@ -1,7 +1,7 @@
-2025-07-30 17:02:54,367 - INFO - Processing task: Task(domain=blocksworld, instance=instance-117)
-2025-07-30 17:02:54,367 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-07-30 17:02:54,367 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
-2025-07-30 17:02:54,525 - INFO - Prompt:
+2025-07-31 08:51:16,961 - INFO - Processing task: Task(domain=blocksworld, instance=instance-117)
+2025-07-31 08:51:16,962 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-31 08:51:16,962 - INFO - Generation parameters: {'max_output_tokens': 16384, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'tool_config': None}
+2025-07-31 08:51:17,203 - INFO - Prompt:
 <prompt>
 <problem-description-with-landmarks>
 You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
@@ -70,18 +70,18 @@ This is the PDDL instance file, for which you need to generate a plan:
 This is a set of action landmarks for the instance you need to generate a plan for:
 <landmarks-set>
 (pick-up e)
-(stack b f)
-(stack h a)
-(stack d h)
 (stack e c)
+(stack h a)
 (stack a e)
-(unstack b e)
-(unstack h d)
-(unstack c g)
-(unstack d a)
+(stack b f)
+(stack d h)
 (unstack g b)
-(unstack f h)
+(unstack h d)
 (unstack a c)
+(unstack c g)
+(unstack b e)
+(unstack f h)
+(unstack d a)
 </landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
@@ -517,22 +517,49 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>
 </prompt>
 
-2025-07-30 17:02:54,525 - INFO - Prompt metadata:
+2025-07-31 08:51:17,203 - INFO - Prompt metadata:
 <prompt_metadata>
-{'template': 'landmark', 'action_landmarks': ['(pick-up e)', '(stack b f)', '(stack h a)', '(stack d h)', '(stack e c)', '(stack a e)', '(unstack b e)', '(unstack h d)', '(unstack c g)', '(unstack d a)', '(unstack g b)', '(unstack f h)', '(unstack a c)'], 'num_action_landmarks': 13}
+{'template': 'landmark', 'action_landmarks': ['(pick-up e)', '(stack e c)', '(stack h a)', '(stack a e)', '(stack b f)', '(stack d h)', '(unstack g b)', '(unstack h d)', '(unstack a c)', '(unstack c g)', '(unstack b e)', '(unstack f h)', '(unstack d a)'], 'num_action_landmarks': 13}
 </prompt_metadata>
 
-2025-07-30 17:02:54,525 - INFO - Sample: 1.
-2025-07-30 17:02:54,525 - INFO - AFC is enabled with max remote calls: 10.
-2025-07-30 17:03:30,865 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
-2025-07-30 17:03:30,868 - INFO - AFC remote call 1 is done.
-2025-07-30 17:03:30,868 - INFO - 
+2025-07-31 08:51:17,203 - INFO - Sample: 1.
+2025-07-31 08:51:17,203 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-31 08:51:54,761 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-31 08:51:54,764 - INFO - AFC remote call 1 is done.
+2025-07-31 08:51:54,764 - INFO - 
 <sample>
 <response>
-
+<plan>
+(unstack f h)
+(put-down f)
+(unstack h d)
+(put-down h)
+(unstack d a)
+(put-down d)
+(unstack a c)
+(put-down a)
+(unstack c g)
+(put-down c)
+(unstack g b)
+(put-down g)
+(unstack b e)
+(put-down b)
+(pick-up e)
+(stack e c)
+(pick-up a)
+(stack a e)
+(pick-up h)
+(stack h a)
+(pick-up d)
+(stack d h)
+(pick-up b)
+(stack b f)
+(pick-up g)
+(stack g b)
+</plan>
 </response>
 <metadata>
-{'prompt_token_count': 5220, 'candidates_token_count': None, 'total_tokens_count': 13411}
+{'prompt_token_count': 5220, 'candidates_token_count': 183, 'total_tokens_count': 13175}
 </metadata>
 </sample>
 

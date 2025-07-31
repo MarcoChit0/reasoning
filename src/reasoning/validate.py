@@ -162,7 +162,6 @@ def validate_experiment(experiment_path: str) -> None:
         return
     df = pd.DataFrame(data)
     df.reset_index(drop=True, inplace=True)  # drop=True to avoid creating an extra column
-    print(data)
     df.columns = data[-1].keys()
     df.to_csv(os.path.join(experiment_path, VALIDATION_FILE_NAME))
 

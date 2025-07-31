@@ -1,7 +1,7 @@
-2025-07-30 16:13:16,113 - INFO - Processing task: Task(domain=blocksworld, instance=instance-163)
-2025-07-30 16:13:16,114 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-07-30 16:13:16,114 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': 0}}
-2025-07-30 16:13:16,114 - INFO - Prompt:
+2025-07-31 08:40:16,258 - INFO - Processing task: Task(domain=blocksworld, instance=instance-163)
+2025-07-31 08:40:16,258 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-07-31 08:40:16,258 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': 0}}
+2025-07-31 08:40:16,258 - INFO - Prompt:
 <prompt>
 <problem-description>
 You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file and the PDDL instance file, and you need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
@@ -482,52 +482,54 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>
 </prompt>
 
-2025-07-30 16:13:16,115 - INFO - Prompt metadata:
+2025-07-31 08:40:16,258 - INFO - Prompt metadata:
 <prompt_metadata>
 {'template': 'pddl'}
 </prompt_metadata>
 
-2025-07-30 16:13:16,115 - INFO - Sample: 1.
-2025-07-30 16:13:16,115 - INFO - AFC is enabled with max remote calls: 10.
-2025-07-30 16:13:18,373 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
-2025-07-30 16:13:18,375 - INFO - AFC remote call 1 is done.
-2025-07-30 16:13:18,378 - INFO - 
+2025-07-31 08:40:16,258 - INFO - Sample: 1.
+2025-07-31 08:40:16,258 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-31 08:40:18,152 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-07-31 08:40:18,154 - INFO - AFC remote call 1 is done.
+2025-07-31 08:40:18,154 - INFO - 
 <sample>
 <response>
 <plan>
 (unstack i c)
 (put-down i)
 (unstack c f)
-(on f e)
 (unstack f e)
-(put-down f)
 (unstack e a)
-(put-down e)
 (unstack a d)
-(put-down a)
 (unstack d g)
-(put-down d)
 (unstack g h)
+(put-down g)
+(put-down d)
+(put-down a)
+(put-down e)
+(put-down f)
+(stack f b)
+(stack b c)
+(stack c d)
+(stack d i)
+(stack i e)
+(stack e g)
+(stack g a)
+(stack a f)
+(unstack f a)
+(unstack a g)
+(unstack g e)
+(unstack e i)
+(unstack i d)
+(unstack d c)
+(unstack c b)
+(unstack b f)
 (pick-up h)
 (stack h i)
-(pick-up e)
-(stack e g)
-(pick-up a)
-(stack a f)
-(pick-up f)
-(stack f b)
-(pick-up b)
-(stack b c)
-(pick-up c)
-(stack c d)
-(pick-up d)
-(stack d a)
-(pick-up i)
-(stack i e)
 </plan>
 </response>
 <metadata>
-{'prompt_token_count': 4808, 'candidates_token_count': 201, 'total_tokens_count': 5009}
+{'prompt_token_count': 4808, 'candidates_token_count': 215, 'total_tokens_count': 5023}
 </metadata>
 </sample>
 

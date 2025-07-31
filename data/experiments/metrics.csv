@@ -3,10 +3,10 @@ many-models,gemini,landmark,blocksworld,outdistribution,1,0,20,0.0,0.0
 many-models,gemini,landmark,grippers,outdistribution,1,0,20,0.0,0.0
 many-models,gemini,pddl,blocksworld,outdistribution,1,0,20,0.0,0.0
 many-models,gemini,pddl,grippers,outdistribution,1,0,20,0.0,0.0
-many-models,gemini-thinking,landmark,blocksworld,outdistribution,1,9,20,0.45,0.44999999999999984
-many-models,gemini-thinking,landmark,grippers,outdistribution,1,18,20,0.9,0.8999999999999999
-many-models,gemini-thinking,pddl,blocksworld,outdistribution,1,12,20,0.6,0.6000000000000001
-many-models,gemini-thinking,pddl,grippers,outdistribution,1,16,20,0.8,0.7999999999999999
+many-models,gemini-thinking,landmark,blocksworld,outdistribution,1,19,20,0.95,0.95
+many-models,gemini-thinking,landmark,grippers,outdistribution,1,19,20,0.95,0.95
+many-models,gemini-thinking,pddl,blocksworld,outdistribution,1,18,20,0.9,0.8999999999999999
+many-models,gemini-thinking,pddl,grippers,outdistribution,1,18,20,0.9,0.8999999999999999
 many-models,gemma,landmark,blocksworld,outdistribution,1,0,20,0.0,0.0
 many-models,gemma,landmark,grippers,outdistribution,1,0,20,0.0,0.0
 many-models,gemma,pddl,blocksworld,outdistribution,1,0,20,0.0,0.0
