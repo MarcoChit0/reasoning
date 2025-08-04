@@ -1,9 +1,9 @@
 [submodule "res/pyperplan"]
 	path = res/pyperplan
 	url = https://github.com/MarcoChit0/pyperplan
-[submodule "res/ipc2023-learning/benchmarks"]
-	path = res/ipc2023-learning/benchmarks
-	url = https://github.com/ipc2023-learning/benchmarks.git
 [submodule "res/val"]
 	path = res/val
 	url = https://github.com/KCL-Planning/VAL.git
+[submodule "res/pddl-generators"]
+	path = res/pddl-generators
+	url = https://github.com/AI-Planning/pddl-generators.git
