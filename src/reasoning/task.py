@@ -94,6 +94,10 @@ def get_tasks(domain : str)-> list[Task]:
     domain_path = os.path.join(domain_dir_path, "domain.pddl")
     if not os.path.isfile(domain_path):
         raise ValueError(f"Domain file '{domain_path}' does not exist.")
+    d = Domain(
+        name=domain,
+        path=domain_path
+    )
     instance_dir_path = os.path.join(domain_dir_path, "instances")
     if not os.path.isdir(instance_dir_path):
         raise ValueError(f"Instance directory '{instance_dir_path}' does not exist.")
