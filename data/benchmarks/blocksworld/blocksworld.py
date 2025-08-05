@@ -12,10 +12,10 @@ output:
 import subprocess
 import os
 import math
+import numpy as np
 
-
-blocks = [4, 6, 8, 10, 12]
-random_seeds = [42, 57, 71, 84]
+blocks = np.arange(4, 17, 3)
+random_seeds = np.arange(1, 5)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 instances_dir = os.path.join(script_dir, "instances")

@@ -4,3 +4,4 @@
 .vscode/
 *.egg-info/
 *.o
+*.soln
