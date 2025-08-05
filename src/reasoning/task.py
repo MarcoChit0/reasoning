@@ -44,7 +44,12 @@ class Instance(PDDLResource):
     PATTERN = r"p(\d+)\.pddl"
     def __init__(self, name : str, path : str):
         super().__init__(name, path)
-        self.id : int = int(re.match(self.PATTERN, path).group(1))
+        filename = os.path.basename(path)
+        match = re.match(self.PATTERN, filename)
+        if match:
+            self.id : int = int(match.group(1))
+        else:
+            self.id : int = 0  # Default value for non-matching filenames
         # Extract type from path: get subdirectories after 'instances' and join with '+'
         path_parts = self.path.split(os.sep)
         instances_idx = path_parts.index('instances')
@@ -73,11 +78,9 @@ class Task:
     def __hash__(self):
         return hash((self.domain, self.instance))
 
-    def __lt__(self, other):
-        if not isinstance(other, Task):
-            return NotImplemented
-        return (self.domain, self.instance) < (other.domain, other.instance)
-
+from reasoning import settings
+import os
+import re 
 from reasoning import settings
 from typing import Optional
 import os
@@ -86,7 +89,6 @@ import re
 
 def get_tasks(domain : str)-> list[Task]:
     domain_dir_path = os.path.join(settings.BENCHMARKS_DIR, domain)
-    print(f"Domain directory path: {domain_dir_path}")
     if not os.path.isdir(domain_dir_path):
         raise ValueError(f"Domain directory '{domain_dir_path}' does not exist.")
     domain_path = os.path.join(domain_dir_path, "domain.pddl")
@@ -95,17 +97,15 @@ def get_tasks(domain : str)-> list[Task]:
     instance_dir_path = os.path.join(domain_dir_path, "instances")
     if not os.path.isdir(instance_dir_path):
         raise ValueError(f"Instance directory '{instance_dir_path}' does not exist.")
-    d = Domain(name=domain, path=domain_path)
     tasks = []
-    for instance in os.listdir(instance_dir_path):
-        if not instance.endswith('.pddl'):
-            continue
-        instance_path = os.path.join(instance_dir_path, instance)
-        if not os.path.isfile(instance_path):
-            continue
-        i = Instance(
-            name=instance.split('/')[-1].replace('.pddl', '').strip(),
-            path=instance_path
-        )
-        tasks.append(Task(d, i))
+    for root, dirs, files in os.walk(instance_dir_path):
+        for instance_file in files:
+            if not instance_file.endswith('.pddl'):
+                continue
+            instance_path = os.path.join(root, instance_file)
+            i = Instance(
+                name=instance_file.replace('.pddl', '').strip(),
+                path=instance_path
+            )
+            tasks.append(Task(d, i))
     return tasks
