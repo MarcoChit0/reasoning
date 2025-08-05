@@ -4,7 +4,7 @@ import yaml
 import tqdm
 import os
 from reasoning.model import GoogleModel
-from reasoning.task import Task, get_tasks_from_raw
+from reasoning.task import Task, get_tasks
 from reasoning.prompt import build_prompt
 import logging
 import numpy as np
@@ -13,7 +13,7 @@ from reasoning.settings import EXPERIMENTS_DIR
 dotenv.load_dotenv()
 api_key = dotenv.get_key(dotenv.find_dotenv(), "GOOGLE_API_KEY")
 
-def generate(config_path: str, domain: str, instance_type: str, template: str, instances: int, samples: int, experiment: str = time.time()):
+def generate(config_path: str, domain: str, template: str, instances: int, samples: int, experiment: str = time.time()):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
 
@@ -31,15 +31,14 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
         EXPERIMENTS_DIR,
         experiment,
         domain,
-        instance_type,
         config_name,
         template
     )
     os.makedirs(path, exist_ok=True)
 
-    tasks : list[Task] = get_tasks_from_raw(domain, instance_type=instance_type)
-    print(f"Found {len(tasks)} tasks for domain '{domain}' with instance type '{instance_type}'.")
-    
+    tasks : list[Task] = get_tasks(domain)
+    print(f"Found {len(tasks)} tasks for domain '{domain}'.")
+
     # Set random seed for reproducibility
     np.random.seed(42)
     # Randomly select instances number of tasks
@@ -98,25 +97,21 @@ def generate(config_path: str, domain: str, instance_type: str, template: str, i
 
 if __name__ == "__main__":
     experiment = "many-models"
-    instance_type = "indistribution"
     samples = 1
     templates = ["pddl", "landmark"]
     instances = 20
-    domains = ["logistics"]
+    domains = ["logistics", "blocksworld", "spanner", "miconic"]
     config_paths = [
-        "src/configs/gemini.yaml", 
         "src/configs/gemini-thinking.yaml",
-        "src/configs/gemma.yaml",
     ]
 
     for config_path in config_paths:
         for template in templates:
             for domain in domains:
-                print(f"Experiment '{experiment}': generating content for domain '{domain}', instance type '{instance_type}', template '{template}', using config '{config_path}'.")
+                print(f"Experiment '{experiment}': generating content for domain '{domain}', template '{template}', using config '{config_path}'.")
                 generate(
                     config_path=config_path,
                     domain=domain,
-                    instance_type=instance_type,
                     template=template,
                     instances=instances,
                     samples=samples,

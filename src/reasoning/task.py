@@ -41,15 +41,20 @@ class Domain(PDDLResource):
         super().__init__(name, path)
 
 class Instance(PDDLResource):
-    def __init__(self, name : str, path : str, id: int, type : str):
+    PATTERN = r"p(\d+)\.pddl"
+    def __init__(self, name : str, path : str):
         super().__init__(name, path)
-        self.type : str = type
-        self.id : int = id
-    
+        self.id : int = int(re.match(self.PATTERN, path).group(1))
+        # Extract type from path: get subdirectories after 'instances' and join with '+'
+        path_parts = self.path.split(os.sep)
+        instances_idx = path_parts.index('instances')
+        type_parts = path_parts[instances_idx + 1:-1]  # Exclude the filename
+        self.type : str = '+'.join(type_parts)
+
     def __lt__(self, other):
         if not isinstance(other, Instance):
             return NotImplemented
-        return (self.type, self.id) < (other.type, other.id)
+        return self.id < other.id
 
 class Task:
     def __init__(self, domain : Domain, instance : Instance):
@@ -79,43 +84,27 @@ import os
 import yaml
 import re 
 
-def get_tasks_from_raw(domain : str, instance_type : Optional[str] = None)-> list[Task]:
-    with open(settings.STRUCTURE_FILE, 'r') as f:
-        structure = yaml.safe_load(f)
-
-    assert domain in structure, f"Domain '{domain}' not found in {settings.STRUCTURE_FILE}."
-    domain_info = structure[domain]
-    assert 'path' in domain_info, f"Path for domain '{domain}' not specified in structure."
-    domain_path = domain_info['path']
-    assert os.path.exists(domain_path), f"Domain file '{domain_path}' does not exist."
-    
-    _domain = Domain(name=domain, path=domain_path)
-    tasks : list[Task] = []
-
-    assert 'instances' in domain_info, f"Instances for domain '{domain}' not specified in structure."
-    instances_info = domain_info['instances']
-    assert instance_type in instances_info, f"Instance type '{instance_type}' not found in domain '{domain}'."
-
-    assert "dir_path" in instances_info[instance_type], f"Directory path for instances of type '{instance_type}' not specified in structure."
-    instance_dir = instances_info[instance_type]['dir_path']
-
-    assert "regex" in instances_info[instance_type], f"Regex pattern for instances of type '{instance_type}' not specified in structure."
-    regex_pattern = instances_info[instance_type]['regex']
-
-    for file in os.listdir(instance_dir):
-        if not re.match(regex_pattern, file):
+def get_tasks(domain : str)-> list[Task]:
+    domain_dir_path = os.path.join(settings.BENCHMARKS_DIR, domain)
+    if not os.path.isdir(domain_dir_path):
+        raise ValueError(f"Domain directory '{domain_dir_path}' does not exist.")
+    domain_path = os.path.join(domain_dir_path, "domain.pddl")
+    if not os.path.isfile(domain_path):
+        raise ValueError(f"Domain file '{domain_path}' does not exist.")
+    instance_dir_path = os.path.join(domain_dir_path, "instances")
+    if not os.path.isdir(instance_dir_path):
+        raise ValueError(f"Instance directory '{instance_dir_path}' does not exist.")
+    d = Domain(name=domain, path=domain_path)
+    tasks = []
+    for instance in os.listdir(instance_dir_path):
+        if not instance.endswith('.pddl'):
             continue
-
-        instance_path = os.path.join(instance_dir, file)
+        instance_path = os.path.join(instance_dir_path, instance)
         if not os.path.isfile(instance_path):
             continue
-
-        _instance = Instance(
-            name=file.split('/')[-1].replace('.pddl', '').strip(),
-            path=instance_path,
-            id=int(re.match(regex_pattern, file).group(1)),
-            type=instance_type
+        i = Instance(
+            name=instance.split('/')[-1].replace('.pddl', '').strip(),
+            path=instance_path
         )
-        tasks.append(Task(_domain, _instance))
-
+        tasks.append(Task(d, i))
     return tasks
