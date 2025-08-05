@@ -1,6 +1,7 @@
 import subprocess
 import os
 import math
+import numpy as np
 
 """
 command: 
@@ -16,11 +17,34 @@ output:
     instance file on stdout
 """
 
-cities = [2, 3]
-locations = [1, 2]
+# easy : 2 cities
+# medium : 3 cities
+# hard : 4 cities
+
+instances = {
+    "2-city-2-location": {
+        "cities": 2,
+        "locations": 2,
+        "packages": np.arange(5, 15, dtype=int)
+    },
+    "3-city-3-location": {
+        "cities": 3,
+        "locations": 3,
+        "packages": np.arange(5, 15, dtype=int)
+    },
+    "4-city-4-location": {
+        "cities": 4,
+        "locations": 4,
+        "packages": np.arange(5, 15, dtype=int)
+    },
+    "5-city-5-location": {
+        "cities": 5,
+        "locations": 5,
+        "packages": np.arange(5, 15, dtype=int)
+    }
+}
 
 airplane = 1
-packages = [5, 6, 7, 8, 9]
 random_seed = 42
 
 # Create a directory for instances if it doesn't exist
@@ -29,32 +53,26 @@ instances_dir = os.path.join(script_dir, "instances")
 os.makedirs(instances_dir, exist_ok=True)
 logistics_path = os.path.join(script_dir, "logistics")
 
-for c in range(len(cities)):
-    city_dir = os.path.join(instances_dir, f"{cities[c]}-city")
-    os.makedirs(city_dir, exist_ok=True)
-
-    for l in range(len(locations)):
-        location_dir = os.path.join(city_dir, f"{locations[l]}-location")
-        os.makedirs(location_dir, exist_ok=True)
-
-        for p in range(len(packages)):
-            inst = (len(packages)*len(locations)*c) + (len(packages)*l) + p + 1
-            
-            command = [
-                logistics_path,
-                "-a", str(airplane),
-                "-c", str(cities[c]),
-                "-s", str(locations[l]),
-                "-p", str(packages[p]),
-                "-r", str(random_seed)
-            ]
-
-            instance_name = "p" + "0" * ((int(math.log10(len(cities) * len(locations) * len(packages))) + 1) - (int(math.log10(inst) + 1))) + str(inst) + ".pddl"
-
-            try:
-                with open(os.path.join(location_dir, instance_name), "w") as instance_file:
-                    result = subprocess.run(command, capture_output=True, text=True)
-                    instance_file.write(result.stdout)
-            except subprocess.CalledProcessError as e:
-                print(f"Error executing logistics command: {e}")
-                print(f"Error output: {e.stderr}")
+inst = 0
+max_inst = sum(len(v["packages"]) for v in instances.values())
+for inst_type, inst_data in instances.items():
+    inst_dir = os.path.join(instances_dir, inst_type)
+    os.makedirs(inst_dir, exist_ok=True)
+    for p in inst_data["packages"]:
+        inst += 1
+        command = [
+            logistics_path,
+            "-a", str(airplane),
+            "-c", str(inst_data["cities"]),
+            "-s", str(inst_data["locations"]),
+            "-p", str(p),
+            "-r", str(random_seed)
+        ]
+        instance_name = "p" + "0" * ((int(math.log10(max_inst)) + 1) - (int(math.log10(inst) + 1))) + str(inst) + ".pddl"
+        try:
+            with open(os.path.join(inst_dir, instance_name), "w") as instance_file:
+                result = subprocess.run(command, capture_output=True, text=True)
+                instance_file.write(result.stdout)
+        except subprocess.CalledProcessError as e:
+            print(f"Error executing logistics command: {e}")
+            print(f"Error output: {e.stderr}")

@@ -1,0 +1,183 @@
+INFO     planner time limit: None
+INFO     planner memory limit: None
+
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /home/macsilva/anaconda3/envs/reasoning/bin/python3 /home/macsilva/downward/builds/release/bin/translate/translate.py data/benchmarks/blocksworld/domain.pddl data/benchmarks/blocksworld/instances/5-to-10-blocks/p10.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.002s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 21 rules.
+Computing model... [0.010s CPU, 0.002s wall-clock]
+308 relevant atoms
+207 auxiliary atoms
+515 final queue length
+859 total queue pushes
+Completing instantiation... [0.000s CPU, 0.004s wall-clock]
+Instantiating: [0.010s CPU, 0.008s wall-clock]
+Computing fact groups...
+Finding invariants...
+10 initial candidates
+Finding invariants: [0.000s CPU, 0.002s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+10 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.003s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Processing axioms: [0.010s CPU, 0.000s wall-clock]
+Translating task: [0.010s CPU, 0.005s wall-clock]
+234 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+18 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.002s wall-clock]
+Reordering and filtering variables...
+19 of 19 variables necessary.
+10 of 19 mutex groups necessary.
+162 of 162 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.002s wall-clock]
+Translator variables: 19
+Translator derived variables: 0
+Translator facts: 110
+Translator goal facts: 7
+Translator mutex groups: 10
+Translator total mutex groups size: 100
+Translator operators: 162
+Translator axioms: 0
+Translator task size: 1424
+Translator peak memory: 35388 KB
+Writing output... [0.010s CPU, 0.003s wall-clock]
+Done! [0.030s CPU, 0.026s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/macsilva/downward/builds/release/bin/downward --search 'astar(ff())' --internal-plan-file sas_plan < output.sas
+[t=0.000124s, 45744 KB] Search code revision: d9f74a5a8-dirty
+[t=0.000238s, 45744 KB] reading input...
+[t=0.001471s, 45744 KB] done reading input!
+[t=0.002956s, 46132 KB] Simplifying 630 unary operators... done! [486 unary operators]
+[t=0.003445s, 46132 KB] time to simplify: 0.000541s
+[t=0.003528s, 46132 KB] Initializing additive heuristic...
+[t=0.003558s, 46132 KB] Initializing FF heuristic...
+[t=0.003607s, 46132 KB] Building successor generator...done!
+[t=0.003729s, 46132 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.003748s, 46132 KB] time for successor generation creation: 0.000061s
+[t=0.003769s, 46132 KB] Variables: 19
+[t=0.003788s, 46132 KB] FactPairs: 110
+[t=0.003806s, 46132 KB] Bytes per state: 8
+[t=0.003845s, 46132 KB] Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+[t=0.003906s, 46132 KB] New best heuristic value for ff: 14
+[t=0.003940s, 46132 KB] g=0, 1 evaluated, 0 expanded
+[t=0.003963s, 46132 KB] f = 14, 1 evaluated, 0 expanded
+[t=0.003985s, 46132 KB] Initial heuristic value for ff: 14
+[t=0.004013s, 46132 KB] pruning method: none
+[t=0.004065s, 46132 KB] f = 15, 3 evaluated, 1 expanded
+[t=0.004108s, 46132 KB] f = 16, 5 evaluated, 2 expanded
+[t=0.004177s, 46132 KB] f = 17, 10 evaluated, 5 expanded
+[t=0.004302s, 46132 KB] f = 18, 18 evaluated, 9 expanded
+[t=0.004557s, 46132 KB] f = 19, 37 evaluated, 18 expanded
+[t=0.004613s, 46132 KB] New best heuristic value for ff: 13
+[t=0.004635s, 46132 KB] g=6, 38 evaluated, 19 expanded
+[t=0.005073s, 46132 KB] f = 20, 86 evaluated, 40 expanded
+[t=0.006064s, 46132 KB] f = 21, 204 evaluated, 89 expanded
+[t=0.008221s, 46132 KB] f = 22, 459 evaluated, 200 expanded
+[t=0.008342s, 46132 KB] New best heuristic value for ff: 12
+[t=0.008373s, 46132 KB] g=10, 462 evaluated, 202 expanded
+[t=0.013990s, 46264 KB] f = 23, 1088 evaluated, 469 expanded
+[t=0.014201s, 46264 KB] New best heuristic value for ff: 11
+[t=0.014231s, 46264 KB] g=12, 1096 evaluated, 474 expanded
+[t=0.027128s, 46264 KB] f = 24, 2415 evaluated, 1079 expanded
+[t=0.032456s, 46264 KB] New best heuristic value for ff: 10
+[t=0.032528s, 46264 KB] g=14, 3044 evaluated, 1382 expanded
+[t=0.032711s, 46264 KB] New best heuristic value for ff: 9
+[t=0.032746s, 46264 KB] g=14, 3056 evaluated, 1386 expanded
+[t=0.032893s, 46264 KB] New best heuristic value for ff: 8
+[t=0.032925s, 46264 KB] g=16, 3066 evaluated, 1388 expanded
+[t=0.034100s, 46264 KB] New best heuristic value for ff: 7
+[t=0.034142s, 46264 KB] g=16, 3202 evaluated, 1423 expanded
+[t=0.034314s, 46264 KB] New best heuristic value for ff: 6
+[t=0.034398s, 46264 KB] g=18, 3212 evaluated, 1425 expanded
+[t=0.034504s, 46264 KB] New best heuristic value for ff: 5
+[t=0.034536s, 46264 KB] g=18, 3219 evaluated, 1427 expanded
+[t=0.034621s, 46264 KB] New best heuristic value for ff: 4
+[t=0.034689s, 46264 KB] g=20, 3224 evaluated, 1429 expanded
+[t=0.054640s, 46408 KB] f = 25, 5523 evaluated, 2453 expanded
+[t=0.059572s, 46408 KB] New best heuristic value for ff: 2
+[t=0.059619s, 46408 KB] g=22, 6156 evaluated, 2678 expanded
+[t=0.059670s, 46408 KB] New best heuristic value for ff: 1
+[t=0.059701s, 46408 KB] g=23, 6158 evaluated, 2679 expanded
+[t=0.059743s, 46408 KB] New best heuristic value for ff: 0
+[t=0.059775s, 46408 KB] g=24, 6160 evaluated, 2680 expanded
+[t=0.059812s, 46408 KB] Solution found!
+[t=0.059842s, 46408 KB] Actual search time: 0.055831s
+unstack b3 b5 (1)
+putdown b3 (1)
+unstack b5 b1 (1)
+stack b5 b3 (1)
+unstack b1 b8 (1)
+stack b1 b5 (1)
+unstack b9 b7 (1)
+stack b9 b8 (1)
+unstack b7 b2 (1)
+putdown b7 (1)
+unstack b2 b6 (1)
+putdown b2 (1)
+unstack b1 b5 (1)
+stack b1 b2 (1)
+unstack b6 b4 (1)
+stack b6 b1 (1)
+pickup b4 (1)
+stack b4 b9 (1)
+pickup b7 (1)
+stack b7 b4 (1)
+unstack b5 b3 (1)
+stack b5 b7 (1)
+pickup b3 (1)
+stack b3 b5 (1)
+[t=0.059871s, 46408 KB] Plan length: 24 step(s).
+[t=0.059871s, 46408 KB] Plan cost: 24
+[t=0.059871s, 46408 KB] Expanded 2681 state(s).
+[t=0.059871s, 46408 KB] Reopened 0 state(s).
+[t=0.059871s, 46408 KB] Evaluated 6161 state(s).
+[t=0.059871s, 46408 KB] Evaluations: 6161
+[t=0.059871s, 46408 KB] Generated 10932 state(s).
+[t=0.059871s, 46408 KB] Dead ends: 0 state(s).
+[t=0.059871s, 46408 KB] Expanded until last jump: 2453 state(s).
+[t=0.059871s, 46408 KB] Reopened until last jump: 0 state(s).
+[t=0.059871s, 46408 KB] Evaluated until last jump: 5523 state(s).
+[t=0.059871s, 46408 KB] Generated until last jump: 9953 state(s).
+[t=0.059871s, 46408 KB] Number of registered states: 6161
+[t=0.059871s, 46408 KB] Int hash set load factor: 6161/8192 = 0.752075
+[t=0.059871s, 46408 KB] Int hash set resizes: 13
+[t=0.059871s, 46408 KB] Search time: 0.056027s
+[t=0.059871s, 46408 KB] Total time: 0.059871s
+Solution found.
+Peak memory: 46408 KB
+Remove intermediate file output.sas
+search exit code: 0
+
+INFO     Planner time: 0.20s
