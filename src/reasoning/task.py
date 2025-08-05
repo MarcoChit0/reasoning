@@ -86,6 +86,7 @@ import re
 
 def get_tasks(domain : str)-> list[Task]:
     domain_dir_path = os.path.join(settings.BENCHMARKS_DIR, domain)
+    print(f"Domain directory path: {domain_dir_path}")
     if not os.path.isdir(domain_dir_path):
         raise ValueError(f"Domain directory '{domain_dir_path}' does not exist.")
     domain_path = os.path.join(domain_dir_path, "domain.pddl")
