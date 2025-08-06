@@ -1,0 +1,7 @@
+model_name: gemini-2.0-flash-lite
+generation_config:
+  max_output_tokens: 8192
+  top_p: 0.95
+  temperature: 1.0
+  top_k: 64
+wait_time: 3
