@@ -49,12 +49,11 @@ class Instance(PDDLResource):
         if match:
             self.id : int = int(match.group(1))
         else:
-            self.id : int = 0  # Default value for non-matching filenames
-        # Extract type from path: get subdirectories after 'instances' and join with '+'
+            self.id : int = 0 
         path_parts = self.path.split(os.sep)
         instances_idx = path_parts.index('instances')
-        type_parts = path_parts[instances_idx + 1:-1]  # Exclude the filename
-        self.type : str = '+'.join(type_parts)
+        subdirectory_parts = path_parts[instances_idx + 1:-1]
+        self.subdirs : list[str] = subdirectory_parts if subdirectory_parts else []
 
     def __lt__(self, other):
         if not isinstance(other, Instance):
@@ -82,9 +81,7 @@ from reasoning import settings
 import os
 import re 
 from reasoning import settings
-from typing import Optional
 import os
-import yaml
 import re 
 
 def get_tasks(domain : str)-> list[Task]:

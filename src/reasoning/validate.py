@@ -45,12 +45,11 @@ def validate_experiment(experiment_path: str) -> None:
     Validate an experiment.
     The experiment structure should be the following:
     experiment_path/
-        <domain>/
-            <instance_type>/
-                <model>/
-                    <template>/
-                        <instance_file>.log
-                        ...
+        <model>/
+            <template>/
+                <domain>/
+                    <instance_subdir>*/
+                        <instance>.log
                     ...
                 ...
             ...
@@ -60,7 +59,7 @@ def validate_experiment(experiment_path: str) -> None:
     Each row contains:
     - experiment
     - domain
-    - instance_type
+    - instance_subdir (path after domain directory)
     - model
     - template
     - instance
@@ -73,37 +72,41 @@ def validate_experiment(experiment_path: str) -> None:
     experiment = experiment_path.split('/')[-1].strip()
     print(f"Experiment: {experiment}")
     
-    for domain in os.listdir(experiment_path):
-        domain_path = os.path.join(experiment_path, domain)
-        if not os.path.isdir(domain_path):
+    for model in os.listdir(experiment_path):
+        model_path = os.path.join(experiment_path, model)
+        if not os.path.isdir(model_path):
             continue
-        print(f"\tDomain: {domain}")
-        temp_domain_path = os.path.join(domain_path, "temp_domain.pddl")
-
-        for instance_type in os.listdir(domain_path):
-            instance_type_path = os.path.join(domain_path, instance_type)
-            if not os.path.isdir(instance_type_path):
-                continue
-            print(f"\t\tInstance Type: {instance_type}")
-
-            for model in os.listdir(instance_type_path):
-                model_path = os.path.join(instance_type_path, model)
-                if not os.path.isdir(model_path):
+        print(f"\tModel: {model}")
+        
+        for template in os.listdir(model_path):
+            template_path = os.path.join(model_path, template)
+            if not os.path.isdir(template_path):
+                continue    
+            print(f"\t\tTemplate: {template}")
+            
+            for domain in os.listdir(template_path):
+                domain_path = os.path.join(template_path, domain)
+                if not os.path.isdir(domain_path):
                     continue
-                print(f"\t\t\tModel: {model}")
+                print(f"\t\t\tDomain: {domain}")
+                temp_domain_path = os.path.join(domain_path, "temp_domain.pddl")
                 
-                for template in os.listdir(model_path):
-                    template_path = os.path.join(model_path, template)
-                    if not os.path.isdir(template_path):
-                        continue    
-                    print(f"\t\t\t\tTemplate: {template}")
-
-                    for instance_file in os.listdir(template_path):
+                # Process all log files under this domain directory
+                for root, _, files in os.walk(domain_path):
+                    for instance_file in files:
                         if not instance_file.endswith(".log"):
                             continue
+                            
                         instance = instance_file.replace(".log", "")
-                        instance_path = os.path.join(template_path, instance_file)
-                        temp_instance_path = os.path.join(instance_type_path, "temp_instance.pddl")
+                        instance_path = os.path.join(root, instance_file)
+                        
+                        # Get the relative path from domain directory to instance directory
+                        relative_path = os.path.relpath(root, domain_path)
+                        instance_subdir = relative_path if relative_path != "." else ""
+                        
+                        print(f"\t\t\t\tInstance: {instance_subdir}/{instance}")
+                        
+                        temp_instance_path = os.path.join(root, "temp_instance.pddl")
                         
                         with open(instance_path, 'r') as f:
                             content = f.read()
@@ -133,15 +136,16 @@ def validate_experiment(experiment_path: str) -> None:
                             prompt_metadata = {}
 
                         samples = []
+                        temp_content = content
                         while True:
-                            start_index = content.find("<sample>")
-                            end_index = content.find("</sample>")
+                            start_index = temp_content.find("<sample>")
+                            end_index = temp_content.find("</sample>")
                             if start_index == -1 or end_index == -1:
                                 break
 
-                            sample = content[start_index + len("<sample>"):end_index].strip()
+                            sample = temp_content[start_index + len("<sample>"):end_index].strip()
                             samples.append(sample)
-                            content = content[end_index + len("</sample>"):].strip()
+                            temp_content = temp_content[end_index + len("</sample>"):].strip()
 
                         sample_id = 0
                         for sample in samples:
@@ -151,7 +155,7 @@ def validate_experiment(experiment_path: str) -> None:
                             plan_metadata = {}
                             try:
                                 plan, plan_metadata = process_sample(sample)
-                                temp_plan_path = os.path.join(instance_type_path, "temp_plan.txt")
+                                temp_plan_path = os.path.join(root, "temp_plan.txt")
                                 with open(temp_plan_path, 'w') as f:
                                     f.write(plan)
                                 try:
@@ -174,7 +178,7 @@ def validate_experiment(experiment_path: str) -> None:
                                 data.append({
                                     "experiment": experiment,
                                     "domain": domain,
-                                    "instance_type": instance_type,
+                                    "instance_subdir": instance_subdir,
                                     "model": model,
                                     "template": template,
                                     "instance": instance,

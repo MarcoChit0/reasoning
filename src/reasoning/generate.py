@@ -27,15 +27,6 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
     generation_config = config.get("generation_config", {})
     config_name = config_path.split('/')[-1].split('.')[0].strip()
 
-    path = os.path.join(
-        EXPERIMENTS_DIR,
-        experiment,
-        domain,
-        config_name,
-        template
-    )
-    os.makedirs(path, exist_ok=True)
-
     tasks : list[Task] = get_tasks(domain)
     print(f"Found {len(tasks)} tasks for domain '{domain}'.")
 
@@ -45,7 +36,7 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
     indices = np.random.choice(len(tasks), min(instances, len(tasks)), replace=False)
     tasks = [tasks[i] for i in indices]
 
-    already_generated_instances = [f.split(".")[0] for f in os.listdir(path) if f.endswith(".log")]
+    already_generated_instances = [f.split(".")[0] for f in os.listdir(dir_path) if f.endswith(".log")]
     print(f"Already generated instances: {len(already_generated_instances)}")
 
     tasks = [task for task in tasks if task.instance.name not in already_generated_instances]
@@ -54,9 +45,19 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
     progress_bar = tqdm.tqdm(total=len(tasks) * samples, desc="Generating content", unit="sample")
 
     for task in tasks:
+        dir_path = os.path.join(
+            EXPERIMENTS_DIR,
+            experiment,
+            config_name,
+            template,
+            domain,
+            *task.instance.subdirs,
+        )
+        os.makedirs(dir_path, exist_ok=True)
+
         logger = logging.getLogger()
         logger.setLevel(logging.INFO)
-        log_file = os.path.join(path, f"{task.instance.name}.log")
+        log_file = os.path.join(dir_path, f"{task.instance.name}.log")
         handler = logging.FileHandler(log_file, mode='w')
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
