@@ -103,7 +103,7 @@ if __name__ == "__main__":
     instances = 20
     domains = ["logistics", "blocksworld", "spanner", "miconic"]
     config_paths = [
-        "src/configs/gemini-thinking.yaml",
+        "src/configs/gemini-2.0-flash-lite.yaml",
     ]
 
     for config_path in config_paths:

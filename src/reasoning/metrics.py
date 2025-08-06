@@ -22,7 +22,7 @@ def process_data(experiment_path):
     df = pd.read_csv(validation_path)
     df['valid'] = pd.to_numeric(df['valid'], errors='coerce').fillna(0).astype(bool)
 
-    grouped = df.groupby(['experiment', 'domain', 'instance_type', 'model', 'template'])
+    grouped = df.groupby(['experiment', 'domain', 'instance_subdir', 'model', 'template'])
     agg_funcs = {
         'sample_id': 'max',
         'valid': ['sum', 'count'],
@@ -68,4 +68,21 @@ if __name__ == "__main__":
     
     metrics_path = os.path.join(EXPERIMENTS_DIR, METRICS_FILE_NAME)
     df.to_csv(metrics_path, index=False)
-    print(df.groupby(['experiment', 'domain', 'instance_type', 'model', 'template']).mean())
+    def key_instance_subdir(s):
+        try:
+            instance = s.split('/')[-1]
+            n = instance.split('-')[0]
+            return int(n)
+        except:
+            return s
+    grouped_df = df.groupby(['experiment', 'domain', 'instance_subdir', 'model', 'template']).mean().reset_index()
+    # Create a temporary column for sorting instance_subdir
+    grouped_df['instance_sort_key'] = grouped_df['instance_subdir'].apply(key_instance_subdir)
+    # Sort by experiment and domain first, then by the numeric instance value, and template in descending order
+    sorted_df = grouped_df.sort_values(
+        by=['experiment', 'domain', 'instance_sort_key', 'template'],
+        ascending=[True, True, True, False]
+    )
+    # Drop the temporary column before printing
+    sorted_df = sorted_df.drop(['instance_sort_key', 'experiment'], axis=1)
+    print(sorted_df.to_string(index=False))
