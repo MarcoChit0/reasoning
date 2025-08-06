@@ -1,46 +1,22 @@
 from datetime import time
-import dotenv
 import yaml
 import tqdm
 import os
 import reasoning.models as models
 from reasoning.task import Task, get_tasks
 from reasoning.prompt import build_prompt
+from reasoning.utils import from_config
 import logging
-import numpy as np
-import time
 from reasoning.settings import EXPERIMENTS_DIR
 
-def generate(config_path: str, domain: str, template: str, instances: int, samples: int, experiment: str = time.time()):
-    with open(config_path, 'r') as f:
-        config = yaml.safe_load(f)
-
-    model_config = config.get("model_config", {})
-    try:
-        model = models.get_model_from_model_config(model_config)
-    except Exception as e:
-        raise ValueError(f"Error initializing model with model_config: {model_config}. Error: {e}")
-
-    wait_time = config.get("wait_time", 0)
-    generation_config = config.get("generation_config", {})
-    config_name = config_path.split('/')[-1].replace('.yaml', '').strip()
-
-    tasks : list[Task] = get_tasks(domain)
-    print(f"Found {len(tasks)} tasks for domain '{domain}'.")
-
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    # Randomly select instances number of tasks
-    indices = np.random.choice(len(tasks), min(instances, len(tasks)), replace=False)
-    tasks = [tasks[i] for i in indices]
-
+def generate(model: models.Model, tasks: list[Task], template: str, samples: int, experiment: str, model_dir: str, **kwargs):
     for task in tqdm.tqdm(tasks, desc="Generating content", unit="task"):
         dir_path = os.path.join(
             EXPERIMENTS_DIR,
             experiment,
-            config_name,
+            model_dir,
             template,
-            domain,
+            task.domain.name,
             *task.instance.subdirs,
         )
         os.makedirs(dir_path, exist_ok=True)
@@ -57,14 +33,14 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
 
         try:
             logging.info(f"Processing task: {task}")
-            logging.info(f"Using model: {model_name}")
-            logging.info(f"Generation parameters: {generation_config}")
+            logging.info(f"Using model: {model.name}")
+            logging.info(f"Generation parameters: {kwargs}")
             prompt = build_prompt(task, template, logger)
             for i in range(samples):
                 logging.info(f"Sample: {i + 1}.")
                 sample = "\n<sample>\n"
                 try:
-                    response = model.generate_response(prompt, **generation_config)
+                    response = model.generate_response(prompt, **kwargs)
                     sample += f"<response>\n{response['response']}\n</response>\n"
                     sample += f"<metadata>\n{str(response['metadata'])}\n</metadata>\n"
                     success = True
@@ -78,8 +54,6 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
                     else:
                         logging.error(sample)
                     
-                if wait_time > 0:
-                    time.sleep(wait_time)
         except ValueError as e:
             logging.error(f"Error: Could not build prompt for task {task}: {e}")
         finally:
@@ -90,21 +64,34 @@ if __name__ == "__main__":
     experiment = "many-models"
     samples = 1
     templates = ["pddl", "landmark"]
-    instances = 20
     domains = ["logistics", "blocksworld", "spanner", "miconic"]
     config_paths = [
         "src/configs/gemini-2.0-flash-lite.yaml",
     ]
 
     for config_path in config_paths:
+        config = from_config(config_path)
+        model_config = config.get("model_config", {})
+        generation_config = config.get("generation_config", {})
+        model_dir = config_path.split('/')[-1].replace('.yaml', '').strip()
+        try:
+            model = models.get_model_from_model_config(**model_config)
+        except Exception as e:
+            raise ValueError(f"Error initializing model with model_config: {model_config}. Error: {e}")
         for template in templates:
             for domain in domains:
-                print(f"Experiment '{experiment}': generating content for domain '{domain}', template '{template}', using config '{config_path}'.")
+                try:
+                    tasks = get_tasks(domain)
+                except ValueError as e:
+                    raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
+                print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")
                 generate(
-                    config_path=config_path,
-                    domain=domain,
+                    model=model,
+                    tasks=tasks,
                     template=template,
-                    instances=instances,
                     samples=samples,
-                    experiment=experiment
+                    experiment=experiment,
+                    model_dir=model_dir,
+                    **generation_config
                 )
+

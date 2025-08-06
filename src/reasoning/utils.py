@@ -67,3 +67,16 @@ def call_val(domain_path : str, instance_path: str, plan_path : str) -> str:
         return result.stdout
     except subprocess.CalledProcessError as e:
         raise RuntimeError(f"Error validating plan: {e.stderr.strip()}")
+
+def from_config(config_path: str):
+    """
+    Load a configuration from a YAML file.
+    """
+    import yaml
+    with open(config_path, 'r') as f:
+        config = yaml.safe_load(f)
+    
+    if not isinstance(config, dict):
+        raise ValueError("Configuration file must contain a dictionary.")
+    
+    return config

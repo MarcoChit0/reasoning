@@ -2,6 +2,7 @@ from time import time
 from google import genai
 from google.genai import types
 import dotenv
+import time
 
 class Model:
     def __init__(self, name: str, **kwargs):
@@ -16,14 +17,14 @@ class GoogleModel(Model):
         super().__init__(name, **kwargs)
         try:
             dotenv.load_dotenv()
-            api_key = dotenv.get_key(dotenv.find_dotenv(), None)
+            api_key = dotenv.get_key(dotenv.find_dotenv(), "GOOGLE_API_KEY")
             if api_key is None:
                 raise ValueError("GOOGLE_API_KEY not found in environment variables.")
             self.client = genai.Client(api_key=api_key)
         except Exception as e:
             raise RuntimeError(f"Failed to initialize Google GenAI client: {e}")
 
-    def generate_response(self, prompt: str, **params) -> dict[str, str]:
+    def generate_response(self, prompt: str, wait_time: int = 0, **params) -> dict[str, str]:
         generation_config = types.GenerateContentConfig(**params)
         try:
             response = self.client.models.generate_content(
@@ -38,6 +39,9 @@ class GoogleModel(Model):
             raise RuntimeError("No candidates returned from generation.")
         
         candidate_response = "".join(part.text for part in response.candidates[0].content.parts)
+
+        if wait_time > 0:
+            time.sleep(wait_time)
     
         return {
             "response" : candidate_response,
@@ -61,9 +65,9 @@ class QwenModel:
         super().__init__(name, **kwargs)
 
         dotenv.load_dotenv()
-        api_key = dotenv.get_key(dotenv.find_dotenv(), None)
+        api_key = dotenv.get_key(dotenv.find_dotenv(), "HUGGINGFACE_TOKEN")
         if api_key is None:
-            raise ValueError("HUGGINGFACE_API_KEY not found in environment variables.")
+            raise ValueError("HUGGINGFACE_TOKEN not found in environment variables.")
 
         # load tokenizer
         try:
