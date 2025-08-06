@@ -1,0 +1,858 @@
+2025-08-06 11:33:10,934 - INFO - Processing task: Task(domain=miconic, instance=p09)
+2025-08-06 11:33:10,934 - INFO - Using model: gemini-2.0-flash-lite
+2025-08-06 11:33:10,934 - INFO - Generation parameters: {'max_output_tokens': 8192, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64}
+2025-08-06 11:33:11,415 - INFO - Prompt:
+<prompt>
+<problem-description-with-landmarks>
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>miconic</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
+</problem-description-with-landmarks> 
+
+This is the PDDL domain file of the miconic domain:
+<domain-file>
+(define (domain miconic)
+(:requirements :strips)
+(:types
+passenger - object
+floor - object
+)
+(:predicates
+(origin ?person - passenger ?floor - floor)
+(destin ?person - passenger ?floor - floor)
+(above ?floor1 - floor ?floor2 - floor)
+(boarded ?person - passenger)
+(not-boarded ?person - passenger)
+(served ?person - passenger)
+(not-served ?person - passenger)
+(lift-at ?floor - floor)
+)
+(:action board
+:parameters (?f - floor ?p - passenger)
+:precondition (and (lift-at ?f) (origin ?p ?f))
+:effect (boarded ?p)
+)
+(:action depart
+:parameters (?f - floor ?p - passenger)
+:precondition (and (lift-at ?f) (destin ?p ?f)
+(boarded ?p))
+:effect (and (not (boarded ?p))
+(served ?p))
+)
+(:action up
+:parameters (?f1 - floor ?f2 - floor)
+:precondition (and (lift-at ?f1) (above ?f1 ?f2))
+:effect (and (lift-at ?f2) (not (lift-at ?f1)))
+)
+(:action down
+:parameters (?f1 - floor ?f2 - floor)
+:precondition (and (lift-at ?f1) (above ?f2 ?f1))
+:effect (and (lift-at ?f2) (not (lift-at ?f1)))
+)
+)
+</domain-file>
+
+This is the PDDL instance file, for which you need to generate a plan:
+<instance-file>
+(define (problem mixed-f24-p12-u0-v0-d0-a0-n0-A0-B0-N0-F0)
+(:domain miconic)
+(:objects p0 p1 p2 p3 p4 p5 p6 p7 p8 p9
+p10 p11 - passenger
+f0 f1 f2 f3 f4 f5 f6 f7 f8 f9
+f10 f11 f12 f13 f14 f15 f16 f17 f18 f19
+f20 f21 f22 f23 - floor)
+(:init
+(above f0 f1)
+(above f0 f2)
+(above f0 f3)
+(above f0 f4)
+(above f0 f5)
+(above f0 f6)
+(above f0 f7)
+(above f0 f8)
+(above f0 f9)
+(above f0 f10)
+(above f0 f11)
+(above f0 f12)
+(above f0 f13)
+(above f0 f14)
+(above f0 f15)
+(above f0 f16)
+(above f0 f17)
+(above f0 f18)
+(above f0 f19)
+(above f0 f20)
+(above f0 f21)
+(above f0 f22)
+(above f0 f23)
+(above f1 f2)
+(above f1 f3)
+(above f1 f4)
+(above f1 f5)
+(above f1 f6)
+(above f1 f7)
+(above f1 f8)
+(above f1 f9)
+(above f1 f10)
+(above f1 f11)
+(above f1 f12)
+(above f1 f13)
+(above f1 f14)
+(above f1 f15)
+(above f1 f16)
+(above f1 f17)
+(above f1 f18)
+(above f1 f19)
+(above f1 f20)
+(above f1 f21)
+(above f1 f22)
+(above f1 f23)
+(above f2 f3)
+(above f2 f4)
+(above f2 f5)
+(above f2 f6)
+(above f2 f7)
+(above f2 f8)
+(above f2 f9)
+(above f2 f10)
+(above f2 f11)
+(above f2 f12)
+(above f2 f13)
+(above f2 f14)
+(above f2 f15)
+(above f2 f16)
+(above f2 f17)
+(above f2 f18)
+(above f2 f19)
+(above f2 f20)
+(above f2 f21)
+(above f2 f22)
+(above f2 f23)
+(above f3 f4)
+(above f3 f5)
+(above f3 f6)
+(above f3 f7)
+(above f3 f8)
+(above f3 f9)
+(above f3 f10)
+(above f3 f11)
+(above f3 f12)
+(above f3 f13)
+(above f3 f14)
+(above f3 f15)
+(above f3 f16)
+(above f3 f17)
+(above f3 f18)
+(above f3 f19)
+(above f3 f20)
+(above f3 f21)
+(above f3 f22)
+(above f3 f23)
+(above f4 f5)
+(above f4 f6)
+(above f4 f7)
+(above f4 f8)
+(above f4 f9)
+(above f4 f10)
+(above f4 f11)
+(above f4 f12)
+(above f4 f13)
+(above f4 f14)
+(above f4 f15)
+(above f4 f16)
+(above f4 f17)
+(above f4 f18)
+(above f4 f19)
+(above f4 f20)
+(above f4 f21)
+(above f4 f22)
+(above f4 f23)
+(above f5 f6)
+(above f5 f7)
+(above f5 f8)
+(above f5 f9)
+(above f5 f10)
+(above f5 f11)
+(above f5 f12)
+(above f5 f13)
+(above f5 f14)
+(above f5 f15)
+(above f5 f16)
+(above f5 f17)
+(above f5 f18)
+(above f5 f19)
+(above f5 f20)
+(above f5 f21)
+(above f5 f22)
+(above f5 f23)
+(above f6 f7)
+(above f6 f8)
+(above f6 f9)
+(above f6 f10)
+(above f6 f11)
+(above f6 f12)
+(above f6 f13)
+(above f6 f14)
+(above f6 f15)
+(above f6 f16)
+(above f6 f17)
+(above f6 f18)
+(above f6 f19)
+(above f6 f20)
+(above f6 f21)
+(above f6 f22)
+(above f6 f23)
+(above f7 f8)
+(above f7 f9)
+(above f7 f10)
+(above f7 f11)
+(above f7 f12)
+(above f7 f13)
+(above f7 f14)
+(above f7 f15)
+(above f7 f16)
+(above f7 f17)
+(above f7 f18)
+(above f7 f19)
+(above f7 f20)
+(above f7 f21)
+(above f7 f22)
+(above f7 f23)
+(above f8 f9)
+(above f8 f10)
+(above f8 f11)
+(above f8 f12)
+(above f8 f13)
+(above f8 f14)
+(above f8 f15)
+(above f8 f16)
+(above f8 f17)
+(above f8 f18)
+(above f8 f19)
+(above f8 f20)
+(above f8 f21)
+(above f8 f22)
+(above f8 f23)
+(above f9 f10)
+(above f9 f11)
+(above f9 f12)
+(above f9 f13)
+(above f9 f14)
+(above f9 f15)
+(above f9 f16)
+(above f9 f17)
+(above f9 f18)
+(above f9 f19)
+(above f9 f20)
+(above f9 f21)
+(above f9 f22)
+(above f9 f23)
+(above f10 f11)
+(above f10 f12)
+(above f10 f13)
+(above f10 f14)
+(above f10 f15)
+(above f10 f16)
+(above f10 f17)
+(above f10 f18)
+(above f10 f19)
+(above f10 f20)
+(above f10 f21)
+(above f10 f22)
+(above f10 f23)
+(above f11 f12)
+(above f11 f13)
+(above f11 f14)
+(above f11 f15)
+(above f11 f16)
+(above f11 f17)
+(above f11 f18)
+(above f11 f19)
+(above f11 f20)
+(above f11 f21)
+(above f11 f22)
+(above f11 f23)
+(above f12 f13)
+(above f12 f14)
+(above f12 f15)
+(above f12 f16)
+(above f12 f17)
+(above f12 f18)
+(above f12 f19)
+(above f12 f20)
+(above f12 f21)
+(above f12 f22)
+(above f12 f23)
+(above f13 f14)
+(above f13 f15)
+(above f13 f16)
+(above f13 f17)
+(above f13 f18)
+(above f13 f19)
+(above f13 f20)
+(above f13 f21)
+(above f13 f22)
+(above f13 f23)
+(above f14 f15)
+(above f14 f16)
+(above f14 f17)
+(above f14 f18)
+(above f14 f19)
+(above f14 f20)
+(above f14 f21)
+(above f14 f22)
+(above f14 f23)
+(above f15 f16)
+(above f15 f17)
+(above f15 f18)
+(above f15 f19)
+(above f15 f20)
+(above f15 f21)
+(above f15 f22)
+(above f15 f23)
+(above f16 f17)
+(above f16 f18)
+(above f16 f19)
+(above f16 f20)
+(above f16 f21)
+(above f16 f22)
+(above f16 f23)
+(above f17 f18)
+(above f17 f19)
+(above f17 f20)
+(above f17 f21)
+(above f17 f22)
+(above f17 f23)
+(above f18 f19)
+(above f18 f20)
+(above f18 f21)
+(above f18 f22)
+(above f18 f23)
+(above f19 f20)
+(above f19 f21)
+(above f19 f22)
+(above f19 f23)
+(above f20 f21)
+(above f20 f22)
+(above f20 f23)
+(above f21 f22)
+(above f21 f23)
+(above f22 f23)
+(origin p0 f7)
+(destin p0 f22)
+(origin p1 f9)
+(destin p1 f19)
+(origin p2 f17)
+(destin p2 f7)
+(origin p3 f10)
+(destin p3 f12)
+(origin p4 f9)
+(destin p4 f13)
+(origin p5 f2)
+(destin p5 f19)
+(origin p6 f2)
+(destin p6 f19)
+(origin p7 f11)
+(destin p7 f22)
+(origin p8 f12)
+(destin p8 f18)
+(origin p9 f4)
+(destin p9 f16)
+(origin p10 f11)
+(destin p10 f8)
+(origin p11 f15)
+(destin p11 f21)
+(lift-at f0)
+)
+(:goal
+(and
+(served p0)
+(served p1)
+(served p2)
+(served p3)
+(served p4)
+(served p5)
+(served p6)
+(served p7)
+(served p8)
+(served p9)
+(served p10)
+(served p11)
+))
+)
+</instance-file>
+
+This is a set of action landmarks for the instance you need to generate a plan for:
+<landmarks-set>
+(board f17 p2)
+(board f9 p1)
+(board f9 p4)
+(board f10 p3)
+(board f7 p0)
+(board f15 p11)
+(board f11 p10)
+(board f11 p7)
+(board f12 p8)
+(board f4 p9)
+(board f2 p5)
+(board f2 p6)
+(depart f18 p8)
+(depart f16 p9)
+(depart f8 p10)
+(depart f19 p1)
+(depart f19 p5)
+(depart f19 p6)
+(depart f7 p2)
+(depart f22 p0)
+(depart f22 p7)
+(depart f21 p11)
+(depart f12 p3)
+(depart f13 p4)
+</landmarks-set>
+
+This is the PDDL domain file of another domain, called Storage, which serves as an example:
+<domain-file-storage-example>
+(define (domain Storage-Propositional)
+    (:requirements :typing)
+    (:types
+        hoist crate place area - object
+        container depot - place
+        storearea transitarea - area
+    )
+
+    (:predicates
+        (clear ?s - storearea)
+        (in ?x -
+            (either storearea crate) ?p - place)
+        (available ?h - hoist)
+        (lifting ?h - hoist ?c - crate)
+        (at ?h - hoist ?a - area)
+        (on ?c - crate ?s - storearea)
+        (connected ?a1 ?a2 - area)
+        (compatible ?c1 ?c2 - crate)
+    )
+
+    (:action lift
+        :parameters (?h - hoist ?c - crate ?a1 - storearea ?a2 - area ?p - place)
+        :precondition (and
+            (connected ?a1 ?a2)
+            (at ?h ?a2)
+            (available ?h)
+            (on ?c ?a1)
+            (in ?a1 ?p))
+        :effect (and
+            (not (on ?c ?a1))
+            (clear ?a1)
+            (not (available ?h))
+            (lifting ?h ?c)
+            (not (in ?c ?p)))
+    )
+
+    (:action drop
+        :parameters (?h - hoist ?c - crate ?a1 - storearea ?a2 - area ?p - place)
+        :precondition (and
+            (connected ?a1 ?a2)
+            (at ?h ?a2)
+            ( lifting ?h ?c)
+            (clear ?a1)
+            (in ?a1 ?p))
+        :effect (and
+            (not (lifting ?h ?c))
+            (available ?h)
+            (not (clear ?a1))
+            (on ?c ?a1)
+            (in ?c ?p))
+    )
+
+    (:action move
+        :parameters (?h - hoist ?from ?to - storearea)
+        :precondition (and
+            (at ?h ?from)
+            (clear ?to)
+            (connected ?from ?to))
+        :effect (and
+            (not (at ?h ?from))
+            (at ?h ?to)
+            (not (clear ?to))
+            (clear ?from))
+    )
+
+    (:action go-out
+        :parameters (?h - hoist ?from - storearea ?to - transitarea)
+        :precondition (and
+            (at ?h ?from)
+            (connected ?from ?to))
+        :effect (and
+            (not (at ?h ?from))
+            (at ?h ?to)
+            (clear ?from))
+    )
+
+    (:action go-in
+        :parameters (?h - hoist ?from - transitarea ?to - storearea)
+        :precondition (and
+            (at ?h ?from)
+            (connected ?from ?to)
+            (clear ?to))
+        :effect (and
+            (not (at ?h ?from))
+            (at ?h ?to)
+            (not (clear ?to)))
+    )
+)
+</domain-file-storage-example>
+
+This is an example of a PDDL instance file from the Storage domain:
+<instance-file-storage-example>
+(define (problem storage-101)
+	(:domain Storage-Propositional)
+	(:objects
+		depot48-1-1 depot49-1-1 depot50-1-1 depot50-1-2 depot50-1-3 container-0-0 container-0-1 container-0-2 container-0-3 - storearea
+		hoist0 - hoist
+		crate0 crate1 crate2 crate3 - crate
+		container0 - container
+		depot48 depot49 depot50 - depot
+		loadarea - transitarea
+	)
+	(:init
+		(connected depot50-1-1 depot50-1-2)
+		(connected depot50-1-2 depot50-1-3)
+		(connected depot50-1-2 depot50-1-1)
+		(connected depot50-1-3 depot50-1-2)
+		(in depot48-1-1 depot48)
+		(in depot49-1-1 depot49)
+		(in depot50-1-1 depot50)
+		(in depot50-1-2 depot50)
+		(in depot50-1-3 depot50)
+		(on crate0 container-0-0)
+		(on crate1 container-0-1)
+		(on crate2 container-0-2)
+		(on crate3 container-0-3)
+		(in crate0 container0)
+		(in crate1 container0)
+		(in crate2 container0)
+		(in crate3 container0)
+		(in container-0-0 container0)
+		(in container-0-1 container0)
+		(in container-0-2 container0)
+		(in container-0-3 container0)
+		(connected loadarea container-0-0)
+		(connected container-0-0 loadarea)
+		(connected loadarea container-0-1)
+		(connected container-0-1 loadarea)
+		(connected loadarea container-0-2)
+		(connected container-0-2 loadarea)
+		(connected loadarea container-0-3)
+		(connected container-0-3 loadarea)
+		(connected depot48-1-1 loadarea)
+		(connected loadarea depot48-1-1)
+		(connected depot49-1-1 loadarea)
+		(connected loadarea depot49-1-1)
+		(connected depot50-1-1 loadarea)
+		(connected loadarea depot50-1-1)
+		(clear depot48-1-1)
+		(clear depot50-1-1)
+		(clear depot50-1-2)
+		(clear depot50-1-3)
+		(at hoist0 depot49-1-1)
+		(available hoist0)
+	)
+	(:goal
+		(and
+			(in crate0 depot48)
+			(in crate1 depot49)
+			(in crate2 depot50)
+			(in crate3 depot50)
+        )
+	)
+)
+</instance-file-storage-example>
+
+This is a set of action landmarks for the Storage instance above:
+<landmarks-set-storage-example>
+(lift hoist0 crate2 container-0-2 loadarea container0)
+(lift hoist0 crate3 container-0-3 loadarea container0)
+(lift hoist0 crate1 container-0-1 loadarea container0)
+(lift hoist0 crate0 container-0-0 loadarea container0)
+(drop hoist0 crate1 depot49-1-1 loadarea depot49)
+(drop hoist0 crate0 depot48-1-1 loadarea depot48)
+(go-out hoist0 depot49-1-1 loadarea)
+</landmarks-set-storage-example>
+
+This is a plan for the Storage instance above:
+<plan-storage-example>
+(go-out hoist0 depot49-1-1 loadarea)
+(lift hoist0 crate0 container-0-0 loadarea container0)
+(drop hoist0 crate0 depot48-1-1 loadarea depot48)
+(lift hoist0 crate1 container-0-1 loadarea container0)
+(drop hoist0 crate1 depot49-1-1 loadarea depot49)
+(lift hoist0 crate3 container-0-3 loadarea container0)
+(go-in hoist0 loadarea depot50-1-1)
+(drop hoist0 crate3 depot50-1-2 depot50-1-1 depot50)
+(go-out hoist0 depot50-1-1 loadarea)
+(lift hoist0 crate2 container-0-2 loadarea container0)
+(drop hoist0 crate2 depot50-1-1 loadarea depot50)
+</plan-storage-example>
+
+This is the PDDL domain file of another domain, called Rovers, which serves as an example:
+<domain-file-rovers-example>
+(define (domain rover)
+    (:requirements :strips :typing)
+    (:types
+        rover waypoint store camera mode lander objective
+    )
+
+    (:predicates
+        (at ?x - rover ?y - waypoint)
+        (at_lander ?x - lander ?y - waypoint)
+        (can_traverse ?r - rover ?x - waypoint ?y - waypoint)
+        (equipped_for_soil_analysis ?r - rover)
+        (equipped_for_rock_analysis ?r - rover)
+        (equipped_for_imaging ?r - rover)
+        (empty ?s - store)
+        (have_rock_analysis ?r - rover ?w - waypoint)
+        (have_soil_analysis ?r - rover ?w - waypoint)
+        (full ?s - store)
+        (calibrated ?c - camera ?r - rover)
+        (supports ?c - camera ?m - mode)
+        (visible ?w - waypoint ?p - waypoint)
+        (have_image ?r - rover ?o - objective ?m - mode)
+        (communicated_soil_data ?w - waypoint)
+        (communicated_rock_data ?w - waypoint)
+        (communicated_image_data ?o - objective ?m - mode)
+        (at_soil_sample ?w - waypoint)
+        (at_rock_sample ?w - waypoint)
+        (visible_from ?o - objective ?w - waypoint)
+        (store_of ?s - store ?r - rover)
+        (calibration_target ?i - camera ?o - objective)
+        (on_board ?i - camera ?r - rover)
+    )
+
+    (:action navigate
+        :parameters (?x - rover ?y - waypoint ?z - waypoint)
+        :precondition (and
+            (can_traverse ?x ?y ?z)
+            (at ?x ?y)
+            (visible ?y ?z))
+        :effect (and
+            (not (at ?x ?y))
+            (at ?x ?z))
+    )
+
+    (:action sample_soil
+        :parameters (?x - rover ?s - store ?p - waypoint)
+        :precondition (and
+            (at ?x ?p)
+            (at_soil_sample ?p)
+            (equipped_for_soil_analysis ?x)
+            (store_of ?s ?x)
+            (empty ?s))
+        :effect (and
+            (not (empty ?s))
+            (full ?s)
+            (have_soil_analysis ?x ?p)
+            (not (at_soil_sample ?p)))
+    )
+
+    (:action sample_rock
+        :parameters (?x - rover ?s - store ?p - waypoint)
+        :precondition (and
+            (at ?x ?p)
+            (at_rock_sample ?p)
+            (equipped_for_rock_analysis ?x)
+            (store_of ?s ?x)
+            (empty ?s))
+        :effect (and
+            (not (empty ?s))
+            (full ?s)
+            (have_rock_analysis ?x ?p)
+            (not (at_rock_sample ?p)))
+    )
+
+    (:action drop
+        :parameters (?x - rover ?y - store)
+        :precondition (and
+            (store_of ?y ?x)
+            (full ?y))
+        :effect (and
+            (not (full ?y))
+            (empty ?y))
+    )
+
+    (:action calibrate
+        :parameters (?r - rover ?i - camera ?t - objective ?w - waypoint)
+        :precondition (and
+            (equipped_for_imaging ?r)
+            (calibration_target ?i ?t)
+            (at ?r ?w)
+            (visible_from ?t ?w)
+            (on_board ?i ?r))
+        :effect (and
+            (calibrated ?i ?r))
+    )
+
+    (:action take_image
+        :parameters (?r - rover ?p - waypoint ?o - objective ?i - camera ?m - mode)
+        :precondition (and
+            (calibrated ?i ?r)
+            (on_board ?i ?r)
+            (equipped_for_imaging ?r)
+            (supports ?i ?m)
+            (visible_from ?o ?p)
+            (at ?r ?p))
+        :effect (and
+            (have_image ?r ?o ?m)
+            (not (calibrated ?i ?r)))
+    )
+
+    (:action communicate_soil_data
+        :parameters (?r - rover ?l - lander ?p - waypoint ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_soil_analysis ?r ?p)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_soil_data ?p))
+    )
+
+    (:action communicate_rock_data
+        :parameters (?r - rover ?l - lander ?p - waypoint ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_rock_analysis ?r ?p)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_rock_data ?p))
+    )
+
+    (:action communicate_image_data
+        :parameters (?r - rover ?l - lander ?o - objective ?m - mode ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_image ?r ?o ?m)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_image_data ?o ?m))
+    )
+)
+</domain-file-rovers-example>
+
+This is an example of a PDDL instance file from the Rovers domain:
+<instance-file-rovers-example>
+(define (problem rover-04)
+   (:domain rover)
+   (:objects
+      general - lander
+      colour high_res low_res - mode
+      rover1 - rover
+      rover1store - store
+      waypoint1 waypoint2 waypoint3 waypoint4 - waypoint
+      camera1 - camera
+      objective1 objective2 - objective
+   )
+   (:init
+      (at_lander general waypoint2)
+      (at rover1 waypoint1)
+      (equipped_for_soil_analysis rover1)
+      (equipped_for_rock_analysis rover1)
+      (equipped_for_imaging rover1)
+      (empty rover1store)
+      (store_of rover1store rover1)
+      (at_rock_sample waypoint1)
+      (at_rock_sample waypoint2)
+      (at_rock_sample waypoint4)
+      (at_soil_sample waypoint1)
+      (at_soil_sample waypoint4)
+      (visible waypoint2 waypoint4)
+      (visible waypoint1 waypoint2)
+      (visible waypoint2 waypoint1)
+      (visible waypoint3 waypoint1)
+      (visible waypoint4 waypoint2)
+      (visible waypoint1 waypoint3)
+      (visible waypoint2 waypoint3)
+      (visible waypoint3 waypoint2)
+      (visible waypoint1 waypoint4)
+      (visible waypoint4 waypoint1)
+      (can_traverse rover1 waypoint2 waypoint4)
+      (can_traverse rover1 waypoint1 waypoint2)
+      (can_traverse rover1 waypoint2 waypoint1)
+      (can_traverse rover1 waypoint3 waypoint1)
+      (can_traverse rover1 waypoint4 waypoint2)
+      (can_traverse rover1 waypoint1 waypoint3)
+      (can_traverse rover1 waypoint2 waypoint3)
+      (can_traverse rover1 waypoint3 waypoint2)
+      (calibration_target camera1 objective1)
+      (on_board camera1 rover1)
+      (supports camera1 low_res)
+      (supports camera1 colour)
+      (supports camera1 high_res)
+      (visible_from objective1 waypoint2)
+      (visible_from objective2 waypoint4)
+   )
+   (:goal
+      (and
+         (communicated_rock_data waypoint1)
+         (communicated_soil_data waypoint1)
+         (communicated_soil_data waypoint4)
+         (communicated_image_data objective1 low_res)
+         (communicated_image_data objective1 colour))
+   )
+)
+</instance-file-rovers-example>
+
+This is a set of action landmarks for the Rovers instance above:
+<landmarks-set-rovers-example>
+(navigate rover1 waypoint2 waypoint4)
+(sample_soil rover1 rover1store waypoint4)
+(sample_soil rover1 rover1store waypoint1)
+(sample_rock rover1 rover1store waypoint1)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 low_res)
+(take_image rover1 waypoint2 objective1 camera1 colour)
+</landmarks-set-rovers-example>
+
+This is a plan for the Rovers instance above:
+<plan-rovers-example>
+(sample_rock rover1 rover1store waypoint1)
+(drop rover1 rover1store)
+(communicate_rock_data rover1 general waypoint1 waypoint1 waypoint2)
+(sample_soil rover1 rover1store waypoint1)
+(drop rover1 rover1store)
+(communicate_soil_data rover1 general waypoint1 waypoint1 waypoint2)
+(navigate rover1 waypoint1 waypoint2)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 colour)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 low_res)
+(navigate rover1 waypoint2 waypoint4)
+(sample_soil rover1 rover1store waypoint4)
+(communicate_soil_data rover1 general waypoint4 waypoint4 waypoint2)
+(communicate_image_data rover1 general objective1 colour waypoint4 waypoint2)
+(communicate_image_data rover1 general objective1 low_res waypoint4 waypoint2)
+</plan-rovers-example>
+
+Provide only the plan for the given instance. Here is a checklist to help you with your problem:
+<checklist>
+1) The plan must be in the same format as the examples above.
+2) The plan should be preceded by the <plan> tag and should be followed by the </plan> tag.
+3) The actions in the plan must be from the set of actions in the domain described above, that is, they must use the same name and the same number of parameters as one of the action schemas.
+4) The plan must be valid, that is, each action must be applicable in the state it is applied, and the plan must end in a goal state.
+</checklist>
+</prompt>
+
+2025-08-06 11:33:11,415 - INFO - Prompt metadata:
+<prompt_metadata>
+{'template': 'landmark', 'action_landmarks': ['(board f17 p2)', '(board f9 p1)', '(board f9 p4)', '(board f10 p3)', '(board f7 p0)', '(board f15 p11)', '(board f11 p10)', '(board f11 p7)', '(board f12 p8)', '(board f4 p9)', '(board f2 p5)', '(board f2 p6)', '(depart f18 p8)', '(depart f16 p9)', '(depart f8 p10)', '(depart f19 p1)', '(depart f19 p5)', '(depart f19 p6)', '(depart f7 p2)', '(depart f22 p0)', '(depart f22 p7)', '(depart f21 p11)', '(depart f12 p3)', '(depart f13 p4)'], 'num_action_landmarks': 24}
+</prompt_metadata>
+
+2025-08-06 11:33:11,415 - INFO - Sample: 1.
+2025-08-06 11:33:11,415 - INFO - AFC is enabled with max remote calls: 10.
+2025-08-06 11:33:11,853 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+2025-08-06 11:33:11,854 - ERROR - 
+<sample>
+<error>
+Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+</error>
+</sample>
+
