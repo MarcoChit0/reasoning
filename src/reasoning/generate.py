@@ -3,26 +3,24 @@ import dotenv
 import yaml
 import tqdm
 import os
-from reasoning.model import GoogleModel
+import reasoning.models as models
 from reasoning.task import Task, get_tasks
 from reasoning.prompt import build_prompt
 import logging
 import numpy as np
 import time
 from reasoning.settings import EXPERIMENTS_DIR
-dotenv.load_dotenv()
-api_key = dotenv.get_key(dotenv.find_dotenv(), "GOOGLE_API_KEY")
 
 def generate(config_path: str, domain: str, template: str, instances: int, samples: int, experiment: str = time.time()):
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
 
-    model_name = config.get("model_name", None)
-    assert model_name is not None, "Model name must be specified in the configuration file."
-    model = GoogleModel(
-        model_name=model_name,
-        api_key=api_key
-    )
+    model_config = config.get("model_config", {})
+    try:
+        model = models.get_model_from_model_config(model_config)
+    except Exception as e:
+        raise ValueError(f"Error initializing model with model_config: {model_config}. Error: {e}")
+
     wait_time = config.get("wait_time", 0)
     generation_config = config.get("generation_config", {})
     config_name = config_path.split('/')[-1].replace('.yaml', '').strip()

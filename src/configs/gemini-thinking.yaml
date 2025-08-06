@@ -1,4 +1,6 @@
-model_name: gemini-2.5-flash-preview-05-20
+model_config:
+  class: GoogleModel
+  name: gemini-2.5-flash-preview-05-20
 generation_config:
   max_output_tokens: 32000
   top_p: 0.95

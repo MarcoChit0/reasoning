@@ -1,4 +1,6 @@
-model_name: gemma-3-27b-it
+model_config:
+  class: GoogleModel
+  name: gemma-3-27b-it
 generation_config:
   max_output_tokens: 8192
   top_p: 0.95

@@ -1,17 +1,32 @@
 import pandas as pd
 import os
 import numpy as np
-from reasoning.settings import VALIDATION_FILE_NAME, EXPERIMENTS_DIR, METRICS_FILE_NAME
+import re
+
+# --- Constants (placeholders for your settings) ---
+from reasoning.settings import EXPERIMENTS_DIR, VALIDATION_FILE_NAME, METRICS_FILE_NAME
+
 
 def pass_at_k(n, c, k):
-    if k > n:
+    """
+    Calculates the pass@k metric.
+    :param n: total number of samples.
+    :param c: number of correct samples.
+    :param k: the 'k' in pass@k.
+    """
+    if n < k or n == 0:
         return np.nan
-    # compute 1 - comb(n - c, k) / comb(n, k)
+    # This is an unbiased estimator for pass@k.
+    # It calculates 1 - (C(n-c, k) / C(n, k))
     if k > n - c:
         return 1.0
-    return 1 - np.prod(1 - k / np.arange(n - c + 1, n + 1))
+    return 1.0 - np.prod(1.0 - k / np.arange(n - c + 1, n + 1))
 
 def process_data(experiment_path):
+    """
+    Reads validation data for a single experiment, calculates metrics,
+    and returns a processed DataFrame.
+    """
     if not os.path.exists(experiment_path):
         raise FileNotFoundError(f"Experiment path {experiment_path} does not exist.")
 
@@ -20,9 +35,13 @@ def process_data(experiment_path):
         raise FileNotFoundError(f"Validation file {validation_path} does not exist.")
     
     df = pd.read_csv(validation_path)
+    # Ensure 'valid' column is boolean
     df['valid'] = pd.to_numeric(df['valid'], errors='coerce').fillna(0).astype(bool)
 
-    grouped = df.groupby(['experiment', 'domain', 'instance_subdir', 'model', 'template'])
+    # Group by the specified columns to aggregate results
+    group_keys = ['experiment', 'domain', 'instance_subdir', 'model', 'template']
+    grouped = df.groupby(group_keys)
+    
     agg_funcs = {
         'sample_id': 'max',
         'valid': ['sum', 'count'],
@@ -31,58 +50,107 @@ def process_data(experiment_path):
     }
     results_df = grouped.agg(agg_funcs)
 
+    # Flatten the multi-level column index and rename columns for clarity
     results_df.columns = ['max_samples', 'correct_instances', 'total_instances', 'candidates_token_count', 'num_action_landmarks']
     results_df = results_df.reset_index()
 
+    # Calculate accuracy, handling division by zero
     results_df['accuracy'] = results_df['correct_instances'] / results_df['total_instances']
     results_df['accuracy'] = results_df['accuracy'].fillna(0)
 
+    # Calculate pass@k for each k up to the maximum number of samples
     max_k = df['sample_id'].max()
-    print(f"Calculating pass@k for k up to {max_k}...")
+    if max_k > 0:
+        print(f"Calculating pass@k for k up to {max_k}...")
+        for k in range(1, max_k + 1):
+            results_df[f'pass@{k}'] = results_df.apply(
+                lambda row: pass_at_k(
+                    n=row['total_instances'],
+                    c=row['correct_instances'],
+                    k=k
+                ),
+                axis=1
+            )
 
-    for k in range(1, max_k + 1):
-        results_df[f'pass@{k}'] = results_df.apply(
-            lambda row: pass_at_k(
-                n=row['total_instances'],
-                c=row['correct_instances'],
-                k=k
-            ),
-            axis=1
-        )
-
+    # Save the metrics for this specific experiment
     metrics_path = os.path.join(experiment_path, METRICS_FILE_NAME)
     results_df.to_csv(metrics_path, index=False)
 
     return results_df
 
+def get_instance_sort_key(subdir_string):
+    """
+    Creates a sort key for the 'instance_subdir' column.
+    It extracts the numeric prefix from the last component of the path.
+    If the format is not '<number>-<string>', it prepares for alphabetical sorting.
+    """
+    # Handle empty or non-string values gracefully
+    if not isinstance(subdir_string, str) or not subdir_string:
+        # Sort these values after the formatted ones
+        return (1, subdir_string) 
+
+    try:
+        # Get the last part of the path (e.g., '4-blocks' from 'sub/dir/4-blocks')
+        last_component = subdir_string.split('/')[-1]
+        # Use regex to find a number at the start of the string
+        match = re.match(r'^\d+', last_component)
+        if match:
+            # If a number is found, use it for sorting. The '0' ensures these come first.
+            return (0, int(match.group(0)))
+        else:
+            # If no number is found, fall back to alphabetical sorting
+            return (1, subdir_string)
+    except (ValueError, IndexError):
+        # Fallback for any other malformed strings
+        return (1, subdir_string)
+
 if __name__ == "__main__":
-    df = pd.DataFrame()
-    for experiment in os.listdir(EXPERIMENTS_DIR):
-        experiment_path = os.path.join(EXPERIMENTS_DIR, experiment)
-        if os.path.isdir(experiment_path):
-            try:
-                result_df = process_data(experiment_path)
-                df = pd.concat([df, result_df], ignore_index=True)
-            except Exception as e:
-                print(f"Error processing experiment {experiment}: {e}")
+    # --- 1. Load and process data from all experiments ---
+    all_results_df = pd.DataFrame()
     
-    metrics_path = os.path.join(EXPERIMENTS_DIR, METRICS_FILE_NAME)
-    df.to_csv(metrics_path, index=False)
-    def key_instance_subdir(s):
-        try:
-            instance = s.split('/')[-1]
-            n = instance.split('-')[0]
-            return int(n)
-        except:
-            return s
-    grouped_df = df.groupby(['experiment', 'domain', 'instance_subdir', 'model', 'template']).mean().reset_index()
-    # Create a temporary column for sorting instance_subdir
-    grouped_df['instance_sort_key'] = grouped_df['instance_subdir'].apply(key_instance_subdir)
-    # Sort by experiment and domain first, then by the numeric instance value, and template in descending order
-    sorted_df = grouped_df.sort_values(
-        by=['experiment', 'domain', 'instance_sort_key', 'template'],
-        ascending=[True, True, True, False]
-    )
-    # Drop the temporary column before printing
-    sorted_df = sorted_df.drop(['instance_sort_key', 'experiment'], axis=1)
-    print(sorted_df.to_string(index=False))
+    # Check if the main experiments directory exists before proceeding
+    if not os.path.isdir(EXPERIMENTS_DIR):
+        print(f"Error: Experiments directory not found at '{EXPERIMENTS_DIR}'")
+    else:
+        for experiment in sorted(os.listdir(EXPERIMENTS_DIR)): # Sort for consistent processing order
+            experiment_path = os.path.join(EXPERIMENTS_DIR, experiment)
+            if os.path.isdir(experiment_path):
+                try:
+                    print(f"Processing experiment: {experiment}...")
+                    result_df = process_data(experiment_path)
+                    all_results_df = pd.concat([all_results_df, result_df], ignore_index=True)
+                except Exception as e:
+                    print(f"Could not process experiment '{experiment}': {e}")
+
+    # --- 2. Perform Sorting if any data was successfully loaded ---
+    if not all_results_df.empty:
+        print("\nAll experiments processed. Now sorting combined data...")
+        
+        # Create a temporary column with a sortable key for 'instance_subdir'
+        all_results_df['instance_sort_key'] = all_results_df['instance_subdir'].apply(get_instance_sort_key)
+        
+        # Define the sorting hierarchy and order
+        sort_by_columns = ['domain', 'instance_sort_key', 'model', 'template']
+        ascending_order = [True,       True,                True,      False]
+
+        # Apply the sorting
+        sorted_df = all_results_df.sort_values(
+            by=sort_by_columns,
+            ascending=ascending_order
+        )
+        
+        # --- 3. Finalize and Display ---
+        # Drop the temporary sort key column as it's no longer needed
+        # Also drop 'experiment' if you want to see a unified table across all experiments
+        final_df = sorted_df.drop(columns=['instance_sort_key', 'experiment'])
+
+        # Save the final sorted and combined metrics file to the main experiments directory
+        final_metrics_path = os.path.join(EXPERIMENTS_DIR, METRICS_FILE_NAME)
+        print(f"Saving combined and sorted metrics to {final_metrics_path}")
+        final_df.to_csv(final_metrics_path, index=False)
+
+        # Display the final, sorted results in the console
+        print("\n--- Sorted Results ---")
+        print(final_df.to_string(index=False))
+    else:
+        print("\nNo data was processed. Exiting.")
