@@ -25,7 +25,7 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
     )
     wait_time = config.get("wait_time", 0)
     generation_config = config.get("generation_config", {})
-    config_name = config_path.split('/')[-1].split('.')[0].strip()
+    config_name = config_path.split('/')[-1].replace('.yaml', '').strip()
 
     tasks : list[Task] = get_tasks(domain)
     print(f"Found {len(tasks)} tasks for domain '{domain}'.")
@@ -36,15 +36,7 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
     indices = np.random.choice(len(tasks), min(instances, len(tasks)), replace=False)
     tasks = [tasks[i] for i in indices]
 
-    already_generated_instances = [f.split(".")[0] for f in os.listdir(dir_path) if f.endswith(".log")]
-    print(f"Already generated instances: {len(already_generated_instances)}")
-
-    tasks = [task for task in tasks if task.instance.name not in already_generated_instances]
-    print(f"Remaining tasks to generate: {len(tasks)}")
-
-    progress_bar = tqdm.tqdm(total=len(tasks) * samples, desc="Generating content", unit="sample")
-
-    for task in tasks:
+    for task in tqdm.tqdm(tasks, desc="Generating content", unit="task"):
         dir_path = os.path.join(
             EXPERIMENTS_DIR,
             experiment,
@@ -54,10 +46,12 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
             *task.instance.subdirs,
         )
         os.makedirs(dir_path, exist_ok=True)
+        log_file = os.path.join(dir_path, f"{task.instance.name}.log")
+        if os.path.exists(log_file):
+            continue
 
         logger = logging.getLogger()
         logger.setLevel(logging.INFO)
-        log_file = os.path.join(dir_path, f"{task.instance.name}.log")
         handler = logging.FileHandler(log_file, mode='w')
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -85,13 +79,11 @@ def generate(config_path: str, domain: str, template: str, instances: int, sampl
                         logging.info(sample)
                     else:
                         logging.error(sample)
-                    progress_bar.update(1)
                     
                 if wait_time > 0:
                     time.sleep(wait_time)
         except ValueError as e:
             logging.error(f"Error: Could not build prompt for task {task}: {e}")
-            progress_bar.update(samples)
         finally:
             logger.removeHandler(handler)
             handler.close()
