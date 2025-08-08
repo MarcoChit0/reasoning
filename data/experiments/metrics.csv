@@ -4,6 +4,7 @@ many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,1,0,4,417.0,5.25
 many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,1,1,4,76.75,,0.25,0.25
 many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,1,0,4,69.75,5.25,0.0,0.0
 many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,1,4,4,72.0,,1.0,1.0
+many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,1,3,4,78.5,5.25,0.75,0.75
 many-models,blocksworld,4-blocks,gemini-thinking,pddl,1,4,4,72.0,,1.0,1.0
 many-models,blocksworld,4-blocks,gemini-thinking,landmark,1,4,4,72.0,5.25,1.0,1.0
 many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,1,0,4,93.0,,0.0,0.0
@@ -11,6 +12,7 @@ many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,1,0,4,195.666666
 many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,1,1,4,164.5,,0.25,0.25
 many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,1,0,4,134.25,10.25,0.0,0.0
 many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,1,3,4,128.0,,0.75,0.75
+many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,1,2,4,147.0,10.25,0.5,0.5
 many-models,blocksworld,7-blocks,gemini-thinking,pddl,1,4,4,136.5,,1.0,1.0
 many-models,blocksworld,7-blocks,gemini-thinking,landmark,1,4,4,136.5,10.25,1.0,1.0
 many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,1,0,4,96.0,,0.0,0.0
@@ -18,6 +20,7 @@ many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,1,0,4,111.66666
 many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,1,0,4,183.0,,0.0,0.0
 many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,1,0,4,186.5,14.75,0.0,0.0
 many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,1,1,4,202.33333333333334,,0.25,0.25
+many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,1,1,4,227.5,14.75,0.25,0.25
 many-models,blocksworld,10-blocks,gemini-thinking,pddl,1,3,4,199.0,,0.75,0.75
 many-models,blocksworld,10-blocks,gemini-thinking,landmark,1,4,4,200.75,14.75,1.0,1.0
 many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,1,0,4,151.66666666666666,,0.0,0.0
@@ -25,6 +28,7 @@ many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,1,0,4,172.66666
 many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,1,0,4,254.0,,0.0,0.0
 many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,1,0,4,205.5,19.25,0.0,0.0
 many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,1,3,4,308.75,,0.75,0.75
+many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,1,2,4,280.25,19.25,0.5,0.5
 many-models,blocksworld,13-blocks,gemini-thinking,pddl,1,3,4,267.5,,0.75,0.75
 many-models,blocksworld,13-blocks,gemini-thinking,landmark,1,4,4,283.25,19.25,1.0,1.0
 many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,1,0,4,1108.0,,0.0,0.0
@@ -32,6 +36,7 @@ many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,1,0,4,197.5,26.
 many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,1,0,4,234.0,,0.0,0.0
 many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,1,0,4,368.3333333333333,26.25,0.0,0.0
 many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,1,1,4,392.5,,0.25,0.25
+many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,1,0,4,387.0,26.25,0.0,0.0
 many-models,blocksworld,16-blocks,gemini-thinking,pddl,1,4,4,394.25,,1.0,1.0
 many-models,blocksworld,16-blocks,gemini-thinking,landmark,1,3,4,376.5,26.25,0.75,0.75
 many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,1,0,4,209.0,,0.0,0.0
@@ -39,6 +44,7 @@ many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,1,0,4,147.0,8.0,
 many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,1,0,4,252.25,,0.0,0.0
 many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,1,0,4,186.75,8.0,0.0,0.0
 many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,1,2,4,292.5,,0.5,0.5
+many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,1,4,4,247.0,8.0,1.0,1.0
 many-models,logistics,3-packages,gemini-thinking,pddl,1,4,4,226.5,,1.0,1.0
 many-models,logistics,3-packages,gemini-thinking,landmark,1,4,4,218.0,8.0,1.0,1.0
 many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,1,0,4,283.0,,0.0,0.0
@@ -46,6 +52,7 @@ many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,1,0,4,243.0,12.5
 many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,1,0,4,420.0,,0.0,0.0
 many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,1,0,4,302.6666666666667,12.5,0.0,0.0
 many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,1,2,4,354.75,,0.5,0.5
+many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,1,2,4,336.0,12.5,0.5,0.5
 many-models,logistics,5-packages,gemini-thinking,pddl,1,4,4,346.5,,1.0,1.0
 many-models,logistics,5-packages,gemini-thinking,landmark,1,4,4,294.0,12.5,1.0,1.0
 many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,1,0,4,,,0.0,0.0
@@ -53,6 +60,7 @@ many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,1,0,4,447.0,28.5
 many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,1,0,4,638.5,,0.0,0.0
 many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,1,0,4,506.0,28.5,0.0,0.0
 many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,1,1,4,854.25,,0.25,0.25
+many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,1,1,4,774.75,28.5,0.25,0.25
 many-models,logistics,7-packages,gemini-thinking,pddl,1,4,4,588.5,,1.0,1.0
 many-models,logistics,7-packages,gemini-thinking,landmark,1,4,4,592.0,28.5,1.0,1.0
 many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,1,0,4,421.0,,0.0,0.0
@@ -60,6 +68,7 @@ many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,1,0,4,413.0,28.5
 many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,1,0,4,1290.75,,0.0,0.0
 many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,1,0,4,683.25,28.5,0.0,0.0
 many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,1,0,4,903.0,,0.0,0.0
+many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,1,0,4,798.0,28.5,0.0,0.0
 many-models,logistics,9-packages,gemini-thinking,pddl,1,4,4,689.5,,1.0,1.0
 many-models,logistics,9-packages,gemini-thinking,landmark,1,4,4,626.0,28.5,1.0,1.0
 many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,1,0,4,635.0,,0.0,0.0
@@ -67,6 +76,7 @@ many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,1,0,4,459.0,37.
 many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,1,0,4,1523.0,,0.0,0.0
 many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,1,0,4,1307.5,37.0,0.0,0.0
 many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,1,0,4,1031.0,,0.0,0.0
+many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,1,0,4,896.25,37.0,0.0,0.0
 many-models,logistics,11-packages,gemini-thinking,pddl,1,3,4,823.75,,0.75,0.75
 many-models,logistics,11-packages,gemini-thinking,landmark,1,4,4,754.0,37.0,1.0,1.0
 many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,1,0,4,143.0,,0.0,0.0
@@ -74,6 +84,7 @@ many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,1,0,4,108.3333333
 many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,1,0,4,207.0,,0.0,0.0
 many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,1,0,4,157.0,8.0,0.0,0.0
 many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,1,3,4,161.0,,0.75,0.75
+many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,1,4,4,221.0,8.0,1.0,1.0
 many-models,miconic,4-passenger,gemini-thinking,pddl,1,3,4,131.0,,0.75,0.75
 many-models,miconic,4-passenger,gemini-thinking,landmark,1,4,4,147.0,8.0,1.0,1.0
 many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,1,0,4,280.5,,0.0,0.0
@@ -81,6 +92,7 @@ many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,1,0,4,997.3333333
 many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,1,0,4,870.0,,0.0,0.0
 many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,1,0,4,302.0,16.0,0.0,0.0
 many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,1,3,4,369.5,,0.75,0.75
+many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,1,3,4,498.3333333333333,16.0,0.75,0.75
 many-models,miconic,8-passenger,gemini-thinking,pddl,1,4,4,332.5,,1.0,1.0
 many-models,miconic,8-passenger,gemini-thinking,landmark,1,4,4,264.75,16.0,1.0,1.0
 many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,1,0,4,426.0,,0.0,0.0
@@ -88,6 +100,7 @@ many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,1,0,4,429.0,24.0
 many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,1,0,4,1382.0,,0.0,0.0
 many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,1,0,4,841.5,24.0,0.0,0.0
 many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,1,1,4,1742.0,,0.25,0.25
+many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,1,1,4,1198.0,24.0,0.25,0.25
 many-models,miconic,12-passenger,gemini-thinking,pddl,1,4,4,433.5,,1.0,1.0
 many-models,miconic,12-passenger,gemini-thinking,landmark,1,4,4,501.5,24.0,1.0,1.0
 many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,1,0,4,2099.3333333333335,,0.0,0.0
@@ -95,6 +108,7 @@ many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,1,0,4,690.5,32.0
 many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,1,0,4,2421.0,,0.0,0.0
 many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,1,0,4,767.75,32.0,0.0,0.0
 many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,1,1,4,2533.75,,0.25,0.25
+many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,1,0,4,2758.0,32.0,0.0,0.0
 many-models,miconic,16-passenger,gemini-thinking,pddl,1,2,4,662.75,,0.5,0.5
 many-models,miconic,16-passenger,gemini-thinking,landmark,1,4,4,674.0,32.0,1.0,1.0
 many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,1,0,4,752.0,,0.0,0.0
@@ -102,6 +116,7 @@ many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,1,0,4,546.5,40.0
 many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,1,0,4,2534.3333333333335,,0.0,0.0
 many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,1,0,4,1009.6666666666666,40.0,0.0,0.0
 many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,1,1,4,2632.0,,0.25,0.25
+many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,1,1,4,1688.25,40.0,0.25,0.25
 many-models,miconic,20-passenger,gemini-thinking,pddl,1,3,4,667.5,,0.75,0.75
 many-models,miconic,20-passenger,gemini-thinking,landmark,1,4,4,771.0,40.0,1.0,1.0
 many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,1,0,4,235.5,,0.0,0.0
@@ -109,6 +124,7 @@ many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,1,0,4,307.0,6.0,0.
 many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,1,1,4,205.75,,0.25,0.25
 many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,1,0,4,199.0,6.0,0.0,0.0
 many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,1,0,4,323.0,,0.0,0.0
+many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,1,0,4,322.5,6.0,0.0,0.0
 many-models,spanner,4-spanners,gemini-thinking,pddl,1,3,4,201.5,,0.75,0.75
 many-models,spanner,4-spanners,gemini-thinking,landmark,1,3,4,192.5,6.0,0.75,0.75
 many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,1,0,4,452.6666666666667,,0.0,0.0
@@ -116,6 +132,7 @@ many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,1,0,4,473.33333333
 many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,1,0,4,450.25,,0.0,0.0
 many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,1,0,4,476.5,10.0,0.0,0.0
 many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,1,0,4,945.0,,0.0,0.0
+many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,1,1,4,519.25,10.0,0.25,0.25
 many-models,spanner,8-spanners,gemini-thinking,pddl,1,2,4,610.0,,0.5,0.5
 many-models,spanner,8-spanners,gemini-thinking,landmark,1,2,4,673.0,10.0,0.5,0.5
 many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,1,0,4,620.75,,0.0,0.0
@@ -123,6 +140,7 @@ many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,1,0,4,370.5,14.0,
 many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,1,0,4,1793.5,,0.0,0.0
 many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,1,0,4,849.25,14.0,0.0,0.0
 many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,1,0,4,1956.75,,0.0,0.0
+many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,1,1,4,1661.75,14.0,0.25,0.25
 many-models,spanner,12-spanners,gemini-thinking,pddl,1,2,4,1224.25,,0.5,0.5
 many-models,spanner,12-spanners,gemini-thinking,landmark,1,3,4,771.75,14.0,0.75,0.75
 many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,1,0,4,757.6666666666666,,0.0,0.0
@@ -130,6 +148,7 @@ many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,1,0,4,1507.0,18.0
 many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,1,0,4,2579.6666666666665,,0.0,0.0
 many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,1,0,4,2425.0,18.0,0.0,0.0
 many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,1,0,4,3395.75,,0.0,0.0
+many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,1,0,4,2625.5,18.0,0.0,0.0
 many-models,spanner,16-spanners,gemini-thinking,pddl,1,1,4,1351.25,,0.25,0.25
 many-models,spanner,16-spanners,gemini-thinking,landmark,1,4,4,643.25,18.0,1.0,1.0
 many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,1,0,4,687.5,,0.0,0.0
@@ -137,5 +156,6 @@ many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,1,0,4,1958.5,22.0
 many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,1,0,4,478.5,,0.0,0.0
 many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,1,0,4,1099.0,22.0,0.0,0.0
 many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,1,0,4,4018.25,,0.0,0.0
+many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,1,1,4,4089.25,22.0,0.25,0.25
 many-models,spanner,20-spanners,gemini-thinking,pddl,1,1,4,3978.25,,0.25,0.25
 many-models,spanner,20-spanners,gemini-thinking,landmark,1,2,4,3164.5,22.0,0.5,0.5

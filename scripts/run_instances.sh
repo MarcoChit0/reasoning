@@ -16,7 +16,7 @@ MEMORY_LIMIT_KB=$((24 * 1024 * 1024)) # 24 GB in Kilobytes for ulimit
 # Create the main solutions directory
 mkdir -p "$SOLUTIONS_DIR"
 
-# Initialize CSV file with a header
+# Initialize CSV file with a header for the lmcut results
 echo "domain,instance,steps" > "$CSV_FILE"
 
 # Loop through each domain directory in the benchmarks directory
@@ -46,47 +46,59 @@ for domain_path in "$BENCHMARKS_DIR"/*; do
     DOMAIN_SOLUTION_DIR="${SOLUTIONS_DIR}/${domain}"
     mkdir -p "$DOMAIN_SOLUTION_DIR"
 
-    # Use 'find' to recursively locate all .pddl files, similar to os.walk
+    # Use 'find' to recursively locate all .pddl files
     find "$INSTANCES_PATH" -type f -name "*.pddl" | while read -r instance_file; do
         echo "Processing ${instance_file} in domain ${domain}"
-        
-        # Define the output file name that the planner will create
-        output_file="${instance_file}.soln"
         instance_basename=$(basename "$instance_file")
+        
+        # --- 1. Run the existing planner with lmcut heuristic ---
+        output_file="${instance_file}.soln"
 
-        # Run the planner in a subshell to contain the 'ulimit' command.
-        # This prevents the memory limit from affecting the main script.
-        # The 'timeout' command handles the execution time limit.
         (
             ulimit -v "$MEMORY_LIMIT_KB"
-            timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s astar -H hff
+            timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s gbf -H lmcut
         ) || {
-            # The subshell will exit with a non-zero status on error or timeout.
-            # We check the timeout exit code specifically.
             if [ $? -eq 124 ]; then
-                echo "Timeout expired for instance $instance_file"
+                echo "Timeout expired for lmcut on instance $instance_file"
             else
-                # Other errors are noted, but we continue, checking for a solution file just in case.
-                echo "Planner exited with an error for instance $instance_file"
+                echo "Planner exited with an error for lmcut on instance $instance_file"
             fi
         }
 
-        # Check if a solution file was created
+        # Check if an lmcut solution file was created and process it
         if [ -f "$output_file" ]; then
-            # Count the lines in the solution file (number of steps)
-            # 'wc -l' outputs "COUNT FILENAME", so we pipe to awk to get just the count.
             line_count=$(wc -l < "$output_file" | awk '{print $1}')
-            
-            echo -e "\t-> Solution found with ${line_count} steps."
-
-            # Append the result to the CSV file
+            echo -e "\t-> lmcut solution found with ${line_count} steps."
             echo "${domain},${instance_basename},${line_count}" >> "$CSV_FILE"
-
-            # Move the solution file to the organized solutions directory
             mv "$output_file" "$DOMAIN_SOLUTION_DIR/"
         else
-            echo -e "\t-> No solution found."
+            echo -e "\t-> No lmcut solution found."
         fi
+
+        # --- 2. Run the new planner with actionlandmark heuristic ---
+        landmark_output_file="${instance_file}.lndmk"
+
+        (
+            ulimit -v "$MEMORY_LIMIT_KB"
+            timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s gbf -H actionlandmark > "$landmark_output_file"
+        ) || {
+            if [ $? -eq 124 ]; then
+                echo "Timeout expired for actionlandmark on instance $instance_file"
+            else
+                echo "Planner exited with an error for actionlandmark on instance $instance_file"
+            fi
+        }
+        
+        # Check if the landmark solution file was created (and is not empty)
+        if [ -s "$landmark_output_file" ]; then
+            echo -e "\t-> actionlandmark solution saved."
+            mv "$landmark_output_file" "$DOMAIN_SOLUTION_DIR/"
+        else
+            echo -e "\t-> No actionlandmark solution found or output was empty."
+            # Clean up empty file if it exists
+            rm -f "$landmark_output_file"
+        fi
+
         echo # Add a newline for better readability
     done
 done
