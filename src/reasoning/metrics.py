@@ -104,6 +104,48 @@ def get_instance_sort_key(subdir_string):
         # Fallback for any other malformed strings
         return (1, subdir_string)
 
+def to_table(df, experiment_path):
+    """
+    Convert the dataframe resulted from process_data to a "printable table" for easier visualization in LaTeX format.
+    The table rows are (domain, model), columns are templates, and each cell contains '#correct / #instances'.
+    Returns a pandas DataFrame suitable for pretty-printing or LaTeX export.
+    """
+    # Get unique templates for columns, sort so 'pddl' is first if present
+    templates = sorted(df['template'].unique(), key=lambda x: (x != 'pddl', x))
+    # Get unique models and domains for rows
+    models = sorted(df['model'].unique())
+    domains = sorted(df['domain'].unique())
+
+    # Prepare the table data
+    table_data = []
+    for domain in domains:
+        for model in models:
+            row = {'domain': domain, 'model': model}
+            for template in templates:
+                sub_df = df[(df['domain'] == domain) & (df['model'] == model) & (df['template'] == template)]
+                if not sub_df.empty:
+                    correct = int(sub_df['correct_instances'].sum()) if 'correct_instances' in sub_df else 0
+                    total = int(sub_df['total_instances'].sum()) if 'total_instances' in sub_df else 0
+                    row[template] = f"{correct} / {total}"
+                else:
+                    row[template] = ""
+            table_data.append(row)
+
+    # Create the final DataFrame
+    table_df = pd.DataFrame(table_data)
+    # Set 'domain' and 'model' as index for pretty printing
+    table_df = table_df.set_index(['domain', 'model'])
+
+    # Save as LaTeX file, remove the last two lines (bottom rule and empty line)
+    latex_str = table_df.to_latex(escape=True, column_format='ll' + 'l' * len(templates))
+    latex_lines = latex_str.strip().split('\n')
+    # Remove the second-to-last line (bottom rule) and last line (end tabular)
+    if len(latex_lines) > 2:
+        latex_str = '\n'.join(latex_lines[:-2] + [latex_lines[-1]])
+    with open(os.path.join(experiment_path, "table.tex"), "w") as f:
+        f.write(latex_str)
+
+
 if __name__ == "__main__":
     # --- 1. Load and process data from all experiments ---
     all_results_df = pd.DataFrame()
@@ -118,6 +160,7 @@ if __name__ == "__main__":
                 try:
                     print(f"Processing experiment: {experiment}...")
                     result_df = process_data(experiment_path)
+                    to_table(result_df, experiment_path)
                     all_results_df = pd.concat([all_results_df, result_df], ignore_index=True)
                 except Exception as e:
                     print(f"Could not process experiment '{experiment}': {e}")
@@ -142,7 +185,7 @@ if __name__ == "__main__":
         # --- 3. Finalize and Display ---
         # Drop the temporary sort key column as it's no longer needed
         # Also drop 'experiment' if you want to see a unified table across all experiments
-        final_df = sorted_df.drop(columns=['instance_sort_key', 'experiment'])
+        final_df = sorted_df.drop(columns=['instance_sort_key'])
 
         # Save the final sorted and combined metrics file to the main experiments directory
         final_metrics_path = os.path.join(EXPERIMENTS_DIR, METRICS_FILE_NAME)

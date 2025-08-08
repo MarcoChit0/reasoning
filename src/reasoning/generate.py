@@ -38,6 +38,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
             prompt = build_prompt(task, template, logger)
             for i in range(samples):
                 logging.info(f"Sample: {i + 1}.")
+                success = False
                 sample = "\n<sample>\n"
                 try:
                     response = model.generate_response(prompt, **kwargs)
@@ -46,7 +47,6 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
                     success = True
                 except RuntimeError as e:
                     sample += f"<error>\n{str(e)}\n</error>\n"
-                    success = False
                 finally:
                     sample += "</sample>\n"
                     if success:
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     templates = ["pddl", "landmark"]
     domains = ["logistics", "blocksworld", "spanner", "miconic"]
     config_paths = [
-        "src/configs/gemini-2.0-flash-lite.yaml",
+        "src/configs/gemini-2.5-flash-lite-thinking.yaml",
     ]
 
     for config_path in config_paths:

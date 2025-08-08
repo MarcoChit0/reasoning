@@ -1,0 +1,400 @@
+2025-08-08 14:09:46,888 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:46,888 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p01.fpl 1 --seed 1|
+2025-08-08 14:09:46,935 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:46,935 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p02.fpl 1 --seed 2|
+2025-08-08 14:09:46,980 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:46,980 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p03.fpl 1 --seed 3|
+2025-08-08 14:09:47,032 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,032 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p04.fpl 1 --seed 4|
+2025-08-08 14:09:47,075 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,075 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p05.fpl 2 --seed 1|
+2025-08-08 14:09:47,117 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,117 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p06.fpl 2 --seed 2|
+2025-08-08 14:09:47,160 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,160 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p07.fpl 2 --seed 3|
+2025-08-08 14:09:47,205 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,205 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p08.fpl 2 --seed 4|
+2025-08-08 14:09:47,251 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,252 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p09.fpl 3 --seed 1|
+2025-08-08 14:09:47,295 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,295 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p10.fpl 3 --seed 2|
+2025-08-08 14:09:47,338 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,338 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p11.fpl 3 --seed 3|
+2025-08-08 14:09:47,377 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,377 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p12.fpl 3 --seed 4|
+2025-08-08 14:09:47,416 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,416 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p13.fpl 4 --seed 1|
+2025-08-08 14:09:47,458 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,458 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p14.fpl 4 --seed 2|
+2025-08-08 14:09:47,498 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,498 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p15.fpl 4 --seed 3|
+2025-08-08 14:09:47,541 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,541 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p16.fpl 4 --seed 4|
+2025-08-08 14:09:47,582 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,582 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p17.fpl 5 --seed 1|
+2025-08-08 14:09:47,628 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,628 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p18.fpl 5 --seed 2|
+2025-08-08 14:09:47,670 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,670 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p19.fpl 5 --seed 3|
+2025-08-08 14:09:47,713 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:09:47,713 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans/p20.fpl 5 --seed 4|
+2025-08-08 14:14:41,733 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:41,734 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p01.fpl 1 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:14:41,781 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:41,781 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p02.fpl 1 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:14:41,823 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:41,823 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p03.fpl 1 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:14:41,869 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:41,869 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p04.fpl 1 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:14:41,915 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:41,915 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p05.fpl 2 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:14:41,960 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:41,960 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p06.fpl 2 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:14:42,006 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,006 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p07.fpl 2 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:14:42,052 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,052 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p08.fpl 2 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:14:42,096 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,097 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p09.fpl 3 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:14:42,146 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,146 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p10.fpl 3 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:14:42,192 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,192 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p11.fpl 3 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:14:42,239 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,239 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p12.fpl 3 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:14:42,286 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,286 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p13.fpl 4 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:14:42,330 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,330 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p14.fpl 4 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:14:42,374 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,374 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p15.fpl 4 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:14:42,421 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,421 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p16.fpl 4 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:14:42,466 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,466 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p17.fpl 5 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:14:42,511 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,511 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p18.fpl 5 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:14:42,562 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,562 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p19.fpl 5 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:14:42,605 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:14:42,605 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p20.fpl 5 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:18:27,884 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:27,884 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p01.fpl 1 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:18:27,884 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:27,884 [INFO] [__init__:129] Locks: nlocks=0, nshapes=1, shape_map={}
+2025-08-08 14:18:27,931 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:27,931 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p02.fpl 1 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:18:27,931 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:27,931 [INFO] [__init__:129] Locks: nlocks=0, nshapes=1, shape_map={}
+2025-08-08 14:18:27,978 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:27,978 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p03.fpl 1 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:18:27,978 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:27,979 [INFO] [__init__:129] Locks: nlocks=0, nshapes=1, shape_map={}
+2025-08-08 14:18:28,025 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,025 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p04.fpl 1 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:18:28,026 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,026 [INFO] [__init__:129] Locks: nlocks=0, nshapes=1, shape_map={}
+2025-08-08 14:18:28,072 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,072 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p05.fpl 2 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:18:28,072 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,072 [INFO] [__init__:129] Locks: nlocks=0, nshapes=2, shape_map={}
+2025-08-08 14:18:28,121 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,121 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p06.fpl 2 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:18:28,122 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,122 [INFO] [__init__:129] Locks: nlocks=0, nshapes=2, shape_map={}
+2025-08-08 14:18:28,170 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,170 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p07.fpl 2 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:18:28,171 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,171 [INFO] [__init__:129] Locks: nlocks=0, nshapes=2, shape_map={}
+2025-08-08 14:18:28,216 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,216 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p08.fpl 2 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:18:28,217 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,217 [INFO] [__init__:129] Locks: nlocks=0, nshapes=2, shape_map={}
+2025-08-08 14:18:28,264 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,264 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p09.fpl 3 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:18:28,264 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,264 [INFO] [__init__:129] Locks: nlocks=0, nshapes=3, shape_map={}
+2025-08-08 14:18:28,310 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,311 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p10.fpl 3 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:18:28,311 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,311 [INFO] [__init__:129] Locks: nlocks=0, nshapes=3, shape_map={}
+2025-08-08 14:18:28,356 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,356 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p11.fpl 3 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:18:28,357 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,357 [INFO] [__init__:129] Locks: nlocks=0, nshapes=3, shape_map={}
+2025-08-08 14:18:28,405 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,405 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p12.fpl 3 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:18:28,405 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,405 [INFO] [__init__:129] Locks: nlocks=0, nshapes=3, shape_map={}
+2025-08-08 14:18:28,452 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,452 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p13.fpl 4 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:18:28,452 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,452 [INFO] [__init__:129] Locks: nlocks=0, nshapes=4, shape_map={}
+2025-08-08 14:18:28,496 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,496 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p14.fpl 4 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:18:28,496 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,496 [INFO] [__init__:129] Locks: nlocks=0, nshapes=4, shape_map={}
+2025-08-08 14:18:28,545 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,545 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p15.fpl 4 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:18:28,545 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,545 [INFO] [__init__:129] Locks: nlocks=0, nshapes=4, shape_map={}
+2025-08-08 14:18:28,595 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,595 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p16.fpl 4 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:18:28,595 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,595 [INFO] [__init__:129] Locks: nlocks=0, nshapes=4, shape_map={}
+2025-08-08 14:18:28,643 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,643 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p17.fpl 5 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:18:28,643 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,643 [INFO] [__init__:129] Locks: nlocks=0, nshapes=5, shape_map={}
+2025-08-08 14:18:28,692 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,692 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p18.fpl 5 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:18:28,692 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,692 [INFO] [__init__:129] Locks: nlocks=0, nshapes=5, shape_map={}
+2025-08-08 14:18:28,738 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,739 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p19.fpl 5 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:18:28,739 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,739 [INFO] [__init__:129] Locks: nlocks=0, nshapes=5, shape_map={}
+2025-08-08 14:18:28,788 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:18:28,788 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py p20.fpl 5 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:18:28,788 [INFO] [__init__:103] Floorplan: ncells=2, locks=set()
+2025-08-08 14:18:28,788 [INFO] [__init__:129] Locks: nlocks=0, nshapes=5, shape_map={}
+2025-08-08 14:24:00,406 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,406 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:24:00,407 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,407 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 14:24:00,407 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 14:24:00,407 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed1_n0.pddl written!
+2025-08-08 14:24:00,449 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,449 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:24:00,449 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,449 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 14:24:00,449 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 14:24:00,450 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed2_n0.pddl written!
+2025-08-08 14:24:00,493 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,493 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:24:00,493 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,493 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 14:24:00,494 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 14:24:00,494 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed3_n0.pddl written!
+2025-08-08 14:24:00,530 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,530 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 14:24:00,531 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,531 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 14:24:00,531 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 14:24:00,531 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed4_n0.pddl written!
+2025-08-08 14:24:00,568 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,568 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:24:00,569 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,569 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 0, (2, 0): 1, (3, 2): 1}
+2025-08-08 14:24:00,569 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 14:24:00,569 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed1_n0.pddl written!
+2025-08-08 14:24:00,607 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,607 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:24:00,607 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,607 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 1, (2, 0): 1, (3, 2): 0}
+2025-08-08 14:24:00,607 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 14:24:00,608 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed2_n0.pddl written!
+2025-08-08 14:24:00,646 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,646 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:24:00,646 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,646 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 0, (2, 0): 1, (3, 2): 0}
+2025-08-08 14:24:00,647 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 14:24:00,647 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed3_n0.pddl written!
+2025-08-08 14:24:00,687 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,687 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 14:24:00,688 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,688 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 14:24:00,688 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 14:24:00,688 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed4_n0.pddl written!
+2025-08-08 14:24:00,726 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,726 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:24:00,727 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,727 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 0, (2, 0): 2, (3, 2): 2}
+2025-08-08 14:24:00,727 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 14:24:00,727 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed1_n0.pddl written!
+2025-08-08 14:24:00,767 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,767 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:24:00,768 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,768 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 2, (2, 0): 2, (3, 2): 0}
+2025-08-08 14:24:00,768 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 14:24:00,769 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed2_n0.pddl written!
+2025-08-08 14:24:00,810 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,810 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:24:00,810 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,811 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 0, (2, 0): 1, (3, 2): 1}
+2025-08-08 14:24:00,811 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 14:24:00,811 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed3_n0.pddl written!
+2025-08-08 14:24:00,851 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,851 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 14:24:00,852 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,852 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 1}
+2025-08-08 14:24:00,852 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 14:24:00,852 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed4_n0.pddl written!
+2025-08-08 14:24:00,893 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,893 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:24:00,894 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,894 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 0, (2, 0): 3, (3, 2): 3}
+2025-08-08 14:24:00,894 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 14:24:00,894 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed1_n0.pddl written!
+2025-08-08 14:24:00,933 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,933 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:24:00,933 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,933 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 3, (2, 0): 3, (3, 2): 0}
+2025-08-08 14:24:00,933 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 14:24:00,934 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed2_n0.pddl written!
+2025-08-08 14:24:00,972 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:00,972 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:24:00,972 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:00,972 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 0, (2, 0): 2, (3, 2): 1}
+2025-08-08 14:24:00,972 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 14:24:00,973 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed3_n0.pddl written!
+2025-08-08 14:24:01,015 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:01,016 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 14:24:01,016 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:01,016 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 1}
+2025-08-08 14:24:01,016 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 14:24:01,016 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed4_n0.pddl written!
+2025-08-08 14:24:01,056 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:01,056 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:24:01,057 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:01,057 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 0, (2, 0): 4, (3, 2): 3}
+2025-08-08 14:24:01,057 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 14:24:01,057 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed1_n0.pddl written!
+2025-08-08 14:24:01,098 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:01,098 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:24:01,098 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:01,098 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 4, (2, 0): 4, (3, 2): 0}
+2025-08-08 14:24:01,098 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 14:24:01,099 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed2_n0.pddl written!
+2025-08-08 14:24:01,139 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:01,139 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:24:01,139 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:01,139 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 1, (2, 0): 2, (3, 2): 1}
+2025-08-08 14:24:01,139 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 14:24:01,140 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed3_n0.pddl written!
+2025-08-08 14:24:01,178 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 14:24:01,178 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 14:24:01,178 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 14:24:01,179 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 1, (2, 0): 0, (3, 2): 1}
+2025-08-08 14:24:01,179 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 14:24:01,179 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed4_n0.pddl written!
+2025-08-08 15:05:21,549 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,549 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 15:05:21,549 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,549 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 15:05:21,549 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 15:05:21,550 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed1_n0.pddl written!
+2025-08-08 15:05:21,598 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,599 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 15:05:21,599 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,599 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 15:05:21,599 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 15:05:21,599 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed2_n0.pddl written!
+2025-08-08 15:05:21,643 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,643 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 15:05:21,643 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,644 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 15:05:21,644 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 15:05:21,644 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed3_n0.pddl written!
+2025-08-08 15:05:21,687 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,687 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 1 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape|
+2025-08-08 15:05:21,687 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,687 [INFO] [__init__:129] Locks: nlocks=3, nshapes=1, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 15:05:21,687 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 15:05:21,687 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/1-shape/grid_4room2_fpl_s1_seed4_n0.pddl written!
+2025-08-08 15:05:21,729 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,729 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 15:05:21,730 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,730 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 0, (2, 0): 1, (3, 2): 1}
+2025-08-08 15:05:21,730 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 15:05:21,730 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed1_n0.pddl written!
+2025-08-08 15:05:21,771 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,771 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 15:05:21,771 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,771 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 1, (2, 0): 1, (3, 2): 0}
+2025-08-08 15:05:21,771 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 15:05:21,772 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed2_n0.pddl written!
+2025-08-08 15:05:21,812 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,812 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 15:05:21,812 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,812 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 0, (2, 0): 1, (3, 2): 0}
+2025-08-08 15:05:21,812 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 15:05:21,813 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed3_n0.pddl written!
+2025-08-08 15:05:21,853 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,853 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 2 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape|
+2025-08-08 15:05:21,853 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,853 [INFO] [__init__:129] Locks: nlocks=3, nshapes=2, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 0}
+2025-08-08 15:05:21,853 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 15:05:21,854 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/grid_4room2_fpl_s2_seed4_n0.pddl written!
+2025-08-08 15:05:21,893 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,893 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 15:05:21,893 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,893 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 0, (2, 0): 2, (3, 2): 2}
+2025-08-08 15:05:21,893 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 15:05:21,894 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed1_n0.pddl written!
+2025-08-08 15:05:21,933 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,933 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 15:05:21,933 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,933 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 2, (2, 0): 2, (3, 2): 0}
+2025-08-08 15:05:21,933 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 15:05:21,934 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed2_n0.pddl written!
+2025-08-08 15:05:21,973 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:21,973 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 15:05:21,973 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:21,973 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 0, (2, 0): 1, (3, 2): 1}
+2025-08-08 15:05:21,973 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 15:05:21,974 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed3_n0.pddl written!
+2025-08-08 15:05:22,014 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,014 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 3 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape|
+2025-08-08 15:05:22,014 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,014 [INFO] [__init__:129] Locks: nlocks=3, nshapes=3, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 1}
+2025-08-08 15:05:22,015 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 15:05:22,015 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/3-shape/grid_4room2_fpl_s3_seed4_n0.pddl written!
+2025-08-08 15:05:22,054 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,055 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 15:05:22,055 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,055 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 0, (2, 0): 3, (3, 2): 3}
+2025-08-08 15:05:22,055 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 15:05:22,055 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed1_n0.pddl written!
+2025-08-08 15:05:22,097 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,097 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 15:05:22,097 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,097 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 3, (2, 0): 3, (3, 2): 0}
+2025-08-08 15:05:22,097 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 15:05:22,098 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed2_n0.pddl written!
+2025-08-08 15:05:22,141 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,142 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 15:05:22,142 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,142 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 0, (2, 0): 2, (3, 2): 1}
+2025-08-08 15:05:22,142 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 15:05:22,143 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed3_n0.pddl written!
+2025-08-08 15:05:22,186 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,187 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 4 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape|
+2025-08-08 15:05:22,187 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,187 [INFO] [__init__:129] Locks: nlocks=3, nshapes=4, shape_map={(0, 2): 0, (2, 0): 0, (3, 2): 1}
+2025-08-08 15:05:22,187 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 15:05:22,188 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/4-shape/grid_4room2_fpl_s4_seed4_n0.pddl written!
+2025-08-08 15:05:22,233 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,233 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 1 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 15:05:22,233 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,233 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 0, (2, 0): 4, (3, 2): 3}
+2025-08-08 15:05:22,233 [INFO] [__init__:145] Path: init=(4, 1), goal=(1, 4), path=[(4, 1), (4, 0), (3, 0), (2, 0), (1, 0), (0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (1, 4)], locks=[(2, 0), (0, 2)]
+2025-08-08 15:05:22,234 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed1_n0.pddl written!
+2025-08-08 15:05:22,280 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,280 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 2 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 15:05:22,280 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,280 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 4, (2, 0): 4, (3, 2): 0}
+2025-08-08 15:05:22,280 [INFO] [__init__:145] Path: init=(0, 4), goal=(4, 1), path=[(0, 4), (0, 3), (0, 2), (0, 1), (1, 1), (1, 0), (2, 0), (3, 0), (3, 1), (4, 1)], locks=[(0, 2), (2, 0)]
+2025-08-08 15:05:22,281 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed2_n0.pddl written!
+2025-08-08 15:05:22,328 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,328 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 3 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 15:05:22,328 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,328 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 1, (2, 0): 2, (3, 2): 1}
+2025-08-08 15:05:22,328 [INFO] [__init__:145] Path: init=(3, 3), goal=(0, 0), path=[(3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0)], locks=[(3, 2), (2, 0)]
+2025-08-08 15:05:22,328 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed3_n0.pddl written!
+2025-08-08 15:05:22,373 [INFO] [main:298] Using log file 'log.txt'
+2025-08-08 15:05:22,373 [INFO] [main:299] call=|/home/macsilva/reasoning/data/benchmarks/minigrid/minigrid-generator.py 4room2.fpl 5 --seed 4 --floorplans_path /home/macsilva/reasoning/data/benchmarks/minigrid/floorplans --results /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape|
+2025-08-08 15:05:22,373 [INFO] [__init__:103] Floorplan: ncells=19, locks={(0, 2), (2, 0), (3, 2)}
+2025-08-08 15:05:22,373 [INFO] [__init__:129] Locks: nlocks=3, nshapes=5, shape_map={(0, 2): 1, (2, 0): 0, (3, 2): 1}
+2025-08-08 15:05:22,374 [INFO] [__init__:145] Path: init=(4, 3), goal=(0, 2), path=[(4, 3), (3, 3), (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (1, 1), (0, 1), (0, 2)], locks=[(3, 2), (2, 0), (0, 2)]
+2025-08-08 15:05:22,374 [INFO] [main:315] /home/macsilva/reasoning/data/benchmarks/minigrid/instances/5-shape/grid_4room2_fpl_s5_seed4_n0.pddl written!

@@ -37,7 +37,9 @@ class GoogleModel(Model):
         
         if not response or not response.candidates:
             raise RuntimeError("No candidates returned from generation.")
-        
+
+        # print(response)
+
         candidate_response = "".join(part.text for part in response.candidates[0].content.parts)
 
         if wait_time > 0:
