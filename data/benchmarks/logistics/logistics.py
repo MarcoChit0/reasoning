@@ -20,7 +20,7 @@ city = 3
 location = 3 
 
 airplane = 1
-packages = np.arange(3, 12, 2)
+packages = np.arange(3, 18, 2)
 random_seed = np.arange(1, 5)
 
 # Create a directory for instances if it doesn't exist

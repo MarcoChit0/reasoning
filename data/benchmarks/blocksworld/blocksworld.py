@@ -14,7 +14,7 @@ import os
 import math
 import numpy as np
 
-blocks = np.arange(4, 17, 3)
+blocks = np.arange(4, 26, 3)
 random_seeds = np.arange(1, 5)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
