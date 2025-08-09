@@ -1,237 +1,143 @@
-2025-08-09 15:30:08,960 - INFO - Processing task: Task(domain=logistics, instance=p23)
-2025-08-09 15:30:08,960 - INFO - Using model: gemini-2.5-flash-lite
-2025-08-09 15:30:08,960 - INFO - Generation parameters: {'max_output_tokens': 64000, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'wait_time': 7}
-2025-08-09 15:30:11,142 - INFO - Prompt:
+2025-08-09 15:36:46,220 - INFO - Processing task: Task(domain=blocksworld, instance=p26)
+2025-08-09 15:36:46,220 - INFO - Using model: gemini-2.5-flash-lite
+2025-08-09 15:36:46,220 - INFO - Generation parameters: {'max_output_tokens': 64000, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'wait_time': 7}
+2025-08-09 15:37:05,477 - INFO - Prompt:
 <prompt>
 <problem-description-with-landmarks>
-You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>logistics</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks for the instance. Action landmarks are actions that must be part of any valid plan for the task. You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
 </problem-description-with-landmarks> 
 
-This is the PDDL domain file of the logistics domain:
+This is the PDDL domain file of the blocksworld domain:
 <domain-file>
-(define (domain logistics-strips)
+(define (domain blocksworld-4ops)
 (:requirements :strips)
-(:predicates 	(OBJ ?obj)
-(TRUCK ?truck)
-(LOCATION ?loc)
-(AIRPLANE ?airplane)
-(CITY ?city)
-(AIRPORT ?airport)
-(at ?obj ?loc)
-(in ?obj1 ?obj2)
-(in-city ?obj ?city))
-(:action LOAD-TRUCK
-:parameters
-(?obj
-?truck
-?loc)
-:precondition
-(and (OBJ ?obj) (TRUCK ?truck) (LOCATION ?loc)
-(at ?truck ?loc) (at ?obj ?loc))
-:effect
-(and (not (at ?obj ?loc)) (in ?obj ?truck)))
-(:action LOAD-AIRPLANE
-:parameters
-(?obj
-?airplane
-?loc)
-:precondition
-(and (OBJ ?obj) (AIRPLANE ?airplane) (LOCATION ?loc)
-(at ?obj ?loc) (at ?airplane ?loc))
-:effect
-(and (not (at ?obj ?loc)) (in ?obj ?airplane)))
-(:action UNLOAD-TRUCK
-:parameters
-(?obj
-?truck
-?loc)
-:precondition
-(and (OBJ ?obj) (TRUCK ?truck) (LOCATION ?loc)
-(at ?truck ?loc) (in ?obj ?truck))
-:effect
-(and (not (in ?obj ?truck)) (at ?obj ?loc)))
-(:action UNLOAD-AIRPLANE
-:parameters
-(?obj
-?airplane
-?loc)
-:precondition
-(and (OBJ ?obj) (AIRPLANE ?airplane) (LOCATION ?loc)
-(in ?obj ?airplane) (at ?airplane ?loc))
-:effect
-(and (not (in ?obj ?airplane)) (at ?obj ?loc)))
-(:action DRIVE-TRUCK
-:parameters
-(?truck
-?loc-from
-?loc-to
-?city)
-:precondition
-(and (TRUCK ?truck) (LOCATION ?loc-from) (LOCATION ?loc-to) (CITY ?city)
-(at ?truck ?loc-from)
-(in-city ?loc-from ?city)
-(in-city ?loc-to ?city))
-:effect
-(and (not (at ?truck ?loc-from)) (at ?truck ?loc-to)))
-(:action FLY-AIRPLANE
-:parameters
-(?airplane
-?loc-from
-?loc-to)
-:precondition
-(and (AIRPLANE ?airplane) (AIRPORT ?loc-from) (AIRPORT ?loc-to)
-(at ?airplane ?loc-from))
-:effect
-(and (not (at ?airplane ?loc-from)) (at ?airplane ?loc-to)))
+(:predicates
+(clear ?x)
+(on-table ?x)
+(arm-empty)
+(holding ?x)
+(on ?x ?y)
+)
+(:action pickup
+:parameters (?ob)
+:precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+:effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob))
+(not (arm-empty)))
+)
+(:action putdown
+:parameters (?ob)
+:precondition (holding ?ob)
+:effect (and (clear ?ob) (arm-empty) (on-table ?ob)
+(not (holding ?ob)))
+)
+(:action stack
+:parameters (?ob ?underob)
+:precondition (and (clear ?underob) (holding ?ob))
+:effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+(not (clear ?underob)) (not (holding ?ob)))
+)
+(:action unstack
+:parameters (?ob ?underob)
+:precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+:effect (and (holding ?ob) (clear ?underob)
+(not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))
+)
 )
 </domain-file>
 
 This is the PDDL instance file, for which you need to generate a plan:
 <instance-file>
-(define (problem logistics-c3-s3-p13-a1)
-(:domain logistics-strips)
-(:objects a0
-c0 c1 c2
-t0 t1 t2
-l0-0 l0-1 l0-2 l1-0 l1-1 l1-2 l2-0 l2-1 l2-2
-p0 p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12
-)
+(define (problem BW-rand-22)
+(:domain blocksworld-4ops)
+(:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 )
 (:init
-(AIRPLANE a0)
-(CITY c0)
-(CITY c1)
-(CITY c2)
-(TRUCK t0)
-(TRUCK t1)
-(TRUCK t2)
-(LOCATION l0-0)
-(in-city  l0-0 c0)
-(LOCATION l0-1)
-(in-city  l0-1 c0)
-(LOCATION l0-2)
-(in-city  l0-2 c0)
-(LOCATION l1-0)
-(in-city  l1-0 c1)
-(LOCATION l1-1)
-(in-city  l1-1 c1)
-(LOCATION l1-2)
-(in-city  l1-2 c1)
-(LOCATION l2-0)
-(in-city  l2-0 c2)
-(LOCATION l2-1)
-(in-city  l2-1 c2)
-(LOCATION l2-2)
-(in-city  l2-2 c2)
-(AIRPORT l0-0)
-(AIRPORT l1-0)
-(AIRPORT l2-0)
-(OBJ p0)
-(OBJ p1)
-(OBJ p2)
-(OBJ p3)
-(OBJ p4)
-(OBJ p5)
-(OBJ p6)
-(OBJ p7)
-(OBJ p8)
-(OBJ p9)
-(OBJ p10)
-(OBJ p11)
-(OBJ p12)
-(at t0 l0-0)
-(at t1 l1-1)
-(at t2 l2-0)
-(at p0 l0-0)
-(at p1 l1-0)
-(at p2 l1-1)
-(at p3 l1-1)
-(at p4 l1-0)
-(at p5 l1-1)
-(at p6 l0-0)
-(at p7 l1-1)
-(at p8 l0-1)
-(at p9 l0-1)
-(at p10 l0-1)
-(at p11 l2-2)
-(at p12 l2-1)
-(at a0 l2-0)
+(arm-empty)
+(on-table b1)
+(on b2 b1)
+(on-table b3)
+(on b4 b5)
+(on b5 b10)
+(on b6 b13)
+(on b7 b8)
+(on b8 b2)
+(on b9 b11)
+(on b10 b3)
+(on b11 b22)
+(on b12 b17)
+(on b13 b12)
+(on b14 b15)
+(on b15 b18)
+(on b16 b20)
+(on b17 b21)
+(on b18 b7)
+(on b19 b14)
+(on b20 b9)
+(on-table b21)
+(on b22 b19)
+(clear b4)
+(clear b6)
+(clear b16)
 )
 (:goal
 (and
-(at p0 l1-1)
-(at p1 l1-1)
-(at p2 l2-2)
-(at p3 l1-1)
-(at p4 l2-1)
-(at p5 l0-1)
-(at p6 l2-1)
-(at p7 l1-1)
-(at p8 l1-0)
-(at p9 l1-2)
-(at p10 l1-2)
-(at p11 l1-1)
-(at p12 l0-2)
-)
+(on b1 b10)
+(on b2 b11)
+(on b4 b13)
+(on b6 b8)
+(on b7 b19)
+(on b8 b17)
+(on b9 b15)
+(on b11 b9)
+(on b14 b4)
+(on b15 b18)
+(on b16 b6)
+(on b18 b16)
+(on b19 b12)
+(on b20 b3)
+(on b21 b14)
+(on b22 b7))
 )
 )
 </instance-file>
 
 This is a set of action landmarks for the instance you need to generate a plan for:
 <landmarks-set>
-(load-truck p12 t0 l0-0)
-(load-truck p12 t2 l2-1)
-(load-truck p8 t0 l0-1)
-(load-truck p6 t2 l2-0)
-(load-truck p5 t1 l1-1)
-(load-truck p5 t0 l0-0)
-(load-truck p10 t1 l1-0)
-(load-truck p10 t0 l0-1)
-(load-truck p1 t1 l1-0)
-(load-truck p2 t1 l1-1)
-(load-truck p2 t2 l2-0)
-(load-truck p9 t1 l1-0)
-(load-truck p9 t0 l0-1)
-(load-truck p11 t1 l1-0)
-(load-truck p11 t2 l2-2)
-(load-truck p4 t2 l2-0)
-(load-truck p0 t1 l1-0)
-(load-airplane p12 a0 l2-0)
-(load-airplane p8 a0 l0-0)
-(load-airplane p6 a0 l0-0)
-(load-airplane p5 a0 l1-0)
-(load-airplane p10 a0 l0-0)
-(load-airplane p2 a0 l1-0)
-(load-airplane p9 a0 l0-0)
-(load-airplane p11 a0 l2-0)
-(load-airplane p4 a0 l1-0)
-(load-airplane p0 a0 l0-0)
-(unload-truck p12 t0 l0-2)
-(unload-truck p12 t2 l2-0)
-(unload-truck p8 t0 l0-0)
-(unload-truck p6 t2 l2-1)
-(unload-truck p5 t1 l1-0)
-(unload-truck p5 t0 l0-1)
-(unload-truck p10 t1 l1-2)
-(unload-truck p10 t0 l0-0)
-(unload-truck p1 t1 l1-1)
-(unload-truck p2 t1 l1-0)
-(unload-truck p2 t2 l2-2)
-(unload-truck p9 t1 l1-2)
-(unload-truck p9 t0 l0-0)
-(unload-truck p11 t1 l1-1)
-(unload-truck p11 t2 l2-0)
-(unload-truck p4 t2 l2-1)
-(unload-truck p0 t1 l1-1)
-(unload-airplane p12 a0 l0-0)
-(unload-airplane p8 a0 l1-0)
-(unload-airplane p6 a0 l2-0)
-(unload-airplane p5 a0 l0-0)
-(unload-airplane p10 a0 l1-0)
-(unload-airplane p2 a0 l2-0)
-(unload-airplane p9 a0 l1-0)
-(unload-airplane p11 a0 l1-0)
-(unload-airplane p4 a0 l2-0)
-(unload-airplane p0 a0 l1-0)
+(pickup b1)
+(pickup b21)
+(stack b1 b10)
+(stack b8 b17)
+(stack b19 b12)
+(stack b20 b3)
+(stack b9 b15)
+(stack b18 b16)
+(stack b14 b4)
+(stack b4 b13)
+(stack b16 b6)
+(stack b2 b11)
+(stack b6 b8)
+(stack b7 b19)
+(stack b22 b7)
+(stack b11 b9)
+(stack b21 b14)
+(unstack b8 b2)
+(unstack b12 b17)
+(unstack b15 b18)
+(unstack b19 b14)
+(unstack b13 b12)
+(unstack b20 b9)
+(unstack b10 b3)
+(unstack b17 b21)
+(unstack b9 b11)
+(unstack b18 b7)
+(unstack b14 b15)
+(unstack b4 b5)
+(unstack b16 b20)
+(unstack b2 b1)
+(unstack b6 b13)
+(unstack b7 b8)
+(unstack b22 b19)
+(unstack b11 b22)
+(unstack b5 b10)
 </landmarks-set>
 
 This is the PDDL domain file of another domain, called Storage, which serves as an example:
@@ -667,108 +573,10 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>
 </prompt>
 
-2025-08-09 15:30:11,142 - INFO - Prompt metadata:
+2025-08-09 15:37:05,477 - INFO - Prompt metadata:
 <prompt_metadata>
-{'template': 'landmark', 'action_landmarks': ['(load-truck p12 t0 l0-0)', '(load-truck p12 t2 l2-1)', '(load-truck p8 t0 l0-1)', '(load-truck p6 t2 l2-0)', '(load-truck p5 t1 l1-1)', '(load-truck p5 t0 l0-0)', '(load-truck p10 t1 l1-0)', '(load-truck p10 t0 l0-1)', '(load-truck p1 t1 l1-0)', '(load-truck p2 t1 l1-1)', '(load-truck p2 t2 l2-0)', '(load-truck p9 t1 l1-0)', '(load-truck p9 t0 l0-1)', '(load-truck p11 t1 l1-0)', '(load-truck p11 t2 l2-2)', '(load-truck p4 t2 l2-0)', '(load-truck p0 t1 l1-0)', '(load-airplane p12 a0 l2-0)', '(load-airplane p8 a0 l0-0)', '(load-airplane p6 a0 l0-0)', '(load-airplane p5 a0 l1-0)', '(load-airplane p10 a0 l0-0)', '(load-airplane p2 a0 l1-0)', '(load-airplane p9 a0 l0-0)', '(load-airplane p11 a0 l2-0)', '(load-airplane p4 a0 l1-0)', '(load-airplane p0 a0 l0-0)', '(unload-truck p12 t0 l0-2)', '(unload-truck p12 t2 l2-0)', '(unload-truck p8 t0 l0-0)', '(unload-truck p6 t2 l2-1)', '(unload-truck p5 t1 l1-0)', '(unload-truck p5 t0 l0-1)', '(unload-truck p10 t1 l1-2)', '(unload-truck p10 t0 l0-0)', '(unload-truck p1 t1 l1-1)', '(unload-truck p2 t1 l1-0)', '(unload-truck p2 t2 l2-2)', '(unload-truck p9 t1 l1-2)', '(unload-truck p9 t0 l0-0)', '(unload-truck p11 t1 l1-1)', '(unload-truck p11 t2 l2-0)', '(unload-truck p4 t2 l2-1)', '(unload-truck p0 t1 l1-1)', '(unload-airplane p12 a0 l0-0)', '(unload-airplane p8 a0 l1-0)', '(unload-airplane p6 a0 l2-0)', '(unload-airplane p5 a0 l0-0)', '(unload-airplane p10 a0 l1-0)', '(unload-airplane p2 a0 l2-0)', '(unload-airplane p9 a0 l1-0)', '(unload-airplane p11 a0 l1-0)', '(unload-airplane p4 a0 l2-0)', '(unload-airplane p0 a0 l1-0)'], 'num_action_landmarks': 54}
+{'template': 'landmark', 'action_landmarks': ['(pickup b1)', '(pickup b21)', '(stack b1 b10)', '(stack b8 b17)', '(stack b19 b12)', '(stack b20 b3)', '(stack b9 b15)', '(stack b18 b16)', '(stack b14 b4)', '(stack b4 b13)', '(stack b16 b6)', '(stack b2 b11)', '(stack b6 b8)', '(stack b7 b19)', '(stack b22 b7)', '(stack b11 b9)', '(stack b21 b14)', '(unstack b8 b2)', '(unstack b12 b17)', '(unstack b15 b18)', '(unstack b19 b14)', '(unstack b13 b12)', '(unstack b20 b9)', '(unstack b10 b3)', '(unstack b17 b21)', '(unstack b9 b11)', '(unstack b18 b7)', '(unstack b14 b15)', '(unstack b4 b5)', '(unstack b16 b20)', '(unstack b2 b1)', '(unstack b6 b13)', '(unstack b7 b8)', '(unstack b22 b19)', '(unstack b11 b22)', '(unstack b5 b10)'], 'num_action_landmarks': 36}
 </prompt_metadata>
 
-2025-08-09 15:30:11,142 - INFO - Sample: 1.
-2025-08-09 15:30:11,142 - INFO - AFC is enabled with max remote calls: 10.
-2025-08-09 15:31:32,707 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
-2025-08-09 15:31:32,710 - INFO - AFC remote call 1 is done.
-2025-08-09 15:31:39,710 - INFO - 
-<sample>
-<response>
-<plan>
-(DRIVE-TRUCK t0 l0-0 l0-1 c0)
-(LOAD-TRUCK p8 t0 l0-1)
-(LOAD-TRUCK p9 t0 l0-1)
-(LOAD-TRUCK p10 t0 l0-1)
-(DRIVE-TRUCK t0 l0-1 l0-0 c0)
-(UNLOAD-TRUCK p8 t0 l0-0)
-(UNLOAD-TRUCK p9 t0 l0-0)
-(UNLOAD-TRUCK p10 t0 l0-0)
-(LOAD-AIRPLANE p8 a0 l0-0)
-(LOAD-AIRPLANE p9 a0 l0-0)
-(LOAD-AIRPLANE p10 a0 l0-0)
-(LOAD-TRUCK p0 t0 l0-0)
-(UNLOAD-TRUCK p0 t0 l0-0)
-(LOAD-AIRPLANE p0 a0 l0-0)
-(LOAD-TRUCK p6 t0 l0-0)
-(UNLOAD-TRUCK p6 t0 l0-0)
-(LOAD-AIRPLANE p6 a0 l0-0)
-(DRIVE-TRUCK t1 l1-1 l1-0 c1)
-(LOAD-TRUCK p1 t1 l1-0)
-(UNLOAD-TRUCK p1 t1 l1-0)
-(LOAD-AIRPLANE p1 a0 l1-0)
-(LOAD-TRUCK p4 t1 l1-0)
-(UNLOAD-TRUCK p4 t1 l1-0)
-(LOAD-AIRPLANE p4 a0 l1-0)
-(LOAD-TRUCK p2 t1 l1-1)
-(UNLOAD-TRUCK p2 t1 l1-0)
-(LOAD-AIRPLANE p2 a0 l1-0)
-(DRIVE-TRUCK t1 l1-0 l1-1 c1)
-(LOAD-TRUCK p5 t1 l1-1)
-(LOAD-TRUCK p3 t1 l1-1)
-(LOAD-TRUCK p7 t1 l1-1)
-(UNLOAD-TRUCK p3 t1 l1-1)
-(UNLOAD-TRUCK p7 t1 l1-1)
-(DRIVE-TRUCK t2 l2-0 l2-1 c2)
-(LOAD-TRUCK p12 t2 l2-1)
-(DRIVE-TRUCK t2 l2-1 l2-2 c2)
-(LOAD-TRUCK p11 t2 l2-2)
-(DRIVE-TRUCK t2 l2-2 l2-0 c2)
-(UNLOAD-TRUCK p12 t2 l2-0)
-(UNLOAD-TRUCK p11 t2 l2-0)
-(LOAD-AIRPLANE p12 a0 l2-0)
-(LOAD-AIRPLANE p11 a0 l2-0)
-(FLY-AIRPLANE a0 l2-0 l1-0)
-(UNLOAD-AIRPLANE p1 a0 l1-0)
-(UNLOAD-AIRPLANE p4 a0 l1-0)
-(UNLOAD-AIRPLANE p5 a0 l1-0)
-(UNLOAD-AIRPLANE p2 a0 l1-0)
-(UNLOAD-AIRPLANE p11 a0 l1-0)
-(FLY-AIRPLANE a0 l1-0 l0-0)
-(UNLOAD-AIRPLANE p8 a0 l0-0)
-(UNLOAD-AIRPLANE p9 a0 l0-0)
-(UNLOAD-AIRPLANE p10 a0 l0-0)
-(UNLOAD-AIRPLANE p0 a0 l0-0)
-(UNLOAD-AIRPLANE p6 a0 l0-0)
-(FLY-AIRPLANE a0 l0-0 l2-0)
-(UNLOAD-AIRPLANE p12 a0 l2-0)
-(LOAD-TRUCK p1 t1 l1-0)
-(UNLOAD-TRUCK p1 t1 l1-1)
-(LOAD-TRUCK p8 t1 l1-0)
-(UNLOAD-TRUCK p8 t1 l1-0)
-(LOAD-TRUCK p9 t1 l1-0)
-(DRIVE-TRUCK t1 l1-0 l1-2 c1)
-(UNLOAD-TRUCK p9 t1 l1-2)
-(LOAD-TRUCK p10 t1 l1-0)
-(UNLOAD-TRUCK p10 t1 l1-2)
-(DRIVE-TRUCK t0 l0-0 l1-1 c0)
-(LOAD-TRUCK p0 t0 l1-1)
-(UNLOAD-TRUCK p0 t0 l1-1)
-(DRIVE-TRUCK t0 l1-1 l0-1 c0)
-(LOAD-TRUCK p5 t0 l0-1)
-(UNLOAD-TRUCK p5 t0 l0-1)
-(LOAD-TRUCK p2 t2 l2-0)
-(DRIVE-TRUCK t2 l2-0 l2-2 c2)
-(UNLOAD-TRUCK p2 t2 l2-2)
-(LOAD-TRUCK p4 t2 l2-0)
-(DRIVE-TRUCK t2 l2-0 l2-1 c2)
-(UNLOAD-TRUCK p4 t2 l2-1)
-(LOAD-TRUCK p11 t1 l1-0)
-(DRIVE-TRUCK t1 l1-0 l1-1 c1)
-(UNLOAD-TRUCK p11 t1 l1-1)
-(LOAD-TRUCK p12 t0 l0-2)
-(UNLOAD-TRUCK p12 t0 l0-2)
-(LOAD-TRUCK p6 t2 l2-0)
-(DRIVE-TRUCK t2 l2-0 l2-1 c2)
-(UNLOAD-TRUCK p6 t2 l2-1)
-</plan>
-</response>
-<metadata>
-{'prompt_token_count': 6850, 'candidates_token_count': 1410, 'total_tokens_count': 36153}
-</metadata>
-</sample>
-
+2025-08-09 15:37:05,478 - INFO - Sample: 1.
+2025-08-09 15:37:05,478 - INFO - AFC is enabled with max remote calls: 10.

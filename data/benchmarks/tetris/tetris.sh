@@ -35,7 +35,7 @@ for grid_size in "${grid_sizes[@]}"; do
         # Try to solve with Pyperplan with a 5-minute timeout and 24GB memory limit
         (
             ulimit -v 25165824
-            timeout 300s ./res/pyperplan/pyperplan -s gbf -H lmcut "data/benchmarks/tetris/domain.pddl" "$instance_path"
+            timeout 300s python res/pyperplan/pyperplan -s gbf -H lmcut data/benchmarks/tetris/domain.pddl $instance_path
         )
 
         # Check if a solution file was created
