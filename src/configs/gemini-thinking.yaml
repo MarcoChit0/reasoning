@@ -2,7 +2,7 @@ model_config:
   class: GoogleModel
   name: gemini-2.5-flash-preview-05-20
 generation_config:
-  max_output_tokens: 32000
+  max_output_tokens: 64000
   top_p: 0.95
   temperature: 1.0
   top_k: 64

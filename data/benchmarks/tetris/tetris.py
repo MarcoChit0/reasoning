@@ -19,7 +19,6 @@ import math
 import numpy as np
 
 grid_sizes = np.arange(4, 13, 2)
-random_seeds = np.arange(1, 5)
 conf_blocks = 4
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -27,19 +26,48 @@ instances_dir = os.path.join(script_dir, "instances")
 os.makedirs(instances_dir, exist_ok=True)
 tetris_path = os.path.join(script_dir, "generator.py")
 
-inst = 0
+inst = 1
 for g in range(len(grid_sizes)):
     grid_dir = os.path.join(instances_dir, f"{grid_sizes[g]}-grid")
     os.makedirs(grid_dir, exist_ok=True)
-    for s in range(len(random_seeds)):
-        command = ["python", tetris_path, str(grid_sizes[g]), str(conf_blocks)]
-        inst += 1
+    created_instances = 0
+    seed = 0
+    
+    while created_instances < 4:
+        seed += 1
+        command = ["python", tetris_path, str(grid_sizes[g]), str(conf_blocks), str(seed)]
         instance_name = f"p{inst:02}.pddl"
-
+        instance_path = os.path.join(grid_dir, instance_name)
+        solution_path = instance_path + ".soln"
+        
         try:
-            with open(os.path.join(grid_dir, instance_name), "w") as instance_file:
+            # Generate tetris instance
+            with open(instance_path, "w") as instance_file:
                 result = subprocess.run(command, capture_output=True, text=True)
                 instance_file.write(result.stdout)
-        except subprocess.CalledProcessError as e:
-            print(f"Error executing tetris command: {e}")
-            print(f"Error output: {e.stderr}")
+            
+            # Try to solve with pyperplan
+            pyperplan_cmd = [
+                "./res/pyperplan/pyperplan",
+                "-s", "gbf",
+                "-H", "lmcut",
+                "data/benchmarks/tetris/domain.pddl",
+                instance_path,
+            ]
+            
+            # Run pyperplan with timeout
+            subprocess.run(pyperplan_cmd, timeout=300, check=False)
+            
+            # Check if solution file exists
+            if os.path.exists(solution_path):
+                print(f"Solution found for instance {instance_name} with seed {seed}")
+                created_instances += 1
+                inst += 1
+            else:
+                print(f"No solution found for instance {instance_name} with seed {seed}")
+                os.remove(instance_path)
+        
+        except Exception as e:
+            print(f"Error processing instance {instance_name}: {e}")
+            if os.path.exists(instance_path):
+                os.remove(instance_path)
