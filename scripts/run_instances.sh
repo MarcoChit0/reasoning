@@ -53,50 +53,67 @@ for domain_path in "$BENCHMARKS_DIR"/*; do
         
         # --- 1. Run the existing planner with lmcut heuristic ---
         output_file="${instance_file}.soln"
-
-        (
-            ulimit -v "$MEMORY_LIMIT_KB"
-            timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s gbf -H lmcut
-        ) || {
-            if [ $? -eq 124 ]; then
-                echo "Timeout expired for lmcut on instance $instance_file"
-            else
-                echo "Planner exited with an error for lmcut on instance $instance_file"
+        dest_output_file="${DOMAIN_SOLUTION_DIR}/$(basename "$output_file")"
+        
+        # Check if solution already exists
+        if [ -f "$dest_output_file" ]; then
+            line_count=$(wc -l < "$dest_output_file" | awk '{print $1}')
+            echo -e "\t-> lmcut solution already exists with ${line_count} steps. Skipping."
+            # Make sure the solution is already in the CSV
+            if ! grep -q "${domain},${instance_basename},${line_count}" "$CSV_FILE"; then
+                echo "${domain},${instance_basename},${line_count}" >> "$CSV_FILE"
             fi
-        }
-
-        # Check if an lmcut solution file was created and process it
-        if [ -f "$output_file" ]; then
-            line_count=$(wc -l < "$output_file" | awk '{print $1}')
-            echo -e "\t-> lmcut solution found with ${line_count} steps."
-            echo "${domain},${instance_basename},${line_count}" >> "$CSV_FILE"
-            mv "$output_file" "$DOMAIN_SOLUTION_DIR/"
         else
-            echo -e "\t-> No lmcut solution found."
+            (
+                ulimit -v "$MEMORY_LIMIT_KB"
+                timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s gbf -H lmcut
+            ) || {
+                if [ $? -eq 124 ]; then
+                    echo "Timeout expired for lmcut on instance $instance_file"
+                else
+                    echo "Planner exited with an error for lmcut on instance $instance_file"
+                fi
+            }
+
+            # Check if an lmcut solution file was created and process it
+            if [ -f "$output_file" ]; then
+                line_count=$(wc -l < "$output_file" | awk '{print $1}')
+                echo -e "\t-> lmcut solution found with ${line_count} steps."
+                echo "${domain},${instance_basename},${line_count}" >> "$CSV_FILE"
+                mv "$output_file" "$DOMAIN_SOLUTION_DIR/"
+            else
+                echo -e "\t-> No lmcut solution found."
+            fi
         fi
 
         # --- 2. Run the new planner with actionlandmark heuristic ---
         landmark_output_file="${instance_file}.lndmk"
-
-        (
-            ulimit -v "$MEMORY_LIMIT_KB"
-            timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s gbf -H actionlandmark > "$landmark_output_file"
-        ) || {
-            if [ $? -eq 124 ]; then
-                echo "Timeout expired for actionlandmark on instance $instance_file"
-            else
-                echo "Planner exited with an error for actionlandmark on instance $instance_file"
-            fi
-        }
+        dest_landmark_file="${DOMAIN_SOLUTION_DIR}/$(basename "$landmark_output_file")"
         
-        # Check if the landmark solution file was created (and is not empty)
-        if [ -s "$landmark_output_file" ]; then
-            echo -e "\t-> actionlandmark solution saved."
-            mv "$landmark_output_file" "$DOMAIN_SOLUTION_DIR/"
+        # Check if landmark solution already exists
+        if [ -f "$dest_landmark_file" ] && [ -s "$dest_landmark_file" ]; then
+            echo -e "\t-> actionlandmark solution already exists. Skipping."
         else
-            echo -e "\t-> No actionlandmark solution found or output was empty."
-            # Clean up empty file if it exists
-            rm -f "$landmark_output_file"
+            (
+                ulimit -v "$MEMORY_LIMIT_KB"
+                timeout "$TIMEOUT_SECONDS" python "$PLANNER_SCRIPT" "$DOMAIN_PDDL" "$instance_file" -s gbf -H actionlandmark > "$landmark_output_file"
+            ) || {
+                if [ $? -eq 124 ]; then
+                    echo "Timeout expired for actionlandmark on instance $instance_file"
+                else
+                    echo "Planner exited with an error for actionlandmark on instance $instance_file"
+                fi
+            }
+            
+            # Check if the landmark solution file was created (and is not empty)
+            if [ -s "$landmark_output_file" ]; then
+                echo -e "\t-> actionlandmark solution saved."
+                mv "$landmark_output_file" "$DOMAIN_SOLUTION_DIR/"
+            else
+                echo -e "\t-> No actionlandmark solution found or output was empty."
+                # Clean up empty file if it exists
+                rm -f "$landmark_output_file"
+            fi
         fi
 
         echo # Add a newline for better readability
