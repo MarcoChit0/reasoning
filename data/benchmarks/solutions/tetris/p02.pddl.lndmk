@@ -1,3 +1,0 @@
-2025-08-09 00:03:27,429 INFO     using search: greedy_best_first_search
-2025-08-09 00:03:27,430 INFO     using heuristic: ActionLandmarkHeuristic
-2025-08-09 00:03:27,430 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/tetris/domain.pddl

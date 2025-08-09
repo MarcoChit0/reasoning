@@ -1,641 +1,737 @@
 ,experiment,domain,instance_subdir,model,template,instance,sample_id,valid,error,num_action_landmarks,candidates_token_count
-0,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p03,1,True,,3.0,40.0
-1,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p02,1,True,,5.0,97.0
-2,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p04,1,True,,7.0,84.0
-3,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p01,1,True,,6.0,67.0
-4,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p14,1,True,,22.0,300.0
-5,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p15,1,True,,22.0,250.0
-6,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p16,1,True,,14.0,304.0
-7,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p13,1,True,,19.0,279.0
-8,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p07,1,True,,10.0,114.0
-9,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p05,1,True,,8.0,102.0
-10,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p06,1,True,,13.0,171.0
-11,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p08,1,True,,10.0,159.0
-12,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p19,1,False,,27.0,314.0
-13,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p20,1,True,,24.0,385.0
-14,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p17,1,True,,25.0,361.0
-15,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p18,1,True,,29.0,446.0
-16,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p11,1,True,,15.0,194.0
-17,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p10,1,True,,16.0,236.0
-18,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p09,1,True,,14.0,166.0
-19,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p12,1,True,,14.0,207.0
-20,many-models,miconic,4-passenger,gemini-thinking,landmark,p03,1,True,,8.0,135.0
-21,many-models,miconic,4-passenger,gemini-thinking,landmark,p02,1,True,,8.0,167.0
-22,many-models,miconic,4-passenger,gemini-thinking,landmark,p04,1,True,,8.0,127.0
-23,many-models,miconic,4-passenger,gemini-thinking,landmark,p01,1,True,,8.0,159.0
-24,many-models,miconic,20-passenger,gemini-thinking,landmark,p19,1,True,,40.0,668.0
-25,many-models,miconic,20-passenger,gemini-thinking,landmark,p20,1,True,,40.0,677.0
-26,many-models,miconic,20-passenger,gemini-thinking,landmark,p17,1,True,,40.0,1021.0
-27,many-models,miconic,20-passenger,gemini-thinking,landmark,p18,1,True,,40.0,718.0
-28,many-models,miconic,8-passenger,gemini-thinking,landmark,p07,1,True,,16.0,334.0
-29,many-models,miconic,8-passenger,gemini-thinking,landmark,p05,1,True,,16.0,248.0
-30,many-models,miconic,8-passenger,gemini-thinking,landmark,p06,1,True,,16.0,245.0
-31,many-models,miconic,8-passenger,gemini-thinking,landmark,p08,1,True,,16.0,232.0
-32,many-models,miconic,16-passenger,gemini-thinking,landmark,p14,1,True,,32.0,541.0
-33,many-models,miconic,16-passenger,gemini-thinking,landmark,p15,1,True,,32.0,826.0
-34,many-models,miconic,16-passenger,gemini-thinking,landmark,p16,1,True,,32.0,827.0
-35,many-models,miconic,16-passenger,gemini-thinking,landmark,p13,1,True,,32.0,502.0
-36,many-models,miconic,12-passenger,gemini-thinking,landmark,p11,1,True,,24.0,615.0
-37,many-models,miconic,12-passenger,gemini-thinking,landmark,p10,1,True,,24.0,401.0
-38,many-models,miconic,12-passenger,gemini-thinking,landmark,p09,1,True,,24.0,377.0
-39,many-models,miconic,12-passenger,gemini-thinking,landmark,p12,1,True,,24.0,613.0
-40,many-models,logistics,11-packages,gemini-thinking,landmark,p19,1,True,,38.0,733.0
-41,many-models,logistics,11-packages,gemini-thinking,landmark,p20,1,True,,38.0,781.0
-42,many-models,logistics,11-packages,gemini-thinking,landmark,p17,1,True,,44.0,855.0
-43,many-models,logistics,11-packages,gemini-thinking,landmark,p18,1,True,,28.0,647.0
-44,many-models,logistics,9-packages,gemini-thinking,landmark,p14,1,True,,28.0,609.0
-45,many-models,logistics,9-packages,gemini-thinking,landmark,p15,1,True,,30.0,601.0
-46,many-models,logistics,9-packages,gemini-thinking,landmark,p16,1,True,,30.0,755.0
-47,many-models,logistics,9-packages,gemini-thinking,landmark,p13,1,True,,26.0,539.0
-48,many-models,logistics,3-packages,gemini-thinking,landmark,p03,1,True,,4.0,115.0
-49,many-models,logistics,3-packages,gemini-thinking,landmark,p02,1,True,,10.0,267.0
-50,many-models,logistics,3-packages,gemini-thinking,landmark,p04,1,True,,12.0,331.0
-51,many-models,logistics,3-packages,gemini-thinking,landmark,p01,1,True,,6.0,159.0
-52,many-models,logistics,7-packages,gemini-thinking,landmark,p11,1,True,,34.0,639.0
-53,many-models,logistics,7-packages,gemini-thinking,landmark,p10,1,True,,26.0,581.0
-54,many-models,logistics,7-packages,gemini-thinking,landmark,p09,1,True,,26.0,579.0
-55,many-models,logistics,7-packages,gemini-thinking,landmark,p12,1,True,,28.0,569.0
-56,many-models,logistics,5-packages,gemini-thinking,landmark,p07,1,True,,16.0,333.0
-57,many-models,logistics,5-packages,gemini-thinking,landmark,p05,1,True,,8.0,241.0
-58,many-models,logistics,5-packages,gemini-thinking,landmark,p06,1,True,,16.0,353.0
-59,many-models,logistics,5-packages,gemini-thinking,landmark,p08,1,True,,10.0,249.0
-60,many-models,spanner,16-spanners,gemini-thinking,landmark,p14,1,True,,18.0,644.0
-61,many-models,spanner,16-spanners,gemini-thinking,landmark,p15,1,True,,18.0,642.0
-62,many-models,spanner,16-spanners,gemini-thinking,landmark,p16,1,True,,18.0,643.0
-63,many-models,spanner,16-spanners,gemini-thinking,landmark,p13,1,True,,18.0,644.0
-64,many-models,spanner,8-spanners,gemini-thinking,landmark,p07,1,True,,10.0,311.0
-65,many-models,spanner,8-spanners,gemini-thinking,landmark,p05,1,True,,10.0,311.0
-66,many-models,spanner,8-spanners,gemini-thinking,landmark,p06,1,False,,10.0,1071.0
-67,many-models,spanner,8-spanners,gemini-thinking,landmark,p08,1,False,,10.0,999.0
-68,many-models,spanner,12-spanners,gemini-thinking,landmark,p11,1,True,,14.0,477.0
-69,many-models,spanner,12-spanners,gemini-thinking,landmark,p10,1,True,,14.0,476.0
-70,many-models,spanner,12-spanners,gemini-thinking,landmark,p09,1,False,,14.0,1661.0
-71,many-models,spanner,12-spanners,gemini-thinking,landmark,p12,1,True,,14.0,473.0
-72,many-models,spanner,4-spanners,gemini-thinking,landmark,p03,1,False,,6.0,269.0
-73,many-models,spanner,4-spanners,gemini-thinking,landmark,p02,1,True,,6.0,167.0
-74,many-models,spanner,4-spanners,gemini-thinking,landmark,p04,1,True,,6.0,167.0
-75,many-models,spanner,4-spanners,gemini-thinking,landmark,p01,1,True,,6.0,167.0
-76,many-models,spanner,20-spanners,gemini-thinking,landmark,p19,1,True,,22.0,813.0
-77,many-models,spanner,20-spanners,gemini-thinking,landmark,p20,1,False,,22.0,5830.0
-78,many-models,spanner,20-spanners,gemini-thinking,landmark,p17,1,True,,22.0,811.0
-79,many-models,spanner,20-spanners,gemini-thinking,landmark,p18,1,False,,22.0,5204.0
-80,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p03,1,True,,,40.0
-81,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p02,1,True,,,97.0
-82,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p04,1,True,,,84.0
-83,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p01,1,True,,,67.0
-84,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p14,1,False,,,309.0
-85,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p15,1,True,,,291.0
-86,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p16,1,True,,,191.0
-87,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p13,1,True,,,279.0
-88,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p07,1,True,,,114.0
-89,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p05,1,True,,,102.0
-90,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p06,1,True,,,171.0
-91,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p08,1,True,,,159.0
-92,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p19,1,True,,,385.0
-93,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p20,1,True,,,385.0
-94,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p17,1,True,,,361.0
-95,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p18,1,True,,,446.0
-96,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p11,1,True,,,181.0
-97,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p10,1,True,,,227.0
-98,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p09,1,True,,,179.0
-99,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p12,1,False,,,209.0
-100,many-models,miconic,4-passenger,gemini-thinking,pddl,p03,1,False,,,151.0
-101,many-models,miconic,4-passenger,gemini-thinking,pddl,p02,1,True,,,111.0
-102,many-models,miconic,4-passenger,gemini-thinking,pddl,p04,1,True,,,127.0
-103,many-models,miconic,4-passenger,gemini-thinking,pddl,p01,1,True,,,135.0
-104,many-models,miconic,20-passenger,gemini-thinking,pddl,p19,1,False,,,668.0
-105,many-models,miconic,20-passenger,gemini-thinking,pddl,p20,1,True,,,647.0
-106,many-models,miconic,20-passenger,gemini-thinking,pddl,p17,1,True,,,667.0
-107,many-models,miconic,20-passenger,gemini-thinking,pddl,p18,1,True,,,688.0
-108,many-models,miconic,8-passenger,gemini-thinking,pddl,p07,1,True,,,334.0
-109,many-models,miconic,8-passenger,gemini-thinking,pddl,p05,1,True,,,248.0
-110,many-models,miconic,8-passenger,gemini-thinking,pddl,p06,1,True,,,388.0
-111,many-models,miconic,8-passenger,gemini-thinking,pddl,p08,1,True,,,360.0
-112,many-models,miconic,16-passenger,gemini-thinking,pddl,p14,1,True,,,859.0
-113,many-models,miconic,16-passenger,gemini-thinking,pddl,p15,1,False,,,502.0
-114,many-models,miconic,16-passenger,gemini-thinking,pddl,p16,1,True,,,758.0
-115,many-models,miconic,16-passenger,gemini-thinking,pddl,p13,1,False,,,532.0
-116,many-models,miconic,12-passenger,gemini-thinking,pddl,p11,1,True,,,357.0
-117,many-models,miconic,12-passenger,gemini-thinking,pddl,p10,1,True,,,623.0
-118,many-models,miconic,12-passenger,gemini-thinking,pddl,p09,1,True,,,377.0
-119,many-models,miconic,12-passenger,gemini-thinking,pddl,p12,1,True,,,377.0
-120,many-models,logistics,11-packages,gemini-thinking,pddl,p19,1,False,,,780.0
-121,many-models,logistics,11-packages,gemini-thinking,pddl,p20,1,True,,,767.0
-122,many-models,logistics,11-packages,gemini-thinking,pddl,p17,1,True,,,1083.0
-123,many-models,logistics,11-packages,gemini-thinking,pddl,p18,1,True,,,665.0
-124,many-models,logistics,9-packages,gemini-thinking,pddl,p14,1,True,,,729.0
-125,many-models,logistics,9-packages,gemini-thinking,pddl,p15,1,True,,,637.0
-126,many-models,logistics,9-packages,gemini-thinking,pddl,p16,1,True,,,771.0
-127,many-models,logistics,9-packages,gemini-thinking,pddl,p13,1,True,,,621.0
-128,many-models,logistics,3-packages,gemini-thinking,pddl,p03,1,True,,,115.0
-129,many-models,logistics,3-packages,gemini-thinking,pddl,p02,1,True,,,267.0
-130,many-models,logistics,3-packages,gemini-thinking,pddl,p04,1,True,,,347.0
-131,many-models,logistics,3-packages,gemini-thinking,pddl,p01,1,True,,,177.0
-132,many-models,logistics,7-packages,gemini-thinking,pddl,p11,1,True,,,621.0
-133,many-models,logistics,7-packages,gemini-thinking,pddl,p10,1,True,,,597.0
-134,many-models,logistics,7-packages,gemini-thinking,pddl,p09,1,True,,,581.0
-135,many-models,logistics,7-packages,gemini-thinking,pddl,p12,1,True,,,555.0
-136,many-models,logistics,5-packages,gemini-thinking,pddl,p07,1,True,,,335.0
-137,many-models,logistics,5-packages,gemini-thinking,pddl,p05,1,True,,,241.0
-138,many-models,logistics,5-packages,gemini-thinking,pddl,p06,1,True,,,543.0
-139,many-models,logistics,5-packages,gemini-thinking,pddl,p08,1,True,,,267.0
-140,many-models,spanner,16-spanners,gemini-thinking,pddl,p14,1,False,,,644.0
-141,many-models,spanner,16-spanners,gemini-thinking,pddl,p15,1,False,,,3474.0
-142,many-models,spanner,16-spanners,gemini-thinking,pddl,p16,1,False,,,643.0
-143,many-models,spanner,16-spanners,gemini-thinking,pddl,p13,1,True,,,644.0
-144,many-models,spanner,8-spanners,gemini-thinking,pddl,p07,1,True,,,311.0
-145,many-models,spanner,8-spanners,gemini-thinking,pddl,p05,1,False,,,819.0
-146,many-models,spanner,8-spanners,gemini-thinking,pddl,p06,1,True,,,311.0
-147,many-models,spanner,8-spanners,gemini-thinking,pddl,p08,1,False,,,999.0
-148,many-models,spanner,12-spanners,gemini-thinking,pddl,p11,1,True,,,477.0
-149,many-models,spanner,12-spanners,gemini-thinking,pddl,p10,1,False,,,2286.0
-150,many-models,spanner,12-spanners,gemini-thinking,pddl,p09,1,False,,,1661.0
-151,many-models,spanner,12-spanners,gemini-thinking,pddl,p12,1,True,,,473.0
-152,many-models,spanner,4-spanners,gemini-thinking,pddl,p03,1,True,,,167.0
-153,many-models,spanner,4-spanners,gemini-thinking,pddl,p02,1,True,,,167.0
-154,many-models,spanner,4-spanners,gemini-thinking,pddl,p04,1,True,,,167.0
-155,many-models,spanner,4-spanners,gemini-thinking,pddl,p01,1,False,,,305.0
-156,many-models,spanner,20-spanners,gemini-thinking,pddl,p19,1,False,,,3903.0
-157,many-models,spanner,20-spanners,gemini-thinking,pddl,p20,1,False,,,6243.0
-158,many-models,spanner,20-spanners,gemini-thinking,pddl,p17,1,False,,,4955.0
-159,many-models,spanner,20-spanners,gemini-thinking,pddl,p18,1,True,,,812.0
-160,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p03,1,True,,3.0,40.0
-161,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p02,1,False,,5.0,90.0
-162,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p04,1,True,,7.0,117.0
-163,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p01,1,True,,6.0,67.0
-164,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,,22.0,312.0
-165,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p15,1,True,,22.0,298.0
-166,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,,14.0,232.0
-167,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p13,1,True,,19.0,279.0
-168,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p07,1,False,Error processing Sample 1: Plan not found in response.,10.0,
-169,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p05,1,False,,8.0,111.0
-170,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p06,1,True,,13.0,171.0
-171,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,10.0,159.0
-172,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,27.0,385.0
-173,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p20,1,False,,24.0,370.0
-174,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p17,1,False,,25.0,361.0
-175,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,29.0,432.0
-176,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p11,1,False,,15.0,213.0
-177,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,16.0,291.0
-178,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p09,1,True,,14.0,199.0
-179,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p12,1,False,,14.0,207.0
-180,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p03,1,True,,8.0,151.0
-181,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p02,1,True,,8.0,223.0
-182,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p04,1,True,,8.0,231.0
-183,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p01,1,True,,8.0,279.0
-184,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,40.0,3875.0
-185,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p20,1,True,,40.0,1125.0
-186,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p17,1,False,,40.0,1002.0
-187,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,40.0,751.0
-188,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p07,1,True,,16.0,334.0
-189,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p05,1,False,Error processing Sample 1: Plan not found in response.,16.0,
-190,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p06,1,True,,16.0,708.0
-191,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,16.0,453.0
-192,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,Error processing Sample 1: Plan not found in response.,32.0,
-193,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p15,1,False,,32.0,2569.0
-194,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,,32.0,2964.0
-195,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p13,1,False,,32.0,2741.0
-196,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p11,1,False,,24.0,1830.0
-197,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,24.0,447.0
-198,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p09,1,False,,24.0,1902.0
-199,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p12,1,True,,24.0,613.0
-200,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,38.0,967.0
-201,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p20,1,False,,38.0,808.0
-202,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p17,1,False,,44.0,1153.0
-203,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,28.0,657.0
-204,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,,28.0,807.0
-205,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p15,1,False,,30.0,789.0
-206,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,Error processing Sample 1: Plan not found in response.,30.0,
-207,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p13,1,False,Error processing Sample 1: Plan not found in response.,26.0,
-208,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p03,1,True,,4.0,115.0
-209,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p02,1,True,,10.0,293.0
-210,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p04,1,True,,12.0,403.0
-211,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p01,1,True,,6.0,177.0
-212,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p11,1,True,,34.0,637.0
-213,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,26.0,973.0
-214,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p09,1,False,,26.0,775.0
-215,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p12,1,False,,28.0,714.0
-216,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p07,1,False,,16.0,389.0
-217,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p05,1,True,,8.0,241.0
-218,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p06,1,False,,16.0,441.0
-219,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,10.0,273.0
-220,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,,18.0,3455.0
-221,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p15,1,False,,18.0,3176.0
-222,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,,18.0,803.0
-223,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p13,1,False,,18.0,3068.0
-224,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p07,1,False,,10.0,439.0
-225,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p05,1,False,,10.0,897.0
-226,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p06,1,False,,10.0,423.0
-227,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,10.0,318.0
-228,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p11,1,False,,14.0,857.0
-229,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,14.0,2056.0
-230,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p09,1,True,,14.0,484.0
-231,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p12,1,False,,14.0,3250.0
-232,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p03,1,False,,6.0,269.0
-233,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p02,1,False,,6.0,395.0
-234,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p04,1,False,,6.0,411.0
-235,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p01,1,False,,6.0,215.0
-236,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,22.0,1721.0
-237,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p20,1,False,,22.0,7913.0
-238,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p17,1,True,,22.0,811.0
-239,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,22.0,5912.0
-240,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p03,1,True,,,40.0
-241,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p02,1,True,,,97.0
-242,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p04,1,True,,,84.0
-243,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p01,1,True,,,67.0
-244,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p14,1,True,,,328.0
-245,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,317.0
-246,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p16,1,True,,,311.0
-247,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p13,1,True,,,279.0
-248,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p07,1,True,,,127.0
-249,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p05,1,True,,,98.0
-250,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,Error processing Sample 1: Plan not found in response.,,
-251,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p08,1,True,,,159.0
-252,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,,,369.0
-253,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p20,1,True,,,426.0
-254,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p17,1,False,,,347.0
-255,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,428.0
-256,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,209.0
-257,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p10,1,True,,,236.0
-258,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,162.0
-259,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p12,1,False,Error processing Sample 1: Plan not found in response.,,
-260,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p03,1,True,,,111.0
-261,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p02,1,True,,,223.0
-262,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p04,1,False,,,127.0
-263,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p01,1,True,,,183.0
-264,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,,,753.0
-265,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p20,1,False,,,4264.0
-266,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p17,1,True,,,751.0
-267,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,4760.0
-268,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p07,1,True,,,251.0
-269,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p05,1,True,,,248.0
-270,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,,,542.0
-271,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p08,1,True,,,437.0
-272,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p14,1,False,,,570.0
-273,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,3007.0
-274,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p16,1,False,,,3688.0
-275,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p13,1,True,,,2870.0
-276,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,1753.0
-277,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p10,1,False,,,2216.0
-278,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,2228.0
-279,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p12,1,True,,,771.0
-280,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,Error processing Sample 1: Plan not found in response.,,
-281,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p20,1,False,,,979.0
-282,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p17,1,False,,,1215.0
-283,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,899.0
-284,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p14,1,False,,,894.0
-285,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,790.0
-286,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p16,1,False,,,858.0
-287,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p13,1,False,,,1070.0
-288,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p03,1,True,,,126.0
-289,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p02,1,False,,,347.0
-290,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p04,1,False,,,452.0
-291,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p01,1,True,,,245.0
-292,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,836.0
-293,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p10,1,False,,,920.0
-294,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,746.0
-295,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p12,1,True,,,915.0
-296,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p07,1,True,,,406.0
-297,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p05,1,True,,,265.0
-298,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,,,476.0
-299,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p08,1,False,,,272.0
-300,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p14,1,False,,,4282.0
-301,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,2644.0
-302,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p16,1,False,,,3788.0
-303,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p13,1,False,,,2869.0
-304,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p07,1,False,,,891.0
-305,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p05,1,False,,,819.0
-306,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,,,1071.0
-307,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p08,1,False,,,999.0
-308,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,1772.0
-309,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p10,1,False,,,2074.0
-310,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,1525.0
-311,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p12,1,False,,,2456.0
-312,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p03,1,False,,,269.0
-313,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p02,1,False,,,395.0
-314,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p04,1,False,,,323.0
-315,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p01,1,False,,,305.0
-316,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,,,3903.0
-317,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p20,1,False,,,6234.0
-318,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p17,1,False,,,4780.0
-319,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,1156.0
-320,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p03,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",3.0,
-321,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p02,1,False,,5.0,788.0
-322,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p04,1,False,,7.0,46.0
-323,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",6.0,
-324,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p14,1,False,,22.0,206.0
-325,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p15,1,False,,22.0,137.0
-326,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p16,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",14.0,
-327,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p13,1,False,,19.0,175.0
-328,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p07,1,False,,10.0,99.0
-329,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p05,1,False,,8.0,70.0
-330,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p06,1,False,,13.0,418.0
-331,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",10.0,
-332,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p19,1,False,,27.0,168.0
-333,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",24.0,
-334,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p17,1,False,,25.0,227.0
-335,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",29.0,
-336,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",15.0,
-337,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p10,1,False,,16.0,95.0
-338,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p09,1,False,,14.0,115.0
-339,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p12,1,False,,14.0,125.0
-340,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p03,1,False,,8.0,103.0
-341,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p02,1,False,,8.0,135.0
-342,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p04,1,False,,8.0,87.0
-343,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",8.0,
-344,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p19,1,False,Error processing Sample 1: Plan not found in response.,40.0,
-345,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p20,1,False,,40.0,399.0
-346,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p17,1,False,,40.0,694.0
-347,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",40.0,
-348,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p07,1,False,,16.0,2244.0
-349,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p05,1,False,,16.0,299.0
-350,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p06,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",16.0,
-351,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p08,1,False,,16.0,449.0
-352,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p14,1,False,,32.0,621.0
-353,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",32.0,
-354,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p16,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",32.0,
-355,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p13,1,False,,32.0,760.0
-356,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",24.0,
-357,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p10,1,False,,24.0,409.0
-358,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",24.0,
-359,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p12,1,False,,24.0,449.0
-360,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p19,1,False,,38.0,487.0
-361,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p20,1,False,,38.0,431.0
-362,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p17,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",44.0,
-363,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",28.0,
-364,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p14,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",28.0,
-365,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p15,1,False,,30.0,441.0
-366,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p16,1,False,,30.0,385.0
-367,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p13,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",26.0,
-368,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p03,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",4.0,
-369,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p02,1,False,,10.0,147.0
-370,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p04,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",12.0,
-371,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",6.0,
-372,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",34.0,
-373,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p10,1,False,,26.0,447.0
-374,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",26.0,
-375,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",28.0,
-376,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p07,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",16.0,
-377,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p05,1,False,,8.0,243.0
-378,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p06,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",16.0,
-379,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",10.0,
-380,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p14,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",18.0,
-381,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",18.0,
-382,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p16,1,False,,18.0,2395.0
-383,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p13,1,False,,18.0,619.0
-384,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p07,1,False,,10.0,611.0
-385,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p05,1,False,,10.0,408.0
-386,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p06,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",10.0,
-387,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p08,1,False,,10.0,401.0
-388,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p11,1,False,,14.0,389.0
-389,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p10,1,False,,14.0,352.0
-390,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",14.0,
-391,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",14.0,
-392,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p03,1,False,,6.0,355.0
-393,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p02,1,False,,6.0,310.0
-394,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p04,1,False,,6.0,256.0
-395,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",6.0,
-396,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p19,1,False,,22.0,816.0
-397,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",22.0,
-398,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p17,1,False,,22.0,3101.0
-399,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",22.0,
-400,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p03,1,False,,,49.0
-401,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p02,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-402,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p04,1,False,,,67.0
-403,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-404,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p14,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-405,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p15,1,False,,,124.0
-406,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p16,1,False,,,119.0
-407,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p13,1,False,,,212.0
-408,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p07,1,False,,,86.0
-409,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p05,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-410,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p06,1,False,,,100.0
-411,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-412,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p19,1,False,,,1964.0
-413,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-414,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p17,1,False,,,252.0
-415,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-416,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-417,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p10,1,False,,,114.0
-418,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p09,1,False,,,78.0
-419,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-420,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p03,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-421,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p02,1,False,,,143.0
-422,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p04,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-423,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p01,1,False,,,143.0
-424,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p19,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-425,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-426,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p17,1,False,Error processing Sample 1: Plan not found in response.,,
-427,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p18,1,False,,,752.0
-428,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p07,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-429,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p05,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-430,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p06,1,False,,,273.0
-431,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p08,1,False,,,288.0
-432,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p14,1,False,,,3345.0
-433,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p15,1,False,,,595.0
-434,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p16,1,False,,,2358.0
-435,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p13,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-436,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-437,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p10,1,False,,,421.0
-438,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-439,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p12,1,False,,,431.0
-440,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p19,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-441,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p20,1,False,,,635.0
-442,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p17,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-443,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-444,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p14,1,False,,,421.0
-445,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-446,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p16,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-447,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p13,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-448,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p03,1,False,,,127.0
-449,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p02,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-450,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p04,1,False,,,291.0
-451,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-452,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-453,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p10,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-454,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-455,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-456,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p07,1,False,,,257.0
-457,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p05,1,False,,,355.0
-458,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p06,1,False,,,237.0
-459,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-460,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p14,1,False,,,621.0
-461,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-462,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p16,1,False,,,917.0
-463,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p13,1,False,,,735.0
-464,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p07,1,False,,,376.0
-465,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p05,1,False,,,512.0
-466,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p06,1,False,,,470.0
-467,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-468,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p11,1,False,,,489.0
-469,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p10,1,False,,,480.0
-470,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p09,1,False,,,1054.0
-471,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p12,1,False,,,460.0
-472,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p03,1,False,,,256.0
-473,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p02,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-474,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p04,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-475,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p01,1,False,,,215.0
-476,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p19,1,False,,,621.0
-477,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p20,1,False,,,754.0
-478,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p17,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-479,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
-480,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p03,1,False,,3.0,54.0
-481,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p02,1,False,,5.0,111.0
-482,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p04,1,False,,7.0,63.0
-483,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p01,1,False,,6.0,51.0
-484,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p14,1,False,,22.0,204.0
-485,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p15,1,False,,22.0,214.0
-486,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p16,1,False,,14.0,163.0
-487,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p13,1,False,,19.0,241.0
-488,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p07,1,False,,10.0,150.0
-489,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p05,1,False,,8.0,75.0
-490,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p06,1,False,,13.0,127.0
-491,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p08,1,False,,10.0,185.0
-492,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p19,1,False,,27.0,414.0
-493,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p20,1,False,,24.0,342.0
-494,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p17,1,False,,25.0,349.0
-495,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p18,1,False,Error processing Sample 1: Plan not found in response.,29.0,
-496,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p11,1,False,,15.0,225.0
-497,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p10,1,False,,16.0,236.0
-498,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p09,1,False,,14.0,154.0
-499,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p12,1,False,,14.0,131.0
-500,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p03,1,False,,8.0,127.0
-501,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p02,1,False,,8.0,151.0
-502,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p04,1,False,,8.0,127.0
-503,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p01,1,False,,8.0,223.0
-504,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p19,1,False,Error processing Sample 1: Plan not found in response.,40.0,
-505,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p20,1,False,,40.0,765.0
-506,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p17,1,False,,40.0,1528.0
-507,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p18,1,False,,40.0,736.0
-508,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p07,1,False,,16.0,330.0
-509,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p05,1,False,Error processing Sample 1: Plan not found in response.,16.0,
-510,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p06,1,False,Error processing Sample 1: Plan not found in response.,16.0,
-511,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p08,1,False,,16.0,274.0
-512,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p14,1,False,,32.0,592.0
-513,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p15,1,False,,32.0,1114.0
-514,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p16,1,False,,32.0,836.0
-515,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p13,1,False,,32.0,529.0
-516,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p11,1,False,,24.0,607.0
-517,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p10,1,False,,24.0,1188.0
-518,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p09,1,False,,24.0,341.0
-519,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p12,1,False,,24.0,1230.0
-520,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p19,1,False,,38.0,839.0
-521,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p20,1,False,,38.0,737.0
-522,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p17,1,False,,44.0,3167.0
-523,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p18,1,False,,28.0,487.0
-524,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p14,1,False,,28.0,531.0
-525,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p15,1,False,,30.0,503.0
-526,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p16,1,False,,30.0,727.0
-527,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p13,1,False,,26.0,972.0
-528,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p03,1,False,,4.0,207.0
-529,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p02,1,False,,10.0,161.0
-530,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p04,1,False,,12.0,236.0
-531,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p01,1,False,,6.0,143.0
-532,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p11,1,False,,34.0,458.0
-533,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p10,1,False,,26.0,550.0
-534,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p09,1,False,,26.0,505.0
-535,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p12,1,False,,28.0,511.0
-536,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p07,1,False,,16.0,291.0
-537,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p05,1,False,,8.0,172.0
-538,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p06,1,False,Error processing Sample 1: Plan not found in response.,16.0,
-539,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p08,1,False,,10.0,445.0
-540,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p14,1,False,,18.0,457.0
-541,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p15,1,False,,18.0,657.0
-542,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p16,1,False,,18.0,2464.0
-543,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p13,1,False,,18.0,6122.0
-544,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p07,1,False,,10.0,753.0
-545,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p05,1,False,,10.0,377.0
-546,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p06,1,False,,10.0,318.0
-547,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p08,1,False,,10.0,458.0
-548,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p11,1,False,,14.0,2141.0
-549,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p10,1,False,,14.0,425.0
-550,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p09,1,False,,14.0,494.0
-551,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p12,1,False,,14.0,337.0
-552,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p03,1,False,,6.0,141.0
-553,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p02,1,False,,6.0,255.0
-554,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p04,1,False,,6.0,163.0
-555,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p01,1,False,,6.0,237.0
-556,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p19,1,False,Error processing Sample 1: Plan not found in response.,22.0,
-557,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p20,1,False,,22.0,557.0
-558,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p17,1,False,,22.0,1641.0
-559,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p18,1,False,Error processing Sample 1: Plan not found in response.,22.0,
-560,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p03,1,False,,,67.0
-561,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p02,1,False,,,62.0
-562,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p04,1,False,,,111.0
-563,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p01,1,True,,,67.0
-564,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p14,1,False,Error processing Sample 1: Plan not found in response.,,
-565,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p15,1,False,,,201.0
-566,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p16,1,False,,,307.0
-567,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p13,1,False,Error processing Sample 1: Plan not found in response.,,
-568,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p07,1,False,,,155.0
-569,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p05,1,True,,,111.0
-570,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p06,1,False,,,205.0
-571,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p08,1,False,,,187.0
-572,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p19,1,False,Error processing Sample 1: Plan not found in response.,,
-573,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p20,1,False,,,207.0
-574,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p17,1,False,,,261.0
-575,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p18,1,False,Error processing Sample 1: Plan not found in response.,,
-576,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p11,1,False,,,165.0
-577,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p10,1,False,,,150.0
-578,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p09,1,False,,,267.0
-579,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p12,1,False,,,150.0
-580,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p03,1,False,,,167.0
-581,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p02,1,False,,,303.0
-582,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p04,1,False,,,199.0
-583,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p01,1,False,,,159.0
-584,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p19,1,False,,,747.0
-585,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p20,1,False,,,1088.0
-586,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p17,1,False,,,5768.0
-587,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p18,1,False,Error processing Sample 1: Plan not found in response.,,
-588,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p07,1,False,,,795.0
-589,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p05,1,False,,,994.0
-590,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p06,1,False,,,755.0
-591,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p08,1,False,,,936.0
-592,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p14,1,False,,,2021.0
-593,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p15,1,False,,,3680.0
-594,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p16,1,False,,,884.0
-595,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p13,1,False,,,3099.0
-596,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p11,1,False,,,1055.0
-597,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p10,1,False,,,1242.0
-598,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p09,1,False,,,1118.0
-599,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p12,1,False,,,2113.0
-600,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p19,1,False,,,618.0
-601,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p20,1,False,,,2355.0
-602,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p17,1,False,,,2083.0
-603,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p18,1,False,,,1036.0
-604,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p14,1,False,,,1234.0
-605,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p15,1,False,,,594.0
-606,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p16,1,False,,,466.0
-607,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p13,1,False,,,2869.0
-608,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p03,1,False,,,160.0
-609,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p02,1,False,,,259.0
-610,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p04,1,False,,,312.0
-611,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p01,1,False,,,278.0
-612,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p11,1,False,,,816.0
-613,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p10,1,False,,,708.0
-614,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p09,1,False,,,626.0
-615,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p12,1,False,,,404.0
-616,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p07,1,False,,,434.0
-617,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p05,1,False,,,414.0
-618,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p06,1,False,,,406.0
-619,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p08,1,False,,,426.0
-620,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p14,1,False,,,5824.0
-621,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p15,1,False,,,302.0
-622,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p16,1,False,Error processing Sample 1: Plan not found in response.,,
-623,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p13,1,False,,,1613.0
-624,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p07,1,False,,,492.0
-625,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p05,1,False,,,697.0
-626,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p06,1,False,,,220.0
-627,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p08,1,False,,,392.0
-628,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p11,1,False,,,2648.0
-629,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p10,1,False,,,808.0
-630,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p09,1,False,,,3364.0
-631,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p12,1,False,,,354.0
-632,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p03,1,False,,,225.0
-633,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p02,1,False,,,230.0
-634,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p04,1,True,,,167.0
-635,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p01,1,False,,,201.0
-636,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p19,1,False,,,486.0
-637,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p20,1,False,,,471.0
-638,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p17,1,False,Error processing Sample 1: Plan not found in response.,,
-639,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p18,1,False,Error processing Sample 1: Plan not found in response.,,
+0,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p11,1,False,,15.0,213.0
+1,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p09,1,True,,14.0,199.0
+2,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,16.0,291.0
+3,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,landmark,p12,1,False,,14.0,207.0
+4,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,landmark,p28,1,False,,34.0,565.0
+5,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,landmark,p27,1,False,,36.0,567.0
+6,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,landmark,p25,1,False,,35.0,527.0
+7,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,landmark,p26,1,False,,36.0,497.0
+8,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,landmark,p32,1,False,,45.0,463.0
+9,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,landmark,p29,1,False,,46.0,735.0
+10,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,landmark,p30,1,False,,40.0,658.0
+11,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,landmark,p31,1,False,Error processing Sample 1: Plan not found in response.,44.0,
+12,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,landmark,p22,1,False,,33.0,554.0
+13,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,landmark,p24,1,False,,32.0,455.0
+14,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,landmark,p23,1,False,,32.0,500.0
+15,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,landmark,p21,1,False,,28.0,482.0
+16,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p05,1,False,,8.0,111.0
+17,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p06,1,True,,13.0,171.0
+18,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,10.0,159.0
+19,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,landmark,p07,1,False,Error processing Sample 1: Plan not found in response.,10.0,
+20,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p04,1,True,,7.0,117.0
+21,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p03,1,True,,3.0,40.0
+22,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p01,1,True,,6.0,67.0
+23,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,landmark,p02,1,False,,5.0,90.0
+24,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p13,1,True,,19.0,279.0
+25,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,,22.0,312.0
+26,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p15,1,True,,22.0,298.0
+27,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,,14.0,232.0
+28,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p20,1,False,,24.0,370.0
+29,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,27.0,385.0
+30,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,29.0,432.0
+31,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,landmark,p17,1,False,,25.0,361.0
+32,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p13,1,False,Error processing Sample 1: Plan not found in response.,26.0,
+33,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,,28.0,807.0
+34,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p15,1,False,,30.0,789.0
+35,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,Error processing Sample 1: Plan not found in response.,30.0,
+36,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,landmark,p32,1,False,,52.0,1149.0
+37,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,landmark,p29,1,False,,68.0,1690.0
+38,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,landmark,p30,1,False,,66.0,1312.0
+39,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,landmark,p31,1,False,,64.0,1200.0
+40,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p05,1,True,,8.0,241.0
+41,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p06,1,False,,16.0,441.0
+42,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,10.0,273.0
+43,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,landmark,p07,1,False,,16.0,389.0
+44,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p11,1,True,,34.0,637.0
+45,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p09,1,False,,26.0,775.0
+46,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,26.0,973.0
+47,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,landmark,p12,1,False,,28.0,714.0
+48,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,landmark,p28,1,False,,42.0,1087.0
+49,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,landmark,p27,1,False,,44.0,1207.0
+50,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,landmark,p25,1,False,,68.0,1457.0
+51,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,landmark,p26,1,False,,54.0,1438.0
+52,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,landmark,p22,1,False,,30.0,925.0
+53,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,landmark,p24,1,False,,50.0,1302.0
+54,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,landmark,p23,1,False,,54.0,1410.0
+55,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,landmark,p21,1,False,,38.0,1618.0
+56,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p20,1,False,,38.0,808.0
+57,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,38.0,967.0
+58,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,28.0,657.0
+59,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,landmark,p17,1,False,,44.0,1153.0
+60,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p04,1,True,,12.0,403.0
+61,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p03,1,True,,4.0,115.0
+62,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p01,1,True,,6.0,177.0
+63,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,landmark,p02,1,True,,10.0,293.0
+64,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p20,1,True,,40.0,1125.0
+65,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,40.0,3875.0
+66,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,40.0,751.0
+67,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,landmark,p17,1,False,,40.0,1002.0
+68,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p04,1,True,,8.0,231.0
+69,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p03,1,True,,8.0,151.0
+70,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p01,1,True,,8.0,279.0
+71,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,landmark,p02,1,True,,8.0,223.0
+72,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p11,1,False,,24.0,1830.0
+73,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p09,1,False,,24.0,1902.0
+74,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,24.0,447.0
+75,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,landmark,p12,1,True,,24.0,613.0
+76,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p13,1,False,,32.0,2741.0
+77,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,Error processing Sample 1: Plan not found in response.,32.0,
+78,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p15,1,False,,32.0,2569.0
+79,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,,32.0,2964.0
+80,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p05,1,False,Error processing Sample 1: Plan not found in response.,16.0,
+81,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p06,1,True,,16.0,708.0
+82,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,16.0,453.0
+83,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,landmark,p07,1,True,,16.0,334.0
+84,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p13,1,False,,18.0,3068.0
+85,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p14,1,False,,18.0,3455.0
+86,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p15,1,False,,18.0,3176.0
+87,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,landmark,p16,1,False,,18.0,803.0
+88,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p20,1,False,,22.0,7913.0
+89,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p19,1,False,,22.0,1721.0
+90,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p18,1,False,,22.0,5912.0
+91,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,landmark,p17,1,True,,22.0,811.0
+92,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p11,1,False,,14.0,857.0
+93,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p09,1,True,,14.0,484.0
+94,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p10,1,False,,14.0,2056.0
+95,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,landmark,p12,1,False,,14.0,3250.0
+96,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p04,1,False,,6.0,411.0
+97,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p03,1,False,,6.0,269.0
+98,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p01,1,False,,6.0,215.0
+99,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,landmark,p02,1,False,,6.0,395.0
+100,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p05,1,False,,10.0,897.0
+101,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p06,1,False,,10.0,423.0
+102,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p08,1,True,,10.0,318.0
+103,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,landmark,p07,1,False,,10.0,439.0
+104,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,209.0
+105,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,162.0
+106,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p10,1,True,,,236.0
+107,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite-thinking,pddl,p12,1,False,Error processing Sample 1: Plan not found in response.,,
+108,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,pddl,p28,1,False,,,503.0
+109,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,pddl,p27,1,False,,,560.0
+110,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,pddl,p25,1,False,,,554.0
+111,many-models,blocksworld,22-blocks,gemini-2.5-flash-lite-thinking,pddl,p26,1,False,,,633.0
+112,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,pddl,p32,1,False,,,111.0
+113,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,pddl,p29,1,False,,,682.0
+114,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,pddl,p30,1,False,,,609.0
+115,many-models,blocksworld,25-blocks,gemini-2.5-flash-lite-thinking,pddl,p31,1,False,,,384.0
+116,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,pddl,p22,1,False,,,6130.0
+117,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,pddl,p24,1,False,,,364.0
+118,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,pddl,p23,1,False,,,523.0
+119,many-models,blocksworld,19-blocks,gemini-2.5-flash-lite-thinking,pddl,p21,1,False,,,420.0
+120,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p05,1,True,,,98.0
+121,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,Error processing Sample 1: Plan not found in response.,,
+122,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p08,1,True,,,159.0
+123,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite-thinking,pddl,p07,1,True,,,127.0
+124,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p04,1,True,,,84.0
+125,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p03,1,True,,,40.0
+126,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p01,1,True,,,67.0
+127,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite-thinking,pddl,p02,1,True,,,97.0
+128,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p13,1,True,,,279.0
+129,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p14,1,True,,,328.0
+130,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,317.0
+131,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite-thinking,pddl,p16,1,True,,,311.0
+132,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p20,1,True,,,426.0
+133,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,,,369.0
+134,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,428.0
+135,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite-thinking,pddl,p17,1,False,,,347.0
+136,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p13,1,False,,,1070.0
+137,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p14,1,False,,,894.0
+138,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,790.0
+139,many-models,logistics,9-packages,gemini-2.5-flash-lite-thinking,pddl,p16,1,False,,,858.0
+140,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,pddl,p32,1,False,,,1464.0
+141,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,pddl,p29,1,False,,,1895.0
+142,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,pddl,p30,1,False,,,4937.0
+143,many-models,logistics,17-packages,gemini-2.5-flash-lite-thinking,pddl,p31,1,False,,,1733.0
+144,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p05,1,True,,,265.0
+145,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,,,476.0
+146,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p08,1,False,,,272.0
+147,many-models,logistics,5-packages,gemini-2.5-flash-lite-thinking,pddl,p07,1,True,,,406.0
+148,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,836.0
+149,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,746.0
+150,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p10,1,False,,,920.0
+151,many-models,logistics,7-packages,gemini-2.5-flash-lite-thinking,pddl,p12,1,True,,,915.0
+152,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,pddl,p28,1,False,,,1251.0
+153,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,pddl,p27,1,False,,,1380.0
+154,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,pddl,p25,1,False,,,1158.0
+155,many-models,logistics,15-packages,gemini-2.5-flash-lite-thinking,pddl,p26,1,False,,,1156.0
+156,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,pddl,p22,1,False,,,847.0
+157,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,pddl,p24,1,False,,,1063.0
+158,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,pddl,p23,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 500 INTERNAL. {'error': {'code': 500, 'message': 'An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting', 'status': 'INTERNAL'}}",,
+159,many-models,logistics,13-packages,gemini-2.5-flash-lite-thinking,pddl,p21,1,False,,,886.0
+160,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p20,1,False,,,979.0
+161,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,Error processing Sample 1: Plan not found in response.,,
+162,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,899.0
+163,many-models,logistics,11-packages,gemini-2.5-flash-lite-thinking,pddl,p17,1,False,,,1215.0
+164,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p04,1,False,,,452.0
+165,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p03,1,True,,,126.0
+166,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p01,1,True,,,245.0
+167,many-models,logistics,3-packages,gemini-2.5-flash-lite-thinking,pddl,p02,1,False,,,347.0
+168,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p20,1,False,,,4264.0
+169,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,,,753.0
+170,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,4760.0
+171,many-models,miconic,20-passenger,gemini-2.5-flash-lite-thinking,pddl,p17,1,True,,,751.0
+172,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p04,1,False,,,127.0
+173,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p03,1,True,,,111.0
+174,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p01,1,True,,,183.0
+175,many-models,miconic,4-passenger,gemini-2.5-flash-lite-thinking,pddl,p02,1,True,,,223.0
+176,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,1753.0
+177,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,2228.0
+178,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p10,1,False,,,2216.0
+179,many-models,miconic,12-passenger,gemini-2.5-flash-lite-thinking,pddl,p12,1,True,,,771.0
+180,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p13,1,True,,,2870.0
+181,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p14,1,False,,,570.0
+182,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,3007.0
+183,many-models,miconic,16-passenger,gemini-2.5-flash-lite-thinking,pddl,p16,1,False,,,3688.0
+184,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p05,1,True,,,248.0
+185,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,,,542.0
+186,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p08,1,True,,,437.0
+187,many-models,miconic,8-passenger,gemini-2.5-flash-lite-thinking,pddl,p07,1,True,,,251.0
+188,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p13,1,False,,,2869.0
+189,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p14,1,False,,,4282.0
+190,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p15,1,False,,,2644.0
+191,many-models,spanner,16-spanners,gemini-2.5-flash-lite-thinking,pddl,p16,1,False,,,3788.0
+192,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p20,1,False,,,6234.0
+193,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p19,1,False,,,3903.0
+194,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p18,1,False,,,1156.0
+195,many-models,spanner,20-spanners,gemini-2.5-flash-lite-thinking,pddl,p17,1,False,,,4780.0
+196,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p11,1,False,,,1772.0
+197,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p09,1,False,,,1525.0
+198,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p10,1,False,,,2074.0
+199,many-models,spanner,12-spanners,gemini-2.5-flash-lite-thinking,pddl,p12,1,False,,,2456.0
+200,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p04,1,False,,,323.0
+201,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p03,1,False,,,269.0
+202,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p01,1,False,,,305.0
+203,many-models,spanner,4-spanners,gemini-2.5-flash-lite-thinking,pddl,p02,1,False,,,395.0
+204,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p05,1,False,,,819.0
+205,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p06,1,False,,,1071.0
+206,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p08,1,False,,,999.0
+207,many-models,spanner,8-spanners,gemini-2.5-flash-lite-thinking,pddl,p07,1,False,,,891.0
+208,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p11,1,True,,15.0,194.0
+209,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p09,1,True,,14.0,166.0
+210,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p10,1,True,,16.0,236.0
+211,many-models,blocksworld,10-blocks,gemini-thinking,landmark,p12,1,True,,14.0,207.0
+212,many-models,blocksworld,22-blocks,gemini-thinking,landmark,p28,1,True,,34.0,565.0
+213,many-models,blocksworld,22-blocks,gemini-thinking,landmark,p27,1,True,,36.0,576.0
+214,many-models,blocksworld,22-blocks,gemini-thinking,landmark,p25,1,True,,35.0,573.0
+215,many-models,blocksworld,22-blocks,gemini-thinking,landmark,p26,1,True,,36.0,599.0
+216,many-models,blocksworld,25-blocks,gemini-thinking,landmark,p32,1,True,,45.0,648.0
+217,many-models,blocksworld,25-blocks,gemini-thinking,landmark,p29,1,True,,46.0,678.0
+218,many-models,blocksworld,25-blocks,gemini-thinking,landmark,p30,1,True,,40.0,691.0
+219,many-models,blocksworld,25-blocks,gemini-thinking,landmark,p31,1,True,,44.0,667.0
+220,many-models,blocksworld,19-blocks,gemini-thinking,landmark,p22,1,True,,33.0,524.0
+221,many-models,blocksworld,19-blocks,gemini-thinking,landmark,p24,1,True,,32.0,486.0
+222,many-models,blocksworld,19-blocks,gemini-thinking,landmark,p23,1,False,,32.0,553.0
+223,many-models,blocksworld,19-blocks,gemini-thinking,landmark,p21,1,True,,28.0,439.0
+224,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p05,1,True,,8.0,102.0
+225,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p06,1,True,,13.0,171.0
+226,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p08,1,True,,10.0,159.0
+227,many-models,blocksworld,7-blocks,gemini-thinking,landmark,p07,1,True,,10.0,114.0
+228,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p04,1,True,,7.0,84.0
+229,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p03,1,True,,3.0,40.0
+230,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p01,1,True,,6.0,67.0
+231,many-models,blocksworld,4-blocks,gemini-thinking,landmark,p02,1,True,,5.0,97.0
+232,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p13,1,True,,19.0,279.0
+233,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p14,1,True,,22.0,300.0
+234,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p15,1,True,,22.0,250.0
+235,many-models,blocksworld,13-blocks,gemini-thinking,landmark,p16,1,True,,14.0,304.0
+236,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p20,1,True,,24.0,385.0
+237,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p19,1,False,,27.0,314.0
+238,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p18,1,True,,29.0,446.0
+239,many-models,blocksworld,16-blocks,gemini-thinking,landmark,p17,1,True,,25.0,361.0
+240,many-models,logistics,9-packages,gemini-thinking,landmark,p13,1,True,,26.0,539.0
+241,many-models,logistics,9-packages,gemini-thinking,landmark,p14,1,True,,28.0,609.0
+242,many-models,logistics,9-packages,gemini-thinking,landmark,p15,1,True,,30.0,601.0
+243,many-models,logistics,9-packages,gemini-thinking,landmark,p16,1,True,,30.0,755.0
+244,many-models,logistics,17-packages,gemini-thinking,landmark,p32,1,True,,52.0,1029.0
+245,many-models,logistics,17-packages,gemini-thinking,landmark,p29,1,False,,68.0,1253.0
+246,many-models,logistics,17-packages,gemini-thinking,landmark,p30,1,True,,66.0,1241.0
+247,many-models,logistics,17-packages,gemini-thinking,landmark,p31,1,True,,64.0,1291.0
+248,many-models,logistics,5-packages,gemini-thinking,landmark,p05,1,True,,8.0,241.0
+249,many-models,logistics,5-packages,gemini-thinking,landmark,p06,1,True,,16.0,353.0
+250,many-models,logistics,5-packages,gemini-thinking,landmark,p08,1,True,,10.0,249.0
+251,many-models,logistics,5-packages,gemini-thinking,landmark,p07,1,True,,16.0,333.0
+252,many-models,logistics,7-packages,gemini-thinking,landmark,p11,1,True,,34.0,639.0
+253,many-models,logistics,7-packages,gemini-thinking,landmark,p09,1,True,,26.0,579.0
+254,many-models,logistics,7-packages,gemini-thinking,landmark,p10,1,True,,26.0,581.0
+255,many-models,logistics,7-packages,gemini-thinking,landmark,p12,1,True,,28.0,569.0
+256,many-models,logistics,15-packages,gemini-thinking,landmark,p28,1,False,,42.0,1247.0
+257,many-models,logistics,15-packages,gemini-thinking,landmark,p27,1,True,,44.0,1017.0
+258,many-models,logistics,15-packages,gemini-thinking,landmark,p25,1,True,,68.0,1325.0
+259,many-models,logistics,15-packages,gemini-thinking,landmark,p26,1,False,,54.0,1103.0
+260,many-models,logistics,13-packages,gemini-thinking,landmark,p22,1,False,,30.0,719.0
+261,many-models,logistics,13-packages,gemini-thinking,landmark,p24,1,False,,50.0,1161.0
+262,many-models,logistics,13-packages,gemini-thinking,landmark,p23,1,True,,54.0,1225.0
+263,many-models,logistics,13-packages,gemini-thinking,landmark,p21,1,True,,38.0,813.0
+264,many-models,logistics,11-packages,gemini-thinking,landmark,p20,1,True,,38.0,781.0
+265,many-models,logistics,11-packages,gemini-thinking,landmark,p19,1,True,,38.0,733.0
+266,many-models,logistics,11-packages,gemini-thinking,landmark,p18,1,True,,28.0,647.0
+267,many-models,logistics,11-packages,gemini-thinking,landmark,p17,1,True,,44.0,855.0
+268,many-models,logistics,3-packages,gemini-thinking,landmark,p04,1,True,,12.0,331.0
+269,many-models,logistics,3-packages,gemini-thinking,landmark,p03,1,True,,4.0,115.0
+270,many-models,logistics,3-packages,gemini-thinking,landmark,p01,1,True,,6.0,159.0
+271,many-models,logistics,3-packages,gemini-thinking,landmark,p02,1,True,,10.0,267.0
+272,many-models,miconic,20-passenger,gemini-thinking,landmark,p20,1,True,,40.0,677.0
+273,many-models,miconic,20-passenger,gemini-thinking,landmark,p19,1,True,,40.0,668.0
+274,many-models,miconic,20-passenger,gemini-thinking,landmark,p18,1,True,,40.0,718.0
+275,many-models,miconic,20-passenger,gemini-thinking,landmark,p17,1,True,,40.0,1021.0
+276,many-models,miconic,4-passenger,gemini-thinking,landmark,p04,1,True,,8.0,127.0
+277,many-models,miconic,4-passenger,gemini-thinking,landmark,p03,1,True,,8.0,135.0
+278,many-models,miconic,4-passenger,gemini-thinking,landmark,p01,1,True,,8.0,159.0
+279,many-models,miconic,4-passenger,gemini-thinking,landmark,p02,1,True,,8.0,167.0
+280,many-models,miconic,12-passenger,gemini-thinking,landmark,p11,1,True,,24.0,615.0
+281,many-models,miconic,12-passenger,gemini-thinking,landmark,p09,1,True,,24.0,377.0
+282,many-models,miconic,12-passenger,gemini-thinking,landmark,p10,1,True,,24.0,401.0
+283,many-models,miconic,12-passenger,gemini-thinking,landmark,p12,1,True,,24.0,613.0
+284,many-models,miconic,16-passenger,gemini-thinking,landmark,p13,1,True,,32.0,502.0
+285,many-models,miconic,16-passenger,gemini-thinking,landmark,p14,1,True,,32.0,541.0
+286,many-models,miconic,16-passenger,gemini-thinking,landmark,p15,1,True,,32.0,826.0
+287,many-models,miconic,16-passenger,gemini-thinking,landmark,p16,1,True,,32.0,827.0
+288,many-models,miconic,8-passenger,gemini-thinking,landmark,p05,1,True,,16.0,248.0
+289,many-models,miconic,8-passenger,gemini-thinking,landmark,p06,1,True,,16.0,245.0
+290,many-models,miconic,8-passenger,gemini-thinking,landmark,p08,1,True,,16.0,232.0
+291,many-models,miconic,8-passenger,gemini-thinking,landmark,p07,1,True,,16.0,334.0
+292,many-models,spanner,16-spanners,gemini-thinking,landmark,p13,1,True,,18.0,644.0
+293,many-models,spanner,16-spanners,gemini-thinking,landmark,p14,1,True,,18.0,644.0
+294,many-models,spanner,16-spanners,gemini-thinking,landmark,p15,1,True,,18.0,642.0
+295,many-models,spanner,16-spanners,gemini-thinking,landmark,p16,1,True,,18.0,643.0
+296,many-models,spanner,20-spanners,gemini-thinking,landmark,p20,1,False,,22.0,5830.0
+297,many-models,spanner,20-spanners,gemini-thinking,landmark,p19,1,True,,22.0,813.0
+298,many-models,spanner,20-spanners,gemini-thinking,landmark,p18,1,False,,22.0,5204.0
+299,many-models,spanner,20-spanners,gemini-thinking,landmark,p17,1,True,,22.0,811.0
+300,many-models,spanner,12-spanners,gemini-thinking,landmark,p11,1,True,,14.0,477.0
+301,many-models,spanner,12-spanners,gemini-thinking,landmark,p09,1,False,,14.0,1661.0
+302,many-models,spanner,12-spanners,gemini-thinking,landmark,p10,1,True,,14.0,476.0
+303,many-models,spanner,12-spanners,gemini-thinking,landmark,p12,1,True,,14.0,473.0
+304,many-models,spanner,4-spanners,gemini-thinking,landmark,p04,1,True,,6.0,167.0
+305,many-models,spanner,4-spanners,gemini-thinking,landmark,p03,1,False,,6.0,269.0
+306,many-models,spanner,4-spanners,gemini-thinking,landmark,p01,1,True,,6.0,167.0
+307,many-models,spanner,4-spanners,gemini-thinking,landmark,p02,1,True,,6.0,167.0
+308,many-models,spanner,8-spanners,gemini-thinking,landmark,p05,1,True,,10.0,311.0
+309,many-models,spanner,8-spanners,gemini-thinking,landmark,p06,1,False,,10.0,1071.0
+310,many-models,spanner,8-spanners,gemini-thinking,landmark,p08,1,False,,10.0,999.0
+311,many-models,spanner,8-spanners,gemini-thinking,landmark,p07,1,True,,10.0,311.0
+312,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p11,1,True,,,181.0
+313,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p09,1,True,,,179.0
+314,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p10,1,True,,,227.0
+315,many-models,blocksworld,10-blocks,gemini-thinking,pddl,p12,1,False,,,209.0
+316,many-models,blocksworld,22-blocks,gemini-thinking,pddl,p28,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+317,many-models,blocksworld,22-blocks,gemini-thinking,pddl,p27,1,True,,,576.0
+318,many-models,blocksworld,22-blocks,gemini-thinking,pddl,p25,1,True,,,573.0
+319,many-models,blocksworld,22-blocks,gemini-thinking,pddl,p26,1,True,,,599.0
+320,many-models,blocksworld,25-blocks,gemini-thinking,pddl,p32,1,False,,,334.0
+321,many-models,blocksworld,25-blocks,gemini-thinking,pddl,p29,1,False,,,660.0
+322,many-models,blocksworld,25-blocks,gemini-thinking,pddl,p30,1,True,,,691.0
+323,many-models,blocksworld,25-blocks,gemini-thinking,pddl,p31,1,False,,,588.0
+324,many-models,blocksworld,19-blocks,gemini-thinking,pddl,p22,1,True,,,524.0
+325,many-models,blocksworld,19-blocks,gemini-thinking,pddl,p24,1,True,,,486.0
+326,many-models,blocksworld,19-blocks,gemini-thinking,pddl,p23,1,False,,,504.0
+327,many-models,blocksworld,19-blocks,gemini-thinking,pddl,p21,1,True,,,439.0
+328,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p05,1,True,,,102.0
+329,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p06,1,True,,,171.0
+330,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p08,1,True,,,159.0
+331,many-models,blocksworld,7-blocks,gemini-thinking,pddl,p07,1,True,,,114.0
+332,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p04,1,True,,,84.0
+333,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p03,1,True,,,40.0
+334,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p01,1,True,,,67.0
+335,many-models,blocksworld,4-blocks,gemini-thinking,pddl,p02,1,True,,,97.0
+336,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p13,1,True,,,279.0
+337,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p14,1,False,,,309.0
+338,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p15,1,True,,,291.0
+339,many-models,blocksworld,13-blocks,gemini-thinking,pddl,p16,1,True,,,191.0
+340,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p20,1,True,,,385.0
+341,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p19,1,True,,,385.0
+342,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p18,1,True,,,446.0
+343,many-models,blocksworld,16-blocks,gemini-thinking,pddl,p17,1,True,,,361.0
+344,many-models,logistics,9-packages,gemini-thinking,pddl,p13,1,True,,,621.0
+345,many-models,logistics,9-packages,gemini-thinking,pddl,p14,1,True,,,729.0
+346,many-models,logistics,9-packages,gemini-thinking,pddl,p15,1,True,,,637.0
+347,many-models,logistics,9-packages,gemini-thinking,pddl,p16,1,True,,,771.0
+348,many-models,logistics,17-packages,gemini-thinking,pddl,p32,1,True,,,1011.0
+349,many-models,logistics,17-packages,gemini-thinking,pddl,p29,1,True,,,1453.0
+350,many-models,logistics,17-packages,gemini-thinking,pddl,p30,1,True,,,1348.0
+351,many-models,logistics,17-packages,gemini-thinking,pddl,p31,1,True,,,1786.0
+352,many-models,logistics,5-packages,gemini-thinking,pddl,p05,1,True,,,241.0
+353,many-models,logistics,5-packages,gemini-thinking,pddl,p06,1,True,,,543.0
+354,many-models,logistics,5-packages,gemini-thinking,pddl,p08,1,True,,,267.0
+355,many-models,logistics,5-packages,gemini-thinking,pddl,p07,1,True,,,335.0
+356,many-models,logistics,7-packages,gemini-thinking,pddl,p11,1,True,,,621.0
+357,many-models,logistics,7-packages,gemini-thinking,pddl,p09,1,True,,,581.0
+358,many-models,logistics,7-packages,gemini-thinking,pddl,p10,1,True,,,597.0
+359,many-models,logistics,7-packages,gemini-thinking,pddl,p12,1,True,,,555.0
+360,many-models,logistics,15-packages,gemini-thinking,pddl,p28,1,True,,,819.0
+361,many-models,logistics,15-packages,gemini-thinking,pddl,p27,1,True,,,891.0
+362,many-models,logistics,15-packages,gemini-thinking,pddl,p25,1,False,,,1313.0
+363,many-models,logistics,15-packages,gemini-thinking,pddl,p26,1,True,,,2221.0
+364,many-models,logistics,13-packages,gemini-thinking,pddl,p22,1,True,,,755.0
+365,many-models,logistics,13-packages,gemini-thinking,pddl,p24,1,False,,,945.0
+366,many-models,logistics,13-packages,gemini-thinking,pddl,p23,1,True,,,1061.0
+367,many-models,logistics,13-packages,gemini-thinking,pddl,p21,1,True,,,813.0
+368,many-models,logistics,11-packages,gemini-thinking,pddl,p20,1,True,,,767.0
+369,many-models,logistics,11-packages,gemini-thinking,pddl,p19,1,False,,,780.0
+370,many-models,logistics,11-packages,gemini-thinking,pddl,p18,1,True,,,665.0
+371,many-models,logistics,11-packages,gemini-thinking,pddl,p17,1,True,,,1083.0
+372,many-models,logistics,3-packages,gemini-thinking,pddl,p04,1,True,,,347.0
+373,many-models,logistics,3-packages,gemini-thinking,pddl,p03,1,True,,,115.0
+374,many-models,logistics,3-packages,gemini-thinking,pddl,p01,1,True,,,177.0
+375,many-models,logistics,3-packages,gemini-thinking,pddl,p02,1,True,,,267.0
+376,many-models,miconic,20-passenger,gemini-thinking,pddl,p20,1,True,,,647.0
+377,many-models,miconic,20-passenger,gemini-thinking,pddl,p19,1,False,,,668.0
+378,many-models,miconic,20-passenger,gemini-thinking,pddl,p18,1,True,,,688.0
+379,many-models,miconic,20-passenger,gemini-thinking,pddl,p17,1,True,,,667.0
+380,many-models,miconic,4-passenger,gemini-thinking,pddl,p04,1,True,,,127.0
+381,many-models,miconic,4-passenger,gemini-thinking,pddl,p03,1,False,,,151.0
+382,many-models,miconic,4-passenger,gemini-thinking,pddl,p01,1,True,,,135.0
+383,many-models,miconic,4-passenger,gemini-thinking,pddl,p02,1,True,,,111.0
+384,many-models,miconic,12-passenger,gemini-thinking,pddl,p11,1,True,,,357.0
+385,many-models,miconic,12-passenger,gemini-thinking,pddl,p09,1,True,,,377.0
+386,many-models,miconic,12-passenger,gemini-thinking,pddl,p10,1,True,,,623.0
+387,many-models,miconic,12-passenger,gemini-thinking,pddl,p12,1,True,,,377.0
+388,many-models,miconic,16-passenger,gemini-thinking,pddl,p13,1,False,,,532.0
+389,many-models,miconic,16-passenger,gemini-thinking,pddl,p14,1,True,,,859.0
+390,many-models,miconic,16-passenger,gemini-thinking,pddl,p15,1,False,,,502.0
+391,many-models,miconic,16-passenger,gemini-thinking,pddl,p16,1,True,,,758.0
+392,many-models,miconic,8-passenger,gemini-thinking,pddl,p05,1,True,,,248.0
+393,many-models,miconic,8-passenger,gemini-thinking,pddl,p06,1,True,,,388.0
+394,many-models,miconic,8-passenger,gemini-thinking,pddl,p08,1,True,,,360.0
+395,many-models,miconic,8-passenger,gemini-thinking,pddl,p07,1,True,,,334.0
+396,many-models,spanner,16-spanners,gemini-thinking,pddl,p13,1,True,,,644.0
+397,many-models,spanner,16-spanners,gemini-thinking,pddl,p14,1,False,,,644.0
+398,many-models,spanner,16-spanners,gemini-thinking,pddl,p15,1,False,,,3474.0
+399,many-models,spanner,16-spanners,gemini-thinking,pddl,p16,1,False,,,643.0
+400,many-models,spanner,20-spanners,gemini-thinking,pddl,p20,1,False,,,6243.0
+401,many-models,spanner,20-spanners,gemini-thinking,pddl,p19,1,False,,,3903.0
+402,many-models,spanner,20-spanners,gemini-thinking,pddl,p18,1,True,,,812.0
+403,many-models,spanner,20-spanners,gemini-thinking,pddl,p17,1,False,,,4955.0
+404,many-models,spanner,12-spanners,gemini-thinking,pddl,p11,1,True,,,477.0
+405,many-models,spanner,12-spanners,gemini-thinking,pddl,p09,1,False,,,1661.0
+406,many-models,spanner,12-spanners,gemini-thinking,pddl,p10,1,False,,,2286.0
+407,many-models,spanner,12-spanners,gemini-thinking,pddl,p12,1,True,,,473.0
+408,many-models,spanner,4-spanners,gemini-thinking,pddl,p04,1,True,,,167.0
+409,many-models,spanner,4-spanners,gemini-thinking,pddl,p03,1,True,,,167.0
+410,many-models,spanner,4-spanners,gemini-thinking,pddl,p01,1,False,,,305.0
+411,many-models,spanner,4-spanners,gemini-thinking,pddl,p02,1,True,,,167.0
+412,many-models,spanner,8-spanners,gemini-thinking,pddl,p05,1,False,,,819.0
+413,many-models,spanner,8-spanners,gemini-thinking,pddl,p06,1,True,,,311.0
+414,many-models,spanner,8-spanners,gemini-thinking,pddl,p08,1,False,,,999.0
+415,many-models,spanner,8-spanners,gemini-thinking,pddl,p07,1,True,,,311.0
+416,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p11,1,False,,15.0,225.0
+417,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p09,1,False,,14.0,154.0
+418,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p10,1,False,,16.0,236.0
+419,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,landmark,p12,1,False,,14.0,131.0
+420,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p05,1,False,,8.0,75.0
+421,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p06,1,False,,13.0,127.0
+422,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p08,1,False,,10.0,185.0
+423,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,landmark,p07,1,False,,10.0,150.0
+424,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p04,1,False,,7.0,63.0
+425,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p03,1,False,,3.0,54.0
+426,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p01,1,False,,6.0,51.0
+427,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,landmark,p02,1,False,,5.0,111.0
+428,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p13,1,False,,19.0,241.0
+429,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p14,1,False,,22.0,204.0
+430,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p15,1,False,,22.0,214.0
+431,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,landmark,p16,1,False,,14.0,163.0
+432,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p20,1,False,,24.0,342.0
+433,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p19,1,False,,27.0,414.0
+434,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p18,1,False,Error processing Sample 1: Plan not found in response.,29.0,
+435,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,landmark,p17,1,False,,25.0,349.0
+436,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p13,1,False,,26.0,972.0
+437,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p14,1,False,,28.0,531.0
+438,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p15,1,False,,30.0,503.0
+439,many-models,logistics,9-packages,gemini-2.5-flash-lite,landmark,p16,1,False,,30.0,727.0
+440,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p05,1,False,,8.0,172.0
+441,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p06,1,False,Error processing Sample 1: Plan not found in response.,16.0,
+442,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p08,1,False,,10.0,445.0
+443,many-models,logistics,5-packages,gemini-2.5-flash-lite,landmark,p07,1,False,,16.0,291.0
+444,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p11,1,False,,34.0,458.0
+445,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p09,1,False,,26.0,505.0
+446,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p10,1,False,,26.0,550.0
+447,many-models,logistics,7-packages,gemini-2.5-flash-lite,landmark,p12,1,False,,28.0,511.0
+448,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p20,1,False,,38.0,737.0
+449,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p19,1,False,,38.0,839.0
+450,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p18,1,False,,28.0,487.0
+451,many-models,logistics,11-packages,gemini-2.5-flash-lite,landmark,p17,1,False,,44.0,3167.0
+452,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p04,1,False,,12.0,236.0
+453,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p03,1,False,,4.0,207.0
+454,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p01,1,False,,6.0,143.0
+455,many-models,logistics,3-packages,gemini-2.5-flash-lite,landmark,p02,1,False,,10.0,161.0
+456,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p20,1,False,,40.0,765.0
+457,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p19,1,False,Error processing Sample 1: Plan not found in response.,40.0,
+458,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p18,1,False,,40.0,736.0
+459,many-models,miconic,20-passenger,gemini-2.5-flash-lite,landmark,p17,1,False,,40.0,1528.0
+460,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p04,1,False,,8.0,127.0
+461,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p03,1,False,,8.0,127.0
+462,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p01,1,False,,8.0,223.0
+463,many-models,miconic,4-passenger,gemini-2.5-flash-lite,landmark,p02,1,False,,8.0,151.0
+464,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p11,1,False,,24.0,607.0
+465,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p09,1,False,,24.0,341.0
+466,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p10,1,False,,24.0,1188.0
+467,many-models,miconic,12-passenger,gemini-2.5-flash-lite,landmark,p12,1,False,,24.0,1230.0
+468,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p13,1,False,,32.0,529.0
+469,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p14,1,False,,32.0,592.0
+470,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p15,1,False,,32.0,1114.0
+471,many-models,miconic,16-passenger,gemini-2.5-flash-lite,landmark,p16,1,False,,32.0,836.0
+472,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p05,1,False,Error processing Sample 1: Plan not found in response.,16.0,
+473,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p06,1,False,Error processing Sample 1: Plan not found in response.,16.0,
+474,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p08,1,False,,16.0,274.0
+475,many-models,miconic,8-passenger,gemini-2.5-flash-lite,landmark,p07,1,False,,16.0,330.0
+476,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p13,1,False,,18.0,6122.0
+477,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p14,1,False,,18.0,457.0
+478,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p15,1,False,,18.0,657.0
+479,many-models,spanner,16-spanners,gemini-2.5-flash-lite,landmark,p16,1,False,,18.0,2464.0
+480,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p20,1,False,,22.0,557.0
+481,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p19,1,False,Error processing Sample 1: Plan not found in response.,22.0,
+482,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p18,1,False,Error processing Sample 1: Plan not found in response.,22.0,
+483,many-models,spanner,20-spanners,gemini-2.5-flash-lite,landmark,p17,1,False,,22.0,1641.0
+484,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p11,1,False,,14.0,2141.0
+485,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p09,1,False,,14.0,494.0
+486,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p10,1,False,,14.0,425.0
+487,many-models,spanner,12-spanners,gemini-2.5-flash-lite,landmark,p12,1,False,,14.0,337.0
+488,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p04,1,False,,6.0,163.0
+489,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p03,1,False,,6.0,141.0
+490,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p01,1,False,,6.0,237.0
+491,many-models,spanner,4-spanners,gemini-2.5-flash-lite,landmark,p02,1,False,,6.0,255.0
+492,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p05,1,False,,10.0,377.0
+493,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p06,1,False,,10.0,318.0
+494,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p08,1,False,,10.0,458.0
+495,many-models,spanner,8-spanners,gemini-2.5-flash-lite,landmark,p07,1,False,,10.0,753.0
+496,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p11,1,False,,,165.0
+497,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p09,1,False,,,267.0
+498,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p10,1,False,,,150.0
+499,many-models,blocksworld,10-blocks,gemini-2.5-flash-lite,pddl,p12,1,False,,,150.0
+500,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p05,1,True,,,111.0
+501,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p06,1,False,,,205.0
+502,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p08,1,False,,,187.0
+503,many-models,blocksworld,7-blocks,gemini-2.5-flash-lite,pddl,p07,1,False,,,155.0
+504,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p04,1,False,,,111.0
+505,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p03,1,False,,,67.0
+506,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p01,1,True,,,67.0
+507,many-models,blocksworld,4-blocks,gemini-2.5-flash-lite,pddl,p02,1,False,,,62.0
+508,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p13,1,False,Error processing Sample 1: Plan not found in response.,,
+509,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p14,1,False,Error processing Sample 1: Plan not found in response.,,
+510,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p15,1,False,,,201.0
+511,many-models,blocksworld,13-blocks,gemini-2.5-flash-lite,pddl,p16,1,False,,,307.0
+512,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p20,1,False,,,207.0
+513,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p19,1,False,Error processing Sample 1: Plan not found in response.,,
+514,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p18,1,False,Error processing Sample 1: Plan not found in response.,,
+515,many-models,blocksworld,16-blocks,gemini-2.5-flash-lite,pddl,p17,1,False,,,261.0
+516,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p13,1,False,,,2869.0
+517,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p14,1,False,,,1234.0
+518,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p15,1,False,,,594.0
+519,many-models,logistics,9-packages,gemini-2.5-flash-lite,pddl,p16,1,False,,,466.0
+520,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p05,1,False,,,414.0
+521,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p06,1,False,,,406.0
+522,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p08,1,False,,,426.0
+523,many-models,logistics,5-packages,gemini-2.5-flash-lite,pddl,p07,1,False,,,434.0
+524,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p11,1,False,,,816.0
+525,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p09,1,False,,,626.0
+526,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p10,1,False,,,708.0
+527,many-models,logistics,7-packages,gemini-2.5-flash-lite,pddl,p12,1,False,,,404.0
+528,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p20,1,False,,,2355.0
+529,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p19,1,False,,,618.0
+530,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p18,1,False,,,1036.0
+531,many-models,logistics,11-packages,gemini-2.5-flash-lite,pddl,p17,1,False,,,2083.0
+532,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p04,1,False,,,312.0
+533,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p03,1,False,,,160.0
+534,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p01,1,False,,,278.0
+535,many-models,logistics,3-packages,gemini-2.5-flash-lite,pddl,p02,1,False,,,259.0
+536,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p20,1,False,,,1088.0
+537,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p19,1,False,,,747.0
+538,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p18,1,False,Error processing Sample 1: Plan not found in response.,,
+539,many-models,miconic,20-passenger,gemini-2.5-flash-lite,pddl,p17,1,False,,,5768.0
+540,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p04,1,False,,,199.0
+541,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p03,1,False,,,167.0
+542,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p01,1,False,,,159.0
+543,many-models,miconic,4-passenger,gemini-2.5-flash-lite,pddl,p02,1,False,,,303.0
+544,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p11,1,False,,,1055.0
+545,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p09,1,False,,,1118.0
+546,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p10,1,False,,,1242.0
+547,many-models,miconic,12-passenger,gemini-2.5-flash-lite,pddl,p12,1,False,,,2113.0
+548,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p13,1,False,,,3099.0
+549,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p14,1,False,,,2021.0
+550,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p15,1,False,,,3680.0
+551,many-models,miconic,16-passenger,gemini-2.5-flash-lite,pddl,p16,1,False,,,884.0
+552,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p05,1,False,,,994.0
+553,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p06,1,False,,,755.0
+554,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p08,1,False,,,936.0
+555,many-models,miconic,8-passenger,gemini-2.5-flash-lite,pddl,p07,1,False,,,795.0
+556,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p13,1,False,,,1613.0
+557,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p14,1,False,,,5824.0
+558,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p15,1,False,,,302.0
+559,many-models,spanner,16-spanners,gemini-2.5-flash-lite,pddl,p16,1,False,Error processing Sample 1: Plan not found in response.,,
+560,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p20,1,False,,,471.0
+561,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p19,1,False,,,486.0
+562,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p18,1,False,Error processing Sample 1: Plan not found in response.,,
+563,many-models,spanner,20-spanners,gemini-2.5-flash-lite,pddl,p17,1,False,Error processing Sample 1: Plan not found in response.,,
+564,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p11,1,False,,,2648.0
+565,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p09,1,False,,,3364.0
+566,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p10,1,False,,,808.0
+567,many-models,spanner,12-spanners,gemini-2.5-flash-lite,pddl,p12,1,False,,,354.0
+568,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p04,1,True,,,167.0
+569,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p03,1,False,,,225.0
+570,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p01,1,False,,,201.0
+571,many-models,spanner,4-spanners,gemini-2.5-flash-lite,pddl,p02,1,False,,,230.0
+572,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p05,1,False,,,697.0
+573,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p06,1,False,,,220.0
+574,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p08,1,False,,,392.0
+575,many-models,spanner,8-spanners,gemini-2.5-flash-lite,pddl,p07,1,False,,,492.0
+576,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",15.0,
+577,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p09,1,False,,14.0,115.0
+578,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p10,1,False,,16.0,95.0
+579,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,landmark,p12,1,False,,14.0,125.0
+580,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p05,1,False,,8.0,70.0
+581,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p06,1,False,,13.0,418.0
+582,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",10.0,
+583,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,landmark,p07,1,False,,10.0,99.0
+584,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p04,1,False,,7.0,46.0
+585,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p03,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",3.0,
+586,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",6.0,
+587,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,landmark,p02,1,False,,5.0,788.0
+588,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p13,1,False,,19.0,175.0
+589,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p14,1,False,,22.0,206.0
+590,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p15,1,False,,22.0,137.0
+591,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,landmark,p16,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",14.0,
+592,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",24.0,
+593,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p19,1,False,,27.0,168.0
+594,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",29.0,
+595,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,landmark,p17,1,False,,25.0,227.0
+596,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p13,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",26.0,
+597,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p14,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",28.0,
+598,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p15,1,False,,30.0,441.0
+599,many-models,logistics,9-packages,gemini-2.0-flash-lite,landmark,p16,1,False,,30.0,385.0
+600,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p05,1,False,,8.0,243.0
+601,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p06,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",16.0,
+602,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",10.0,
+603,many-models,logistics,5-packages,gemini-2.0-flash-lite,landmark,p07,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",16.0,
+604,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",34.0,
+605,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",26.0,
+606,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p10,1,False,,26.0,447.0
+607,many-models,logistics,7-packages,gemini-2.0-flash-lite,landmark,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",28.0,
+608,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p20,1,False,,38.0,431.0
+609,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p19,1,False,,38.0,487.0
+610,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",28.0,
+611,many-models,logistics,11-packages,gemini-2.0-flash-lite,landmark,p17,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",44.0,
+612,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p04,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",12.0,
+613,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p03,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",4.0,
+614,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",6.0,
+615,many-models,logistics,3-packages,gemini-2.0-flash-lite,landmark,p02,1,False,,10.0,147.0
+616,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p20,1,False,,40.0,399.0
+617,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p19,1,False,Error processing Sample 1: Plan not found in response.,40.0,
+618,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",40.0,
+619,many-models,miconic,20-passenger,gemini-2.0-flash-lite,landmark,p17,1,False,,40.0,694.0
+620,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p04,1,False,,8.0,87.0
+621,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p03,1,False,,8.0,103.0
+622,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",8.0,
+623,many-models,miconic,4-passenger,gemini-2.0-flash-lite,landmark,p02,1,False,,8.0,135.0
+624,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",24.0,
+625,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",24.0,
+626,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p10,1,False,,24.0,409.0
+627,many-models,miconic,12-passenger,gemini-2.0-flash-lite,landmark,p12,1,False,,24.0,449.0
+628,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p13,1,False,,32.0,760.0
+629,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p14,1,False,,32.0,621.0
+630,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",32.0,
+631,many-models,miconic,16-passenger,gemini-2.0-flash-lite,landmark,p16,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",32.0,
+632,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p05,1,False,,16.0,299.0
+633,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p06,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",16.0,
+634,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p08,1,False,,16.0,449.0
+635,many-models,miconic,8-passenger,gemini-2.0-flash-lite,landmark,p07,1,False,,16.0,2244.0
+636,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p13,1,False,,18.0,619.0
+637,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p14,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",18.0,
+638,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",18.0,
+639,many-models,spanner,16-spanners,gemini-2.0-flash-lite,landmark,p16,1,False,,18.0,2395.0
+640,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",22.0,
+641,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p19,1,False,,22.0,816.0
+642,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",22.0,
+643,many-models,spanner,20-spanners,gemini-2.0-flash-lite,landmark,p17,1,False,,22.0,3101.0
+644,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p11,1,False,,14.0,389.0
+645,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",14.0,
+646,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p10,1,False,,14.0,352.0
+647,many-models,spanner,12-spanners,gemini-2.0-flash-lite,landmark,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",14.0,
+648,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p04,1,False,,6.0,256.0
+649,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p03,1,False,,6.0,355.0
+650,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",6.0,
+651,many-models,spanner,4-spanners,gemini-2.0-flash-lite,landmark,p02,1,False,,6.0,310.0
+652,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p05,1,False,,10.0,408.0
+653,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p06,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",10.0,
+654,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p08,1,False,,10.0,401.0
+655,many-models,spanner,8-spanners,gemini-2.0-flash-lite,landmark,p07,1,False,,10.0,611.0
+656,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+657,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p09,1,False,,,78.0
+658,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p10,1,False,,,114.0
+659,many-models,blocksworld,10-blocks,gemini-2.0-flash-lite,pddl,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+660,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p05,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+661,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p06,1,False,,,100.0
+662,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+663,many-models,blocksworld,7-blocks,gemini-2.0-flash-lite,pddl,p07,1,False,,,86.0
+664,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p04,1,False,,,67.0
+665,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p03,1,False,,,49.0
+666,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+667,many-models,blocksworld,4-blocks,gemini-2.0-flash-lite,pddl,p02,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+668,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p13,1,False,,,212.0
+669,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p14,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+670,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p15,1,False,,,124.0
+671,many-models,blocksworld,13-blocks,gemini-2.0-flash-lite,pddl,p16,1,False,,,119.0
+672,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+673,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p19,1,False,,,1964.0
+674,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+675,many-models,blocksworld,16-blocks,gemini-2.0-flash-lite,pddl,p17,1,False,,,252.0
+676,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p13,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+677,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p14,1,False,,,421.0
+678,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+679,many-models,logistics,9-packages,gemini-2.0-flash-lite,pddl,p16,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+680,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p05,1,False,,,355.0
+681,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p06,1,False,,,237.0
+682,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+683,many-models,logistics,5-packages,gemini-2.0-flash-lite,pddl,p07,1,False,,,257.0
+684,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+685,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+686,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p10,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+687,many-models,logistics,7-packages,gemini-2.0-flash-lite,pddl,p12,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+688,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p20,1,False,,,635.0
+689,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p19,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+690,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+691,many-models,logistics,11-packages,gemini-2.0-flash-lite,pddl,p17,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+692,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p04,1,False,,,291.0
+693,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p03,1,False,,,127.0
+694,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p01,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+695,many-models,logistics,3-packages,gemini-2.0-flash-lite,pddl,p02,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+696,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p20,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+697,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p19,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+698,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p18,1,False,,,752.0
+699,many-models,miconic,20-passenger,gemini-2.0-flash-lite,pddl,p17,1,False,Error processing Sample 1: Plan not found in response.,,
+700,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p04,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+701,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p03,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+702,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p01,1,False,,,143.0
+703,many-models,miconic,4-passenger,gemini-2.0-flash-lite,pddl,p02,1,False,,,143.0
+704,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p11,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+705,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p09,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+706,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p10,1,False,,,421.0
+707,many-models,miconic,12-passenger,gemini-2.0-flash-lite,pddl,p12,1,False,,,431.0
+708,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p13,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+709,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p14,1,False,,,3345.0
+710,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p15,1,False,,,595.0
+711,many-models,miconic,16-passenger,gemini-2.0-flash-lite,pddl,p16,1,False,,,2358.0
+712,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p05,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+713,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p06,1,False,,,273.0
+714,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p08,1,False,,,288.0
+715,many-models,miconic,8-passenger,gemini-2.0-flash-lite,pddl,p07,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+716,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p13,1,False,,,735.0
+717,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p14,1,False,,,621.0
+718,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p15,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+719,many-models,spanner,16-spanners,gemini-2.0-flash-lite,pddl,p16,1,False,,,917.0
+720,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p20,1,False,,,754.0
+721,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p19,1,False,,,621.0
+722,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p18,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+723,many-models,spanner,20-spanners,gemini-2.0-flash-lite,pddl,p17,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+724,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p11,1,False,,,489.0
+725,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p09,1,False,,,1054.0
+726,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p10,1,False,,,480.0
+727,many-models,spanner,12-spanners,gemini-2.0-flash-lite,pddl,p12,1,False,,,460.0
+728,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p04,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+729,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p03,1,False,,,256.0
+730,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p01,1,False,,,215.0
+731,many-models,spanner,4-spanners,gemini-2.0-flash-lite,pddl,p02,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+732,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p05,1,False,,,512.0
+733,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p06,1,False,,,470.0
+734,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p08,1,False,"Error processing Sample 1: Sample contains an error: Failed to generate content: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",,
+735,many-models,spanner,8-spanners,gemini-2.0-flash-lite,pddl,p07,1,False,,,376.0
