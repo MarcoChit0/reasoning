@@ -63,11 +63,11 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 if __name__ == "__main__":
     experiment = "many-models"
     samples = 1
-    templates = ["pddl", "landmark"]
-    domains = ["logistics", "blocksworld"]
+    templates = ["sanity_check"]
+    # domains = ["blocksworld", "logistics", "miconic", "spanner"]
+    domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
-        "src/configs/gemini-2.5-flash-lite-thinking.yaml",
     ]
 
     for config_path in config_paths:
@@ -83,6 +83,7 @@ if __name__ == "__main__":
             for domain in domains:
                 try:
                     tasks = get_tasks(domain)
+                    tasks = tasks[0]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

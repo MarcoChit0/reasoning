@@ -40,21 +40,23 @@ for domain in os.listdir(solutions_dir):
 import pandas as pd
 import numpy as np
 
-df = pd.DataFrame(columns=["domain", "instance", "plans", "landmarks", "ratio"])
+df = pd.DataFrame(columns=["domain", "plans", "landmarks", "ratio", "num_instances"])
 for domain, instances in data.items():
     plans = []
     landmarks = []
     for instance, values in instances.items():
-        p = values.get("plan", 0)
-        l = values.get("landmarks", 0)
+        p = values.get("plan", None)
+        l = values.get("landmarks", None)
+        if p is None or l is None:
+            continue
         plans.append(p)
         landmarks.append(l)
     df = df._append({
         "domain": domain,
-        "instance": instance,
         "plans": np.mean(plans) if plans else 0,
         "landmarks": np.mean(landmarks) if landmarks else 0,
-        "ratio": np.mean(landmarks) / np.mean(plans) if plans else 0
+        "ratio": np.mean(landmarks) / np.mean(plans) if plans else 0,
+        "num_instances": len(plans)
     }, ignore_index=True)
 
 print(df)

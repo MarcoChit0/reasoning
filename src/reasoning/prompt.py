@@ -24,6 +24,14 @@ def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
         prompt = LANDMARK_TEMPLATE.substitute(name=name, domain=domain, instance=instance, landmarks=landmarks)
         metadata["action_landmarks"] = action_landmarks
         metadata["num_action_landmarks"] = len(action_landmarks)
+    elif template == "sanity_check":
+        from reasoning.templates.sanity_check import SANITY_CHECK_TEMPLATE, get_example_for_domain
+
+        name = task.domain.name
+        domain = task.domain.read()
+        instance = task.instance.read()
+        example_instance, example_plan = get_example_for_domain(name)
+        prompt = SANITY_CHECK_TEMPLATE.substitute(name=name, domain=domain, instance=instance, example_instance=example_instance, example_plan=example_plan)
     else:
         raise ValueError(f"Unknown template value: {template}")
     logger.info(f"Prompt:\n<prompt>\n{prompt}\n</prompt>\n")
