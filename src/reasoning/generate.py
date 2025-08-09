@@ -82,8 +82,8 @@ if __name__ == "__main__":
         for template in templates:
             for domain in domains:
                 try:
-                    tasks = get_tasks(domain)
-                    tasks = tasks[0]
+                    tasks = sorted(get_tasks(domain))
+                    tasks = tasks[:min(20, len(tasks))]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

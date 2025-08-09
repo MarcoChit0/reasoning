@@ -781,13 +781,13 @@ Provide only the plan for the given instance. Here is a checklist to help you wi
 </checklist>""")
 
 def get_example_for_domain(name) -> tuple[str, str]:
-    if name == "Blocksworld":
+    if name == "blocksworld":
         return blocksworld_instance, blocksworld_plan
-    elif name == "Logistics":
+    elif name == "logistics":
         return logistics_instance, logistics_plan
-    elif name == "Miconic":
+    elif name == "miconic":
         return miconic_instance, miconic_plan
-    elif name == "Spanner":
+    elif name == "spanner":
         return spanner_instance, spanner_plan
     else:
         raise ValueError(f"No example available for domain {name}")
