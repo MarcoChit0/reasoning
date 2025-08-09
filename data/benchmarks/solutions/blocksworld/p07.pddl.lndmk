@@ -1,0 +1,25 @@
+2025-08-08 16:19:44,987 INFO     using search: greedy_best_first_search
+2025-08-08 16:19:44,987 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-08 16:19:44,987 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/blocksworld/domain.pddl
+2025-08-08 16:19:44,987 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/blocksworld/instances/7-blocks/p07.pddl
+2025-08-08 16:19:44,988 INFO     5 Predicates parsed
+2025-08-08 16:19:44,988 INFO     4 Actions parsed
+2025-08-08 16:19:44,988 INFO     7 Objects parsed
+2025-08-08 16:19:44,988 INFO     0 Constants parsed
+2025-08-08 16:19:44,988 INFO     Grounding start: bw-rand-7
+2025-08-08 16:19:44,988 INFO     Relevance analysis removed 0 facts
+2025-08-08 16:19:44,988 INFO     Grounding end: bw-rand-7
+2025-08-08 16:19:44,988 INFO     71 Variables created
+2025-08-08 16:19:44,988 INFO     112 Operators created
+<landmarks-set>
+(pickup b5)
+(pickup b1)
+(stack b2 b6)
+(stack b5 b2)
+(stack b6 b1)
+(stack b1 b4)
+(unstack b3 b6)
+(unstack b2 b5)
+(unstack b7 b4)
+(unstack b6 b7)
+</landmarks-set>

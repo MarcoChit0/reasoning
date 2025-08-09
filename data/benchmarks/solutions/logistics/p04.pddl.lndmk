@@ -1,0 +1,27 @@
+2025-08-08 16:21:18,093 INFO     using search: greedy_best_first_search
+2025-08-08 16:21:18,093 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-08 16:21:18,093 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/logistics/domain.pddl
+2025-08-08 16:21:18,093 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/logistics/instances/3-packages/p04.pddl
+2025-08-08 16:21:18,093 INFO     9 Predicates parsed
+2025-08-08 16:21:18,093 INFO     6 Actions parsed
+2025-08-08 16:21:18,093 INFO     19 Objects parsed
+2025-08-08 16:21:18,093 INFO     0 Constants parsed
+2025-08-08 16:21:18,094 INFO     Grounding start: logistics-c3-s3-p3-a1
+2025-08-08 16:21:18,099 INFO     Relevance analysis removed 0 facts
+2025-08-08 16:21:18,099 INFO     Grounding end: logistics-c3-s3-p3-a1
+2025-08-08 16:21:18,099 INFO     75 Variables created
+2025-08-08 16:21:18,099 INFO     276 Operators created
+<landmarks-set>
+(load-truck p1 t0 l0-0)
+(load-truck p2 t1 l1-2)
+(load-truck p2 t2 l2-0)
+(load-truck p0 t2 l2-1)
+(load-airplane p1 a0 l1-0)
+(load-airplane p2 a0 l1-0)
+(unload-truck p1 t0 l0-1)
+(unload-truck p2 t1 l1-0)
+(unload-truck p2 t2 l2-1)
+(unload-truck p0 t2 l2-2)
+(unload-airplane p1 a0 l0-0)
+(unload-airplane p2 a0 l2-0)
+</landmarks-set>

@@ -1,0 +1,22 @@
+2025-08-08 16:25:50,325 INFO     using search: greedy_best_first_search
+2025-08-08 16:25:50,325 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-08 16:25:50,325 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/minigrid/domain.pddl
+2025-08-08 16:25:50,326 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/minigrid/instances/2-shape/p07.pddl
+2025-08-08 16:25:50,326 INFO     12 Predicates parsed
+2025-08-08 16:25:50,326 INFO     5 Actions parsed
+2025-08-08 16:25:50,326 INFO     23 Objects parsed
+2025-08-08 16:25:50,326 INFO     0 Constants parsed
+2025-08-08 16:25:50,326 INFO     Grounding start: grid_4room2_fpl_s2_seed3_n0
+2025-08-08 16:25:50,333 INFO     Relevance analysis removed 0 facts
+2025-08-08 16:25:50,333 INFO     Grounding end: grid_4room2_fpl_s2_seed3_n0
+2025-08-08 16:25:50,333 INFO     82 Variables created
+2025-08-08 16:25:50,333 INFO     164 Operators created
+<landmarks-set>
+(unlock p13 p10 key0 shape0)
+(unlock p3 p2 key1 shape1)
+(move p13 p10)
+(move p10 p7)
+(move p2 p1)
+(move p3 p2)
+(pickup p14 key0)
+</landmarks-set>

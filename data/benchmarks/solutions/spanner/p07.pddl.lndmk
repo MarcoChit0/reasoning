@@ -1,0 +1,25 @@
+2025-08-08 23:00:17,821 INFO     using search: greedy_best_first_search
+2025-08-08 23:00:17,821 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-08 23:00:17,821 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/spanner/domain.pddl
+2025-08-08 23:00:17,821 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/spanner/instances/8-spanners/p07.pddl
+2025-08-08 23:00:17,821 INFO     6 Predicates parsed
+2025-08-08 23:00:17,821 INFO     3 Actions parsed
+2025-08-08 23:00:17,821 INFO     28 Objects parsed
+2025-08-08 23:00:17,821 INFO     0 Constants parsed
+2025-08-08 23:00:17,821 INFO     Grounding start: prob
+2025-08-08 23:00:17,826 INFO     Relevance analysis removed 0 facts
+2025-08-08 23:00:17,826 INFO     Grounding end: prob
+2025-08-08 23:00:17,826 INFO     219 Variables created
+2025-08-08 23:00:17,826 INFO     802 Operators created
+<landmarks-set>
+(walk location2 location3 bob)
+(walk location4 location5 bob)
+(walk location5 location6 bob)
+(walk location1 location2 bob)
+(walk shed location1 bob)
+(walk location7 location8 bob)
+(walk location6 location7 bob)
+(walk location9 gate bob)
+(walk location8 location9 bob)
+(walk location3 location4 bob)
+</landmarks-set>
