@@ -64,8 +64,8 @@ if __name__ == "__main__":
     experiment = "many-models"
     samples = 1
     templates = ["sanity_check"]
-    # domains = ["blocksworld", "logistics", "miconic", "spanner"]
-    domains = ["blocksworld"]
+    domains = ["blocksworld", "logistics", "miconic", "spanner"]
+    # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]
@@ -83,7 +83,6 @@ if __name__ == "__main__":
             for domain in domains:
                 try:
                     tasks = sorted(get_tasks(domain))
-                    tasks = tasks[:min(20, len(tasks))]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

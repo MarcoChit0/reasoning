@@ -73,6 +73,11 @@ class Task:
             return False
         return (self.domain == other.domain and
                 self.instance == other.instance)
+    
+    def __lt__(self, other):
+        if not isinstance(other, Task):
+            return NotImplemented
+        return (self.domain, self.instance) < (other.domain, other.instance)
 
     def __hash__(self):
         return hash((self.domain, self.instance))
