@@ -63,7 +63,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 if __name__ == "__main__":
     experiment = "many-models"
     samples = 1
-    templates = ["pddl", "landmarks", "sanity_check"]
+    templates = ["pddl", "landmark", "sanity_check"]
     domains = ["blocksworld", "logistics", "miconic", "minigrid"]
     # domains = ["blocksworld"]
     config_paths = [
