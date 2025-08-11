@@ -64,7 +64,7 @@ if __name__ == "__main__":
     experiment = "many-models"
     samples = 1
     templates = ["pddl", "landmarks", "sanity_check"]
-    domains = ["logistics", "miconic", "minigrid"]
+    domains = ["blocksworld", "logistics", "miconic", "minigrid"]
     # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
