@@ -63,8 +63,8 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 if __name__ == "__main__":
     experiment = "many-models"
     samples = 1
-    templates = ["sanity_check"]
-    domains = ["blocksworld", "logistics", "miconic", "spanner"]
+    templates = ["sanity_check", "pddl", "landmarks"]
+    domains = ["logistics", "miconic", "minigrid"]
     # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
