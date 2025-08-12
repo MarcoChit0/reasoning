@@ -1,5 +1,5 @@
 import os
-from reasoning.utils import call_val
+from reasoning.utils import val
 import pandas as pd
 import ast
 
@@ -159,15 +159,10 @@ def validate_experiment(experiment_path: str) -> None:
                                 with open(temp_plan_path, 'w') as f:
                                     f.write(plan)
                                 try:
-                                    response = call_val(temp_domain_path, temp_instance_path, temp_plan_path)
-                                    for line in response.splitlines():
-                                        if "Plan valid" in line:
-                                            valid = True
-                                            break
-                                except Exception as e:
-                                    error = "Error when calling VAL: " + str(e)
-                                finally:
+                                    valid, error = val(temp_domain_path, temp_instance_path, temp_plan_path)
                                     if os.path.exists(temp_plan_path): os.remove(temp_plan_path)
+                                except Exception as e:
+                                    raise RuntimeError(f"Error validating plan: {str(e)}")
 
                             except Exception as e:
                                 error = "Error processing Sample {}: {}".format(sample_id, str(e))
@@ -197,6 +192,54 @@ def validate_experiment(experiment_path: str) -> None:
     df = pd.DataFrame(data)
     df.reset_index(drop=True, inplace=True)  # drop=True to avoid creating an extra column
     df.to_csv(os.path.join(experiment_path, VALIDATION_FILE_NAME))
+
+    """
+    Group the data [experiment, model, template, domain] and analyze error types.
+    possibilities:
+        Error processing Sample <num>: <error>
+        Error: Goal not satisfied.
+        Error: Plan failed to execute.
+        Error: Unknown validation result.
+        Error: Bad operator in plan.
+        Error: Error in type-checking.
+        Error: Bad plan description.
+        Error: Unknown validation result.
+        None
+    Each line of the new table should be the count of instances for (experiment, model, template, domain). 
+    Each column should be the error type.
+    The first type of error can have different kind of suberrors on <error>, each one should have a new column. The first type of error can be repeated for each sample <num>. A new column should not be created if the only thing changing is the sample number. Its column name can be compressed as Error: <error>
+    """
+    
+    import re
+    # Process error messages to extract actual error types
+    def extract_error_type(error):
+        if pd.isna(error):
+            return "Valid Plan"
+        
+        # For "Error processing Sample <num>: <error>" extract the actual error
+        sample_error_match = re.match(r"Error processing Sample \d+: (.*)", error)
+        if sample_error_match:
+            return f"Error: {sample_error_match.group(1)}"
+        
+        return error
+    
+    # Apply error type extraction
+    df['error_type'] = df['error'].apply(extract_error_type)
+    
+    # Use crosstab which is more appropriate for counting occurrences
+    error_analysis = pd.crosstab(
+        index=[df['experiment'], df['model'], df['template'], df['domain']],
+        columns=df['error_type'],
+        margins=True,
+        margins_name='Total'
+    )
+    
+    # save to csv
+    from reasoning.settings import ERROR_TYPES_FILE_NAME
+    output_file = os.path.join(experiment_path, ERROR_TYPES_FILE_NAME)
+    error_analysis.to_csv(output_file)
+    print(f"Validation error analysis saved to {output_file}")
+    
 
 if __name__ == "__main__":
     from reasoning.settings import EXPERIMENTS_DIR

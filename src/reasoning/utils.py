@@ -1,4 +1,6 @@
 import subprocess
+
+from typing import Optional
 from reasoning.task import Task
 """
 pyperplan -s astar -H actionlandmark ./data/raw/blocksworld/generated_domain.pddl ./data/raw/blocksworld/generated_basic/instance-1.pddl 
@@ -52,7 +54,7 @@ def get_action_landmarks(task : Task) -> list[str]:
     
     return [landmark.strip() for landmark in action_landmarks if landmark.strip()]
 
-def call_val(domain_path : str, instance_path: str, plan_path : str) -> str:
+def val(domain_path : str, instance_path: str, plan_path : str) -> tuple[bool, Optional[str]]:
     command = [
         f"res/val/build/bin/Validate",
         "-v",
@@ -64,9 +66,29 @@ def call_val(domain_path : str, instance_path: str, plan_path : str) -> str:
 
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=False)
-        return result.stdout
     except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"Error validating plan: {e.stderr.strip()}")
+        return False, f"Error validating plan: {e.stderr.strip()}"
+
+    content = result.stdout
+    if "Error: Bad operator in plan!" in result.stderr:
+        return False, "Error: Bad operator in plan."
+    
+    if "Error: Error in type-checking!" in result.stderr:
+        return False, "Error: Error in type-checking."
+    
+    if "Plan failed to execute" in content:
+        return False, "Error: Plan failed to execute."
+
+    if "Bad plan description!" in content:
+        return False, "Error: Bad plan description."
+
+    if "Goal not satisfied" in content or "Plan invalid" in content:
+        return False, "Error: Goal not satisfied."
+
+    if "Plan executed successfully - checking goal" in content and "Plan valid" in content:
+        return True, None
+
+    return False, "Error: Unknown validation result."
 
 def from_config(config_path: str):
     """
@@ -80,3 +102,56 @@ def from_config(config_path: str):
         raise ValueError("Configuration file must contain a dictionary.")
     
     return config
+
+from typing import Callable, Any, List
+import os 
+from reasoning.settings import EXPERIMENTS_DIR
+def process_log_files(callback_fn: Callable[[str, str, str, str, str], Any], 
+        continue_on_error: bool = True) -> List[Any]:
+        """
+        Applies a callback function to each log file found in a nested directory structure.
+        
+        Args:
+            callback_fn: Function that takes (exp, model, template, domain, instance_file) as arguments
+            base_dir: The base directory to start the traversal
+            continue_on_error: If True, continues processing after errors in the callback
+            
+        Returns:
+            List of results from each callback invocation
+        """
+        results = []
+
+        for exp in os.listdir(EXPERIMENTS_DIR):
+            exp_dir = os.path.join(EXPERIMENTS_DIR, exp)
+            if not os.path.isdir(exp_dir):
+                continue
+
+            for model in os.listdir(exp_dir):
+                model_dir = os.path.join(exp_dir, model)
+                if not os.path.isdir(model_dir):
+                    continue
+
+                for template in os.listdir(model_dir):
+                    template_dir = os.path.join(model_dir, template)
+                    if not os.path.isdir(template_dir):
+                        continue
+
+                    for domain in os.listdir(template_dir):
+                        domain_dir = os.path.join(template_dir, domain)
+                        if not os.path.isdir(domain_dir):
+                            continue
+                        
+                        for root, _, files in os.walk(domain_dir):
+                            for f in files:
+                                if not f.endswith('.log'):
+                                    continue
+                                instance_file = os.path.join(root, f)
+                                try:
+                                    result = callback_fn(exp, model, template, domain, instance_file)
+                                    results.append(result)
+                                except Exception as e:
+                                    if not continue_on_error:
+                                        raise
+                                    print(f"Error processing {instance_file}: {e}")
+        
+        return results

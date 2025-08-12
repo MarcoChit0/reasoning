@@ -96,4 +96,3 @@ if __name__ == "__main__":
                     model_dir=model_dir,
                     **generation_config
                 )
-

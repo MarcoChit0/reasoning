@@ -8,3 +8,4 @@ BENCHMARKS_DIR = os.path.join(DATA_DIR, "benchmarks")
 EXPERIMENTS_DIR = os.path.join(DATA_DIR, "experiments")
 VALIDATION_FILE_NAME = "validation_results.csv"
 METRICS_FILE_NAME = "metrics.csv"
+ERROR_TYPES_FILE_NAME = "error_types.csv"
