@@ -1,5 +1,7 @@
 from reasoning.task import Task
 from reasoning.utils import get_action_landmarks
+from string import Template
+from typing import Optional
 import logging
 def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
     metadata = {"template": template}
@@ -10,8 +12,15 @@ def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
         domain = task.domain.read()
         instance = task.instance.read()
         prompt = PDDL_TEMPLATE.substitute(name=name, domain=domain, instance=instance)
-    elif template == "landmark":
-        from reasoning.templates.landmark import LANDMARK_TEMPLATE
+    elif template == "landmark" or template == "new_landmark":
+        template : Optional[Template]
+        if template == "landmark":
+            from reasoning.templates.landmark import LANDMARK_TEMPLATE
+            template = LANDMARK_TEMPLATE
+        else:
+            from reasoning.templates.new_landmark import NEW_LANDMARK_TEMPLATE
+            template = NEW_LANDMARK_TEMPLATE
+        assert template is not None, "Template must be defined for landmark generation"
         try:
             action_landmarks = get_action_landmarks(task)
             landmarks = "\n".join(action_landmarks) if len(action_landmarks) > 0 else ""
@@ -21,7 +30,7 @@ def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
         name = task.domain.name
         domain = task.domain.read()
         instance = task.instance.read()
-        prompt = LANDMARK_TEMPLATE.substitute(name=name, domain=domain, instance=instance, landmarks=landmarks)
+        prompt = template.substitute(name=name, domain=domain, instance=instance, landmarks=landmarks)
         metadata["action_landmarks"] = action_landmarks
         metadata["num_action_landmarks"] = len(action_landmarks)
     elif template == "sanity_check":

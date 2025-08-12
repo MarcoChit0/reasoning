@@ -12,7 +12,7 @@ output:
     instance file on stdout
 """
 
-passenger = np.arange(4, 33, 4)
+passenger = np.arange(4, 49, 4)
 random_seed = np.arange(1, 5)
 def floor(p):
     return 2 * p

@@ -61,10 +61,10 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
             handler.close()
 
 if __name__ == "__main__":
-    experiment = "many-models"
+    experiment = "pddl-vs-new-landmarks-on-new-instances"
     samples = 1
-    templates = ["pddl", "landmark", "sanity_check"]
-    domains = ["blocksworld", "logistics", "miconic", "minigrid"]
+    templates = ["pddl", "new_landmark"]
+    domains = ["blocksworld", "logistics", "miconic"]
     # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
@@ -83,6 +83,7 @@ if __name__ == "__main__":
             for domain in domains:
                 try:
                     tasks = sorted(get_tasks(domain))
+                    tasks = tasks[-20:]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")
