@@ -1,4 +1,0 @@
-2025-08-11 19:04:58,598 - INFO - Processing task: Task(domain=logistics, instance=p27)
-2025-08-11 19:04:58,598 - INFO - Using model: gemini-2.5-flash-preview-05-20
-2025-08-11 19:04:58,598 - INFO - Generation parameters: {'max_output_tokens': 64000, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'wait_time': 7}
-2025-08-11 19:04:58,598 - ERROR - Error: Could not build prompt for task Task(domain=logistics, instance=p27): Unknown template value: landmarks

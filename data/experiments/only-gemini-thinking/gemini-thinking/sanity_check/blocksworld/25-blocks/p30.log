@@ -1,0 +1,703 @@
+2025-08-09 19:38:35,477 - INFO - Processing task: Task(domain=blocksworld, instance=p30)
+2025-08-09 19:38:35,477 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-08-09 19:38:35,477 - INFO - Generation parameters: {'max_output_tokens': 64000, 'top_p': 0.95, 'temperature': 1.0, 'top_k': 64, 'thinking_config': {'thinking_budget': -1}, 'wait_time': 7}
+2025-08-09 19:38:35,477 - INFO - Prompt:
+<prompt>
+<problem-description>
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>blocksworld</domain>. You will be given the PDDL domain file and the PDDL instance file, and you need to return the plan between the tags <plan> and </plan>. You will receive three examples to help you in generating the plan.
+</problem-description> 
+
+This is the PDDL domain file of the blocksworld domain:
+<domain-file>
+(define (domain blocksworld-4ops)
+(:requirements :strips)
+(:predicates
+(clear ?x)
+(on-table ?x)
+(arm-empty)
+(holding ?x)
+(on ?x ?y)
+)
+(:action pickup
+:parameters (?ob)
+:precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+:effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob))
+(not (arm-empty)))
+)
+(:action putdown
+:parameters (?ob)
+:precondition (holding ?ob)
+:effect (and (clear ?ob) (arm-empty) (on-table ?ob)
+(not (holding ?ob)))
+)
+(:action stack
+:parameters (?ob ?underob)
+:precondition (and (clear ?underob) (holding ?ob))
+:effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+(not (clear ?underob)) (not (holding ?ob)))
+)
+(:action unstack
+:parameters (?ob ?underob)
+:precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+:effect (and (holding ?ob) (clear ?underob)
+(not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))
+)
+)
+</domain-file>
+
+This is the PDDL instance file, for which you need to generate a plan:
+<instance-file>
+(define (problem BW-rand-25)
+(:domain blocksworld-4ops)
+(:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b25 )
+(:init
+(arm-empty)
+(on-table b1)
+(on b2 b7)
+(on b3 b8)
+(on b4 b12)
+(on b5 b14)
+(on-table b6)
+(on b7 b13)
+(on b8 b6)
+(on b9 b25)
+(on b10 b19)
+(on b11 b3)
+(on b12 b17)
+(on b13 b5)
+(on b14 b10)
+(on b15 b20)
+(on b16 b15)
+(on b17 b18)
+(on b18 b21)
+(on b19 b23)
+(on b20 b24)
+(on b21 b9)
+(on b22 b16)
+(on b23 b11)
+(on-table b24)
+(on b25 b22)
+(clear b1)
+(clear b2)
+(clear b4)
+)
+(:goal
+(and
+(on b1 b15)
+(on b2 b3)
+(on b3 b7)
+(on b4 b13)
+(on b5 b20)
+(on b7 b1)
+(on b8 b12)
+(on b10 b18)
+(on b12 b17)
+(on b13 b25)
+(on b14 b19)
+(on b15 b11)
+(on b17 b14)
+(on b20 b6)
+(on b21 b9)
+(on b22 b8)
+(on b24 b21)
+(on b25 b16))
+)
+)
+</instance-file>
+
+This is the PDDL domain file of another domain, called Storage, which serves as an example:
+<domain-file-storage-example>
+(define (domain Storage-Propositional)
+    (:requirements :typing)
+    (:types
+        hoist crate place area - object
+        container depot - place
+        storearea transitarea - area
+    )
+
+    (:predicates
+        (clear ?s - storearea)
+        (in ?x -
+            (either storearea crate) ?p - place)
+        (available ?h - hoist)
+        (lifting ?h - hoist ?c - crate)
+        (at ?h - hoist ?a - area)
+        (on ?c - crate ?s - storearea)
+        (connected ?a1 ?a2 - area)
+        (compatible ?c1 ?c2 - crate)
+    )
+
+    (:action lift
+        :parameters (?h - hoist ?c - crate ?a1 - storearea ?a2 - area ?p - place)
+        :precondition (and
+            (connected ?a1 ?a2)
+            (at ?h ?a2)
+            (available ?h)
+            (on ?c ?a1)
+            (in ?a1 ?p))
+        :effect (and
+            (not (on ?c ?a1))
+            (clear ?a1)
+            (not (available ?h))
+            (lifting ?h ?c)
+            (not (in ?c ?p)))
+    )
+
+    (:action drop
+        :parameters (?h - hoist ?c - crate ?a1 - storearea ?a2 - area ?p - place)
+        :precondition (and
+            (connected ?a1 ?a2)
+            (at ?h ?a2)
+            ( lifting ?h ?c)
+            (clear ?a1)
+            (in ?a1 ?p))
+        :effect (and
+            (not (lifting ?h ?c))
+            (available ?h)
+            (not (clear ?a1))
+            (on ?c ?a1)
+            (in ?c ?p))
+    )
+
+    (:action move
+        :parameters (?h - hoist ?from ?to - storearea)
+        :precondition (and
+            (at ?h ?from)
+            (clear ?to)
+            (connected ?from ?to))
+        :effect (and
+            (not (at ?h ?from))
+            (at ?h ?to)
+            (not (clear ?to))
+            (clear ?from))
+    )
+
+    (:action go-out
+        :parameters (?h - hoist ?from - storearea ?to - transitarea)
+        :precondition (and
+            (at ?h ?from)
+            (connected ?from ?to))
+        :effect (and
+            (not (at ?h ?from))
+            (at ?h ?to)
+            (clear ?from))
+    )
+
+    (:action go-in
+        :parameters (?h - hoist ?from - transitarea ?to - storearea)
+        :precondition (and
+            (at ?h ?from)
+            (connected ?from ?to)
+            (clear ?to))
+        :effect (and
+            (not (at ?h ?from))
+            (at ?h ?to)
+            (not (clear ?to)))
+    )
+)
+</domain-file-storage-example>
+
+This is an example of a PDDL instance file from the Storage domain:
+<instance-file-storage-example>
+(define (problem storage-101)
+	(:domain Storage-Propositional)
+	(:objects
+		depot48-1-1 depot49-1-1 depot50-1-1 depot50-1-2 depot50-1-3 container-0-0 container-0-1 container-0-2 container-0-3 - storearea
+		hoist0 - hoist
+		crate0 crate1 crate2 crate3 - crate
+		container0 - container
+		depot48 depot49 depot50 - depot
+		loadarea - transitarea
+	)
+	(:init
+		(connected depot50-1-1 depot50-1-2)
+		(connected depot50-1-2 depot50-1-3)
+		(connected depot50-1-2 depot50-1-1)
+		(connected depot50-1-3 depot50-1-2)
+		(in depot48-1-1 depot48)
+		(in depot49-1-1 depot49)
+		(in depot50-1-1 depot50)
+		(in depot50-1-2 depot50)
+		(in depot50-1-3 depot50)
+		(on crate0 container-0-0)
+		(on crate1 container-0-1)
+		(on crate2 container-0-2)
+		(on crate3 container-0-3)
+		(in crate0 container0)
+		(in crate1 container0)
+		(in crate2 container0)
+		(in crate3 container0)
+		(in container-0-0 container0)
+		(in container-0-1 container0)
+		(in container-0-2 container0)
+		(in container-0-3 container0)
+		(connected loadarea container-0-0)
+		(connected container-0-0 loadarea)
+		(connected loadarea container-0-1)
+		(connected container-0-1 loadarea)
+		(connected loadarea container-0-2)
+		(connected container-0-2 loadarea)
+		(connected loadarea container-0-3)
+		(connected container-0-3 loadarea)
+		(connected depot48-1-1 loadarea)
+		(connected loadarea depot48-1-1)
+		(connected depot49-1-1 loadarea)
+		(connected loadarea depot49-1-1)
+		(connected depot50-1-1 loadarea)
+		(connected loadarea depot50-1-1)
+		(clear depot48-1-1)
+		(clear depot50-1-1)
+		(clear depot50-1-2)
+		(clear depot50-1-3)
+		(at hoist0 depot49-1-1)
+		(available hoist0)
+	)
+	(:goal
+		(and
+			(in crate0 depot48)
+			(in crate1 depot49)
+			(in crate2 depot50)
+			(in crate3 depot50)
+        )
+	)
+)
+</instance-file-storage-example>
+
+This is a plan for the Storage instance above:
+<plan-storage-example>
+(go-out hoist0 depot49-1-1 loadarea)
+(lift hoist0 crate0 container-0-0 loadarea container0)
+(drop hoist0 crate0 depot48-1-1 loadarea depot48)
+(lift hoist0 crate1 container-0-1 loadarea container0)
+(drop hoist0 crate1 depot49-1-1 loadarea depot49)
+(lift hoist0 crate3 container-0-3 loadarea container0)
+(go-in hoist0 loadarea depot50-1-1)
+(drop hoist0 crate3 depot50-1-2 depot50-1-1 depot50)
+(go-out hoist0 depot50-1-1 loadarea)
+(lift hoist0 crate2 container-0-2 loadarea container0)
+(drop hoist0 crate2 depot50-1-1 loadarea depot50)
+</plan-storage-example>
+
+This is the PDDL domain file of another domain, called Rovers, which serves as an example:
+<domain-file-rovers-example>
+(define (domain rover)
+    (:requirements :strips :typing)
+    (:types
+        rover waypoint store camera mode lander objective
+    )
+
+    (:predicates
+        (at ?x - rover ?y - waypoint)
+        (at_lander ?x - lander ?y - waypoint)
+        (can_traverse ?r - rover ?x - waypoint ?y - waypoint)
+        (equipped_for_soil_analysis ?r - rover)
+        (equipped_for_rock_analysis ?r - rover)
+        (equipped_for_imaging ?r - rover)
+        (empty ?s - store)
+        (have_rock_analysis ?r - rover ?w - waypoint)
+        (have_soil_analysis ?r - rover ?w - waypoint)
+        (full ?s - store)
+        (calibrated ?c - camera ?r - rover)
+        (supports ?c - camera ?m - mode)
+        (visible ?w - waypoint ?p - waypoint)
+        (have_image ?r - rover ?o - objective ?m - mode)
+        (communicated_soil_data ?w - waypoint)
+        (communicated_rock_data ?w - waypoint)
+        (communicated_image_data ?o - objective ?m - mode)
+        (at_soil_sample ?w - waypoint)
+        (at_rock_sample ?w - waypoint)
+        (visible_from ?o - objective ?w - waypoint)
+        (store_of ?s - store ?r - rover)
+        (calibration_target ?i - camera ?o - objective)
+        (on_board ?i - camera ?r - rover)
+    )
+
+    (:action navigate
+        :parameters (?x - rover ?y - waypoint ?z - waypoint)
+        :precondition (and
+            (can_traverse ?x ?y ?z)
+            (at ?x ?y)
+            (visible ?y ?z))
+        :effect (and
+            (not (at ?x ?y))
+            (at ?x ?z))
+    )
+
+    (:action sample_soil
+        :parameters (?x - rover ?s - store ?p - waypoint)
+        :precondition (and
+            (at ?x ?p)
+            (at_soil_sample ?p)
+            (equipped_for_soil_analysis ?x)
+            (store_of ?s ?x)
+            (empty ?s))
+        :effect (and
+            (not (empty ?s))
+            (full ?s)
+            (have_soil_analysis ?x ?p)
+            (not (at_soil_sample ?p)))
+    )
+
+    (:action sample_rock
+        :parameters (?x - rover ?s - store ?p - waypoint)
+        :precondition (and
+            (at ?x ?p)
+            (at_rock_sample ?p)
+            (equipped_for_rock_analysis ?x)
+            (store_of ?s ?x)
+            (empty ?s))
+        :effect (and
+            (not (empty ?s))
+            (full ?s)
+            (have_rock_analysis ?x ?p)
+            (not (at_rock_sample ?p)))
+    )
+
+    (:action drop
+        :parameters (?x - rover ?y - store)
+        :precondition (and
+            (store_of ?y ?x)
+            (full ?y))
+        :effect (and
+            (not (full ?y))
+            (empty ?y))
+    )
+
+    (:action calibrate
+        :parameters (?r - rover ?i - camera ?t - objective ?w - waypoint)
+        :precondition (and
+            (equipped_for_imaging ?r)
+            (calibration_target ?i ?t)
+            (at ?r ?w)
+            (visible_from ?t ?w)
+            (on_board ?i ?r))
+        :effect (and
+            (calibrated ?i ?r))
+    )
+
+    (:action take_image
+        :parameters (?r - rover ?p - waypoint ?o - objective ?i - camera ?m - mode)
+        :precondition (and
+            (calibrated ?i ?r)
+            (on_board ?i ?r)
+            (equipped_for_imaging ?r)
+            (supports ?i ?m)
+            (visible_from ?o ?p)
+            (at ?r ?p))
+        :effect (and
+            (have_image ?r ?o ?m)
+            (not (calibrated ?i ?r)))
+    )
+
+    (:action communicate_soil_data
+        :parameters (?r - rover ?l - lander ?p - waypoint ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_soil_analysis ?r ?p)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_soil_data ?p))
+    )
+
+    (:action communicate_rock_data
+        :parameters (?r - rover ?l - lander ?p - waypoint ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_rock_analysis ?r ?p)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_rock_data ?p))
+    )
+
+    (:action communicate_image_data
+        :parameters (?r - rover ?l - lander ?o - objective ?m - mode ?x - waypoint ?y - waypoint)
+        :precondition (and
+            (at ?r ?x)
+            (at_lander ?l ?y)
+            (have_image ?r ?o ?m)
+            (visible ?x ?y))
+        :effect (and
+            (communicated_image_data ?o ?m))
+    )
+)
+</domain-file-rovers-example>
+
+This is an example of a PDDL instance file from the Rovers domain:
+<instance-file-rovers-example>
+(define (problem rover-04)
+   (:domain rover)
+   (:objects
+      general - lander
+      colour high_res low_res - mode
+      rover1 - rover
+      rover1store - store
+      waypoint1 waypoint2 waypoint3 waypoint4 - waypoint
+      camera1 - camera
+      objective1 objective2 - objective
+   )
+   (:init
+      (at_lander general waypoint2)
+      (at rover1 waypoint1)
+      (equipped_for_soil_analysis rover1)
+      (equipped_for_rock_analysis rover1)
+      (equipped_for_imaging rover1)
+      (empty rover1store)
+      (store_of rover1store rover1)
+      (at_rock_sample waypoint1)
+      (at_rock_sample waypoint2)
+      (at_rock_sample waypoint4)
+      (at_soil_sample waypoint1)
+      (at_soil_sample waypoint4)
+      (visible waypoint2 waypoint4)
+      (visible waypoint1 waypoint2)
+      (visible waypoint2 waypoint1)
+      (visible waypoint3 waypoint1)
+      (visible waypoint4 waypoint2)
+      (visible waypoint1 waypoint3)
+      (visible waypoint2 waypoint3)
+      (visible waypoint3 waypoint2)
+      (visible waypoint1 waypoint4)
+      (visible waypoint4 waypoint1)
+      (can_traverse rover1 waypoint2 waypoint4)
+      (can_traverse rover1 waypoint1 waypoint2)
+      (can_traverse rover1 waypoint2 waypoint1)
+      (can_traverse rover1 waypoint3 waypoint1)
+      (can_traverse rover1 waypoint4 waypoint2)
+      (can_traverse rover1 waypoint1 waypoint3)
+      (can_traverse rover1 waypoint2 waypoint3)
+      (can_traverse rover1 waypoint3 waypoint2)
+      (calibration_target camera1 objective1)
+      (on_board camera1 rover1)
+      (supports camera1 low_res)
+      (supports camera1 colour)
+      (supports camera1 high_res)
+      (visible_from objective1 waypoint2)
+      (visible_from objective2 waypoint4)
+   )
+   (:goal
+      (and
+         (communicated_rock_data waypoint1)
+         (communicated_soil_data waypoint1)
+         (communicated_soil_data waypoint4)
+         (communicated_image_data objective1 low_res)
+         (communicated_image_data objective1 colour))
+   )
+)
+</instance-file-rovers-example>
+
+This is a plan for the Rovers instance above:
+<plan-rovers-example>
+(sample_rock rover1 rover1store waypoint1)
+(drop rover1 rover1store)
+(communicate_rock_data rover1 general waypoint1 waypoint1 waypoint2)
+(sample_soil rover1 rover1store waypoint1)
+(drop rover1 rover1store)
+(communicate_soil_data rover1 general waypoint1 waypoint1 waypoint2)
+(navigate rover1 waypoint1 waypoint2)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 colour)
+(calibrate rover1 camera1 objective1 waypoint2)
+(take_image rover1 waypoint2 objective1 camera1 low_res)
+(navigate rover1 waypoint2 waypoint4)
+(sample_soil rover1 rover1store waypoint4)
+(communicate_soil_data rover1 general waypoint4 waypoint4 waypoint2)
+(communicate_image_data rover1 general objective1 colour waypoint4 waypoint2)
+(communicate_image_data rover1 general objective1 low_res waypoint4 waypoint2)
+</plan-rovers-example>
+
+This is the PDDL domain file for the blocksworld domain, provided again as part of an example:
+<domain-file-blocksworld-example>
+(define (domain blocksworld-4ops)
+(:requirements :strips)
+(:predicates
+(clear ?x)
+(on-table ?x)
+(arm-empty)
+(holding ?x)
+(on ?x ?y)
+)
+(:action pickup
+:parameters (?ob)
+:precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+:effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob))
+(not (arm-empty)))
+)
+(:action putdown
+:parameters (?ob)
+:precondition (holding ?ob)
+:effect (and (clear ?ob) (arm-empty) (on-table ?ob)
+(not (holding ?ob)))
+)
+(:action stack
+:parameters (?ob ?underob)
+:precondition (and (clear ?underob) (holding ?ob))
+:effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+(not (clear ?underob)) (not (holding ?ob)))
+)
+(:action unstack
+:parameters (?ob ?underob)
+:precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+:effect (and (holding ?ob) (clear ?underob)
+(not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))
+)
+)
+</domain-file-blocksworld-example>
+
+This is an example of a PDDL instance file from the blocksworld domain:
+<instance-file-blocksworld-example>
+(define (problem BW-rand-6)
+(:domain blocksworld-4ops)
+(:objects b1 b2 b3 b4 b5 b6 )
+(:init
+(arm-empty)
+(on-table b1)
+(on b2 b3)
+(on-table b3)
+(on b4 b2)
+(on b5 b6)
+(on-table b6)
+(clear b1)
+(clear b4)
+(clear b5)
+)
+(:goal
+(and
+(on b1 b5)
+(on b2 b6)
+(on b4 b2)
+(on b5 b4))
+)
+)
+</instance-file-blocksworld-example>
+
+This is a plan for the blocksworld instance above:
+<plan-blocksworld-example>
+(unstack b5 b6)
+(putdown b5)
+(pickup b1)
+(stack b1 b5)
+(unstack b4 b2)
+(putdown b4)
+(unstack b2 b3)
+(stack b2 b6)
+(pickup b4)
+(stack b4 b2)
+(unstack b1 b5)
+(putdown b1)
+(pickup b5)
+(stack b5 b4)
+(pickup b1)
+(stack b1 b5)
+</plan-blocksworld-example>
+
+Provide only the plan for the given instance. Here is a checklist to help you with your problem:
+<checklist>
+1) The plan must be in the same format as the examples above.
+2) The plan should be preceded by the <plan> tag and should be followed by the </plan> tag.
+3) The actions in the plan must be from the set of actions in the domain described above, that is, they must use the same name and the same number of parameters as one of the action schemas.
+4) The plan must be valid, that is, each action must be applicable in the state it is applied, and the plan must end in a goal state.
+</checklist>
+</prompt>
+
+2025-08-09 19:38:35,478 - INFO - Prompt metadata:
+<prompt_metadata>
+{'template': 'sanity_check'}
+</prompt_metadata>
+
+2025-08-09 19:38:35,478 - INFO - Sample: 1.
+2025-08-09 19:38:35,478 - INFO - AFC is enabled with max remote calls: 10.
+2025-08-09 19:39:29,010 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent "HTTP/1.1 200 OK"
+2025-08-09 19:39:29,013 - INFO - AFC remote call 1 is done.
+2025-08-09 19:39:36,015 - INFO - 
+<sample>
+<response>
+<plan>
+(unstack b2 b7)
+(putdown b2)
+(unstack b4 b12)
+(putdown b4)
+(unstack b7 b13)
+(putdown b7)
+(unstack b13 b5)
+(putdown b13)
+(unstack b5 b14)
+(putdown b5)
+(unstack b14 b10)
+(putdown b14)
+(unstack b10 b19)
+(putdown b10)
+(unstack b19 b23)
+(putdown b19)
+(unstack b23 b11)
+(putdown b23)
+(unstack b11 b3)
+(putdown b11)
+(unstack b3 b8)
+(putdown b3)
+(unstack b8 b6)
+(putdown b8)
+(unstack b12 b17)
+(putdown b12)
+(unstack b17 b18)
+(putdown b17)
+(unstack b18 b21)
+(putdown b18)
+(unstack b21 b9)
+(putdown b21)
+(unstack b9 b25)
+(putdown b9)
+(unstack b25 b22)
+(putdown b25)
+(unstack b22 b16)
+(putdown b22)
+(unstack b16 b15)
+(putdown b16)
+(unstack b15 b20)
+(putdown b15)
+(unstack b20 b24)
+(putdown b20)
+(pickup b20)
+(stack b20 b6)
+(pickup b5)
+(stack b5 b20)
+(pickup b15)
+(stack b15 b11)
+(pickup b1)
+(stack b1 b15)
+(pickup b7)
+(stack b7 b1)
+(pickup b3)
+(stack b3 b7)
+(pickup b2)
+(stack b2 b3)
+(pickup b25)
+(stack b25 b16)
+(pickup b13)
+(stack b13 b25)
+(pickup b4)
+(stack b4 b13)
+(pickup b10)
+(stack b10 b18)
+(pickup b14)
+(stack b14 b19)
+(pickup b17)
+(stack b17 b14)
+(pickup b12)
+(stack b12 b17)
+(pickup b8)
+(stack b8 b12)
+(pickup b22)
+(stack b22 b8)
+(pickup b21)
+(stack b21 b9)
+(pickup b24)
+(stack b24 b21)
+</plan>
+</response>
+<metadata>
+{'prompt_token_count': 5925, 'candidates_token_count': 691, 'total_tokens_count': 18784}
+</metadata>
+</sample>
+

@@ -1,22 +1,31 @@
-\begin{tabular}{llll}
+\begin{tabular}{lllll}
 \toprule
- &  & pddl & landmark \\
-domain & model &  &  \\
+ &  & pddl & landmark & sanity\_check \\
+domain & model &  &  &  \\
 \midrule
-\multirow[t]{3}{*}{blocksworld} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite & 2 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite-thinking & 12 / 32 & 8 / 32 \\
-\cline{1-4}
-\multirow[t]{3}{*}{logistics} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite & 0 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite-thinking & 5 / 32 & 7 / 32 \\
-\cline{1-4}
-\multirow[t]{3}{*}{miconic} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite & 0 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite-thinking & 9 / 20 & 9 / 20 \\
-\cline{1-4}
-\multirow[t]{3}{*}{spanner} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite & 1 / 20 & 0 / 20 \\
- & gemini-2.5-flash-lite-thinking & 0 / 20 & 3 / 20 \\
-\cline{1-4}
+\multirow[t]{4}{*}{blocksworld} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite & 2 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite-thinking & 12 / 32 & 8 / 32 &  \\
+ & gemini-thinking & 26 / 32 & 30 / 32 & 27 / 32 \\
+\cline{1-5}
+\multirow[t]{4}{*}{logistics} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite & 0 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite-thinking & 5 / 32 & 7 / 32 &  \\
+ & gemini-thinking & 42 / 60 & 44 / 60 & 46 / 60 \\
+\cline{1-5}
+\multirow[t]{4}{*}{miconic} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite & 0 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite-thinking & 9 / 20 & 9 / 20 &  \\
+ & gemini-thinking & 26 / 32 & 32 / 32 & 29 / 32 \\
+\cline{1-5}
+\multirow[t]{4}{*}{minigrid} & gemini-2.0-flash-lite &  &  &  \\
+ & gemini-2.5-flash-lite &  &  &  \\
+ & gemini-2.5-flash-lite-thinking &  &  &  \\
+ & gemini-thinking & 18 / 20 & 19 / 20 & 14 / 20 \\
+\cline{1-5}
+\multirow[t]{4}{*}{spanner} & gemini-2.0-flash-lite & 0 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite & 1 / 20 & 0 / 20 &  \\
+ & gemini-2.5-flash-lite-thinking & 0 / 20 & 3 / 20 &  \\
+ & gemini-thinking & 9 / 20 & 14 / 20 & 20 / 20 \\
+\cline{1-5}
 \end{tabular}
