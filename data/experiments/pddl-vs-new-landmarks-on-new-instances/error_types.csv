@@ -1,0 +1,8 @@
+experiment,model,template,domain,Error: Bad plan description.,Error: Error in type-checking.,Error: Goal not satisfied.,Error: Plan failed to execute.,Valid Plan,Total
+pddl-vs-new-landmarks-on-new-instances,gemini-thinking,new_landmark,blocksworld,0,0,0,12,8,20
+pddl-vs-new-landmarks-on-new-instances,gemini-thinking,new_landmark,logistics,0,0,0,8,12,20
+pddl-vs-new-landmarks-on-new-instances,gemini-thinking,new_landmark,miconic,0,1,3,6,10,20
+pddl-vs-new-landmarks-on-new-instances,gemini-thinking,pddl,blocksworld,0,0,3,6,11,20
+pddl-vs-new-landmarks-on-new-instances,gemini-thinking,pddl,logistics,0,0,1,11,8,20
+pddl-vs-new-landmarks-on-new-instances,gemini-thinking,pddl,miconic,2,0,1,10,7,20
+Total,,,,2,1,8,53,56,120

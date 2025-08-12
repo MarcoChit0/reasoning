@@ -69,8 +69,8 @@ def check_landmarks_usage(experiment, model, template, domain, instance_file):
         # try checking whether log files from template = "landmark" or "new_landmark"
         found = False
         for ltemp in ["landmark", "new_landmark"]:
-            new_path = instance_file.replace(template, ltemp)
-            if new_path != instance_file:
+            new_path = instance_file.replace(f"/{template}/", f"/{ltemp}/")
+            if new_path != instance_file and os.path.exists(new_path):
                 with open(new_path, 'r') as f:
                     instance_content = f.read()
                 landmarks = extract_landmarks(instance_content)

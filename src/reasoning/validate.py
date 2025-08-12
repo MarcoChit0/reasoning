@@ -219,8 +219,8 @@ def validate_experiment(experiment_path: str) -> None:
         # For "Error processing Sample <num>: <error>" extract the actual error
         sample_error_match = re.match(r"Error processing Sample \d+: (.*)", error)
         if sample_error_match:
-            return f"Error: {sample_error_match.group(1)}"
-        
+            return f"Error: Sample with processing issue."
+
         return error
     
     # Apply error type extraction
@@ -233,6 +233,9 @@ def validate_experiment(experiment_path: str) -> None:
         margins=True,
         margins_name='Total'
     )
+    
+    # Truncate long column names to 30 characters
+    error_analysis.columns = [str(col)[:27] + '...' if len(str(col)) > 30 else col for col in error_analysis.columns]
     
     # save to csv
     from reasoning.settings import ERROR_TYPES_FILE_NAME
