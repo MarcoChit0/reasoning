@@ -1,35 +1,7 @@
 import os
 import pandas as pd
 
-from reasoning.utils import extract_landmarks
-
-
-def extract_plan(content: str) -> list[str]:
-    """
-    content:
-    '...
-    <plan>
-    a1
-    a2
-    ...
-    an
-    </plan>
-    ...'
-    a1, a2, ..., an are the actions in the plan
-    """
-    content = content.splitlines()
-    plans = []
-    in_plans = False
-    for line in content:
-        if "<plan>" in line:
-            in_plans = True
-            continue
-        if "</plan>" in line:
-            in_plans = False
-            continue
-        if in_plans:
-            plans.append(line.strip())
-    return plans
+from reasoning.utils import extract
 
 base_dir = "./data/experiments"
 from reasoning.utils import process_log_files
@@ -37,8 +9,8 @@ from reasoning.utils import process_log_files
 def check_landmarks_usage(experiment, model, template, domain, instance_file):
     with open(instance_file, 'r') as f:
         instance_content = f.read()
-    actions = extract_plan(instance_content)
-    landmarks = extract_landmarks(instance_content)
+    actions = extract(instance_content, "plan")
+    landmarks = extract(instance_content, "landmark")
     num_landmarks = len(landmarks)
     if num_landmarks == 0:
         # try checking whether log files from template = "landmark" or "new_landmark"
@@ -48,7 +20,7 @@ def check_landmarks_usage(experiment, model, template, domain, instance_file):
             if new_path != instance_file and os.path.exists(new_path):
                 with open(new_path, 'r') as f:
                     instance_content = f.read()
-                landmarks = extract_landmarks(instance_content)
+                landmarks = extract(instance_content, "landmark")
                 num_landmarks = len(landmarks)
                 if num_landmarks > 0:
                     found = True

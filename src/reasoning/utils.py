@@ -58,17 +58,28 @@ def get_landmarks(task : Task) -> list[str]:
 
         with open(path, 'w') as f:
             f.write(content)
-    
-    return extract_landmarks(content)
 
-def extract_landmarks(content : str):
-    start_index = content.find("<landmarks-set>")
-    end_index = content.find("</landmarks-set>")
-    
+    return extract(content, "landmark")
+
+def extract(content : str, obj: str):
+    if obj == "landmark":
+        start_mark = "<landmarks-set>"
+        end_mark = "</landmarks-set>"
+    elif obj == "plan":
+        start_mark = "<plan>"
+        end_mark = "</plan>"
+    elif obj == "relaxed_plan":
+        start_mark = "<relaxed-plan>"
+        end_mark = "</relaxed-plan>"
+    else:
+        raise ValueError(f"Unknown object type: {obj}")
+    start_index = content.find(start_mark)
+    end_index = content.find(end_mark)
+
     if start_index == -1 or end_index == -1:
         raise ValueError("Action landmarks not found in the output.")
-    landmarks_str = content[start_index + len("<landmarks-set>"):end_index].strip()
-    
+    landmarks_str = content[start_index + len(start_mark):end_index].strip()
+
     landmarks = []
     for l in landmarks_str.splitlines():
         l_strip = l.strip()
