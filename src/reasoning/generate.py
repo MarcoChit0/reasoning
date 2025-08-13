@@ -7,12 +7,12 @@ from reasoning.task import Task, get_tasks
 from reasoning.prompt import build_prompt
 from reasoning.utils import from_config
 import logging
-from reasoning.settings import EXPERIMENTS_DIR
+from reasoning.settings import EXPERIMENTS_DIR, SAMPLE_FILE_NAME, PROMPT_FILE_NAME
 import pandas as pd
+from datetime import datetime
 
 def save_model_metadata(df: pd.DataFrame, path: str):
     import os
-    
     try:
         # Check if file exists
         if os.path.exists(path):
@@ -38,44 +38,63 @@ def save_model_metadata(df: pd.DataFrame, path: str):
         df.to_csv(path, index=False)
 
 
+
 def generate(model: models.Model, tasks: list[Task], template: str, samples: int, experiment: str, model_dir: str, **kwargs):
+    """
+    Generates responses for a list of tasks and saves them to a structured directory.
+
+    New structure: <experiment>/<model>/<template>/<domain>/<instance>/
+    - prompt.log: Contains the prompt and its metadata.
+    - sample_<num>.log: Contains a single model response and its metadata.
+    """
     metadata_list = []
     for task in tqdm.tqdm(tasks, desc="Generating content", unit="task"):
-        dir_path = os.path.join(
+        # Define the new base directory for the instance
+        instance_dir = os.path.join(
             EXPERIMENTS_DIR,
             experiment,
             model_dir,
             template,
             task.domain.name,
-            *task.instance.subdirs,
+            task.instance.name, # New structure uses instance name as the directory
         )
-        os.makedirs(dir_path, exist_ok=True)
-        log_file = os.path.join(dir_path, f"{task.instance.name}.log")
-        if os.path.exists(log_file):
-            continue
-
-        logger = logging.getLogger()
-        logger.setLevel(logging.INFO)
-        handler = logging.FileHandler(log_file, mode='w')
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-
+        os.makedirs(instance_dir, exist_ok=True)
+        prompt_log_file = os.path.join(instance_dir, PROMPT_FILE_NAME)
         try:
-            logging.info(f"Processing task: {task}")
-            logging.info(f"Using model: {model.name}")
-            logging.info(f"Generation parameters: {kwargs}")
-            prompt = build_prompt(task, template, logger)
+            # Build the prompt
+            prompt = build_prompt(task, template)
+            prompt_metadata = prompt["metadata"]
+            prompt_text = prompt["prompt"]
+
+            # Save the prompt and its metadata to prompt.log
+            if not os.path.exists(prompt_log_file):
+                with open(prompt_log_file, 'w') as prompt_file:
+                    prompt_file.write(f"[{datetime.now()}] Task: {task}\n")
+                    prompt_file.write(f"[{datetime.now()}] Model: {model.name}\n")
+                    prompt_file.write(f"[{datetime.now()}] Generation Parameters: {kwargs}\n")
+                    prompt_file.write(f"[{datetime.now()}]\nPrompt Metadata:\n")
+                    prompt_file.write(f"<metadata>\n{prompt_metadata}\n</metadata>\n\n")
+                    prompt_file.write(f"[{datetime.now()}]\nPrompt:\n")
+                    prompt_file.write(f"<prompt>\n{prompt_text}\n</prompt>\n")
+
+            # Generate and save each sample
             for i in range(1, samples + 1):
-                logging.info(f"Sample: {i}.")
-                success = False
-                sample = "\n<sample>\n"
+                sample_log_file = os.path.join(instance_dir, SAMPLE_FILE_NAME.format(i))
+                if os.path.exists(sample_log_file):
+                    continue
+
+                sample_file = open(sample_log_file, 'w')
+                if not sample_file:
+                    continue
+
                 try:
-                    response = model.generate_response(
-                        prompt=prompt, 
-                        **kwargs
-                    )
-                    sample += f"<response>\n{response['response']}\n</response>\n"
+                    sample_file.write(f"[{datetime.now()}] Generating response for sample {i}.\n")
+                    response = model.generate_response(prompt=prompt_text, **kwargs)
+                    sample_file.write(f"[{datetime.now()}] Response for sample {i} generated successfully.\n")
+
+                    sample_file.write(f"[{datetime.now()}] Response:\n")
+                    sample_file.write(f"<response>\n{response['response']}\n</response>\n")
+
                     metadata = {
                         "template": template,
                         "domain": task.domain.name,
@@ -84,31 +103,34 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
                         **response['metadata']
                     }
                     metadata_list.append(metadata)
-                    sample += f"<metadata>\n{str(metadata)}\n</metadata>\n"
-                    success = True
+
+                    sample_file.write(f"[{datetime.now()}] Metadata:\n")
+                    sample_file.write(f"<metadata>\n{str(metadata)}\n</metadata>\n")
+
                 except RuntimeError as e:
-                    sample += f"<error>\n{str(e)}\n</error>\n"
+                    sample_file.write(f"[{datetime.now()}] Error during sample generation: {e}\n")
+
                 finally:
-                    sample += "</sample>\n"
-                    if success:
-                        logging.info(sample)
-                    else:
-                        logging.error(sample)
-                    
+                    sample_file.close()
+
         except ValueError as e:
-            logging.error(f"Error: Could not build prompt for task {task}: {e}")
-        finally:
-            logger.removeHandler(handler)
-            handler.close()
-    metadata_df = pd.DataFrame(metadata_list)
-    if not metadata_df.empty:
-        save_model_metadata(metadata_df, os.path.join(EXPERIMENTS_DIR, experiment, model_dir, "metadata.csv"))
+            with open(prompt_log_file + ".err", 'w') as error_f:
+                error_f.write(f"[{datetime.now()}] Error building prompt for task {task}: {e}\n")
+
+    # Save all collected metadata to a single CSV file for the model
+    if metadata_list:
+        metadata_df = pd.DataFrame(metadata_list)
+        save_model_metadata(
+            metadata_df, 
+            os.path.join(EXPERIMENTS_DIR, experiment, model_dir, "metadata.csv")
+        )
 
 if __name__ == "__main__":
-    experiment = "running-again-pddl-vs-new-landmarks-on-new-instances"
-    samples = 1
+    experiment = "3-samples"
+    samples = 3
     templates = ["new_landmark", "pddl"]
-    domains = ["logistics", "blocksworld", "miconic"]
+    # templates = ["new_landmark"]
+    domains = ["logistics", "blocksworld"]
     # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
@@ -127,7 +149,7 @@ if __name__ == "__main__":
             for domain in domains:
                 try:
                     tasks = sorted(get_tasks(domain))
-                    tasks = tasks[-20:]
+                    tasks = tasks[-1:]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

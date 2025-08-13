@@ -2,8 +2,8 @@ from reasoning.task import Task
 from reasoning.utils import get_landmarks
 from string import Template
 from typing import Optional
-import logging
-def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
+
+def build_prompt(task : Task, template : str) -> dict[str, str]:
     metadata = {"template": template}
     if template == "pddl":
         from reasoning.templates.pddl import PDDL_TEMPLATE
@@ -51,6 +51,4 @@ def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
         prompt = SANITY_CHECK_TEMPLATE.substitute(name=name, domain=domain, instance=instance, example_instance=example_instance, example_plan=example_plan)
     else:
         raise ValueError(f"Unknown template value: {template}")
-    logger.info(f"Prompt:\n<prompt>\n{prompt}\n</prompt>\n")
-    logger.info(f"Prompt metadata:\n<prompt_metadata>\n{metadata}\n</prompt_metadata>\n")
-    return prompt
+    return {"prompt": prompt, "metadata": metadata}
