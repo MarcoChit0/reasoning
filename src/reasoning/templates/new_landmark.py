@@ -1,7 +1,7 @@
 from string import Template
 
 NEW_LANDMARK_TEMPLATE = Template("""<problem-description-with-landmarks>
-You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>logistics</domain>. 
+You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. 
 You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks extract from the delete relaxation of the instance. 
 Action landmarks are actions that must be part of any valid plan for the task. 
 Since the action landmarks are extracted from the delete relaxation of the instance, they represent a subset of the action landmarks of the instance.

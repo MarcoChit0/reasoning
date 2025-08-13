@@ -71,13 +71,16 @@ def extract(content : str, obj: str):
     elif obj == "relaxed_plan":
         start_mark = "<relaxed-plan>"
         end_mark = "</relaxed-plan>"
+    elif obj == "sample":
+        start_mark = "<sample>"
+        end_mark = "</sample>"
     else:
         raise ValueError(f"Unknown object type: {obj}")
     start_index = content.find(start_mark)
     end_index = content.find(end_mark)
 
     if start_index == -1 or end_index == -1:
-        raise ValueError("Action landmarks not found in the output.")
+        raise ValueError(f"Object {obj} not found in the output.")
     landmarks_str = content[start_index + len(start_mark):end_index].strip()
 
     landmarks = []

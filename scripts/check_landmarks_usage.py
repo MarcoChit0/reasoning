@@ -9,8 +9,15 @@ from reasoning.utils import process_log_files
 def check_landmarks_usage(experiment, model, template, domain, instance_file):
     with open(instance_file, 'r') as f:
         instance_content = f.read()
-    actions = extract(instance_content, "plan")
-    landmarks = extract(instance_content, "landmark")
+    try:
+        sample = extract(instance_content, "sample")
+        actions = extract("\n".join(sample), "plan")
+    except ValueError:
+        actions = []
+    try:
+        landmarks = extract(instance_content, "landmark")
+    except ValueError:
+        landmarks = []
     num_landmarks = len(landmarks)
     if num_landmarks == 0:
         # try checking whether log files from template = "landmark" or "new_landmark"

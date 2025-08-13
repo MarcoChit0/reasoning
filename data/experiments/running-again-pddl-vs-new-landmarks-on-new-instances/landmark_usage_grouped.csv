@@ -1,0 +1,7 @@
+domain,model,template,num_landmarks,used_landmarks,used_ratio,instance
+blocksworld,gemini-thinking,new_landmark,48.45,48.20,1.00,20
+blocksworld,gemini-thinking,pddl,48.45,47.00,0.97,20
+logistics,gemini-thinking,new_landmark,98.90,95.45,0.97,20
+logistics,gemini-thinking,pddl,98.90,67.25,0.69,20
+miconic,gemini-thinking,new_landmark,80.00,79.20,0.99,20
+miconic,gemini-thinking,pddl,80.00,62.40,0.78,20

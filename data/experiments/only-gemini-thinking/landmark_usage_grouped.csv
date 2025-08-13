@@ -2,9 +2,9 @@ domain,model,template,num_landmarks,used_landmarks,used_ratio,instance
 blocksworld,gemini-thinking,landmark,23.25,23.25,1.00,32
 blocksworld,gemini-thinking,pddl,23.25,22.16,0.97,32
 blocksworld,gemini-thinking,sanity_check,23.25,23.00,0.99,32
-logistics,gemini-thinking,landmark,60.90,60.90,1.00,60
+logistics,gemini-thinking,landmark,60.90,59.08,0.98,60
 logistics,gemini-thinking,pddl,60.90,46.35,0.79,60
-logistics,gemini-thinking,sanity_check,60.90,57.80,0.97,60
+logistics,gemini-thinking,sanity_check,60.90,57.70,0.97,60
 miconic,gemini-thinking,landmark,36.00,36.00,1.00,32
 miconic,gemini-thinking,pddl,36.00,32.47,0.87,32
 miconic,gemini-thinking,sanity_check,36.00,35.59,0.99,32
