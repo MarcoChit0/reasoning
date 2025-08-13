@@ -1,0 +1,2 @@
+template,domain,instance,sample_id,num_requests,prompt_token_count,candidates_token_count,total_tokens_count
+new_landmark,logistics,p60,1,1,8407,2009,34393

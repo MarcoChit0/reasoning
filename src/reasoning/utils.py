@@ -24,35 +24,58 @@ pyperplan -s astar -H actionlandmark ./data/raw/blocksworld/generated_domain.pdd
 </landmarks-set>
 """
 
-def get_action_landmarks(task : Task) -> list[str]:
+def get_landmarks(task : Task) -> list[str]:
     """
     Get action landmarks from a task using pyperplan.
     """
+
+    from reasoning.settings import SOLUTIONS_DIR
+    path = os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + ".pddl.lndmk")
+
+    # Check if the landmarks file exists
+    if os.path.exists(path):
+        print(f"Landmarks file already exists: {path}")
+        with open(path, 'r') as f:
+            content = f.read()
+
+    # Generate landmarks
+    else:
+        print(f"Generating landmarks for: {path}")
+        command = [
+            "pyperplan",
+            "-s", "astar",
+            "-H", "actionlandmark",
+            task.domain.path,
+            task.instance.path
+        ]
+        
+        result = subprocess.run(command, capture_output=True, text=True)
+        
+        if result.returncode != 0:
+            raise RuntimeError(f"Error running pyperplan: {result.stderr}")
+        
+        content = result.stdout
+
+        with open(path, 'w') as f:
+            f.write(content)
     
-    command = [
-        "pyperplan",
-        "-s", "astar",
-        "-H", "actionlandmark",
-        task.domain.path,
-        task.instance.path
-    ]
-    
-    result = subprocess.run(command, capture_output=True, text=True)
-    
-    if result.returncode != 0:
-        raise RuntimeError(f"Error running pyperplan: {result.stderr}")
-    
-    output = result.stdout
-    start_index = output.find("<landmarks-set>")
-    end_index = output.find("</landmarks-set>")
+    return extract_landmarks(content)
+
+def extract_landmarks(content : str):
+    start_index = content.find("<landmarks-set>")
+    end_index = content.find("</landmarks-set>")
     
     if start_index == -1 or end_index == -1:
         raise ValueError("Action landmarks not found in the output.")
-
-    action_landmarks_str = output[start_index + len("<landmarks-set>"):end_index].strip()
-    action_landmarks = action_landmarks_str.splitlines()
+    landmarks_str = content[start_index + len("<landmarks-set>"):end_index].strip()
     
-    return [landmark.strip() for landmark in action_landmarks if landmark.strip()]
+    landmarks = []
+    for l in landmarks_str.splitlines():
+        l_strip = l.strip()
+        if l_strip and l_strip not in ["", "\n"]:
+            landmarks.append(l_strip)
+
+    return landmarks
 
 def val(domain_path : str, instance_path: str, plan_path : str) -> tuple[bool, Optional[str]]:
     command = [

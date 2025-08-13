@@ -8,8 +8,38 @@ from reasoning.prompt import build_prompt
 from reasoning.utils import from_config
 import logging
 from reasoning.settings import EXPERIMENTS_DIR
+import pandas as pd
+
+def save_model_metadata(df: pd.DataFrame, path: str):
+    import os
+    
+    try:
+        # Check if file exists
+        if os.path.exists(path):
+            # Load existing data
+            existing_df = pd.read_csv(path)
+            
+            # Create a composite key for matching rows
+            key_columns = ["template", "domain", "instance", "sample_id"]
+            
+            # Merge DataFrames based on key columns
+            # This will update existing rows and add new ones
+            merged_df = pd.concat([existing_df, df])
+            merged_df = merged_df.drop_duplicates(subset=key_columns, keep='last')
+            
+            # Save the merged DataFrame
+            merged_df.to_csv(path, index=False)
+        else:
+            # File doesn't exist, create it
+            df.to_csv(path, index=False)
+    except Exception as e:
+        print(f"Error saving metadata: {e}")
+        # Fallback to simple save
+        df.to_csv(path, index=False)
+
 
 def generate(model: models.Model, tasks: list[Task], template: str, samples: int, experiment: str, model_dir: str, **kwargs):
+    metadata_list = []
     for task in tqdm.tqdm(tasks, desc="Generating content", unit="task"):
         dir_path = os.path.join(
             EXPERIMENTS_DIR,
@@ -36,14 +66,25 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
             logging.info(f"Using model: {model.name}")
             logging.info(f"Generation parameters: {kwargs}")
             prompt = build_prompt(task, template, logger)
-            for i in range(samples):
-                logging.info(f"Sample: {i + 1}.")
+            for i in range(1, samples + 1):
+                logging.info(f"Sample: {i}.")
                 success = False
                 sample = "\n<sample>\n"
                 try:
-                    response = model.generate_response(prompt, **kwargs)
+                    response = model.generate_response(
+                        prompt=prompt, 
+                        **kwargs
+                    )
                     sample += f"<response>\n{response['response']}\n</response>\n"
-                    sample += f"<metadata>\n{str(response['metadata'])}\n</metadata>\n"
+                    metadata = {
+                        "template": template,
+                        "domain": task.domain.name,
+                        "instance": task.instance.name,
+                        "sample_id": i,
+                        **response['metadata']
+                    }
+                    metadata_list.append(metadata)
+                    sample += f"<metadata>\n{str(metadata)}\n</metadata>\n"
                     success = True
                 except RuntimeError as e:
                     sample += f"<error>\n{str(e)}\n</error>\n"
@@ -59,12 +100,15 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         finally:
             logger.removeHandler(handler)
             handler.close()
+    metadata_df = pd.DataFrame(metadata_list)
+    if not metadata_df.empty:
+        save_model_metadata(metadata_df, os.path.join(EXPERIMENTS_DIR, experiment, model_dir, "metadata.csv"))
 
 if __name__ == "__main__":
-    experiment = "pddl-vs-new-landmarks-on-new-instances"
+    experiment = "running-again-pddl-vs-new-landmarks-on-new-instances"
     samples = 1
-    templates = ["pddl", "new_landmark"]
-    domains = ["blocksworld", "logistics", "miconic"]
+    templates = ["new_landmark", "pddl"]
+    domains = ["logistics", "blocksworld", "miconic"]
     # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",

@@ -1,32 +1,7 @@
 import os
 import pandas as pd
 
-def extract_landmarks(content : str) -> list[str]:
-    """
-    content:
-    '...
-    <landmarks-set>
-    l1
-    l2
-    ...
-    ln
-    </landmarks-set>
-    ...'
-    l1, l2, ..., ln are the landmarks
-    """
-    content = content.splitlines()
-    landmarks = []
-    in_landmarks = False
-    for line in content:
-        if "<landmarks-set>" in line:
-            in_landmarks = True
-            continue
-        if "</landmarks-set>" in line:
-            in_landmarks = False
-            continue
-        if in_landmarks:
-            landmarks.append(line.strip())
-    return landmarks
+from reasoning.utils import extract_landmarks
 
 
 def extract_plan(content: str) -> list[str]:

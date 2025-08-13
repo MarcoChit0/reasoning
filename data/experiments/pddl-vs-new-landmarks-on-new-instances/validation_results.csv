@@ -1,121 +1,181 @@
 ,experiment,domain,instance_subdir,model,template,instance,sample_id,valid,error,num_action_landmarks,candidates_token_count
-0,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p28,1,False,Error: Plan failed to execute.,34.0,565
-1,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p27,1,True,,36.0,576
-2,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p25,1,True,,35.0,573
-3,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p26,1,False,Error: Plan failed to execute.,36.0,599
-4,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p32,1,True,,45.0,648
-5,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p29,1,False,Error: Plan failed to execute.,46.0,679
-6,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p30,1,False,Error: Plan failed to execute.,40.0,674
-7,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p31,1,True,,44.0,667
-8,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p41,1,True,,62.0,967
-9,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p42,1,False,Error: Plan failed to execute.,61.0,1011
-10,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p44,1,False,Error: Plan failed to execute.,59.0,899
-11,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p43,1,False,Error: Plan failed to execute.,63.0,986
-12,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p38,1,False,Error: Plan failed to execute.,52.0,900
-13,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p37,1,False,Error: Plan failed to execute.,55.0,927
-14,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p39,1,True,,56.0,877
-15,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p40,1,True,,54.0,866
-16,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p35,1,True,,47.0,752
-17,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p34,1,False,Error: Plan failed to execute.,48.0,811
-18,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p33,1,False,Error: Plan failed to execute.,50.0,787
-19,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p36,1,False,Error: Plan failed to execute.,46.0,743
-20,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p60,1,True,,114.0,2031
-21,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p57,1,True,,122.0,2261
-22,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p59,1,False,Error: Plan failed to execute.,116.0,2956
-23,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p58,1,True,,116.0,2061
-24,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p52,1,False,Error: Plan failed to execute.,70.0,1252
-25,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p49,1,True,,112.0,2227
-26,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p50,1,True,,100.0,2163
-27,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p51,1,False,Error: Plan failed to execute.,106.0,1982
-28,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p54,1,True,,112.0,1963
-29,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p56,1,False,Error: Plan failed to execute.,88.0,2069
-30,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p53,1,False,Error: Plan failed to execute.,98.0,1692
-31,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p55,1,False,Error: Plan failed to execute.,112.0,1859
-32,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p41,1,True,,98.0,1681
-33,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p42,1,True,,74.0,1417
-34,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p44,1,True,,78.0,1423
-35,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p43,1,False,Error: Plan failed to execute.,82.0,2409
-36,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p47,1,True,,100.0,2249
-37,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p45,1,True,,90.0,1637
-38,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p46,1,True,,98.0,1857
-39,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p48,1,False,Error: Plan failed to execute.,92.0,1988
-40,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p35,1,True,,72.0,1254
-41,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p34,1,False,Error: Plan failed to execute.,72.0,2056
-42,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p33,1,False,Error: Plan failed to execute.,72.0,2160
-43,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p36,1,True,,72.0,1237
-44,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p41,1,False,Error: Plan failed to execute.,88.0,2555
-45,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p42,1,False,Error: Plan failed to execute.,88.0,1716
-46,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p44,1,False,Error: Goal not satisfied.,88.0,2508
-47,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p43,1,True,,88.0,1566
-48,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p32,1,True,,64.0,1754
-49,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p29,1,True,,64.0,1832
-50,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p30,1,True,,64.0,1103
-51,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p31,1,True,,64.0,1066
-52,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p38,1,False,Error: Plan failed to execute.,80.0,2388
-53,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p37,1,True,,80.0,1385
-54,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p39,1,False,Error: Error in type-checking.,80.0,2327
-55,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p40,1,False,Error: Goal not satisfied.,80.0,2280
-56,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p47,1,True,,96.0,2779
-57,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p45,1,True,,96.0,1655
-58,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p46,1,False,Error: Plan failed to execute.,96.0,1811
-59,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p48,1,False,Error: Goal not satisfied.,96.0,2652
-60,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p28,1,True,,,565
-61,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p27,1,True,,,507
-62,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p25,1,True,,,573
-63,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p26,1,True,,,599
-64,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p32,1,False,Error: Goal not satisfied.,,634
-65,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p29,1,True,,,723
-66,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p30,1,True,,,691
-67,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p31,1,False,Error: Goal not satisfied.,,668
-68,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p41,1,False,Error: Plan failed to execute.,,937
-69,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p42,1,False,Error: Plan failed to execute.,,1041
-70,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p44,1,False,Error: Plan failed to execute.,,837
-71,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p43,1,False,Error: Goal not satisfied.,,904
-72,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p38,1,True,,,900
-73,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p37,1,True,,,890
-74,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p39,1,False,Error: Plan failed to execute.,,733
-75,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p40,1,True,,,1097
-76,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p35,1,True,,,752
-77,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p34,1,False,Error: Plan failed to execute.,,795
-78,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p33,1,False,Error: Plan failed to execute.,,787
-79,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p36,1,True,,,743
-80,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p60,1,False,Error: Plan failed to execute.,,2786
-81,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p57,1,True,,,2515
-82,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p59,1,True,,,2221
-83,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p58,1,True,,,2097
-84,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p52,1,False,Error: Plan failed to execute.,,1288
-85,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p49,1,False,Error: Plan failed to execute.,,2089
-86,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p50,1,False,Error: Plan failed to execute.,,1727
-87,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p51,1,False,Error: Plan failed to execute.,,2163
-88,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p54,1,False,Error: Goal not satisfied.,,2303
-89,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p56,1,True,,,2055
-90,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p53,1,False,Error: Plan failed to execute.,,1822
-91,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p55,1,False,Error: Plan failed to execute.,,3163
-92,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p41,1,False,Error: Plan failed to execute.,,1949
-93,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p42,1,True,,,1381
-94,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p44,1,True,,,1491
-95,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p43,1,True,,,1523
-96,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p47,1,False,Error: Plan failed to execute.,,2028
-97,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p45,1,False,Error: Plan failed to execute.,,1677
-98,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p46,1,False,Error: Plan failed to execute.,,2929
-99,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p48,1,True,,,2145
-100,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p35,1,True,,,1212
-101,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p34,1,True,,,1198
-102,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p33,1,False,Error: Plan failed to execute.,,1285
-103,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p36,1,False,Error: Plan failed to execute.,,20679
-104,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p41,1,True,,,1527
-105,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p42,1,False,Error: Plan failed to execute.,,2256
-106,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p44,1,False,Error: Plan failed to execute.,,2538
-107,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p43,1,True,,,1506
-108,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p32,1,False,Error: Goal not satisfied.,,1734
-109,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p29,1,True,,,1840
-110,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p30,1,False,Error: Bad plan description.,,1956
-111,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p31,1,False,Error: Plan failed to execute.,,1830
-112,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p38,1,False,Error: Plan failed to execute.,,2713
-113,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p37,1,True,,,1544
-114,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p39,1,False,Error: Plan failed to execute.,,1275
-115,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p40,1,False,Error: Bad plan description.,,1448
-116,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p47,1,True,,,1729
-117,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p45,1,False,Error: Plan failed to execute.,,1655
-118,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p46,1,False,Error: Plan failed to execute.,,2765
-119,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p48,1,False,Error: Plan failed to execute.,,2801
+0,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,landmark,p60,1,False,Error: Plan failed to execute.,114.0,2380
+1,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,landmark,p57,1,True,,122.0,2249
+2,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,landmark,p59,1,False,Error: Plan failed to execute.,116.0,3099
+3,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,landmark,p58,1,False,Error: Plan failed to execute.,116.0,2548
+4,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,landmark,p52,1,False,Error: Plan failed to execute.,70.0,1381
+5,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,landmark,p49,1,True,,112.0,1979
+6,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,landmark,p50,1,False,Error: Plan failed to execute.,100.0,1785
+7,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,landmark,p51,1,False,Error: Plan failed to execute.,106.0,2063
+8,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,landmark,p54,1,False,Error: Plan failed to execute.,112.0,1927
+9,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,landmark,p56,1,True,,88.0,1665
+10,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,landmark,p53,1,False,Error: Goal not satisfied.,98.0,1720
+11,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,landmark,p55,1,False,Error: Plan failed to execute.,112.0,3852
+12,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,landmark,p41,1,True,,98.0,1699
+13,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,landmark,p42,1,True,,74.0,1417
+14,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,landmark,p44,1,False,Error: Goal not satisfied.,78.0,1388
+15,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,landmark,p43,1,False,Error: Plan failed to execute.,82.0,1589
+16,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,landmark,p47,1,True,,100.0,1837
+17,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,landmark,p45,1,True,,90.0,1637
+18,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,landmark,p46,1,False,Error: Plan failed to execute.,98.0,1832
+19,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,landmark,p48,1,False,Error: Plan failed to execute.,92.0,1770
+20,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p28,1,False,Error: Plan failed to execute.,34.0,565
+21,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p27,1,True,,36.0,576
+22,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p25,1,True,,35.0,573
+23,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,new_landmark,p26,1,False,Error: Plan failed to execute.,36.0,599
+24,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p32,1,True,,45.0,648
+25,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p29,1,False,Error: Plan failed to execute.,46.0,679
+26,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p30,1,False,Error: Plan failed to execute.,40.0,674
+27,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,new_landmark,p31,1,True,,44.0,667
+28,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p41,1,True,,62.0,967
+29,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p42,1,False,Error: Plan failed to execute.,61.0,1011
+30,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p44,1,False,Error: Plan failed to execute.,59.0,899
+31,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,new_landmark,p43,1,False,Error: Plan failed to execute.,63.0,986
+32,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p38,1,False,Error: Plan failed to execute.,52.0,900
+33,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p37,1,False,Error: Plan failed to execute.,55.0,927
+34,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p39,1,True,,56.0,877
+35,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,new_landmark,p40,1,True,,54.0,866
+36,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p35,1,True,,47.0,752
+37,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p34,1,False,Error: Plan failed to execute.,48.0,811
+38,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p33,1,False,Error: Plan failed to execute.,50.0,787
+39,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,new_landmark,p36,1,False,Error: Plan failed to execute.,46.0,743
+40,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p60,1,True,,114.0,2031
+41,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p57,1,True,,122.0,2261
+42,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p59,1,False,Error: Plan failed to execute.,116.0,2956
+43,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,new_landmark,p58,1,True,,116.0,2061
+44,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p52,1,False,Error: Plan failed to execute.,70.0,1252
+45,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p49,1,True,,112.0,2227
+46,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p50,1,True,,100.0,2163
+47,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,new_landmark,p51,1,False,Error: Plan failed to execute.,106.0,1982
+48,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p54,1,True,,112.0,1963
+49,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p56,1,False,Error: Plan failed to execute.,88.0,2069
+50,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p53,1,False,Error: Plan failed to execute.,98.0,1692
+51,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,new_landmark,p55,1,False,Error: Plan failed to execute.,112.0,1859
+52,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p41,1,True,,98.0,1681
+53,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p42,1,True,,74.0,1417
+54,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p44,1,True,,78.0,1423
+55,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,new_landmark,p43,1,False,Error: Plan failed to execute.,82.0,2409
+56,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p47,1,True,,100.0,2249
+57,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p45,1,True,,90.0,1637
+58,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p46,1,True,,98.0,1857
+59,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,new_landmark,p48,1,False,Error: Plan failed to execute.,92.0,1988
+60,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p35,1,True,,72.0,1254
+61,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p34,1,False,Error: Plan failed to execute.,72.0,2056
+62,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p33,1,False,Error: Plan failed to execute.,72.0,2160
+63,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,new_landmark,p36,1,True,,72.0,1237
+64,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p41,1,False,Error: Plan failed to execute.,88.0,2555
+65,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p42,1,False,Error: Plan failed to execute.,88.0,1716
+66,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p44,1,False,Error: Goal not satisfied.,88.0,2508
+67,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,new_landmark,p43,1,True,,88.0,1566
+68,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p32,1,True,,64.0,1754
+69,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p29,1,True,,64.0,1832
+70,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p30,1,True,,64.0,1103
+71,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,new_landmark,p31,1,True,,64.0,1066
+72,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p38,1,False,Error: Plan failed to execute.,80.0,2388
+73,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p37,1,True,,80.0,1385
+74,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p39,1,False,Error: Error in type-checking.,80.0,2327
+75,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,new_landmark,p40,1,False,Error: Goal not satisfied.,80.0,2280
+76,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p47,1,True,,96.0,2779
+77,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p45,1,True,,96.0,1655
+78,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p46,1,False,Error: Plan failed to execute.,96.0,1811
+79,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,new_landmark,p48,1,False,Error: Goal not satisfied.,96.0,2652
+80,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_new_landmark,p60,1,False,Error: Plan failed to execute.,114.0,3482
+81,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_new_landmark,p57,1,False,Error: Plan failed to execute.,122.0,4884
+82,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_new_landmark,p59,1,False,Error: Plan failed to execute.,116.0,2045
+83,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_new_landmark,p58,1,False,Error: Plan failed to execute.,116.0,3529
+84,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_new_landmark,p52,1,True,,70.0,1345
+85,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_new_landmark,p49,1,False,Error: Plan failed to execute.,112.0,2178
+86,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_new_landmark,p50,1,False,Error: Plan failed to execute.,100.0,1915
+87,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_new_landmark,p51,1,True,,106.0,2205
+88,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_new_landmark,p54,1,False,Error: Plan failed to execute.,112.0,1985
+89,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_new_landmark,p56,1,True,,88.0,1629
+90,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_new_landmark,p53,1,False,Error: Plan failed to execute.,98.0,2217
+91,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_new_landmark,p55,1,False,Error: Plan failed to execute.,112.0,2515
+92,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_new_landmark,p41,1,True,,98.0,1715
+93,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_new_landmark,p42,1,False,Error: Plan failed to execute.,74.0,1399
+94,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_new_landmark,p44,1,True,,78.0,1441
+95,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_new_landmark,p43,1,True,,82.0,1465
+96,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_new_landmark,p47,1,False,Error: Plan failed to execute.,100.0,1949
+97,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_new_landmark,p45,1,True,,90.0,1637
+98,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_new_landmark,p46,1,False,Error: Plan failed to execute.,98.0,1789
+99,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_new_landmark,p48,1,False,Error: Plan failed to execute.,92.0,1940
+100,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_landmark,p60,1,False,Error: Plan failed to execute.,114.0,1977
+101,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_landmark,p57,1,True,,122.0,2199
+102,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_landmark,p59,1,False,Error: Plan failed to execute.,116.0,3112
+103,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,random_landmark,p58,1,False,Error: Plan failed to execute.,116.0,2034
+104,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_landmark,p52,1,True,,70.0,1309
+105,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_landmark,p49,1,True,,112.0,1997
+106,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_landmark,p50,1,False,Error: Plan failed to execute.,100.0,1972
+107,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,random_landmark,p51,1,False,Error: Plan failed to execute.,106.0,1859
+108,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_landmark,p54,1,False,Error: Goal not satisfied.,112.0,1863
+109,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_landmark,p56,1,True,,88.0,1665
+110,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_landmark,p53,1,True,,98.0,1803
+111,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,random_landmark,p55,1,False,Error: Plan failed to execute.,112.0,1907
+112,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_landmark,p41,1,True,,98.0,1777
+113,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_landmark,p42,1,True,,74.0,1489
+114,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_landmark,p44,1,True,,78.0,1441
+115,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,random_landmark,p43,1,True,,82.0,1519
+116,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_landmark,p47,1,True,,100.0,1767
+117,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_landmark,p45,1,True,,90.0,1737
+118,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_landmark,p46,1,False,Error: Plan failed to execute.,98.0,1789
+119,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,random_landmark,p48,1,True,,92.0,1637
+120,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p28,1,True,,,565
+121,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p27,1,True,,,507
+122,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p25,1,True,,,573
+123,pddl-vs-new-landmarks-on-new-instances,blocksworld,22-blocks,gemini-thinking,pddl,p26,1,True,,,599
+124,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p32,1,False,Error: Goal not satisfied.,,634
+125,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p29,1,True,,,723
+126,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p30,1,True,,,691
+127,pddl-vs-new-landmarks-on-new-instances,blocksworld,25-blocks,gemini-thinking,pddl,p31,1,False,Error: Goal not satisfied.,,668
+128,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p41,1,False,Error: Plan failed to execute.,,937
+129,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p42,1,False,Error: Plan failed to execute.,,1041
+130,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p44,1,False,Error: Plan failed to execute.,,837
+131,pddl-vs-new-landmarks-on-new-instances,blocksworld,34-blocks,gemini-thinking,pddl,p43,1,False,Error: Goal not satisfied.,,904
+132,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p38,1,True,,,900
+133,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p37,1,True,,,890
+134,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p39,1,False,Error: Plan failed to execute.,,733
+135,pddl-vs-new-landmarks-on-new-instances,blocksworld,31-blocks,gemini-thinking,pddl,p40,1,True,,,1097
+136,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p35,1,True,,,752
+137,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p34,1,False,Error: Plan failed to execute.,,795
+138,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p33,1,False,Error: Plan failed to execute.,,787
+139,pddl-vs-new-landmarks-on-new-instances,blocksworld,28-blocks,gemini-thinking,pddl,p36,1,True,,,743
+140,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p60,1,False,Error: Plan failed to execute.,,2786
+141,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p57,1,True,,,2515
+142,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p59,1,True,,,2221
+143,pddl-vs-new-landmarks-on-new-instances,logistics,31-packages,gemini-thinking,pddl,p58,1,True,,,2097
+144,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p52,1,False,Error: Plan failed to execute.,,1288
+145,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p49,1,False,Error: Plan failed to execute.,,2089
+146,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p50,1,False,Error: Plan failed to execute.,,1727
+147,pddl-vs-new-landmarks-on-new-instances,logistics,27-packages,gemini-thinking,pddl,p51,1,False,Error: Plan failed to execute.,,2163
+148,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p54,1,False,Error: Goal not satisfied.,,2303
+149,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p56,1,True,,,2055
+150,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p53,1,False,Error: Plan failed to execute.,,1822
+151,pddl-vs-new-landmarks-on-new-instances,logistics,29-packages,gemini-thinking,pddl,p55,1,False,Error: Plan failed to execute.,,3163
+152,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p41,1,False,Error: Plan failed to execute.,,1949
+153,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p42,1,True,,,1381
+154,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p44,1,True,,,1491
+155,pddl-vs-new-landmarks-on-new-instances,logistics,23-packages,gemini-thinking,pddl,p43,1,True,,,1523
+156,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p47,1,False,Error: Plan failed to execute.,,2028
+157,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p45,1,False,Error: Plan failed to execute.,,1677
+158,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p46,1,False,Error: Plan failed to execute.,,2929
+159,pddl-vs-new-landmarks-on-new-instances,logistics,25-packages,gemini-thinking,pddl,p48,1,True,,,2145
+160,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p35,1,True,,,1212
+161,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p34,1,True,,,1198
+162,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p33,1,False,Error: Plan failed to execute.,,1285
+163,pddl-vs-new-landmarks-on-new-instances,miconic,36-passenger,gemini-thinking,pddl,p36,1,False,Error: Plan failed to execute.,,20679
+164,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p41,1,True,,,1527
+165,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p42,1,False,Error: Plan failed to execute.,,2256
+166,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p44,1,False,Error: Plan failed to execute.,,2538
+167,pddl-vs-new-landmarks-on-new-instances,miconic,44-passenger,gemini-thinking,pddl,p43,1,True,,,1506
+168,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p32,1,False,Error: Goal not satisfied.,,1734
+169,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p29,1,True,,,1840
+170,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p30,1,False,Error: Bad plan description.,,1956
+171,pddl-vs-new-landmarks-on-new-instances,miconic,32-passenger,gemini-thinking,pddl,p31,1,False,Error: Plan failed to execute.,,1830
+172,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p38,1,False,Error: Plan failed to execute.,,2713
+173,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p37,1,True,,,1544
+174,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p39,1,False,Error: Plan failed to execute.,,1275
+175,pddl-vs-new-landmarks-on-new-instances,miconic,40-passenger,gemini-thinking,pddl,p40,1,False,Error: Bad plan description.,,1448
+176,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p47,1,True,,,1729
+177,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p45,1,False,Error: Plan failed to execute.,,1655
+178,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p46,1,False,Error: Plan failed to execute.,,2765
+179,pddl-vs-new-landmarks-on-new-instances,miconic,48-passenger,gemini-thinking,pddl,p48,1,False,Error: Plan failed to execute.,,2801

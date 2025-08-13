@@ -1,10 +1,10 @@
-solutions_dir = "data/benchmarks/solutions"
+from reasoning.settings import SOLUTIONS_DIR
 
 import os
 
 data = {}
-for domain in os.listdir(solutions_dir):
-    domain_path = os.path.join(solutions_dir, domain)
+for domain in os.listdir(SOLUTIONS_DIR):
+    domain_path = os.path.join(SOLUTIONS_DIR, domain)
     if not os.path.isdir(domain_path):
         continue
 

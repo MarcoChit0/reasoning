@@ -1,5 +1,5 @@
 from reasoning.task import Task
-from reasoning.utils import get_action_landmarks
+from reasoning.utils import get_landmarks
 from string import Template
 from typing import Optional
 import logging
@@ -12,8 +12,12 @@ def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
         domain = task.domain.read()
         instance = task.instance.read()
         prompt = PDDL_TEMPLATE.substitute(name=name, domain=domain, instance=instance)
-    elif template == "landmark" or template == "new_landmark":
+    elif template in ["landmark", "new_landmark", "random_landmark", "random_new_landmark"]:
         template : Optional[Template]
+        rand = False
+        if "random" in template:
+            template = template.replace("random_", "")
+            rand = True
         if template == "landmark":
             from reasoning.templates.landmark import LANDMARK_TEMPLATE
             template = LANDMARK_TEMPLATE
@@ -22,7 +26,11 @@ def build_prompt(task : Task, template : str, logger: logging.Logger) -> str:
             template = NEW_LANDMARK_TEMPLATE
         assert template is not None, "Template must be defined for landmark generation"
         try:
-            action_landmarks = get_action_landmarks(task)
+            action_landmarks = get_landmarks(task)
+            if rand:
+                import random
+                random.seed(42)
+                random.shuffle(action_landmarks)
             landmarks = "\n".join(action_landmarks) if len(action_landmarks) > 0 else ""
         except RuntimeError as e:
             raise RuntimeError(f"Failed to get action landmarks: {e}")

@@ -5,7 +5,7 @@ set -e
 
 # --- Configuration ---
 BENCHMARKS_DIR="data/benchmarks"
-SOLUTIONS_DIR="${BENCHMARKS_DIR}/solutions"
+SOLUTIONS_DIR="data/solutions"
 CSV_FILE="results.csv"
 PLANNER_SCRIPT="res/pyperplan/pyperplan"
 TIMEOUT_SECONDS=1800 # 30 minutes
@@ -27,11 +27,6 @@ for domain_path in "$BENCHMARKS_DIR"/*; do
     fi
 
     domain=$(basename "$domain_path")
-
-    # Skip the solutions directory itself
-    if [ "$domain" == "solutions" ]; then
-        continue
-    fi
 
     INSTANCES_PATH="${domain_path}/instances"
     DOMAIN_PDDL="${domain_path}/domain.pddl"
