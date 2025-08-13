@@ -34,13 +34,13 @@ def get_landmarks(task : Task) -> list[str]:
 
     # Check if the landmarks file exists
     if os.path.exists(path):
-        print(f"Landmarks file already exists: {path}")
+        # print(f"Landmarks file already exists: {path}")
         with open(path, 'r') as f:
             content = f.read()
 
     # Generate landmarks
     else:
-        print(f"Generating landmarks for: {path}")
+        # print(f"Generating landmarks for: {path}")
         command = [
             "pyperplan",
             "-s", "astar",
