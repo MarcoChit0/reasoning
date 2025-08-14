@@ -1,0 +1,6 @@
+experiment,model,template,domain,Error: Goal not satisfied.,Error: Plan failed to execute.,Valid Plan,Total
+3-samples,gemini-thinking,pddl,blocksworld,17,18,25,60
+3-samples,gemini-thinking,pddl,logistics,3,29,28,60
+3-samples,gemini-thinking,random_new_landmark,blocksworld,2,34,24,60
+3-samples,gemini-thinking,random_new_landmark,logistics,1,29,30,60
+Total,,,,23,110,107,240

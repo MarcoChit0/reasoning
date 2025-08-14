@@ -1,0 +1,40 @@
+Checking plan: temp_plan.pddl
+Plan to validate:
+
+Plan size: 0
+
+Plan executed successfully - checking goal
+Goal not satisfied
+Plan invalid
+
+Plan Repair Advice:
+
+The goal is not satisfied
+(Follow each of:
+    (Set (on b1 b4) to true)
+    and (Set (on b3 b27) to true)
+    and (Set (on b4 b23) to true)
+    and (Set (on b5 b13) to true)
+    and (Set (on b6 b28) to true)
+    and (Set (on b7 b10) to true)
+    and (Set (on b8 b1) to true)
+    and (Set (on b9 b7) to true)
+    and (Set (on b11 b24) to true)
+    and (Set (on b12 b21) to true)
+    and (Set (on b13 b25) to true)
+    and (Set (on b15 b9) to true)
+    and (Set (on b16 b22) to true)
+    and (Set (on b17 b8) to true)
+    and (Set (on b19 b17) to true)
+    and (Set (on b20 b26) to true)
+    and (Set (on b21 b14) to true)
+    and (Set (on b23 b16) to true)
+    and (Set (on b24 b3) to true)
+    and (Set (on b25 b19) to true)
+    and (Set (on b26 b2) to true)
+    and (Set (on b28 b15) to true)
+)
+
+
+Failed plans:
+ temp_plan.pddl 

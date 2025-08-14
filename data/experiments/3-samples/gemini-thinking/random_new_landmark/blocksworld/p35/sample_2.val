@@ -1,0 +1,364 @@
+Checking plan: temp_plan.pddl
+Plan to validate:
+
+Plan size: 88
+1:
+(unstack b6 b5)
+ 
+2:
+(putdown b6)
+ 
+3:
+(unstack b13 b11)
+ 
+4:
+(putdown b13)
+ 
+5:
+(unstack b15 b8)
+ 
+6:
+(putdown b15)
+ 
+7:
+(unstack b24 b10)
+ 
+8:
+(putdown b24)
+ 
+9:
+(unstack b25 b3)
+ 
+10:
+(putdown b25)
+ 
+11:
+(unstack b27 b22)
+ 
+12:
+(putdown b27)
+ 
+13:
+(unstack b19 b9)
+ 
+14:
+(putdown b19)
+ 
+15:
+(unstack b5 b26)
+ 
+16:
+(putdown b5)
+ 
+17:
+(unstack b8 b28)
+ 
+18:
+(putdown b8)
+ 
+19:
+(unstack b10 b19)
+ 
+20:
+(putdown b10)
+ 
+21:
+(unstack b11 b2)
+ 
+22:
+(putdown b11)
+ 
+23:
+(unstack b2 b21)
+ 
+24:
+(putdown b2)
+ 
+25:
+(unstack b26 b4)
+ 
+26:
+(putdown b26)
+ 
+27:
+(unstack b28 b20)
+ 
+28:
+(putdown b28)
+ 
+29:
+(unstack b4 b12)
+ 
+30:
+(putdown b4)
+ 
+31:
+(unstack b9 b18)
+ 
+32:
+(putdown b9)
+ 
+33:
+(unstack b20 b23)
+ 
+34:
+(putdown b20)
+ 
+35:
+(unstack b21 b1)
+ 
+36:
+(putdown b21)
+ 
+37:
+(unstack b1 b17)
+ 
+38:
+(putdown b1)
+ 
+39:
+(unstack b23 b7)
+ 
+40:
+(putdown b23)
+ 
+41:
+(unstack b7 b16)
+ 
+42:
+(putdown b7)
+ 
+43:
+(unstack b16 b14)
+ 
+44:
+(putdown b16)
+ 
+45:
+(pickup b3)
+ 
+46:
+(stack b3 b27)
+ 
+47:
+(pickup b24)
+ 
+48:
+(stack b24 b3)
+ 
+49:
+(pickup b11)
+ 
+50:
+(stack b11 b24)
+ 
+51:
+(pickup b21)
+ 
+52:
+(stack b21 b14)
+ 
+53:
+(pickup b12)
+ 
+54:
+(stack b12 b21)
+ 
+55:
+(pickup b16)
+ 
+56:
+(stack b16 b22)
+ 
+57:
+(pickup b23)
+ 
+58:
+(stack b23 b16)
+ 
+59:
+(pickup b4)
+ 
+60:
+(stack b4 b23)
+ 
+61:
+(pickup b1)
+ 
+62:
+(stack b1 b4)
+ 
+63:
+(pickup b8)
+ 
+64:
+(stack b8 b1)
+ 
+65:
+(pickup b17)
+ 
+66:
+(stack b17 b8)
+ 
+67:
+(pickup b19)
+ 
+68:
+(stack b19 b17)
+ 
+69:
+(pickup b25)
+ 
+70:
+(stack b25 b19)
+ 
+71:
+(pickup b13)
+ 
+72:
+(stack b13 b25)
+ 
+73:
+(pickup b5)
+ 
+74:
+(stack b5 b13)
+ 
+75:
+(pickup b7)
+ 
+76:
+(stack b7 b10)
+ 
+77:
+(pickup b9)
+ 
+78:
+(stack b9 b7)
+ 
+79:
+(pickup b15)
+ 
+80:
+(stack b15 b9)
+ 
+81:
+(pickup b28)
+ 
+82:
+(stack b28 b15)
+ 
+83:
+(pickup b6)
+ 
+84:
+(stack b6 b28)
+ 
+85:
+(pickup b2)
+ 
+86:
+(stack b26 b2)
+ 
+87:
+(pickup b20)
+ 
+88:
+(stack b20 b26)
+ 
+
+Plan Validation details
+-----------------------
+
+Checking next happening (time 1)
+Deleting (on b6 b5)
+Deleting (clear b6)
+Deleting (arm-empty)
+Adding (holding b6)
+Adding (clear b5)
+
+Checking next happening (time 2)
+Deleting (holding b6)
+Adding (clear b6)
+Adding (arm-empty)
+Adding (on-table b6)
+
+Checking next happening (time 3)
+Deleting (on b13 b11)
+Deleting (clear b13)
+Deleting (arm-empty)
+Adding (holding b13)
+Adding (clear b11)
+
+Checking next happening (time 4)
+Deleting (holding b13)
+Adding (clear b13)
+Adding (arm-empty)
+Adding (on-table b13)
+
+Checking next happening (time 5)
+Deleting (on b15 b8)
+Deleting (clear b15)
+Deleting (arm-empty)
+Adding (holding b15)
+Adding (clear b8)
+
+Checking next happening (time 6)
+Deleting (holding b15)
+Adding (clear b15)
+Adding (arm-empty)
+Adding (on-table b15)
+
+Checking next happening (time 7)
+Deleting (on b24 b10)
+Deleting (clear b24)
+Deleting (arm-empty)
+Adding (holding b24)
+Adding (clear b10)
+
+Checking next happening (time 8)
+Deleting (holding b24)
+Adding (clear b24)
+Adding (arm-empty)
+Adding (on-table b24)
+
+Checking next happening (time 9)
+Deleting (on b25 b3)
+Deleting (clear b25)
+Deleting (arm-empty)
+Adding (holding b25)
+Adding (clear b3)
+
+Checking next happening (time 10)
+Deleting (holding b25)
+Adding (clear b25)
+Adding (arm-empty)
+Adding (on-table b25)
+
+Checking next happening (time 11)
+Deleting (on b27 b22)
+Deleting (clear b27)
+Deleting (arm-empty)
+Adding (holding b27)
+Adding (clear b22)
+
+Checking next happening (time 12)
+Deleting (holding b27)
+Adding (clear b27)
+Adding (arm-empty)
+Adding (on-table b27)
+
+Checking next happening (time 13)
+Plan failed because of unsatisfied precondition in:
+(unstack b19 b9)
+
+Plan failed to execute
+
+Plan Repair Advice:
+
+(unstack b19 b9) has an unsatisfied precondition at time 13
+(Set (clear b19) to true)
+
+
+Failed plans:
+ temp_plan.pddl 

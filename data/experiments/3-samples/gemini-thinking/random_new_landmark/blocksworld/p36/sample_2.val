@@ -1,0 +1,292 @@
+Checking plan: temp_plan.pddl
+Plan to validate:
+
+Plan size: 90
+1:
+(unstack b16 b2)
+ 
+2:
+(putdown b16)
+ 
+3:
+(unstack b2 b1)
+ 
+4:
+(putdown b2)
+ 
+5:
+(unstack b1 b15)
+ 
+6:
+(putdown b1)
+ 
+7:
+(unstack b15 b20)
+ 
+8:
+(putdown b15)
+ 
+9:
+(unstack b20 b4)
+ 
+10:
+(putdown b20)
+ 
+11:
+(unstack b14 b6)
+ 
+12:
+(putdown b14)
+ 
+13:
+(unstack b6 b9)
+ 
+14:
+(putdown b6)
+ 
+15:
+(unstack b9 b11)
+ 
+16:
+(putdown b9)
+ 
+17:
+(unstack b7 b12)
+ 
+18:
+(putdown b7)
+ 
+19:
+(unstack b27 b13)
+ 
+20:
+(putdown b27)
+ 
+21:
+(unstack b13 b21)
+ 
+22:
+(putdown b13)
+ 
+23:
+(unstack b21 b17)
+ 
+24:
+(putdown b21)
+ 
+25:
+(unstack b17 b18)
+ 
+26:
+(putdown b17)
+ 
+27:
+(unstack b25 b28)
+ 
+28:
+(putdown b25)
+ 
+29:
+(unstack b28 b16)
+ 
+30:
+(putdown b28)
+ 
+31:
+(unstack b22 b23)
+ 
+32:
+(putdown b22)
+ 
+33:
+(unstack b23 b27)
+ 
+34:
+(putdown b23)
+ 
+35:
+(unstack b3 b24)
+ 
+36:
+(putdown b3)
+ 
+37:
+(unstack b24 b10)
+ 
+38:
+(putdown b24)
+ 
+39:
+(unstack b19 b26)
+ 
+40:
+(putdown b19)
+ 
+41:
+(unstack b12 b8)
+ 
+42:
+(putdown b12)
+ 
+43:
+(pickup b11)
+ 
+44:
+(stack b11 b2)
+ 
+45:
+(unstack b11 b2)
+ 
+46:
+(putdown b11)
+ 
+47:
+(pickup b16)
+ 
+48:
+(stack b16 b2)
+ 
+49:
+(pickup b6)
+ 
+50:
+(stack b6 b16)
+ 
+51:
+(pickup b12)
+ 
+52:
+(stack b12 b6)
+ 
+53:
+(pickup b13)
+ 
+54:
+(stack b13 b12)
+ 
+55:
+(pickup b25)
+ 
+56:
+(stack b25 b13)
+ 
+57:
+(pickup b23)
+ 
+58:
+(stack b23 b25)
+ 
+59:
+(pickup b21)
+ 
+60:
+(stack b21 b23)
+ 
+61:
+(pickup b27)
+ 
+62:
+(stack b27 b21)
+ 
+63:
+(pickup b14)
+ 
+64:
+(stack b14 b27)
+ 
+65:
+(pickup b10)
+ 
+66:
+(stack b10 b14)
+ 
+67:
+(pickup b4)
+ 
+68:
+(stack b4 b10)
+ 
+69:
+(pickup b20)
+ 
+70:
+(stack b20 b4)
+ 
+71:
+(pickup b22)
+ 
+72:
+(stack b22 b26)
+ 
+73:
+(pickup b1)
+ 
+74:
+(stack b1 b22)
+ 
+75:
+(pickup b15)
+ 
+76:
+(stack b15 b1)
+ 
+77:
+(pickup b24)
+ 
+78:
+(stack b24 b8)
+ 
+79:
+(pickup b19)
+ 
+80:
+(stack b19 b24)
+ 
+81:
+(pickup b28)
+ 
+82:
+(stack b28 b19)
+ 
+83:
+(pickup b9)
+ 
+84:
+(stack b9 b28)
+ 
+85:
+(pickup b3)
+ 
+86:
+(stack b3 b11)
+ 
+87:
+(pickup b5)
+ 
+88:
+(stack b5 b17)
+ 
+89:
+(pickup b7)
+ 
+90:
+(stack b7 b18)
+ 
+
+Plan Validation details
+-----------------------
+
+Checking next happening (time 1)
+Plan failed because of unsatisfied precondition in:
+(unstack b16 b2)
+
+Plan failed to execute
+
+Plan Repair Advice:
+
+(unstack b16 b2) has an unsatisfied precondition at time 1
+(Set (clear b16) to true)
+
+
+Failed plans:
+ temp_plan.pddl 

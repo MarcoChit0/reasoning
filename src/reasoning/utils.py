@@ -74,6 +74,18 @@ def extract(content : str, obj: str):
     elif obj == "sample":
         start_mark = "<sample>"
         end_mark = "</sample>"
+    elif obj == "domain":
+        start_mark = "<domain-file>"
+        end_mark = "</domain-file>"
+    elif obj == "instance":
+        start_mark = "<instance-file>"
+        end_mark = "</instance-file>"
+    elif obj == "metadata":
+        start_mark = "<metadata>"
+        end_mark = "</metadata>"
+    elif obj == "response":
+        start_mark = "<response>"
+        end_mark = "</response>"
     else:
         raise ValueError(f"Unknown object type: {obj}")
     start_index = content.find(start_mark)
@@ -91,7 +103,7 @@ def extract(content : str, obj: str):
 
     return landmarks
 
-def val(domain_path : str, instance_path: str, plan_path : str) -> tuple[bool, Optional[str]]:
+def val(domain_path : str, instance_path: str, plan_path : str, save_path: Optional[str]) -> tuple[bool, Optional[str]]:
     command = [
         f"res/val/build/bin/Validate",
         "-v",
@@ -107,6 +119,10 @@ def val(domain_path : str, instance_path: str, plan_path : str) -> tuple[bool, O
         return False, f"Error validating plan: {e.stderr.strip()}"
 
     content = result.stdout
+    if save_path:
+        with open(save_path, 'w') as f:
+            f.write(content)
+
     if "Error: Bad operator in plan!" in result.stderr:
         return False, "Error: Bad operator in plan."
     
@@ -143,7 +159,7 @@ def from_config(config_path: str):
 from typing import Callable, Any, List
 import os 
 from reasoning.settings import EXPERIMENTS_DIR
-def process_log_files(callback_fn: Callable[[str, str, str, str, str], Any], 
+def process_log_files(callback_fn: Callable[[str, str, str, str, str, str], Any], 
         continue_on_error: bool = True) -> List[Any]:
         """
         Applies a callback function to each log file found in a nested directory structure.
@@ -178,17 +194,20 @@ def process_log_files(callback_fn: Callable[[str, str, str, str, str], Any],
                         if not os.path.isdir(domain_dir):
                             continue
                         
-                        for root, _, files in os.walk(domain_dir):
-                            for f in files:
-                                if not f.endswith('.log'):
-                                    continue
-                                instance_file = os.path.join(root, f)
-                                try:
-                                    result = callback_fn(exp, model, template, domain, instance_file)
-                                    results.append(result)
-                                except Exception as e:
-                                    if not continue_on_error:
-                                        raise
-                                    print(f"Error processing {instance_file}: {e}")
-        
+                        for instance in os.listdir(domain_dir):
+                            instance_dir = os.path.join(domain_dir, instance)
+                            if not os.path.isdir(instance_dir):
+                                continue
+
+                            for f in os.listdir(instance_dir):
+                                if f.endswith(".log"):
+                                    log_file = os.path.join(instance_dir, f)
+                                    try:
+                                        result = callback_fn(exp, model, template, domain, instance, log_file)
+                                        results.append(result)
+                                    except Exception as e:
+                                        if continue_on_error:
+                                            print(f"Error processing {log_file}: {e}")
+                                        else:
+                                            raise e
         return results
