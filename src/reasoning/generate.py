@@ -128,10 +128,8 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 if __name__ == "__main__":
     experiment = "3-samples"
     samples = 3
-    templates = ["random_new_landmark", "pddl"]
-    # templates = ["new_landmark"]
+    templates = ["delete_relaxed_plan"]
     domains = ["logistics", "blocksworld"]
-    # domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]

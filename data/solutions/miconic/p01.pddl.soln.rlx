@@ -1,0 +1,16 @@
+<delete-relaxed-plan>
+(up f0 f7)
+(up f0 f2)
+(up f0 f3)
+(up f0 f6)
+(board f2 p3)
+(up f0 f1)
+(board f1 p2)
+(board f1 p1)
+(board f7 p0)
+(depart f3 p1)
+(up f0 f4)
+(depart f4 p3)
+(depart f7 p2)
+(depart f6 p0)
+</delete-relaxed-plan>

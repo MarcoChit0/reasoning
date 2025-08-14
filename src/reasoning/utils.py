@@ -23,24 +23,14 @@ pyperplan -s astar -H actionlandmark ./data/raw/blocksworld/generated_domain.pdd
 (unstack c b)
 </landmarks-set>
 """
-
-def get_landmarks(task : Task) -> list[str]:
-    """
-    Get action landmarks from a task using pyperplan.
-    """
-
+import os
+def from_pyperplan(task: Task, obj: str) -> Optional[str]:
     from reasoning.settings import SOLUTIONS_DIR
-    path = os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + ".pddl.lndmk")
-
-    # Check if the landmarks file exists
-    if os.path.exists(path):
-        # print(f"Landmarks file already exists: {path}")
-        with open(path, 'r') as f:
-            content = f.read()
-
-    # Generate landmarks
-    else:
-        # print(f"Generating landmarks for: {path}")
+    """
+    Get a specific object from the pyperplan output for a task.
+    """
+    if obj == "landmark":
+        extension = ".pddl.lndmk"
         command = [
             "pyperplan",
             "-s", "astar",
@@ -48,18 +38,28 @@ def get_landmarks(task : Task) -> list[str]:
             task.domain.path,
             task.instance.path
         ]
-        
+    elif obj == "delete_relaxed_plan":
+        extension = ".pddl.soln.rlx"
+        command = [
+            "pyperplan",
+            "-s", "gbf",
+            "-H", "hffpo",
+            task.domain.path,
+            task.instance.path
+        ]
+    else:
+        raise ValueError(f"Unknown object type: {obj}")
+    
+    if os.path.exists(os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + extension)):
+        with open(os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + extension), 'r') as f:
+            content = f.read()
+    else:
         result = subprocess.run(command, capture_output=True, text=True)
-        
         if result.returncode != 0:
-            raise RuntimeError(f"Error running pyperplan: {result.stderr}")
-        
+            raise RuntimeError(f"Error running pyperplan for task {task}: {result.stderr}")
         content = result.stdout
 
-        with open(path, 'w') as f:
-            f.write(content)
-
-    return extract(content, "landmark")
+    return extract(content, obj)
 
 def extract(content : str, obj: str):
     if obj == "landmark":
@@ -68,9 +68,9 @@ def extract(content : str, obj: str):
     elif obj == "plan":
         start_mark = "<plan>"
         end_mark = "</plan>"
-    elif obj == "relaxed_plan":
-        start_mark = "<relaxed-plan>"
-        end_mark = "</relaxed-plan>"
+    elif obj == "delete_relaxed_plan":
+        start_mark = "<delete-relaxed-plan>"
+        end_mark = "</delete-relaxed-plan>"
     elif obj == "sample":
         start_mark = "<sample>"
         end_mark = "</sample>"

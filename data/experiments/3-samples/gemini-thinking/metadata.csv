@@ -239,3 +239,4 @@ pddl,blocksworld,p43,3,1,5433,1003,29326
 pddl,blocksworld,p44,1,1,5426,934,27599
 pddl,blocksworld,p44,2,1,5426,849,16415
 pddl,blocksworld,p44,3,1,5426,707,22145
+delete_relaxed_plan,blocksworld,p01,1,1,5386,67,9858

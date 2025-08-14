@@ -1,0 +1,15 @@
+<delete-relaxed-plan>
+(move p15 p16)
+(move p15 p11)
+(pickup p16 key0)
+(unlock p11 p9 key0 shape0)
+(move p11 p9)
+(move p9 p5)
+(move p5 p0)
+(move p0 p1)
+(unlock p1 p2 key0 shape0)
+(move p1 p2)
+(move p2 p3)
+(move p3 p4)
+(move p4 p8)
+</delete-relaxed-plan>

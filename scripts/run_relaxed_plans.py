@@ -13,6 +13,8 @@ for domain in os.listdir(BENCHMARKS_DIR):
         path = os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + ".pddl.soln.rlx")
         if os.path.exists(path):
             continue
+        if not os.path.exists(os.path.dirname(path)):
+            os.makedirs(os.path.dirname(path), exist_ok=True)
         command = [
             "pyperplan",
             "-s", "gbf",
@@ -28,7 +30,7 @@ for domain in os.listdir(BENCHMARKS_DIR):
         if not relaxed_plan:
             raise RuntimeError(f"Failed to extract relaxed plan for task {task}")
         with open(path, "w") as f:
-            f.write("<relaxed-plan>\n")
+            f.write("<delete-relaxed-plan>\n")
             for action in relaxed_plan:
                 f.write(f"{action}\n")
-            f.write("</relaxed-plan>\n")
+            f.write("</delete-relaxed-plan>\n")
