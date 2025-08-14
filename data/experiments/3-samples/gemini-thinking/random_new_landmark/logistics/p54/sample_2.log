@@ -1,0 +1,188 @@
+[2025-08-13 21:21:18.110258] Generating response for sample 2.
+[2025-08-13 21:23:44.313732] Response for sample 2 generated successfully.
+[2025-08-13 21:23:44.313755] Response:
+<response>
+<plan>
+; Stage 1: Truck collection to airports / local delivery
+; t0 in C0 (at l0-0)
+(load-truck p7 t0 l0-0)
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p7 t0 l0-2) ; p7 done
+(load-truck p15 t0 l0-2)
+(load-truck p6 t0 l0-2)
+(drive-truck t0 l0-2 l0-1 c0)
+(load-truck p3 t0 l0-1)
+(load-truck p14 t0 l0-1)
+(load-truck p16 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p3 t0 l0-0)
+(unload-truck p14 t0 l0-0)
+(unload-truck p15 t0 l0-0) ; p15 done
+(unload-truck p16 t0 l0-0)
+(unload-truck p6 t0 l0-0)
+; t0 empty at l0-0
+
+; t1 in C1 (at l1-1)
+(load-truck p24 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p11 t1 l1-2)
+(load-truck p23 t1 l1-2)
+(load-truck p27 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p11 t1 l1-0)
+(unload-truck p23 t1 l1-0)
+(unload-truck p24 t1 l1-0)
+(unload-truck p27 t1 l1-0)
+; t1 empty at l1-0
+
+; t2 in C2 (at l2-2)
+(load-truck p26 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p26 t2 l2-1) ; p26 done
+(load-truck p20 t2 l2-1)
+(load-truck p28 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p5 t2 l2-2)
+(load-truck p8 t2 l2-2)
+(load-truck p9 t2 l2-2)
+(load-truck p18 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p5 t2 l2-0)
+(unload-truck p8 t2 l2-0)
+(unload-truck p9 t2 l2-0)
+(unload-truck p18 t2 l2-0)
+(unload-truck p20 t2 l2-0)
+(unload-truck p28 t2 l2-0)
+; t2 empty at l2-0
+
+; Stage 2: Airplane flights
+; a0 starts at l2-0
+; Packages at l2-0 for flight: p0, p5, p8, p9, p12, p18, p19, p20, p21, p28
+(load-airplane p0 a0 l2-0)
+(load-airplane p5 a0 l2-0)
+(load-airplane p8 a0 l2-0)
+(load-airplane p9 a0 l2-0)
+(load-airplane p12 a0 l2-0)
+(load-airplane p18 a0 l2-0)
+(load-airplane p19 a0 l2-0)
+(load-airplane p20 a0 l2-0)
+(load-airplane p21 a0 l2-0)
+(load-airplane p28 a0 l2-0)
+
+(fly-airplane a0 l2-0 l0-0)
+
+; Unload C0 bound packages at l0-0
+(unload-airplane p0 a0 l0-0) ; p0 done
+(unload-airplane p9 a0 l0-0)
+(unload-airplane p12 a0 l0-0) ; p12 done
+(unload-airplane p19 a0 l0-0)
+(unload-airplane p20 a0 l0-0)
+(unload-airplane p21 a0 l0-0) ; p21 done
+
+; Load C0 bound packages for other cities onto a0 at l0-0
+; Packages at l0-0 for flight: p1, p3, p4, p6, p13, p14, p16, p17, p22, p25
+(load-airplane p1 a0 l0-0)
+(load-airplane p3 a0 l0-0)
+(load-airplane p4 a0 l0-0)
+(load-airplane p6 a0 l0-0)
+(load-airplane p13 a0 l0-0)
+(load-airplane p14 a0 l0-0)
+(load-airplane p16 a0 l0-0)
+(load-airplane p17 a0 l0-0)
+(load-airplane p22 a0 l0-0)
+(load-airplane p25 a0 l0-0)
+
+(fly-airplane a0 l0-0 l1-0)
+
+; Unload C1 bound packages at l1-0
+(unload-airplane p1 a0 l1-0)
+(unload-airplane p4 a0 l1-0)
+(unload-airplane p5 a0 l1-0)
+(unload-airplane p8 a0 l1-0)
+(unload-airplane p17 a0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(unload-airplane p25 a0 l1-0) ; p25 done
+(unload-airplane p28 a0 l1-0) ; p28 done
+
+; Load C1 bound packages for other cities onto a0 at l1-0
+; Packages at l1-0 for flight: p11, p23, p24, p27
+(load-airplane p11 a0 l1-0)
+(load-airplane p23 a0 l1-0)
+(load-airplane p24 a0 l1-0)
+(load-airplane p27 a0 l1-0)
+
+(fly-airplane a0 l1-0 l2-0)
+
+; Unload C2 bound packages at l2-0
+(unload-airplane p3 a0 l2-0)
+(unload-airplane p6 a0 l2-0) ; p6 done
+(unload-airplane p11 a0 l2-0)
+(unload-airplane p13 a0 l2-0)
+(unload-airplane p14 a0 l2-0)
+(unload-airplane p16 a0 l2-0)
+(unload-airplane p22 a0 l2-0) ; p22 done
+(unload-airplane p23 a0 l2-0)
+
+; Load C2 bound packages for C0 onto a0 at l2-0
+; Packages at l2-0 for flight: p24, p27 (from c1 to c0)
+(load-airplane p24 a0 l2-0)
+(load-airplane p27 a0 l2-0)
+
+(fly-airplane a0 l2-0 l0-0)
+
+(unload-airplane p24 a0 l0-0) ; p24 done
+(unload-airplane p27 a0 l0-0) ; p27 done
+; a0 empty at l0-0. all packages transferred between cities.
+
+; Stage 3: Truck distribution from airports to final locations
+; t0 in C0 (at l0-0)
+; Packages at l0-0 for distribution: p9, p19, p20
+(load-truck p9 t0 l0-0)
+(load-truck p19 t0 l0-0)
+(load-truck p20 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p9 t0 l0-1) ; p9 done
+(unload-truck p19 t0 l0-1) ; p19 done
+(unload-truck p20 t0 l0-1) ; p20 done
+; t0 empty at l0-1
+
+; t1 in C1 (at l1-0)
+; Packages at l1-0 for distribution: p1, p4, p5, p8, p17, p18
+(load-truck p1 t1 l1-0)
+(load-truck p4 t1 l1-0)
+(load-truck p5 t1 l1-0)
+(load-truck p8 t1 l1-0)
+(load-truck p17 t1 l1-0)
+(load-truck p18 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p1 t1 l1-1) ; p1 done
+(unload-truck p17 t1 l1-1) ; p17 done
+(unload-truck p18 t1 l1-1) ; p18 done
+(drive-truck t1 l1-1 l1-2 c1)
+(unload-truck p4 t1 l1-2) ; p4 done
+(unload-truck p5 t1 l1-2) ; p5 done
+(unload-truck p8 t1 l1-2) ; p8 done
+; t1 empty at l1-2
+
+; t2 in C2 (at l2-0)
+; Packages at l2-0 for distribution: p3, p11, p13, p14, p16, p23
+(load-truck p3 t2 l2-0)
+(load-truck p11 t2 l2-0)
+(load-truck p13 t2 l2-0)
+(load-truck p14 t2 l2-0)
+(load-truck p16 t2 l2-0)
+(load-truck p23 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p3 t2 l2-2) ; p3 done
+(unload-truck p11 t2 l2-2) ; p11 done
+(unload-truck p13 t2 l2-2) ; p13 done
+(unload-truck p14 t2 l2-2) ; p14 done
+(unload-truck p16 t2 l2-2) ; p16 done
+(unload-truck p23 t2 l2-2) ; p23 done
+; t2 empty at l2-2
+</plan>
+</response>
+[2025-08-13 21:23:44.313766] Metadata:
+<metadata>
+{'template': 'random_new_landmark', 'domain': 'logistics', 'instance': 'p54', 'sample_id': 2, 'num_requests': 1, 'prompt_token_count': 8311, 'candidates_token_count': 2609, 'total_tokens_count': 40859}
+</metadata>

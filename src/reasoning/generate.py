@@ -128,7 +128,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 if __name__ == "__main__":
     experiment = "3-samples"
     samples = 3
-    templates = ["new_landmark", "pddl"]
+    templates = ["random_new_landmark", "pddl"]
     # templates = ["new_landmark"]
     domains = ["logistics", "blocksworld"]
     # domains = ["blocksworld"]
@@ -149,7 +149,7 @@ if __name__ == "__main__":
             for domain in domains:
                 try:
                     tasks = sorted(get_tasks(domain))
-                    tasks = tasks[-1:]
+                    tasks = tasks[-20:]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

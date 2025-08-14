@@ -1,0 +1,152 @@
+[2025-08-14 01:02:05.684802] Generating response for sample 2.
+[2025-08-14 01:03:43.503552] Response for sample 2 generated successfully.
+[2025-08-14 01:03:43.503570] Response:
+<response>
+<plan>
+; --- Stage 1: Trucks gather packages at airports ---
+; Truck t0 (C0) gathers packages for airport l0-0
+(load-truck p4 t0 l0-1)
+(load-truck p6 t0 l0-1)
+(load-truck p18 t0 l0-1)
+(load-truck p28 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p4 t0 l0-0)
+(unload-truck p6 t0 l0-0)
+(unload-truck p18 t0 l0-0)
+(unload-truck p28 t0 l0-0)
+
+; Truck t1 (C1) gathers packages for airport l1-0
+(load-truck p2 t1 l1-2)
+(load-truck p17 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p2 t1 l1-0)
+(unload-truck p17 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p25 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p25 t1 l1-0)
+
+; Truck t2 (C2) gathers packages for airport l2-0
+(load-truck p0 t2 l2-1)
+(load-truck p5 t2 l2-1)
+(load-truck p14 t2 l2-1)
+(load-truck p15 t2 l2-1)
+(load-truck p21 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p3 t2 l2-2)
+(load-truck p8 t2 l2-2)
+(load-truck p20 t2 l2-2)
+(load-truck p27 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p0 t2 l2-0)
+(unload-truck p3 t2 l2-0)
+(unload-truck p5 t2 l2-0)
+(unload-truck p8 t2 l2-0)
+(unload-truck p14 t2 l2-0)
+(unload-truck p15 t2 l2-0)
+(unload-truck p20 t2 l2-0)
+(unload-truck p21 t2 l2-0)
+(unload-truck p27 t2 l2-0)
+
+; --- Stage 2: Airplane transfers ---
+; a0 starts at l2-0
+; Flight 1: l2-0 (C2) -> l0-0 (C0)
+; Packages loaded: p0, p5, p8, p14, p15, p20, p21, p27
+; (p5, p14, p15, p21, p27 are C0-bound; p0, p8, p20 are C1-bound)
+(load-airplane p0 a0 l2-0)
+(load-airplane p5 a0 l2-0)
+(load-airplane p8 a0 l2-0)
+(load-airplane p14 a0 l2-0)
+(load-airplane p15 a0 l2-0)
+(load-airplane p20 a0 l2-0)
+(load-airplane p21 a0 l2-0)
+(load-airplane p27 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p5 a0 l0-0)
+(unload-airplane p14 a0 l0-0)
+(unload-airplane p15 a0 l0-0)
+(unload-airplane p21 a0 l0-0)
+(unload-airplane p27 a0 l0-0)
+; a0 now holds p0, p8, p20 (for C1)
+
+; Flight 2: l0-0 (C0) -> l1-0 (C1)
+; Packages loaded from l0-0: p6, p10, p18
+; (p6, p18 are C1-bound; p10 is C2-bound)
+(load-airplane p6 a0 l0-0)
+(load-airplane p10 a0 l0-0)
+(load-airplane p18 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p0 a0 l1-0)
+(unload-airplane p6 a0 l1-0)
+(unload-airplane p8 a0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(unload-airplane p20 a0 l1-0)
+; a0 now holds p10 (for C2)
+
+; Flight 3: l1-0 (C1) -> l2-0 (C2)
+; Packages loaded from l1-0: p1, p2, p7, p13, p22, p25, p26
+; (p1, p7, p22, p25 are C0-bound; p2, p13, p26 are C2-bound)
+(load-airplane p1 a0 l1-0)
+(load-airplane p2 a0 l1-0)
+(load-airplane p7 a0 l1-0)
+(load-airplane p13 a0 l1-0)
+(load-airplane p22 a0 l1-0)
+(load-airplane p25 a0 l1-0)
+(load-airplane p26 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p2 a0 l2-0)
+(unload-airplane p10 a0 l2-0)
+(unload-airplane p13 a0 l2-0)
+(unload-airplane p26 a0 l2-0)
+; a0 now holds p1, p7, p22, p25 (for C0)
+
+; Flight 4: l2-0 (C2) -> l0-0 (C0) (final drop-off)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p1 a0 l0-0)
+(unload-airplane p7 a0 l0-0)
+(unload-airplane p22 a0 l0-0)
+(unload-airplane p25 a0 l0-0)
+
+; --- Stage 3: Trucks distribute packages within cities ---
+; Truck t0 (C0) distributes packages from l0-0
+(load-truck p4 t0 l0-0)
+(load-truck p7 t0 l0-0)
+(load-truck p15 t0 l0-0)
+(load-truck p25 t0 l0-0)
+(load-truck p27 t0 l0-0)
+(load-truck p28 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p7 t0 l0-1)
+(unload-truck p25 t0 l0-1)
+(unload-truck p27 t0 l0-1)
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p4 t0 l0-2)
+(unload-truck p15 t0 l0-2)
+(unload-truck p28 t0 l0-2)
+
+; Truck t1 (C1) distributes packages from l1-0
+(load-truck p8 t1 l1-0)
+(load-truck p11 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p8 t1 l1-1)
+(unload-truck p11 t1 l1-1)
+
+; Truck t2 (C2) distributes packages from l2-0
+(load-truck p3 t2 l2-0)
+(load-truck p10 t2 l2-0)
+(load-truck p13 t2 l2-0)
+(load-truck p19 t2 l2-0)
+(load-truck p24 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p3 t2 l2-1)
+(unload-truck p13 t2 l2-1)
+(unload-truck p24 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p10 t2 l2-2)
+(unload-truck p19 t2 l2-2)
+</plan>
+</response>
+[2025-08-14 01:03:43.503577] Metadata:
+<metadata>
+{'template': 'pddl', 'domain': 'logistics', 'instance': 'p56', 'sample_id': 2, 'num_requests': 1, 'prompt_token_count': 6238, 'candidates_token_count': 2135, 'total_tokens_count': 27136}
+</metadata>
