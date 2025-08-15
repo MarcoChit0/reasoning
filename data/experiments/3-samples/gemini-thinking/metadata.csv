@@ -360,3 +360,7 @@ delete_relaxed_plan,blocksworld,p43,3,1,6608,954,44209
 delete_relaxed_plan,blocksworld,p44,1,1,6561,1212,32547
 delete_relaxed_plan,blocksworld,p44,2,1,6561,917,32923
 delete_relaxed_plan,blocksworld,p44,3,1,6561,842,39396
+ordered_landmark_explicit,logistics,p01,1,1,5939,177,11385
+ordered_landmark_omitted,logistics,p01,1,1,5950,177,11675
+ordered_landmark_explicit,blocksworld,p01,1,1,5242,67,9104
+ordered_landmark_omitted,blocksworld,p01,1,1,5253,67,9162
