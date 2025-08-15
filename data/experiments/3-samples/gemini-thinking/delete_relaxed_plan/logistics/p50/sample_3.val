@@ -1,0 +1,833 @@
+Checking plan: temp_plan.pddl
+Plan to validate:
+
+Plan size: 173
+1:
+(load-truck p8 t2 l2-2)
+ 
+2:
+(load-truck p26 t2 l2-2)
+ 
+3:
+(load-truck p4 t0 l0-0)
+ 
+4:
+(fly-airplane a0 l1-0 l2-0)
+ 
+5:
+(drive-truck t2 l2-2 l2-0 c2)
+ 
+6:
+(drive-truck t1 l1-1 l1-2 c1)
+ 
+7:
+(drive-truck t0 l0-0 l0-2 c0)
+ 
+8:
+(fly-airplane a0 l2-0 l0-0)
+ 
+9:
+(drive-truck t0 l0-2 l0-0 c0)
+ 
+10:
+(load-truck p22 t0 l0-0)
+ 
+11:
+(fly-airplane a0 l0-0 l2-0)
+ 
+12:
+(load-airplane p21 a0 l2-0)
+ 
+13:
+(load-truck p12 t2 l2-0)
+ 
+14:
+(load-airplane p19 a0 l2-0)
+ 
+15:
+(unload-truck p26 t2 l2-0)
+ 
+16:
+(fly-airplane a0 l2-0 l0-0)
+ 
+17:
+(load-airplane p13 a0 l0-0)
+ 
+18:
+(drive-truck t2 l2-0 l2-1 c2)
+ 
+19:
+(load-truck p10 t2 l2-1)
+ 
+20:
+(drive-truck t2 l2-1 l2-0 c2)
+ 
+21:
+(unload-truck p10 t2 l2-0)
+ 
+22:
+(fly-airplane a0 l0-0 l2-0)
+ 
+23:
+(load-airplane p10 a0 l2-0)
+ 
+24:
+(fly-airplane a0 l2-0 l0-0)
+ 
+25:
+(load-airplane p1 a0 l0-0)
+ 
+26:
+(fly-airplane a0 l0-0 l2-0)
+ 
+27:
+(load-airplane p0 a0 l2-0)
+ 
+28:
+(unload-airplane p1 a0 l2-0)
+ 
+29:
+(drive-truck t2 l2-0 l2-1 c2)
+ 
+30:
+(load-truck p20 t2 l2-1)
+ 
+31:
+(drive-truck t2 l2-1 l2-0 c2)
+ 
+32:
+(unload-truck p20 t2 l2-0)
+ 
+33:
+(unload-airplane p13 a0 l2-0)
+ 
+34:
+(load-truck p13 t2 l2-0)
+ 
+35:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+36:
+(unload-truck p13 t2 l2-2)
+ 
+37:
+(load-airplane p26 a0 l2-0)
+ 
+38:
+(fly-airplane a0 l2-0 l0-0)
+ 
+39:
+(unload-airplane p26 a0 l0-0)
+ 
+40:
+(drive-truck t0 l0-0 l0-1 c0)
+ 
+41:
+(load-truck p3 t0 l0-1)
+ 
+42:
+(unload-truck p22 t0 l0-1)
+ 
+43:
+(unload-truck p4 t0 l0-1)
+ 
+44:
+(load-truck p16 t0 l0-1)
+ 
+45:
+(drive-truck t0 l0-1 l0-0 c0)
+ 
+46:
+(unload-truck p16 t0 l0-0)
+ 
+47:
+(unload-truck p3 t0 l0-0)
+ 
+48:
+(load-airplane p3 a0 l0-0)
+ 
+49:
+(fly-airplane a0 l0-0 l1-0)
+ 
+50:
+(unload-airplane p3 a0 l1-0)
+ 
+51:
+(fly-airplane a0 l1-0 l0-0)
+ 
+52:
+(load-airplane p16 a0 l0-0)
+ 
+53:
+(drive-truck t0 l0-0 l0-1 c0)
+ 
+54:
+(load-truck p2 t0 l0-1)
+ 
+55:
+(drive-truck t0 l0-1 l0-0 c0)
+ 
+56:
+(unload-truck p2 t0 l0-0)
+ 
+57:
+(load-airplane p7 a0 l0-0)
+ 
+58:
+(load-truck p11 t1 l1-2)
+ 
+59:
+(fly-airplane a0 l0-0 l2-0)
+ 
+60:
+(load-airplane p20 a0 l2-0)
+ 
+61:
+(fly-airplane a0 l2-0 l1-0)
+ 
+62:
+(unload-airplane p20 a0 l1-0)
+ 
+63:
+(unload-airplane p10 a0 l1-0)
+ 
+64:
+(drive-truck t1 l1-2 l1-1 c1)
+ 
+65:
+(load-truck p24 t1 l1-1)
+ 
+66:
+(fly-airplane a0 l1-0 l0-0)
+ 
+67:
+(load-airplane p25 a0 l0-0)
+ 
+68:
+(fly-airplane a0 l0-0 l2-0)
+ 
+69:
+(unload-airplane p25 a0 l2-0)
+ 
+70:
+(fly-airplane a0 l2-0 l1-0)
+ 
+71:
+(unload-airplane p7 a0 l1-0)
+ 
+72:
+(fly-airplane a0 l1-0 l2-0)
+ 
+73:
+(unload-airplane p16 a0 l2-0)
+ 
+74:
+(load-truck p16 t2 l2-0)
+ 
+75:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+76:
+(unload-truck p16 t2 l2-2)
+ 
+77:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+78:
+(unload-truck p11 t1 l1-0)
+ 
+79:
+(load-truck p3 t1 l1-0)
+ 
+80:
+(drive-truck t1 l1-0 l1-1 c1)
+ 
+81:
+(unload-truck p3 t1 l1-1)
+ 
+82:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+83:
+(load-truck p20 t1 l1-0)
+ 
+84:
+(load-truck p7 t1 l1-0)
+ 
+85:
+(drive-truck t1 l1-0 l1-1 c1)
+ 
+86:
+(unload-truck p20 t1 l1-1)
+ 
+87:
+(drive-truck t1 l1-1 l1-2 c1)
+ 
+88:
+(unload-truck p7 t1 l1-2)
+ 
+89:
+(load-airplane p11 a0 l1-0)
+ 
+90:
+(load-truck p1 t2 l2-0)
+ 
+91:
+(drive-truck t2 l2-0 l2-1 c2)
+ 
+92:
+(unload-truck p1 t2 l2-1)
+ 
+93:
+(drive-truck t0 l0-0 l0-2 c0)
+ 
+94:
+(load-truck p15 t0 l0-2)
+ 
+95:
+(drive-truck t1 l1-2 l1-0 c1)
+ 
+96:
+(load-truck p10 t1 l1-0)
+ 
+97:
+(drive-truck t2 l2-1 l2-0 c2)
+ 
+98:
+(load-truck p25 t2 l2-0)
+ 
+99:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+100:
+(unload-truck p25 t2 l2-2)
+ 
+101:
+(fly-airplane a0 l1-0 l0-0)
+ 
+102:
+(unload-airplane p11 a0 l0-0)
+ 
+103:
+(drive-truck t0 l0-2 l0-0 c0)
+ 
+104:
+(load-truck p11 t0 l0-0)
+ 
+105:
+(drive-truck t0 l0-0 l0-1 c0)
+ 
+106:
+(unload-truck p11 t0 l0-1)
+ 
+107:
+(drive-truck t2 l2-2 l2-0 c2)
+ 
+108:
+(unload-truck p8 t2 l2-0)
+ 
+109:
+(load-truck p23 t1 l1-2)
+ 
+110:
+(drive-truck t1 l1-2 l1-0 c1)
+ 
+111:
+(unload-truck p23 t1 l1-0)
+ 
+112:
+(fly-airplane a0 l0-0 l1-0)
+ 
+113:
+(load-airplane p23 a0 l1-0)
+ 
+114:
+(fly-airplane a0 l1-0 l0-0)
+ 
+115:
+(unload-airplane p23 a0 l0-0)
+ 
+116:
+(fly-airplane a0 l0-0 l1-0)
+ 
+117:
+(unload-airplane p0 a0 l1-0)
+ 
+118:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+119:
+(load-truck p9 t2 l2-2)
+ 
+120:
+(drive-truck t2 l2-2 l2-0 c2)
+ 
+121:
+(unload-truck p9 t2 l2-0)
+ 
+122:
+(drive-truck t1 l1-0 l1-2 c1)
+ 
+123:
+(load-truck p0 t1 l1-0)
+ 
+124:
+(drive-truck t1 l1-0 l1-2 c1)
+ 
+125:
+(unload-truck p0 t1 l1-2)
+ 
+126:
+(drive-truck t2 l2-0 l2-1 c2)
+ 
+127:
+(unload-truck p12 t2 l2-1)
+ 
+128:
+(unload-truck p10 t1 l1-2)
+ 
+129:
+(load-truck p6 t0 l0-2)
+ 
+130:
+(drive-truck t0 l0-2 l0-0 c0)
+ 
+131:
+(unload-truck p6 t0 l0-0)
+ 
+132:
+(load-airplane p6 a0 l0-0)
+ 
+133:
+(fly-airplane a0 l0-0 l1-0)
+ 
+134:
+(unload-airplane p6 a0 l1-0)
+ 
+135:
+(fly-airplane a0 l1-0 l0-0)
+ 
+136:
+(unload-airplane p21 a0 l0-0)
+ 
+137:
+(load-truck p21 t0 l0-0)
+ 
+138:
+(fly-airplane a0 l0-0 l1-0)
+ 
+139:
+(unload-airplane p19 a0 l1-0)
+ 
+140:
+(drive-truck t1 l1-2 l1-0 c1)
+ 
+141:
+(load-truck p19 t1 l1-0)
+ 
+142:
+(drive-truck t1 l1-0 l1-1 c1)
+ 
+143:
+(unload-truck p19 t1 l1-1)
+ 
+144:
+(fly-airplane a0 l1-0 l2-0)
+ 
+145:
+(load-airplane p9 a0 l2-0)
+ 
+146:
+(fly-airplane a0 l2-0 l0-0)
+ 
+147:
+(unload-airplane p9 a0 l0-0)
+ 
+148:
+(load-truck p9 t0 l0-0)
+ 
+149:
+(drive-truck t0 l0-0 l0-2 c0)
+ 
+150:
+(unload-truck p9 t0 l0-2)
+ 
+151:
+(drive-truck t0 l0-2 l0-1 c0)
+ 
+152:
+(unload-truck p21 t0 l0-1)
+ 
+153:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+154:
+(load-truck p6 t1 l1-0)
+ 
+155:
+(drive-truck t1 l1-0 l1-2 c1)
+ 
+156:
+(unload-truck p6 t1 l1-2)
+ 
+157:
+(drive-truck t0 l0-1 l0-0 c0)
+ 
+158:
+(unload-truck p15 t0 l0-0)
+ 
+159:
+(load-airplane p15 a0 l0-0)
+ 
+160:
+(fly-airplane a0 l0-0 l2-0)
+ 
+161:
+(unload-airplane p15 a0 l2-0)
+ 
+162:
+(load-truck p15 t2 l2-0)
+ 
+163:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+164:
+(unload-truck p15 t2 l2-2)
+ 
+165:
+(drive-truck t1 l1-2 l1-0 c1)
+ 
+166:
+(unload-truck p24 t1 l1-0)
+ 
+167:
+(load-airplane p24 a0 l1-0)
+ 
+168:
+(fly-airplane a0 l1-0 l2-0)
+ 
+169:
+(unload-airplane p24 a0 l2-0)
+ 
+170:
+(drive-truck t0 l0-0 l0-1 c0)
+ 
+171:
+(load-truck p14 t0 l0-1)
+ 
+172:
+(drive-truck t0 l0-1 l0-0 c0)
+ 
+173:
+(unload-truck p14 t0 l0-0)
+ 
+
+Plan Validation details
+-----------------------
+
+Checking next happening (time 1)
+Deleting (at p8 l2-2)
+Adding (in p8 t2)
+
+Checking next happening (time 2)
+Deleting (at p26 l2-2)
+Adding (in p26 t2)
+
+Checking next happening (time 3)
+Deleting (at p4 l0-0)
+Adding (in p4 t0)
+
+Checking next happening (time 4)
+Deleting (at a0 l1-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 5)
+Deleting (at t2 l2-2)
+Adding (at t2 l2-0)
+
+Checking next happening (time 6)
+Deleting (at t1 l1-1)
+Adding (at t1 l1-2)
+
+Checking next happening (time 7)
+Deleting (at t0 l0-0)
+Adding (at t0 l0-2)
+
+Checking next happening (time 8)
+Deleting (at a0 l2-0)
+Adding (at a0 l0-0)
+
+Checking next happening (time 9)
+Deleting (at t0 l0-2)
+Adding (at t0 l0-0)
+
+Checking next happening (time 10)
+Deleting (at p22 l0-0)
+Adding (in p22 t0)
+
+Checking next happening (time 11)
+Deleting (at a0 l0-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 12)
+Deleting (at p21 l2-0)
+Adding (in p21 a0)
+
+Checking next happening (time 13)
+Deleting (at p12 l2-0)
+Adding (in p12 t2)
+
+Checking next happening (time 14)
+Deleting (at p19 l2-0)
+Adding (in p19 a0)
+
+Checking next happening (time 15)
+Deleting (in p26 t2)
+Adding (at p26 l2-0)
+
+Checking next happening (time 16)
+Deleting (at a0 l2-0)
+Adding (at a0 l0-0)
+
+Checking next happening (time 17)
+Deleting (at p13 l0-0)
+Adding (in p13 a0)
+
+Checking next happening (time 18)
+Deleting (at t2 l2-0)
+Adding (at t2 l2-1)
+
+Checking next happening (time 19)
+Deleting (at p10 l2-1)
+Adding (in p10 t2)
+
+Checking next happening (time 20)
+Deleting (at t2 l2-1)
+Adding (at t2 l2-0)
+
+Checking next happening (time 21)
+Deleting (in p10 t2)
+Adding (at p10 l2-0)
+
+Checking next happening (time 22)
+Deleting (at a0 l0-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 23)
+Deleting (at p10 l2-0)
+Adding (in p10 a0)
+
+Checking next happening (time 24)
+Deleting (at a0 l2-0)
+Adding (at a0 l0-0)
+
+Checking next happening (time 25)
+Deleting (at p1 l0-0)
+Adding (in p1 a0)
+
+Checking next happening (time 26)
+Deleting (at a0 l0-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 27)
+Deleting (at p0 l2-0)
+Adding (in p0 a0)
+
+Checking next happening (time 28)
+Deleting (in p1 a0)
+Adding (at p1 l2-0)
+
+Checking next happening (time 29)
+Deleting (at t2 l2-0)
+Adding (at t2 l2-1)
+
+Checking next happening (time 30)
+Deleting (at p20 l2-1)
+Adding (in p20 t2)
+
+Checking next happening (time 31)
+Deleting (at t2 l2-1)
+Adding (at t2 l2-0)
+
+Checking next happening (time 32)
+Deleting (in p20 t2)
+Adding (at p20 l2-0)
+
+Checking next happening (time 33)
+Deleting (in p13 a0)
+Adding (at p13 l2-0)
+
+Checking next happening (time 34)
+Deleting (at p13 l2-0)
+Adding (in p13 t2)
+
+Checking next happening (time 35)
+Deleting (at t2 l2-0)
+Adding (at t2 l2-2)
+
+Checking next happening (time 36)
+Deleting (in p13 t2)
+Adding (at p13 l2-2)
+
+Checking next happening (time 37)
+Deleting (at p26 l2-0)
+Adding (in p26 a0)
+
+Checking next happening (time 38)
+Deleting (at a0 l2-0)
+Adding (at a0 l0-0)
+
+Checking next happening (time 39)
+Deleting (in p26 a0)
+Adding (at p26 l0-0)
+
+Checking next happening (time 40)
+Deleting (at t0 l0-0)
+Adding (at t0 l0-1)
+
+Checking next happening (time 41)
+Deleting (at p3 l0-1)
+Adding (in p3 t0)
+
+Checking next happening (time 42)
+Deleting (in p22 t0)
+Adding (at p22 l0-1)
+
+Checking next happening (time 43)
+Deleting (in p4 t0)
+Adding (at p4 l0-1)
+
+Checking next happening (time 44)
+Deleting (at p16 l0-1)
+Adding (in p16 t0)
+
+Checking next happening (time 45)
+Deleting (at t0 l0-1)
+Adding (at t0 l0-0)
+
+Checking next happening (time 46)
+Deleting (in p16 t0)
+Adding (at p16 l0-0)
+
+Checking next happening (time 47)
+Deleting (in p3 t0)
+Adding (at p3 l0-0)
+
+Checking next happening (time 48)
+Deleting (at p3 l0-0)
+Adding (in p3 a0)
+
+Checking next happening (time 49)
+Deleting (at a0 l0-0)
+Adding (at a0 l1-0)
+
+Checking next happening (time 50)
+Deleting (in p3 a0)
+Adding (at p3 l1-0)
+
+Checking next happening (time 51)
+Deleting (at a0 l1-0)
+Adding (at a0 l0-0)
+
+Checking next happening (time 52)
+Deleting (at p16 l0-0)
+Adding (in p16 a0)
+
+Checking next happening (time 53)
+Deleting (at t0 l0-0)
+Adding (at t0 l0-1)
+
+Checking next happening (time 54)
+Deleting (at p2 l0-1)
+Adding (in p2 t0)
+
+Checking next happening (time 55)
+Deleting (at t0 l0-1)
+Adding (at t0 l0-0)
+
+Checking next happening (time 56)
+Deleting (in p2 t0)
+Adding (at p2 l0-0)
+
+Checking next happening (time 57)
+Deleting (at p7 l0-0)
+Adding (in p7 a0)
+
+Checking next happening (time 58)
+Deleting (at p11 l1-2)
+Adding (in p11 t1)
+
+Checking next happening (time 59)
+Deleting (at a0 l0-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 60)
+Deleting (at p20 l2-0)
+Adding (in p20 a0)
+
+Checking next happening (time 61)
+Deleting (at a0 l2-0)
+Adding (at a0 l1-0)
+
+Checking next happening (time 62)
+Deleting (in p20 a0)
+Adding (at p20 l1-0)
+
+Checking next happening (time 63)
+Deleting (in p10 a0)
+Adding (at p10 l1-0)
+
+Checking next happening (time 64)
+Deleting (at t1 l1-2)
+Adding (at t1 l1-1)
+
+Checking next happening (time 65)
+Deleting (at p24 l1-1)
+Adding (in p24 t1)
+
+Checking next happening (time 66)
+Deleting (at a0 l1-0)
+Adding (at a0 l0-0)
+
+Checking next happening (time 67)
+Deleting (at p25 l0-0)
+Adding (in p25 a0)
+
+Checking next happening (time 68)
+Deleting (at a0 l0-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 69)
+Deleting (in p25 a0)
+Adding (at p25 l2-0)
+
+Checking next happening (time 70)
+Deleting (at a0 l2-0)
+Adding (at a0 l1-0)
+
+Checking next happening (time 71)
+Deleting (in p7 a0)
+Adding (at p7 l1-0)
+
+Checking next happening (time 72)
+Deleting (at a0 l1-0)
+Adding (at a0 l2-0)
+
+Checking next happening (time 73)
+Deleting (in p16 a0)
+Adding (at p16 l2-0)
+
+Checking next happening (time 74)
+Plan failed because of unsatisfied precondition in:
+(load-truck p16 t2 l2-0)
+
+Plan failed to execute
+
+Plan Repair Advice:
+
+(load-truck p16 t2 l2-0) has an unsatisfied precondition at time 74
+(Set (at t2 l2-0) to true)
+
+
+Failed plans:
+ temp_plan.pddl 

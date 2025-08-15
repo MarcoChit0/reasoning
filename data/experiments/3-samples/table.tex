@@ -1,24 +1,24 @@
-\begin{tabular}{lll|cc}
+\begin{tabular}{lll|ccc}
 \toprule
- &  &  & \multicolumn{2}{c}{templates} \\
- &  &  & pddl & random\_new\_landmark \\
-domain & model & metric &  &  \\
+ &  &  & \multicolumn{3}{c}{templates} \\
+ &  &  & pddl & delete\_relaxed\_plan & random\_new\_landmark \\
+domain & model & metric &  &  &  \\
 \midrule
-\multirow[t]{7}{*}{blocksworld} & \multirow[t]{7}{*}{gemini-thinking} & number\_of\_instances & 20 & 20 \\
- &  & correct\_samples & 25 & 24 \\
- &  & total\_samples & 60 & 60 \\
- &  & Accuracy & 0.42 & 0.40 \\
- &  & pass@1 & 0.42 & 0.40 \\
- &  & pass@2 & 0.67 & 0.63 \\
- &  & pass@3 & 0.80 & 0.80 \\
-\cline{1-5} \cline{2-5}
-\multirow[t]{7}{*}{logistics} & \multirow[t]{7}{*}{gemini-thinking} & number\_of\_instances & 20 & 20 \\
- &  & correct\_samples & 28 & 30 \\
- &  & total\_samples & 60 & 60 \\
- &  & Accuracy & 0.47 & 0.50 \\
- &  & pass@1 & 0.47 & 0.50 \\
- &  & pass@2 & 0.65 & 0.73 \\
- &  & pass@3 & 0.75 & 0.85 \\
-\cline{1-5} \cline{2-5}
+\multirow[t]{7}{*}{blocksworld} & \multirow[t]{7}{*}{gemini-thinking} & number\_of\_instances & 20 & 20 & 20 \\
+ &  & correct\_samples & 25 & 13 & 24 \\
+ &  & total\_samples & 60 & 60 & 60 \\
+ &  & Accuracy & 0.42 & 0.22 & 0.40 \\
+ &  & pass@1 & 0.42 & 0.22 & 0.40 \\
+ &  & pass@2 & 0.67 & 0.37 & 0.63 \\
+ &  & pass@3 & 0.80 & 0.45 & 0.80 \\
+\cline{1-6} \cline{2-6}
+\multirow[t]{7}{*}{logistics} & \multirow[t]{7}{*}{gemini-thinking} & number\_of\_instances & 20 & 20 & 20 \\
+ &  & correct\_samples & 28 & 22 & 30 \\
+ &  & total\_samples & 60 & 60 & 60 \\
+ &  & Accuracy & 0.47 & 0.37 & 0.50 \\
+ &  & pass@1 & 0.47 & 0.37 & 0.50 \\
+ &  & pass@2 & 0.65 & 0.57 & 0.73 \\
+ &  & pass@3 & 0.75 & 0.70 & 0.85 \\
+\cline{1-6} \cline{2-6}
 \bottomrule
 \end{tabular}
