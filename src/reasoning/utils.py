@@ -211,3 +211,16 @@ def process_log_files(callback_fn: Callable[[str, str, str, str, str, str], Any]
                                         else:
                                             raise e
         return results
+
+from reasoning.settings import SOLUTIONS_DIR
+def sort_landmarks(task: Task, action_landmarks: list[str]) -> list[str]:
+    soln_path = os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + ".pddl.soln")
+    if not os.path.exists(soln_path):
+        raise RuntimeError(f"Solution file not found for task {task}: {soln_path}")
+
+    with open(soln_path, 'r') as f:
+        soln = f.read()
+
+    # Sort the action landmarks based on their order in the solution
+    sorted_landmarks = sorted(action_landmarks, key=lambda x: soln.index(x) if x in soln else float('inf'))
+    return sorted_landmarks
