@@ -1,0 +1,25 @@
+% In your LaTeX preamble, make sure you have: \usepackage{graphicx}, \usepackage{multirow}, \usepackage{booktabs}
+\scalebox{0.6}{
+\begin{tabular}{llll|ccccc}
+\toprule
+ & & & & \multicolumn{5}{c}{templates} \\
+domain & model & metric & attempt & delete\_relaxed\_plan & ordered\_landmark\_explicit & ordered\_landmark\_omitted & pddl & random\_new\_landmark \\
+\midrule
+\multirow[t]{6}{*}{blocksworld} & \multirow[t]{6}{*}{gemini-thinking} & \multirow[t]{3}{*}{used\_landmarks} & 1 & 47.60 & 48.30 & 47.70 & 44.30 & 47.00 \\
+ &  & & 2 & 47.38 & 48.28 & 47.85 & 44.15 & 47.65 \\
+ &  & & 3 & 47.23 & 48.12 & 48.02 & 44.25 & 47.77 \\
+\cline{3-9}
+ &  & \multirow[t]{3}{*}{valid\_at} & 1 & 0.30 & 0.00 & 0.30 & 0.50 & 0.45 \\
+ &  & & 2 & 0.45 & 0.00 & 0.45 & 0.75 & 0.65 \\
+ &  & & 3 & 0.45 & 0.00 & 0.70 & 0.80 & 0.80 \\
+\midrule
+\multirow[t]{6}{*}{logistics} & \multirow[t]{6}{*}{gemini-thinking} & \multirow[t]{3}{*}{used\_landmarks} & 1 & 97.45 & 98.90 & 97.20 & 82.65 & 96.70 \\
+ &  & & 2 & 95.95 & 98.70 & 97.95 & 87.08 & 96.65 \\
+ &  & & 3 & 95.37 & 98.77 & 98.08 & 83.75 & 96.85 \\
+\cline{3-9}
+ &  & \multirow[t]{3}{*}{valid\_at} & 1 & 0.40 & 0.95 & 0.70 & 0.40 & 0.50 \\
+ &  & & 2 & 0.65 & 1.00 & 0.85 & 0.65 & 0.75 \\
+ &  & & 3 & 0.70 & 1.00 & 0.95 & 0.75 & 0.85 \\
+\bottomrule
+\end{tabular}
+}

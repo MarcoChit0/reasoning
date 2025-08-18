@@ -1,0 +1,512 @@
+Checking plan: temp_plan.pddl
+Plan to validate:
+
+Plan size: 119
+1:
+(unstack b3 b32)
+ 
+2:
+(putdown b3)
+ 
+3:
+(unstack b32 b6)
+ 
+4:
+(stack b32 b5)
+ 
+5:
+(unstack b19 b16)
+ 
+6:
+(stack b19 b6)
+ 
+7:
+(unstack b33 b27)
+ 
+8:
+(putdown b33)
+ 
+9:
+(unstack b32 b5)
+ 
+10:
+(putdown b32)
+ 
+11:
+(unstack b5 b28)
+ 
+12:
+(putdown b5)
+ 
+13:
+(unstack b22 b20)
+ 
+14:
+(putdown b22)
+ 
+15:
+(unstack b11 b29)
+ 
+16:
+(putdown b11)
+ 
+17:
+(unstack b29 b9)
+ 
+18:
+(stack b29 b16)
+ 
+19:
+(pickup b5)
+ 
+20:
+(stack b5 b29)
+ 
+21:
+(unstack b6 b14)
+ 
+22:
+(putdown b6)
+ 
+23:
+(stack b6 b22)
+ 
+24:
+(unstack b14 b34)
+ 
+25:
+(putdown b14)
+ 
+26:
+(pickup b28)
+ 
+27:
+(stack b28 b34)
+ 
+28:
+(unstack b27 b2)
+ 
+29:
+(putdown b27)
+ 
+30:
+(pickup b9)
+ 
+31:
+(stack b9 b2)
+ 
+32:
+(unstack b34 b25)
+ 
+33:
+(putdown b34)
+ 
+34:
+(unstack b25 b30)
+ 
+35:
+(putdown b25)
+ 
+36:
+(stack b25 b27)
+ 
+37:
+(unstack b30 b13)
+ 
+38:
+(putdown b30)
+ 
+39:
+(unstack b13 b1)
+ 
+40:
+(stack b13 b14)
+ 
+41:
+(unstack b1 b8)
+ 
+42:
+(putdown b1)
+ 
+43:
+(stack b1 b30)
+ 
+44:
+(pickup b34)
+ 
+45:
+(stack b34 b1)
+ 
+46:
+(unstack b8 b7)
+ 
+47:
+(putdown b8)
+ 
+48:
+(stack b8 b3)
+ 
+49:
+(pickup b20)
+ 
+50:
+(stack b20 b8)
+ 
+51:
+(unstack b7 b18)
+ 
+52:
+(putdown b7)
+ 
+53:
+(pickup b18)
+ 
+54:
+(stack b18 b19)
+ 
+55:
+(unstack b9 b2)
+ 
+56:
+(putdown b9)
+ 
+57:
+(unstack b2 b21)
+ 
+58:
+(putdown b2)
+ 
+59:
+(unstack b21 b12)
+ 
+60:
+(putdown b21)
+ 
+61:
+(stack b21 b25)
+ 
+62:
+(unstack b12 b26)
+ 
+63:
+(putdown b12)
+ 
+64:
+(stack b12 b33)
+ 
+65:
+(unstack b26 b10)
+ 
+66:
+(putdown b26)
+ 
+67:
+(unstack b10 b17)
+ 
+68:
+(putdown b10)
+ 
+69:
+(stack b10 b11)
+ 
+70:
+(unstack b17 b31)
+ 
+71:
+(putdown b17)
+ 
+72:
+(stack b17 b20)
+ 
+73:
+(pickup b7)
+ 
+74:
+(stack b7 b17)
+ 
+75:
+(unstack b31 b4)
+ 
+76:
+(putdown b31)
+ 
+77:
+(stack b31 b28)
+ 
+78:
+(unstack b4 b24)
+ 
+79:
+(putdown b4)
+ 
+80:
+(pickup b24)
+ 
+81:
+(stack b24 b4)
+ 
+82:
+(pickup b11)
+ 
+83:
+(stack b11 b12)
+ 
+84:
+(pickup b27)
+ 
+85:
+(stack b27 b18)
+ 
+86:
+(unstack b29 b16)
+ 
+87:
+(putdown b29)
+ 
+88:
+(unstack b16 b15)
+ 
+89:
+(putdown b16)
+ 
+90:
+(stack b16 b31)
+ 
+91:
+(unstack b15 b23)
+ 
+92:
+(putdown b15)
+ 
+93:
+(stack b15 b26)
+ 
+94:
+(pickup b23)
+ 
+95:
+(stack b23 b10)
+ 
+96:
+(pickup b4)
+ 
+97:
+(stack b4 b15)
+ 
+98:
+(pickup b33)
+ 
+99:
+(stack b33 b24)
+ 
+100:
+(pickup b3)
+ 
+101:
+(stack b3 b23)
+ 
+102:
+(pickup b9)
+ 
+103:
+(stack b9 b2)
+ 
+104:
+(unstack b18 b19)
+ 
+105:
+(putdown b18)
+ 
+106:
+(pickup b19)
+ 
+107:
+(stack b19 b6)
+ 
+108:
+(pickup b32)
+ 
+109:
+(stack b32 b5)
+ 
+110:
+(pickup b28)
+ 
+111:
+(stack b28 b34)
+ 
+112:
+(pickup b34)
+ 
+113:
+(stack b34 b1)
+ 
+114:
+(pickup b29)
+ 
+115:
+(stack b29 b16)
+ 
+116:
+(pickup b16)
+ 
+117:
+(stack b16 b31)
+ 
+118:
+(pickup b5)
+ 
+119:
+(stack b5 b29)
+ 
+
+Plan Validation details
+-----------------------
+
+Checking next happening (time 1)
+Deleting (on b3 b32)
+Deleting (clear b3)
+Deleting (arm-empty)
+Adding (holding b3)
+Adding (clear b32)
+
+Checking next happening (time 2)
+Deleting (holding b3)
+Adding (clear b3)
+Adding (arm-empty)
+Adding (on-table b3)
+
+Checking next happening (time 3)
+Deleting (on b32 b6)
+Deleting (clear b32)
+Deleting (arm-empty)
+Adding (holding b32)
+Adding (clear b6)
+
+Checking next happening (time 4)
+Deleting (clear b5)
+Deleting (holding b32)
+Adding (arm-empty)
+Adding (clear b32)
+Adding (on b32 b5)
+
+Checking next happening (time 5)
+Deleting (on b19 b16)
+Deleting (clear b19)
+Deleting (arm-empty)
+Adding (holding b19)
+Adding (clear b16)
+
+Checking next happening (time 6)
+Deleting (clear b6)
+Deleting (holding b19)
+Adding (arm-empty)
+Adding (clear b19)
+Adding (on b19 b6)
+
+Checking next happening (time 7)
+Deleting (on b33 b27)
+Deleting (clear b33)
+Deleting (arm-empty)
+Adding (holding b33)
+Adding (clear b27)
+
+Checking next happening (time 8)
+Deleting (holding b33)
+Adding (clear b33)
+Adding (arm-empty)
+Adding (on-table b33)
+
+Checking next happening (time 9)
+Deleting (on b32 b5)
+Deleting (clear b32)
+Deleting (arm-empty)
+Adding (holding b32)
+Adding (clear b5)
+
+Checking next happening (time 10)
+Deleting (holding b32)
+Adding (clear b32)
+Adding (arm-empty)
+Adding (on-table b32)
+
+Checking next happening (time 11)
+Deleting (on b5 b28)
+Deleting (clear b5)
+Deleting (arm-empty)
+Adding (holding b5)
+Adding (clear b28)
+
+Checking next happening (time 12)
+Deleting (holding b5)
+Adding (clear b5)
+Adding (arm-empty)
+Adding (on-table b5)
+
+Checking next happening (time 13)
+Deleting (on b22 b20)
+Deleting (clear b22)
+Deleting (arm-empty)
+Adding (holding b22)
+Adding (clear b20)
+
+Checking next happening (time 14)
+Deleting (holding b22)
+Adding (clear b22)
+Adding (arm-empty)
+Adding (on-table b22)
+
+Checking next happening (time 15)
+Deleting (on b11 b29)
+Deleting (clear b11)
+Deleting (arm-empty)
+Adding (holding b11)
+Adding (clear b29)
+
+Checking next happening (time 16)
+Deleting (holding b11)
+Adding (clear b11)
+Adding (arm-empty)
+Adding (on-table b11)
+
+Checking next happening (time 17)
+Deleting (on b29 b9)
+Deleting (clear b29)
+Deleting (arm-empty)
+Adding (holding b29)
+Adding (clear b9)
+
+Checking next happening (time 18)
+Deleting (clear b16)
+Deleting (holding b29)
+Adding (arm-empty)
+Adding (clear b29)
+Adding (on b29 b16)
+
+Checking next happening (time 19)
+Deleting (clear b5)
+Deleting (on-table b5)
+Deleting (arm-empty)
+Adding (holding b5)
+
+Checking next happening (time 20)
+Deleting (clear b29)
+Deleting (holding b5)
+Adding (arm-empty)
+Adding (clear b5)
+Adding (on b5 b29)
+
+Checking next happening (time 21)
+Plan failed because of unsatisfied precondition in:
+(unstack b6 b14)
+
+Plan failed to execute
+
+Plan Repair Advice:
+
+(unstack b6 b14) has an unsatisfied precondition at time 21
+(Set (clear b6) to true)
+
+
+Failed plans:
+ temp_plan.pddl 

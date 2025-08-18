@@ -61,7 +61,7 @@ def from_pyperplan(task: Task, obj: str) -> Optional[str]:
 
     return extract(content, obj)
 
-def extract(content : str, obj: str):
+def extract(content : str, obj: str, return_str: bool = False):
     if obj == "landmark":
         start_mark = "<landmarks-set>"
         end_mark = "</landmarks-set>"
@@ -101,7 +101,10 @@ def extract(content : str, obj: str):
         if l_strip and l_strip not in ["", "\n"]:
             landmarks.append(l_strip)
 
-    return landmarks
+    if return_str:
+        return "\n".join(landmarks)
+    else:
+        return landmarks
 
 def val(domain_path : str, instance_path: str, plan_path : str, save_path: Optional[str]) -> tuple[bool, Optional[str]]:
     command = [
@@ -160,7 +163,8 @@ from typing import Callable, Any, List
 import os 
 from reasoning.settings import EXPERIMENTS_DIR
 def process_log_files(callback_fn: Callable[[str, str, str, str, str, str], Any], 
-        continue_on_error: bool = True) -> List[Any]:
+        continue_on_error: bool = True,
+        verbose: bool = True) -> List[Any]:
         """
         Applies a callback function to each log file found in a nested directory structure.
         
@@ -206,9 +210,9 @@ def process_log_files(callback_fn: Callable[[str, str, str, str, str, str], Any]
                                         result = callback_fn(exp, model, template, domain, instance, log_file)
                                         results.append(result)
                                     except Exception as e:
-                                        if continue_on_error:
+                                        if verbose:
                                             print(f"Error processing {log_file}: {e}")
-                                        else:
+                                        if not continue_on_error:
                                             raise e
         return results
 

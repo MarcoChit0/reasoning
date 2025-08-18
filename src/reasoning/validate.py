@@ -2,55 +2,16 @@ import os
 from reasoning.utils import val, process_log_files
 import pandas as pd
 import ast
-from reasoning.settings import PROMPT_FILE_NAME, VALIDATED_LOG_FILE_FILE_NAME, VALIDATION_FILE_NAME, EXPERIMENTS_DIR, ERROR_TYPES_FILE_NAME
-
-def process_sample(sample: str) -> tuple[str, dict[str, str]]:
-    # This function remains the same
-    error_fidx = sample.find("<error>")
-    error_lidx = sample.find("</error>")
-    if error_fidx != -1 and error_lidx != -1:
-        raise ValueError(f"Sample contains an error: {sample[error_fidx + len('<error>'):error_lidx].strip()}")
-
-    response_fidx = sample.find("<response>")
-    response_lidx = sample.find("</response>")
-    if response_fidx == -1 or response_lidx == -1:
-        raise ValueError("Response not found in sample.")
-    if response_fidx > response_lidx:
-        raise ValueError("Malformed sample: <response> tag appears after </response>.")
-    response = sample[response_fidx + len("<response>"):response_lidx].strip()
-    if not response:
-        raise ValueError("Empty response in sample.")
-
-    plan_fidx = response.find("<plan>")
-    plan_lidx = response.find("</plan>")
-    if plan_fidx == -1 or plan_lidx == -1:
-        raise ValueError("Plan not found in response.")
-    if plan_fidx > plan_lidx:
-        raise ValueError("Malformed response: <plan> tag appears after </plan>.")
-    plan = response[plan_fidx + len("<plan>"):plan_lidx].strip()
-    if not plan:
-        raise ValueError("Empty plan in response.")
-    
-    metadata_fidx = sample.find("<metadata>")
-    metadata_lidx = sample.find("</metadata>")
-    if metadata_fidx != -1 and metadata_lidx != -1:
-        metadata = sample[metadata_fidx + len("<metadata>"):metadata_lidx].strip()
-        metadata = ast.literal_eval(metadata)
-    else:
-        metadata = {}
-
-    return plan, metadata
+from reasoning.settings import PROMPT_FILE_NAME, VALIDATED_LOG_FILE_FILE_NAME, VALIDATION_FILE_NAME, EXPERIMENTS_DIR, ERROR_TYPES_FILE_NAME, SOLUTIONS_DIR
 
 from reasoning.utils import extract
 import re
-def validate_log_file(experiment : str, model : str, template : str, domain : str, instance : str, log_file : str) -> None:
-    if not os.path.exists(log_file):
-        raise FileNotFoundError(f"Log file {log_file} does not exist.")
 
+def validate_log_file(experiment : str, model : str, template : str, domain : str, instance : str, log_file : str ) -> None:
     pattern = r"sample_(\d+).log"
-    if not re.search(pattern, log_file):
-        raise ValueError(f"Invalid log file format: {log_file}")
-
+    log_file_name = log_file.split("/")[-1].strip()
+    if not re.match(pattern, log_file_name):
+        raise ValueError(f"Log file {log_file} does not match expected pattern.")
     sample_id = re.search(pattern, log_file).group(1)
     log_dir = os.path.dirname(log_file)
     prompt_file = os.path.join(log_dir, PROMPT_FILE_NAME)
@@ -66,34 +27,31 @@ def validate_log_file(experiment : str, model : str, template : str, domain : st
         prompt_content = f.read()
 
     try:
-        domain_content = extract(prompt_content, "domain")
+        domain_content = extract(prompt_content, "domain", return_str=True)
     except ValueError as e:
         raise ValueError(f"Domain extraction failed on file {prompt_file}: {e}")
 
     try:
-        instance_content = extract(prompt_content, "instance")
+        instance_content = extract(prompt_content, "instance", return_str=True)
     except ValueError as e:
         raise ValueError(f"Instance extraction failed on file {prompt_file}: {e}")
 
-    
     with open(log_file, 'r') as f:
         log_content = f.read()
 
+    plan = []
     valid, error = False, None
     try:
-        response = extract(log_content, "response")
+        response = extract(log_content, "response", return_str=True)
         try:
-            plan = extract(log_content, "plan")
+            plan = extract(response, "plan")
             with open(temp_domain_file, 'w') as f:
-                for l in domain_content:
-                    f.write(f"{l}\n")
+                f.write(domain_content)
             with open(temp_instance_file, 'w') as f:
-                for l in instance_content:
-                    f.write(f"{l}\n")
+                f.write(instance_content)
             with open(temp_plan_file, 'w') as f:
-                for action in plan:
-                    f.write(f"{action}\n")
-            
+                f.write("\n".join(plan))
+
             try:
                 valid, error = val(temp_domain_file, temp_instance_file, temp_plan_file, val_file)
 
@@ -110,7 +68,21 @@ def validate_log_file(experiment : str, model : str, template : str, domain : st
             os.remove(temp_instance_file)
         if os.path.exists(temp_plan_file):
             os.remove(temp_plan_file)
-    
+
+    metadata = {}
+    landmarks_file = os.path.join(SOLUTIONS_DIR, domain, instance + ".pddl.lndmk")
+    if not os.path.exists(landmarks_file):
+        raise FileNotFoundError(f"Landmarks file {landmarks_file} does not exist.")
+
+    with open(landmarks_file) as f:
+        content = f.read()
+    action_landmarks = set(extract(content, "landmark"))
+    used_action_landmarks = action_landmarks.intersection(set(plan))
+    metadata.update({
+        "num_action_landmarks": len(action_landmarks),
+        "num_action_landmarks_used": len(used_action_landmarks)
+    })
+
     return {
         "experiment": experiment,
         "model": model,
@@ -119,8 +91,10 @@ def validate_log_file(experiment : str, model : str, template : str, domain : st
         "instance": instance,
         "sample_id": sample_id,
         "valid": valid,
-        "error": error
+        "error": error,
+        **metadata
     }
+
 
 def analyze_error_type(df: pd.DataFrame, experiment_path):
     # Process error messages to extract actual error types
@@ -159,18 +133,18 @@ def analyze_error_type(df: pd.DataFrame, experiment_path):
     print(f"Validation error analysis saved to {output_file}")
 
 
-data = process_log_files(validate_log_file, continue_on_error=True)
+data = process_log_files(callback_fn=validate_log_file, continue_on_error=True, verbose=False)
 
-df = pd.DataFrame(data)
-if not len(data) == 0:
+response_df = pd.DataFrame(data)
+
+if not response_df.empty:
     for experiment in os.listdir(EXPERIMENTS_DIR):
         experiment_dir = os.path.join(EXPERIMENTS_DIR, experiment)
-        if os.path.isdir(experiment_dir):
-            exp_df = df[df["experiment"] == experiment]
-            if exp_df.empty:
-                continue
+        if not os.path.isdir(experiment_dir): continue 
+
+        exp_df = response_df[response_df["experiment"] == experiment].copy()
+        if not exp_df.empty:
             exp_df.reset_index(drop=True, inplace=True)
             exp_df.to_csv(os.path.join(experiment_dir, VALIDATION_FILE_NAME))
+            print(f"Validation results saved to {os.path.join(experiment_dir, VALIDATION_FILE_NAME)}")
             analyze_error_type(exp_df, experiment_dir)
-
-

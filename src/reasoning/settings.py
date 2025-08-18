@@ -7,7 +7,7 @@ BENCHMARKS_DIR = os.path.join(DATA_DIR, "benchmarks")
 # EXPERIMENTS
 EXPERIMENTS_DIR = os.path.join(DATA_DIR, "experiments")
 VALIDATION_FILE_NAME = "validation_results.csv"
-METRICS_FILE_NAME = "metrics.csv"
+PASS_AT_K_METRIC_FILE_NAME = "pass@k.csv"
 ERROR_TYPES_FILE_NAME = "error_types.csv"
 PROMPT_FILE_NAME = "prompt.log"
 SAMPLE_FILE_NAME = "sample_{}.log"
