@@ -1,0 +1,113 @@
+[2025-08-16 03:13:15.818968] Generating response for sample 2.
+[2025-08-16 03:15:49.599281] Response for sample 2 generated successfully.
+[2025-08-16 03:15:49.599304] Response:
+<response>
+<plan>
+(unstack b3 b24)
+(putdown b3)
+(unstack b19 b26)
+(putdown b19)
+(unstack b22 b23)
+(putdown b22)
+(unstack b14 b6)
+(putdown b14)
+(unstack b7 b12)
+(putdown b7)
+(unstack b25 b28)
+(putdown b25)
+(pickup b5)
+(putdown b5)
+(unstack b23 b27)
+(putdown b23)
+(unstack b12 b8)
+(putdown b12)
+(unstack b28 b16)
+(putdown b28)
+(unstack b24 b10)
+(putdown b24)
+(unstack b6 b9)
+(putdown b6)
+(unstack b27 b13)
+(putdown b27)
+(unstack b9 b11)
+(putdown b9)
+(unstack b13 b21)
+(putdown b13)
+(unstack b21 b17)
+(putdown b21)
+(unstack b17 b18)
+(putdown b17)
+(unstack b16 b2)
+(putdown b16)
+(unstack b2 b1)
+(putdown b2)
+(unstack b1 b15)
+(putdown b1)
+(unstack b15 b20)
+(putdown b15)
+(unstack b20 b4)
+(putdown b20)
+(pickup b4) ; This pickup is part of the landmarks, putting it aside after unstacking from b20.
+(putdown b4) ; Put it back to be picked up for stacking later.
+
+; Build Tower H: b16 <- b6 <- b12 <- b13 <- b25 <- b23 <- b21 <- b27
+(pickup b6)
+(stack b6 b16)
+(pickup b12)
+(stack b12 b6)
+(pickup b13)
+(stack b13 b12)
+(pickup b25)
+(stack b25 b13)
+(pickup b23)
+(stack b23 b25)
+(pickup b21)
+(stack b21 b23)
+(pickup b27)
+(stack b27 b21)
+
+; Build Tower F: b19 <- b28 <- b9
+(pickup b28)
+(stack b28 b19)
+(pickup b9)
+(stack b9 b28)
+
+; Build Tower C: b8 <- b24
+(pickup b24)
+(stack b24 b8)
+
+; Build Tower D: b14 <- b10 <- b4 <- b20
+(pickup b10)
+(stack b10 b14)
+(pickup b4)
+(stack b4 b10)
+(pickup b20)
+(stack b20 b4)
+
+; Build Tower E: b2 <- b11 <- b3
+(pickup b11)
+(stack b11 b2)
+(pickup b3)
+(stack b3 b11)
+
+; Build Tower F: b26 <- b22 <- b1 <- b15
+(pickup b22)
+(stack b22 b26)
+(pickup b1)
+(stack b1 b22)
+(pickup b15)
+(stack b15 b1)
+
+; Build Tower G: b17 <- b5
+(pickup b5)
+(stack b5 b17)
+
+; Build Tower H: b18 <- b7
+(pickup b7)
+(stack b7 b18)
+</plan>
+</response>
+[2025-08-16 03:15:49.599313] Metadata:
+<metadata>
+{'template': 'ordered_landmark_omitted', 'domain': 'blocksworld', 'instance': 'p36', 'sample_id': 2, 'num_requests': 1, 'prompt_token_count': 6171, 'candidates_token_count': 911, 'total_tokens_count': 39052}
+</metadata>

@@ -1,0 +1,187 @@
+[2025-08-16 01:37:10.282347] Generating response for sample 1.
+[2025-08-16 01:39:24.528779] Response for sample 1 generated successfully.
+[2025-08-16 01:39:24.528809] Response:
+<response>
+<plan>
+; Phase 1: Trucks collect packages from within their cities and bring them to the local airport, or deliver locally as needed.
+
+; Truck t2 operations in City c2 (t2 starts at l2-2)
+; Collect packages from l2-2 and move them. Deliver p26 locally to l2-1. Move others to l2-0 airport.
+(load-truck p9 t2 l2-2)
+(load-truck p8 t2 l2-2)
+(load-truck p5 t2 l2-2)
+(load-truck p18 t2 l2-2)
+(load-truck p26 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p26 t2 l2-1) ; p26 is at its goal location (at p26 l2-1)
+(load-truck p20 t2 l2-1)
+(load-truck p28 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p9 t2 l2-0)
+(unload-truck p8 t2 l2-0)
+(unload-truck p5 t2 l2-0)
+(unload-truck p20 t2 l2-0)
+(unload-truck p28 t2 l2-0)
+(unload-truck p18 t2 l2-0)
+; State after t2's first phase: t2 at l2-0. Packages p9, p8, p5, p20, p28, p18 are now at l2-0 (airport).
+
+; Truck t1 operations in City c1 (t1 starts at l1-1)
+; Collect packages from l1-1 and l1-2 and move them to l1-0 airport.
+(load-truck p24 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p11 t1 l1-2)
+(load-truck p23 t1 l1-2)
+(load-truck p27 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p24 t1 l1-0)
+(unload-truck p11 t1 l1-0)
+(unload-truck p23 t1 l1-0)
+(unload-truck p27 t1 l1-0)
+; State after t1's first phase: t1 at l1-0. Packages p24, p11, p23, p27 are now at l1-0 (airport).
+
+; Truck t0 operations in City c0 (t0 starts at l0-0)
+; Deliver p7 locally to l0-2. Collect packages from l0-1 and l0-2 and move them to l0-0 airport.
+(load-truck p7 t0 l0-0)
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p7 t0 l0-2) ; p7 is at its goal location (at p7 l0-2)
+(load-truck p6 t0 l0-2)
+(load-truck p15 t0 l0-2)
+(drive-truck t0 l0-2 l0-1 c0)
+(load-truck p3 t0 l0-1)
+(load-truck p14 t0 l0-1)
+(load-truck p16 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p6 t0 l0-0)
+(unload-truck p3 t0 l0-0)
+(unload-truck p14 t0 l0-0)
+(unload-truck p16 t0 l0-0)
+(unload-truck p15 t0 l0-0) ; p15 is at its goal location (at p15 l0-0)
+; State after t0's first phase: t0 at l0-0. Packages p6, p3, p14, p16 are now at l0-0 (airport).
+
+; Phase 2: Airplane a0 shuttles packages between airports.
+; a0 starts at l2-0.
+
+; Trip 1: a0 from l2-0 to l0-0 (delivering C0-bound packages from C2, picking up C0-outgoing packages)
+; Load C0-bound packages initially at l2-0 (p0, p12, p19, p21) or brought by t2 (p9, p20)
+; Also load C1-bound packages brought by t2 (p5, p8, p18, p28) - they will be dropped at l1-0 later
+(load-airplane p0 a0 l2-0)
+(load-airplane p12 a0 l2-0)
+(load-airplane p19 a0 l2-0)
+(load-airplane p21 a0 l2-0)
+(load-airplane p9 a0 l2-0)
+(load-airplane p20 a0 l2-0)
+(load-airplane p5 a0 l2-0)
+(load-airplane p8 a0 l2-0)
+(load-airplane p18 a0 l2-0)
+(load-airplane p28 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+; Unload C0-bound packages at l0-0
+(unload-airplane p0 a0 l0-0) ; p0 is at its goal
+(unload-airplane p12 a0 l0-0) ; p12 is at its goal
+(unload-airplane p19 a0 l0-0)
+(unload-airplane p21 a0 l0-0) ; p21 is at its goal
+(unload-airplane p9 a0 l0-0)
+(unload-airplane p20 a0 l0-0)
+; State: a0 at l0-0, still carrying p5, p8, p18, p28 (for C1). Packages p19, p9, p20 are now at l0-0.
+
+; Trip 2: a0 from l0-0 to l1-0 (delivering C1-bound packages, picking up C1-outgoing packages)
+; Load C0-outgoing packages (initial: p1, p4, p13, p17, p22, p25; from t0: p3, p6, p14, p16)
+(load-airplane p1 a0 l0-0)
+(load-airplane p4 a0 l0-0)
+(load-airplane p13 a0 l0-0)
+(load-airplane p17 a0 l0-0)
+(load-airplane p22 a0 l0-0)
+(load-airplane p25 a0 l0-0)
+(load-airplane p3 a0 l0-0)
+(load-airplane p6 a0 l0-0)
+(load-airplane p14 a0 l0-0)
+(load-airplane p16 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+; Unload C1-bound packages at l1-0
+(unload-airplane p5 a0 l1-0)
+(unload-airplane p8 a0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(unload-airplane p28 a0 l1-0) ; p28 is at its goal
+(unload-airplane p1 a0 l1-0)
+(unload-airplane p4 a0 l1-0)
+(unload-airplane p17 a0 l1-0)
+(unload-airplane p25 a0 l1-0) ; p25 is at its goal
+; State: a0 at l1-0, still carrying p13, p22, p3, p6, p14, p16 (for C2). Packages p5, p8, p18, p1, p4, p17 are now at l1-0.
+
+; Trip 3: a0 from l1-0 to l2-0 (delivering C2-bound packages from C0, picking up C1-outgoing packages)
+; Load C1-outgoing packages (from t1: p11, p23, p24, p27)
+(load-airplane p11 a0 l1-0)
+(load-airplane p23 a0 l1-0)
+(load-airplane p24 a0 l1-0)
+(load-airplane p27 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+; Unload C2-bound packages at l2-0
+(unload-airplane p13 a0 l2-0)
+(unload-airplane p22 a0 l2-0) ; p22 is at its goal
+(unload-airplane p3 a0 l2-0)
+(unload-airplane p6 a0 l2-0) ; p6 is at its goal
+(unload-airplane p14 a0 l2-0)
+(unload-airplane p16 a0 l2-0)
+(unload-airplane p11 a0 l2-0)
+(unload-airplane p23 a0 l2-0)
+; State: a0 at l2-0, still carrying p24, p27 (for C0). Packages p13, p3, p14, p16, p11, p23 are now at l2-0.
+
+; Trip 4: a0 from l2-0 to l0-0 (delivering remaining C0-bound packages)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p24 a0 l0-0) ; p24 is at its goal
+(unload-airplane p27 a0 l0-0) ; p27 is at its goal
+; State: a0 is now at l0-0 and empty. All cross-city movements are complete.
+
+; Phase 3: Trucks deliver packages from local airports to their final locations within their cities.
+
+; Truck t0 operations in City c0 (t0 is at l0-0)
+; Deliver packages p19, p9, p20 from l0-0 to l0-1
+(load-truck p19 t0 l0-0)
+(load-truck p9 t0 l0-0)
+(load-truck p20 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p19 t0 l0-1) ; p19 is at its goal
+(unload-truck p9 t0 l0-1) ; p9 is at its goal
+(unload-truck p20 t0 l0-1) ; p20 is at its goal
+; t0 is now at l0-1
+
+; Truck t1 operations in City c1 (t1 is at l1-0)
+; Deliver packages p1, p17, p18 to l1-1; p4, p5, p8 to l1-2
+(load-truck p1 t1 l1-0)
+(load-truck p17 t1 l1-0)
+(load-truck p18 t1 l1-0)
+(load-truck p4 t1 l1-0)
+(load-truck p5 t1 l1-0)
+(load-truck p8 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p1 t1 l1-1) ; p1 is at its goal
+(unload-truck p17 t1 l1-1) ; p17 is at its goal
+(unload-truck p18 t1 l1-1) ; p18 is at its goal
+(drive-truck t1 l1-1 l1-2 c1)
+(unload-truck p4 t1 l1-2) ; p4 is at its goal
+(unload-truck p5 t1 l1-2) ; p5 is at its goal
+(unload-truck p8 t1 l1-2) ; p8 is at its goal
+; t1 is now at l1-2
+
+; Truck t2 operations in City c2 (t2 is at l2-0)
+; Deliver packages p3, p13, p14, p16, p11, p23 from l2-0 to l2-2
+(load-truck p3 t2 l2-0)
+(load-truck p13 t2 l2-0)
+(load-truck p14 t2 l2-0)
+(load-truck p16 t2 l2-0)
+(load-truck p11 t2 l2-0)
+(load-truck p23 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p3 t2 l2-2) ; p3 is at its goal
+(unload-truck p13 t2 l2-2) ; p13 is at its goal
+(unload-truck p14 t2 l2-2) ; p14 is at its goal
+(unload-truck p16 t2 l2-2) ; p16 is at its goal
+(unload-truck p11 t2 l2-2) ; p11 is at its goal
+(unload-truck p23 t2 l2-2) ; p23 is at its goal
+; t2 is now at l2-2. All packages are at their goal locations.
+</plan>
+</response>
+[2025-08-16 01:39:24.528820] Metadata:
+<metadata>
+{'template': 'ordered_landmark_omitted', 'domain': 'logistics', 'instance': 'p54', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 8311, 'candidates_token_count': 3248, 'total_tokens_count': 39073}
+</metadata>
