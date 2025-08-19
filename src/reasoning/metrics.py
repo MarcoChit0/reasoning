@@ -216,188 +216,138 @@ def compute_metrics_by_attempt(experiment_path : str) -> pd.DataFrame:
     df = pd.read_csv(validation_path)
     # Ensure 'valid' column is boolean
     df['valid'] = pd.to_numeric(df['valid'], errors='coerce').fillna(0).astype(bool)
-    instances = df['instance'].unique()
 
+    df['landmarks'] = df['num_action_landmarks_used'] / df['num_action_landmarks'].replace(0, np.nan)
     # Group by the specified columns to aggregate results
-    group_keys = ['experiment', 'domain', 'model', 'template']
-    grouped = df.groupby(group_keys)
-
-    new_df = pd.DataFrame()
-    for (name, group) in grouped:
-        max_sample_id = group['sample_id'].max()
-        for instance in instances:
-            instance_group = group[group['instance'] == instance]
-            if instance_group.empty:
-                continue
-            samples_metrics = {
-                "num_action_landmarks_used_at" : [0 for _ in range(max_sample_id)],
-                "valid_at" : [False for _ in range(max_sample_id)],
-            }
-            for i in range(1, max_sample_id + 1):
-                sample_group = instance_group[instance_group['sample_id'] == i]
-                if sample_group.empty:
-                    continue
-                sample_df = sample_group.iloc[0]
-                num_action_landmarks = sample_df['num_action_landmarks']
-                for j in range(i-1, max_sample_id):
-                    samples_metrics["num_action_landmarks_used_at"][j] += sample_df['num_action_landmarks_used']
-                    samples_metrics["valid_at"][j] |= sample_df['valid']
-
-                samples_metrics["num_action_landmarks_used_at"][i-1] /= i
-
-                new_df = new_df._append({
-                    "experiment": name[0],
-                    "domain": name[1],
-                    "model": name[2],
-                    "template": name[3],
-                    "instance": instance,
-                    "num_action_landmarks_used_at": samples_metrics["num_action_landmarks_used_at"][i-1],
-                    "valid_at": samples_metrics["valid_at"][i-1],
-                    "attempts": i,
-                    "num_action_landmarks": num_action_landmarks
-                }, ignore_index=True)
-    
-    new_df = new_df.groupby(['experiment', 'domain', 'model', 'template', 'attempts']).agg({
+    group_keys = ['experiment', 'domain', 'model', 'template', 'sample_id']
+    grouped = df.groupby(group_keys).agg({
         "instance": "count",
-        "num_action_landmarks_used_at": "mean",
-        "valid_at": "mean",
-        "num_action_landmarks": "mean"
+        "valid": "mean",
+        "landmarks": "mean"
     }).reset_index()
-    
+
+    # rename:
+    # sample_id -> attempt
+    # instance -> total_instances
+    # valid -> coverage
+    grouped = grouped.rename(columns={"sample_id": "attempt", "instance": "total_instances", "valid": "coverage"})
+
     # Round all float columns to two decimal places
-    float_cols = new_df.select_dtypes(include=['float']).columns
-    new_df[float_cols] = new_df[float_cols].round(2)
+    float_cols = grouped.select_dtypes(include=['float']).columns
+    grouped[float_cols] = grouped[float_cols].round(2)
 
-    new_df.to_csv(os.path.join(experiment_path, "metrics_by_attempt.csv"), index=False)
+    grouped.to_csv(os.path.join(experiment_path, "metrics_by_attempt.csv"), index=False)
 
-    return new_df
+    return grouped
 
 def metrics_by_attempt_to_table(df: pd.DataFrame, experiment_path: str):
     """
-    Converts the DataFrame from compute_metrics_by_attempt into a LaTeX table.
-
-    The table is structured similarly to the provided example, with multi-level
-    row indexing for domain, model, metric, and attempt. It generates a .tex file
-    with the formatted table.
+    Generates a LaTeX table where each row corresponds to an attempt, and columns
+    are grouped by template, each showing 'Coverage' and 'Landmarks' metrics.
     """
     if df.empty:
         print("Warning: DataFrame is empty. Cannot generate metrics by attempt table.")
         return
 
-    # 1. Prepare data by pivoting
-    # Rename columns for clarity and prepare for pivoting
-    df = df.rename(columns={
-        'num_action_landmarks_used_at': 'used_landmarks',
-        'attempts': 'attempt'
-    })
-
-    # Melt the DataFrame to handle multiple metric columns easily
-    metrics_to_display = ['used_landmarks', 'valid_at']
-    melted_df = df.melt(
-        id_vars=['domain', 'model', 'template', 'attempt'],
-        value_vars=metrics_to_display,
-        var_name='metric',
-        value_name='value'
-    )
+    # --- 1. Reshape the DataFrame for the new table structure ---
+    metrics_to_display = ['coverage', 'landmarks']
     
-    # Escape underscores in metric names for LaTeX
-    melted_df['metric'] = melted_df['metric'].str.replace('_', r'\_')
-    
-    # Get unique, sorted lists for columns and metric order
-    templates = sorted(df['template'].unique())
-    metrics_order = [m.replace('_', r'\_') for m in metrics_to_display]
-
-    # Pivot to the final table structure
-    table_df = melted_df.pivot_table(
-        index=['domain', 'model', 'metric', 'attempt'],
+    table_df = df.pivot_table(
+        index=['domain', 'model', 'attempt'],
         columns='template',
-        values='value'
+        values=metrics_to_display
     )
+
+    table_df = table_df.swaplevel(0, 1, axis=1)
+
+    # --- 2. Define the exact column order and names (MODIFIED SECTION) ---
     
-    # Ensure the order of templates (columns) and metrics (index level) is correct
-    table_df = table_df.reindex(templates, axis='columns')
-    table_df = table_df.reindex(metrics_order, level='metric')
+    # Get all unique template names from the original DataFrame
+    all_templates = df['template'].unique()
+    
+    # Define the custom sort order
+    # 'pddl' comes first, the rest are sorted alphabetically
+    # We use a lambda function where 'pddl' is given a special low sort key (False)
+    templates = sorted(all_templates, key=lambda x: (x != 'pddl', x))
+    
+    # Create an explicit list of column tuples to enforce the desired order.
+    new_cols_tuples = []
+    for template in templates:
+        for metric in metrics_to_display: 
+            new_cols_tuples.append((template, metric))
+    
+    new_cols = pd.MultiIndex.from_tuples(new_cols_tuples, names=['template', 'metric'])
+    table_df = table_df.reindex(columns=new_cols)
 
-
-    # 2. Build the LaTeX string manually for full control
+    # --- 3. Build the LaTeX string manually for full control ---
     num_templates = len(templates)
-    column_format = 'llll|' + 'c' * num_templates
+    column_format = 'lll|' + 'cc' * num_templates
 
-    # Header
-    escaped_templates = [t.replace('_', r'\_') for t in templates]
-    template_header = ' & '.join(escaped_templates)
+    # Define the new display names for the templates (MODIFIED SECTION)
+    template_name_map = {
+        'pddl': '-',
+        'random_new_landmark': 'Non-Ordered Landmarks',
+        'delete_relaxed_plan': 'Delete Relaxation',
+        'ordered_landmark_explicit': 'Ordered Landmarks',
+        'ordered_landmark_omitted': 'Ordered Landmarks (Omitted)'
+    }
     
+    # --- LaTeX Header Generation ---
+    template_headers = [template_name_map.get(t, t.replace('_', ' ').title()) for t in templates]
+    template_header_str = ' & '.join([f"\\multicolumn{{2}}{{c}}{{{name}}}" for name in template_headers])
+    
+    metric_header_str = ' & '.join(["Coverage & Landmarks"] * num_templates)
+
     latex_lines = [
         f"\\begin{{tabular}}{{{column_format}}}",
         "\\toprule",
-        # Multi-column header for 'templates'
-        f" & & & & \\multicolumn{{{num_templates}}}{{c}}{{templates}} \\\\",
-        f"domain & model & metric & attempt & {template_header} \\\\",
+        # First header row (templates)
+        f"domain & model & attempt & {template_header_str} \\\\",
+        # Use \cmidrule for a clean line under the template headers
+        f"\\cmidrule(lr){{4-{3 + 2 * num_templates}}}",
+        # Second header row (metrics)
+        f"& & & {metric_header_str} \\\\",
         "\\midrule"
     ]
 
-    # 3. Generate table body with multirow and clines
-    # Group by the first two index levels (domain, model)
+    # --- LaTeX Body Generation (No changes here) ---
     for (domain, model), group in table_df.groupby(level=['domain', 'model']):
-        domain_model_group_size = len(group)
-        domain_multirow = f"\\multirow[t]{{{domain_model_group_size}}}{{*}}{{{domain}}}"
-        model_multirow = f"\\multirow[t]{{{domain_model_group_size}}}{{*}}{{{model}}}"
-        
-        is_first_row_in_domain_group = True
-        
-        # Group by the metric within the current domain/model block
-        for metric, metric_group in group.groupby(level='metric'):
-            metric_group_size = len(metric_group)
-            metric_multirow = f"\\multirow[t]{{{metric_group_size}}}{{*}}{{{metric}}}"
+        group_size = len(group)
+        domain_multirow = f"\\multirow[t]{{{group_size}}}{{*}}{{{domain}}}"
+        model_multirow = f"\\multirow[t]{{{group_size}}}{{*}}{{{model}}}"
+        is_first_row_in_group = True
+
+        for (_, _, attempt), row_data in group.iterrows():
+            values_str = ' & '.join([f"{v:.2f}" if pd.notna(v) else "" for v in row_data])
+
+            if is_first_row_in_group:
+                line = f"{domain_multirow} & {model_multirow} & {attempt} & {values_str} \\\\"
+                is_first_row_in_group = False
+            else:
+                line = f" & & {attempt} & {values_str} \\\\"
             
-            is_first_row_in_metric_group = True
-
-            # Iterate through each attempt in the metric group to create the rows
-            for (_, _, _, attempt), row_data in metric_group.iterrows():
-                values = [f"{v:.2f}" if pd.notna(v) else "" for v in row_data]
-                values_str = ' & '.join(values)
-
-                # Add domain/model only for the first row of the block
-                line = f"{domain_multirow} & {model_multirow}" if is_first_row_in_domain_group else " & "
-                is_first_row_in_domain_group = False
-                
-                # Add metric name only for the first row of its sub-block
-                if is_first_row_in_metric_group:
-                    line += f" & {metric_multirow} & {attempt} & {values_str} \\\\"
-                    is_first_row_in_metric_group = False
-                else:
-                    line += f" & & {attempt} & {values_str} \\\\"
-                
-                latex_lines.append(line)
-
-            # Add a \cline after a metric block, if it's not the last one in the domain/model group
-            metrics_in_group = group.index.get_level_values('metric').unique()
-            if metric != metrics_in_group[-1]:
-                cline_start_col = 3  # Start at the 'metric' column
-                cline_end_col = 4 + num_templates # End at the last template column
-                latex_lines.append(f"\\cline{{{cline_start_col}-{cline_end_col}}}")
-
+            latex_lines.append(line)
+        
         latex_lines.append("\\midrule")
-    
-    # Clean up the last separator before the bottom rule
+
     if latex_lines[-1] == "\\midrule":
         latex_lines.pop()
         
-    # Footer
-    latex_lines.append("\\bottomrule")
-    latex_lines.append("\\end{tabular}")
-    
-    # 4. Finalize and save the file
-    full_latex_string = '\n'.join(latex_lines)
-    
-    # Wrap in scalebox for better fitting on a page
-    final_output = (
-        "% In your LaTeX preamble, make sure you have: \\usepackage{graphicx}, \\usepackage{multirow}, \\usepackage{booktabs}\n"
-        "\\scalebox{0.6}{\n"
-        f"{full_latex_string}\n"
-        "}"
-    )
+    latex_lines.extend(["\\bottomrule", "\\end{tabular}"])
 
+    # --- 4. Finalize and Save (No changes here) ---
+    full_latex_string = '\n'.join(latex_lines)
+    final_output = (
+        "% In your LaTeX preamble, use: \\usepackage{graphicx}, \\usepackage{multirow}, \\usepackage{booktabs}\n"
+        "\\begin{table}[H] % Using [H] from 'float' package to place table here\n"
+        "\\centering\n"
+        "\\scalebox{0.7}{\n"
+        f"{full_latex_string}\n"
+        "}\n"
+        "\\caption{Metrics by Attempt}\n"
+        "\\label{tab:metrics_by_attempt}\n"
+        "\\end{table}"
+    )
     output_filename = os.path.join(experiment_path, "metrics_by_attempt.table.tex")
     with open(output_filename, "w") as f:
         f.write(final_output)

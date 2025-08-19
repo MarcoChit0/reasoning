@@ -128,7 +128,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 if __name__ == "__main__":
     experiment = "3-samples"
     samples = 3
-    templates = ["ordered_landmark_explicit", "ordered_landmark_omitted"]
+    templates = ["ordered_landmark_explicit"]
     domains = ["logistics", "blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",

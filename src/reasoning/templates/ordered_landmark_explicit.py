@@ -1,11 +1,12 @@
 from string import Template
 
 ORDERED_LANDMARK_EXPLICIT_TEMPLATE = Template("""<problem-description-with-landmarks>
-You are a highly-skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. 
-You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks extract from the delete relaxation of the instance. 
+You are a highly skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. 
+You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks extracted from the delete relaxation of the instance. 
 Action landmarks are actions that must be part of any valid plan for the task. 
 Since the action landmarks are extracted from the delete relaxation of the instance, they represent a subset of the action landmarks of the instance.
-The action landmarks are provided in the exact order in which they must appear in the plan.
+The action landmarks are provided in a partial order; this means that each landmark earlier in the list must appear before in the plan than other landmarks later in the list. 
+Note that there could be other actions that must appear between landmarks in the plan. Also note that the order only needs to be respected for the first appearance of each landmark in the plan.
 Every valid plan must include all action landmarks at some point during execution.
 You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
 </problem-description-with-landmarks> 
