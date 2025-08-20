@@ -1,8 +1,7 @@
 import os
 from reasoning.utils import val, process_log_files
 import pandas as pd
-import ast
-from reasoning.settings import PROMPT_FILE_NAME, VALIDATED_LOG_FILE_FILE_NAME, VALIDATION_FILE_NAME, EXPERIMENTS_DIR, ERROR_TYPES_FILE_NAME, SOLUTIONS_DIR
+from reasoning.settings import PROMPT_FILE_NAME, VALIDATED_LOG_FILE_FILE_NAME, VALIDATION_FILE_NAME, EXPERIMENTS_DIR, ERROR_TYPES_FILE_NAME, BENCHMARKS_DIR, SOLUTIONS_DIR_NAME
 
 from reasoning.utils import extract
 import re
@@ -70,7 +69,7 @@ def validate_log_file(experiment : str, model : str, template : str, domain : st
             os.remove(temp_plan_file)
 
     metadata = {}
-    landmarks_file = os.path.join(SOLUTIONS_DIR, domain, instance + ".pddl.lndmk")
+    landmarks_file = os.path.join(BENCHMARKS_DIR, domain, SOLUTIONS_DIR_NAME, instance + ".pddl.lndmk")
     if not os.path.exists(landmarks_file):
         raise FileNotFoundError(f"Landmarks file {landmarks_file} does not exist.")
 

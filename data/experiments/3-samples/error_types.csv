@@ -2,11 +2,11 @@ experiment,model,template,domain,Error: Bad operator in plan.,Error: Goal not sa
 3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,1,6,40,13,60
 3-samples,gemini-thinking,delete_relaxed_plan,logistics,0,1,37,22,60
 3-samples,gemini-thinking,ordered_landmark_explicit,blocksworld,0,0,60,0,60
-3-samples,gemini-thinking,ordered_landmark_explicit,logistics,0,0,4,56,60
+3-samples,gemini-thinking,ordered_landmark_explicit,logistics,0,2,14,44,60
 3-samples,gemini-thinking,ordered_landmark_omitted,blocksworld,0,6,29,25,60
 3-samples,gemini-thinking,ordered_landmark_omitted,logistics,0,0,20,40,60
 3-samples,gemini-thinking,pddl,blocksworld,0,17,18,25,60
 3-samples,gemini-thinking,pddl,logistics,0,3,29,28,60
 3-samples,gemini-thinking,random_new_landmark,blocksworld,0,2,34,24,60
 3-samples,gemini-thinking,random_new_landmark,logistics,0,1,29,30,60
-Total,,,,1,36,300,263,600
+Total,,,,1,38,310,251,600

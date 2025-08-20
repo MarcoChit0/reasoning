@@ -1,3 +1,4 @@
+from reasoning.settings import SOLUTIONS_DIR_NAME
 import threading
 
 lock = threading.Lock()
@@ -82,9 +83,13 @@ class Task:
     def __hash__(self):
         return hash((self.domain, self.instance))
 
-from reasoning import settings
-import os
-import re 
+    def get_solution_path(self, extension: str) -> str:
+        dir = os.path.join(os.path.dirname(self.domain.path), SOLUTIONS_DIR_NAME)
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+        return os.path.join(dir, self.instance.name + extension)
+        
+
 from reasoning import settings
 import os
 import re 

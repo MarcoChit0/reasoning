@@ -1,0 +1,57 @@
+2025-08-09 20:35:35,975 INFO     using search: greedy_best_first_search
+2025-08-09 20:35:35,975 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-09 20:35:35,975 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/logistics/domain.pddl
+2025-08-09 20:35:35,975 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/logistics/instances/15-packages/p28.pddl
+2025-08-09 20:35:35,976 INFO     9 Predicates parsed
+2025-08-09 20:35:35,976 INFO     6 Actions parsed
+2025-08-09 20:35:35,976 INFO     31 Objects parsed
+2025-08-09 20:35:35,976 INFO     0 Constants parsed
+2025-08-09 20:35:35,976 INFO     Grounding start: logistics-c3-s3-p15-a1
+2025-08-09 20:35:35,988 INFO     Relevance analysis removed 0 facts
+2025-08-09 20:35:35,988 INFO     Grounding end: logistics-c3-s3-p15-a1
+2025-08-09 20:35:35,988 INFO     231 Variables created
+2025-08-09 20:35:35,988 INFO     1140 Operators created
+<action-landmarks-set>
+(load-truck p13 t0 l0-0)
+(load-truck p12 t2 l2-0)
+(load-truck p10 t1 l1-0)
+(load-truck p6 t0 l0-1)
+(load-truck p6 t2 l2-0)
+(load-truck p1 t0 l0-0)
+(load-truck p5 t2 l2-1)
+(load-truck p4 t0 l0-1)
+(load-truck p8 t2 l2-2)
+(load-truck p3 t0 l0-0)
+(load-truck p3 t2 l2-2)
+(load-truck p14 t2 l2-1)
+(load-airplane p13 a0 l1-0)
+(load-airplane p12 a0 l1-0)
+(load-airplane p10 a0 l0-0)
+(load-airplane p6 a0 l0-0)
+(load-airplane p1 a0 l1-0)
+(load-airplane p4 a0 l0-0)
+(load-airplane p8 a0 l2-0)
+(load-airplane p3 a0 l2-0)
+(load-airplane p14 a0 l2-0)
+(unload-truck p13 t0 l0-1)
+(unload-truck p12 t2 l2-2)
+(unload-truck p10 t1 l1-1)
+(unload-truck p6 t0 l0-0)
+(unload-truck p6 t2 l2-1)
+(unload-truck p1 t0 l0-1)
+(unload-truck p5 t2 l2-2)
+(unload-truck p4 t0 l0-0)
+(unload-truck p8 t2 l2-0)
+(unload-truck p3 t0 l0-1)
+(unload-truck p3 t2 l2-0)
+(unload-truck p14 t2 l2-0)
+(unload-airplane p13 a0 l0-0)
+(unload-airplane p12 a0 l2-0)
+(unload-airplane p10 a0 l1-0)
+(unload-airplane p6 a0 l2-0)
+(unload-airplane p1 a0 l0-0)
+(unload-airplane p4 a0 l2-0)
+(unload-airplane p8 a0 l1-0)
+(unload-airplane p3 a0 l0-0)
+(unload-airplane p14 a0 l1-0)
+</action-landmarks-set>

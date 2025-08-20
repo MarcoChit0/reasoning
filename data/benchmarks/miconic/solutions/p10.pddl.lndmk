@@ -1,0 +1,39 @@
+2025-08-08 16:25:42,876 INFO     using search: greedy_best_first_search
+2025-08-08 16:25:42,876 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-08 16:25:42,876 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/miconic/domain.pddl
+2025-08-08 16:25:42,876 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/miconic/instances/12-passenger/p10.pddl
+2025-08-08 16:25:42,877 INFO     8 Predicates parsed
+2025-08-08 16:25:42,877 INFO     4 Actions parsed
+2025-08-08 16:25:42,877 INFO     36 Objects parsed
+2025-08-08 16:25:42,877 INFO     0 Constants parsed
+2025-08-08 16:25:42,877 INFO     Grounding start: mixed-f24-p12-u0-v0-d0-a0-n0-a0-b0-n0-f0
+2025-08-08 16:25:42,886 INFO     Relevance analysis removed 0 facts
+2025-08-08 16:25:42,886 INFO     Grounding end: mixed-f24-p12-u0-v0-d0-a0-n0-a0-b0-n0-f0
+2025-08-08 16:25:42,886 INFO     48 Variables created
+2025-08-08 16:25:42,886 INFO     576 Operators created
+<action-landmarks-set>
+(board f20 p1)
+(board f21 p6)
+(board f21 p2)
+(board f2 p10)
+(board f0 p3)
+(board f18 p0)
+(board f22 p5)
+(board f17 p11)
+(board f5 p7)
+(board f14 p8)
+(board f1 p4)
+(board f15 p9)
+(depart f20 p10)
+(depart f21 p8)
+(depart f21 p3)
+(depart f7 p0)
+(depart f2 p9)
+(depart f11 p11)
+(depart f18 p2)
+(depart f3 p5)
+(depart f3 p4)
+(depart f9 p7)
+(depart f5 p6)
+(depart f23 p1)
+</action-landmarks-set>

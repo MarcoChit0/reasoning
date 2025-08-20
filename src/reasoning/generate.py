@@ -4,7 +4,7 @@ import tqdm
 import os
 import reasoning.models as models
 from reasoning.task import Task, get_tasks
-from reasoning.prompt import build_prompt
+from reasoning.prompt import get_prompt_generator, PromptBuilder
 from reasoning.utils import from_config
 import logging
 from reasoning.settings import EXPERIMENTS_DIR, SAMPLE_FILE_NAME, PROMPT_FILE_NAME
@@ -62,9 +62,8 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         prompt_log_file = os.path.join(instance_dir, PROMPT_FILE_NAME)
         try:
             # Build the prompt
-            prompt = build_prompt(task, template)
-            prompt_metadata = prompt["metadata"]
-            prompt_text = prompt["prompt"]
+            prompt_builder : PromptBuilder = get_prompt_generator(template)
+            prompt = prompt_builder.build(task)
 
             # Save the prompt and its metadata to prompt.log
             if not os.path.exists(prompt_log_file):
@@ -73,9 +72,9 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
                     prompt_file.write(f"[{datetime.now()}] Model: {model.name}\n")
                     prompt_file.write(f"[{datetime.now()}] Generation Parameters: {kwargs}\n")
                     prompt_file.write(f"[{datetime.now()}]\nPrompt Metadata:\n")
-                    prompt_file.write(f"<metadata>\n{prompt_metadata}\n</metadata>\n\n")
+                    prompt_file.write(f"<metadata>\n{prompt_builder.get_metadata(task)}\n</metadata>\n\n")
                     prompt_file.write(f"[{datetime.now()}]\nPrompt:\n")
-                    prompt_file.write(f"<prompt>\n{prompt_text}\n</prompt>\n")
+                    prompt_file.write(f"<prompt>\n{prompt}\n</prompt>\n")
 
             # Generate and save each sample
             for i in range(1, samples + 1):
@@ -89,7 +88,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 
                 try:
                     sample_file.write(f"[{datetime.now()}] Generating response for sample {i}.\n")
-                    response = model.generate_response(prompt=prompt_text, **kwargs)
+                    response = model.generate_response(prompt=prompt, **kwargs)
                     sample_file.write(f"[{datetime.now()}] Response for sample {i} generated successfully.\n")
 
                     sample_file.write(f"[{datetime.now()}] Response:\n")
@@ -126,10 +125,10 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         )
 
 if __name__ == "__main__":
-    experiment = "3-samples"
-    samples = 3
-    templates = ["ordered_landmark_explicit"]
-    domains = ["logistics", "blocksworld"]
+    experiment = "test"
+    samples = 1
+    templates = ["pddl", "nonordered_landmarks", "ordered_landmarks_explicit", "ordered_landmarks_omitted", "delete_relaxed_plan"]
+    domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]
@@ -147,7 +146,7 @@ if __name__ == "__main__":
             for domain in domains:
                 try:
                     tasks = sorted(get_tasks(domain))
-                    tasks = tasks[-20:]
+                    tasks = tasks[-1:]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

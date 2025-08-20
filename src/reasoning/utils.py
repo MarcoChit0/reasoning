@@ -17,15 +17,14 @@ pyperplan -s astar -H actionlandmark ./data/raw/blocksworld/generated_domain.pdd
 2025-07-28 15:42:30,521 INFO     Grounding end: bw-rand-3
 2025-07-28 15:42:30,521 INFO     19 Variables created
 2025-07-28 15:42:30,521 INFO     24 Operators created
-<landmarks-set>
+<action-landmarks-set>
 (pick-up b)
 (stack b a)
 (unstack c b)
-</landmarks-set>
+</action-landmarks-set>
 """
 import os
-def from_pyperplan(task: Task, obj: str) -> Optional[str]:
-    from reasoning.settings import SOLUTIONS_DIR
+def from_pyperplan(task: Task, obj: str) -> None | str | list[str]:
     """
     Get a specific object from the pyperplan output for a task.
     """
@@ -47,24 +46,44 @@ def from_pyperplan(task: Task, obj: str) -> Optional[str]:
             task.domain.path,
             task.instance.path
         ]
+    elif obj == "plan":
+        extension = ".pddl.soln"
+        command = [
+            "pyperplan",
+            "-s", "gbf",
+            "-H", "hff",
+            task.domain.path,
+            task.instance.path
+        ]
     else:
         raise ValueError(f"Unknown object type: {obj}")
-    
-    if os.path.exists(os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + extension)):
-        with open(os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + extension), 'r') as f:
-            content = f.read()
+    if obj != "plan":
+        path = task.get_solution_path(extension)
+        if os.path.exists(path):
+            with open(path, 'r') as f:
+                content = f.read()
+        else:
+            result = subprocess.run(command, capture_output=True, text=True)
+            if result.returncode != 0:
+                raise RuntimeError(f"Error running pyperplan for task {task}: {result.stderr}")
+            content = result.stdout
+            with open(path, 'w') as f:
+                f.write(content)
+        return extract(content, obj)
     else:
-        result = subprocess.run(command, capture_output=True, text=True)
-        if result.returncode != 0:
-            raise RuntimeError(f"Error running pyperplan for task {task}: {result.stderr}")
-        content = result.stdout
-
-    return extract(content, obj)
-
+        path = task.get_solution_path(extension)
+        if not os.path.exists(path):
+            result = subprocess.run(command, capture_output=True, text=True)
+            if result.returncode != 0:
+                raise RuntimeError(f"Error running pyperplan for task {task}: {result.stderr}")
+        with open(path, 'r') as f:
+            content = f.read()
+        return content.splitlines()
+            
 def extract(content : str, obj: str, return_str: bool = False):
     if obj == "landmark":
-        start_mark = "<landmarks-set>"
-        end_mark = "</landmarks-set>"
+        start_mark = "<action-landmarks-set>"
+        end_mark = "</action-landmarks-set>"
     elif obj == "plan":
         start_mark = "<plan>"
         end_mark = "</plan>"
@@ -93,18 +112,18 @@ def extract(content : str, obj: str, return_str: bool = False):
 
     if start_index == -1 or end_index == -1:
         raise ValueError(f"Object {obj} not found in the output.")
-    landmarks_str = content[start_index + len(start_mark):end_index].strip()
+    str_to_extract = content[start_index + len(start_mark):end_index].strip()
 
-    landmarks = []
-    for l in landmarks_str.splitlines():
-        l_strip = l.strip()
-        if l_strip and l_strip not in ["", "\n"]:
-            landmarks.append(l_strip)
+    extracted_items = []
+    for line in str_to_extract.splitlines():
+        stripped_line = line.strip()
+        if stripped_line and stripped_line not in ["", "\n"]:
+            extracted_items.append(stripped_line)
 
     if return_str:
-        return "\n".join(landmarks)
+        return "\n".join(extracted_items)
     else:
-        return landmarks
+        return extracted_items
 
 def val(domain_path : str, instance_path: str, plan_path : str, save_path: Optional[str]) -> tuple[bool, Optional[str]]:
     command = [
@@ -215,10 +234,9 @@ def process_log_files(callback_fn: Callable[[str, str, str, str, str, str], Any]
                                         if not continue_on_error:
                                             raise e
         return results
-
-from reasoning.settings import SOLUTIONS_DIR
+    
 def sort_landmarks(task: Task, action_landmarks: list[str]) -> list[str]:
-    soln_path = os.path.join(SOLUTIONS_DIR, task.domain.name, task.instance.name + ".pddl.soln")
+    soln_path = task.get_solution_path(".pddl.soln")
     if not os.path.exists(soln_path):
         raise RuntimeError(f"Solution file not found for task {task}: {soln_path}")
 

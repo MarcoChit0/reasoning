@@ -4,7 +4,7 @@ experiment,domain,model,template,attempt,total_instances,coverage,landmarks
 3-samples,blocksworld,gemini-thinking,delete_relaxed_plan,3,20,0.1,0.97
 3-samples,blocksworld,gemini-thinking,ordered_landmark_explicit,1,20,0.0,1.0
 3-samples,blocksworld,gemini-thinking,ordered_landmark_explicit,2,20,0.0,1.0
-3-samples,blocksworld,gemini-thinking,ordered_landmark_explicit,3,20,0.0,0.99
+3-samples,blocksworld,gemini-thinking,ordered_landmark_explicit,3,20,0.0,1.0
 3-samples,blocksworld,gemini-thinking,ordered_landmark_omitted,1,20,0.3,0.99
 3-samples,blocksworld,gemini-thinking,ordered_landmark_omitted,2,20,0.35,0.99
 3-samples,blocksworld,gemini-thinking,ordered_landmark_omitted,3,20,0.6,1.0
@@ -17,9 +17,9 @@ experiment,domain,model,template,attempt,total_instances,coverage,landmarks
 3-samples,logistics,gemini-thinking,delete_relaxed_plan,1,20,0.4,0.99
 3-samples,logistics,gemini-thinking,delete_relaxed_plan,2,20,0.35,0.96
 3-samples,logistics,gemini-thinking,delete_relaxed_plan,3,20,0.35,0.96
-3-samples,logistics,gemini-thinking,ordered_landmark_explicit,1,20,0.95,1.0
-3-samples,logistics,gemini-thinking,ordered_landmark_explicit,2,20,0.9,1.0
-3-samples,logistics,gemini-thinking,ordered_landmark_explicit,3,20,0.95,1.0
+3-samples,logistics,gemini-thinking,ordered_landmark_explicit,1,20,0.65,0.95
+3-samples,logistics,gemini-thinking,ordered_landmark_explicit,2,20,0.75,1.0
+3-samples,logistics,gemini-thinking,ordered_landmark_explicit,3,20,0.8,0.99
 3-samples,logistics,gemini-thinking,ordered_landmark_omitted,1,20,0.7,0.98
 3-samples,logistics,gemini-thinking,ordered_landmark_omitted,2,20,0.6,1.0
 3-samples,logistics,gemini-thinking,ordered_landmark_omitted,3,20,0.7,1.0

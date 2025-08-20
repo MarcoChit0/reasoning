@@ -14,4 +14,4 @@ SAMPLE_FILE_NAME = "sample_{}.log"
 VALIDATED_LOG_FILE_FILE_NAME = "sample_{}.val"
 
 # SOLUTIONS
-SOLUTIONS_DIR = os.path.join(DATA_DIR, "solutions")
+SOLUTIONS_DIR_NAME = "solutions"

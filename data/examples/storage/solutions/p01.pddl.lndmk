@@ -1,0 +1,9 @@
+<action-landmarks-set>
+(lift hoist0 crate2 container-0-2 loadarea container0)
+(lift hoist0 crate3 container-0-3 loadarea container0)
+(lift hoist0 crate1 container-0-1 loadarea container0)
+(lift hoist0 crate0 container-0-0 loadarea container0)
+(drop hoist0 crate1 depot49-1-1 loadarea depot49)
+(drop hoist0 crate0 depot48-1-1 loadarea depot48)
+(go-out hoist0 depot49-1-1 loadarea)
+</action-landmarks-set>
