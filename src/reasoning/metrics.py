@@ -291,9 +291,9 @@ def metrics_by_attempt_to_table(df: pd.DataFrame, experiment_path: str):
         'ordered_landmark_explicit': 'Ordered Landmarks',
         'ordered_landmark_omitted': 'Ordered Landmarks (Omitted)'
     }
-    
+    from reasoning.prompt import get_tag 
     # --- LaTeX Header Generation ---
-    template_headers = [template_name_map.get(t, t.replace('_', ' ').title()) for t in templates]
+    template_headers = [get_tag(t) for t in templates]
     template_header_str = ' & '.join([f"\\multicolumn{{2}}{{c}}{{{name}}}" for name in template_headers])
     
     metric_header_str = ' & '.join(["Coverage & Landmarks"] * num_templates)
@@ -341,7 +341,7 @@ def metrics_by_attempt_to_table(df: pd.DataFrame, experiment_path: str):
         "% In your LaTeX preamble, use: \\usepackage{graphicx}, \\usepackage{multirow}, \\usepackage{booktabs}\n"
         "\\begin{table}[H] % Using [H] from 'float' package to place table here\n"
         "\\centering\n"
-        "\\scalebox{0.7}{\n"
+        "\\scalebox{0.6}{\n"
         f"{full_latex_string}\n"
         "}\n"
         "\\caption{Metrics by Attempt}\n"

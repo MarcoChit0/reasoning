@@ -4,7 +4,7 @@ import tqdm
 import os
 import reasoning.models as models
 from reasoning.task import Task, get_tasks
-from reasoning.prompt import get_prompt_generator, PromptBuilder
+from reasoning.prompt import get_prompt_builder, PromptBuilder
 from reasoning.utils import from_config
 import logging
 from reasoning.settings import EXPERIMENTS_DIR, SAMPLE_FILE_NAME, PROMPT_FILE_NAME
@@ -62,7 +62,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         prompt_log_file = os.path.join(instance_dir, PROMPT_FILE_NAME)
         try:
             # Build the prompt
-            prompt_builder : PromptBuilder = get_prompt_generator(template)
+            prompt_builder : PromptBuilder = get_prompt_builder(template)
             prompt = prompt_builder.build(task)
 
             # Save the prompt and its metadata to prompt.log

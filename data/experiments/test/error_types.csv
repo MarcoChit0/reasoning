@@ -1,0 +1,7 @@
+experiment,model,template,domain,Error: Plan failed to execute.,Total
+test,gemini-thinking,delete_relaxed_plan,blocksworld,1,1
+test,gemini-thinking,nonordered_landmarks,blocksworld,1,1
+test,gemini-thinking,ordered_landmarks_explicit,blocksworld,1,1
+test,gemini-thinking,ordered_landmarks_omitted,blocksworld,1,1
+test,gemini-thinking,pddl,blocksworld,1,1
+Total,,,,5,5

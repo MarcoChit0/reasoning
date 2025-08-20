@@ -1,0 +1,17 @@
+% In your LaTeX preamble, use: \usepackage{graphicx}, \usepackage{multirow}, \usepackage{booktabs}
+\begin{table}[H] % Using [H] from 'float' package to place table here
+\centering
+\scalebox{0.6}{
+\begin{tabular}{lll|cccccccccc}
+\toprule
+domain & model & attempt & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{Delete Relaxation} & \multicolumn{2}{c}{Non-Ordered Landmarks} & \multicolumn{2}{c}{Ordered Landmarks} & \multicolumn{2}{c}{Ordered Landmarks (Omitted)} \\
+\cmidrule(lr){4-13}
+& & & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks \\
+\midrule
+\multirow[t]{1}{*}{blocksworld} & \multirow[t]{1}{*}{gemini-thinking} & 1 & 0.00 & 1.00 & 0.00 & 0.85 & 0.00 & 1.00 & 0.00 & 1.00 & 0.00 & 0.98 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Metrics by Attempt}
+\label{tab:metrics_by_attempt}
+\end{table}

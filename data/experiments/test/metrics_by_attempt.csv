@@ -1,0 +1,6 @@
+experiment,domain,model,template,attempt,total_instances,coverage,landmarks
+test,blocksworld,gemini-thinking,delete_relaxed_plan,1,1,0.0,0.85
+test,blocksworld,gemini-thinking,nonordered_landmarks,1,1,0.0,1.0
+test,blocksworld,gemini-thinking,ordered_landmarks_explicit,1,1,0.0,1.0
+test,blocksworld,gemini-thinking,ordered_landmarks_omitted,1,1,0.0,0.98
+test,blocksworld,gemini-thinking,pddl,1,1,0.0,1.0

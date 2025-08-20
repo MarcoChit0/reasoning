@@ -252,15 +252,18 @@ $plan
 
 delete_relaxed_plan_prompt_builder = DeleteRelaxedPlanPromptBuilder(template="delete_relaxed_plan", tag="Delete Relaxation")
 
-def get_prompt_generator(template: str) -> PromptBuilder:
-    available_prompt_generators = [
+def get_prompt_builder(template: str) -> PromptBuilder:
+    available_prompt_builders = [
         pddl_prompt_builder,
         nonordered_landmarks_prompt_builder,
         ordered_landmarks_omitted_prompt_builder,
         ordered_landmarks_explicit_prompt_builder,
         delete_relaxed_plan_prompt_builder
     ]
-    for prompt_generator in available_prompt_generators:
-        if prompt_generator.template == template:
-            return prompt_generator
-    raise ValueError(f"No prompt generator found for template: {template}")
+    for prompt_builder in available_prompt_builders:
+        if prompt_builder.template == template:
+            return prompt_builder
+    raise ValueError(f"No prompt builder found for template: {template}")
+
+def get_tag(template: str) -> str:
+    return get_prompt_builder(template).tag
