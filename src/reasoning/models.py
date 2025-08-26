@@ -39,7 +39,7 @@ class GoogleModel(Model):
                     contents=prompt,
                     config=generation_config,
                 )
-                if response and response.candidates:
+                if response and response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
                     generated = True
             except Exception as e:
                 chances -= 1
