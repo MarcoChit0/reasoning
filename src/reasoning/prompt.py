@@ -105,21 +105,24 @@ $plan
 pddl_prompt_builder = PromptBuilder(template="pddl", tag="-")
 
 class LandmarksPromptBuilder(PromptBuilder):
-    def __init__(self, template: str, tag: str, ordered:bool, explicit:bool, **kwargs):
-        self.ordered = ordered
-        self.explicit = explicit
+    def __init__(self, template: str, tag: str, ordered:bool, style:str | None = None, **kwargs):
+        self.ordered : bool = ordered
+        self.style : str | None = style
         super().__init__(template, tag, **kwargs)
-        if self.explicit and not self.ordered:
+        if not self.ordered and self.style and self.style == "explicit":
             raise ValueError("For using expliciting landmark order, they should be ordered")
     @property
     def description_template(self) -> Template:
-        if self.explicit:
-            order = """The action landmarks are provided in a partial order; this means that each landmark earlier in the list must appear before in the plan than other landmarks later in the list. 
+        order = """Note that the action landmarks are provided in arbitrary order and do not necessarily reflect the order in which they must appear in the plan. 
+However, every valid plan must include all action landmarks at some point during execution."""
+        if self.style:
+            if self.style == "explicit":
+                order = """The action landmarks are provided in a partial order; this means that each landmark earlier in the list must appear before in the plan than other landmarks later in the list. 
 Note that there could be other actions that must appear between landmarks in the plan. Also note that the order only needs to be respected for the first appearance of each landmark in the plan.
 Every valid plan must include all action landmarks at some point during execution."""
-        else:
-            order = """Note that the action landmarks are provided in arbitrary order and do not necessarily reflect the order in which they must appear in the plan. 
-However, every valid plan must include all action landmarks at some point during execution."""
+            elif self.style == "exact":
+                order = """The action landmarks are provided in the exact order in which they must appear in the plan.
+Every valid plan must include all action landmarks at some point during execution."""
 
         return Template(f"""<problem-description-with-landmarks>
 You are a highly skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. 
@@ -186,11 +189,13 @@ $plan
             self.metadata[task]["action_landmarks"] = self.data[task]["action_landmarks"]
             self.metadata[task]["num_action_landmarks"] = len(landmarks)
 
-nonordered_landmarks_prompt_builder = LandmarksPromptBuilder(template="nonordered_landmarks", tag="Non-Ordered Landmarks", ordered=False, explicit=False)
+nonordered_landmarks_prompt_builder = LandmarksPromptBuilder(template="nonordered_landmarks", tag="Non-Ordered Landmarks", ordered=False)
 
-ordered_landmarks_omitted_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_omitted", tag="Ordered Landmarks (Omitted)", ordered=True, explicit=False)
+ordered_landmarks_omitted_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_omitted", tag="Ordered Landmarks (Omitted)", ordered=True)
 
-ordered_landmarks_explicit_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_explicit", tag="Ordered Landmarks", ordered=True, explicit=True)
+ordered_landmarks_explicit_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_explicit", tag="Ordered Landmarks", ordered=True, style="explicit")
+
+ordered_landmarks_exact_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_exact", tag="Ordered Landmarks (Exact)", ordered=True, style="exact")
 
 class DeleteRelaxedPlanPromptBuilder(PromptBuilder):
     @property
@@ -258,6 +263,7 @@ def get_prompt_builder(template: str) -> PromptBuilder:
         nonordered_landmarks_prompt_builder,
         ordered_landmarks_omitted_prompt_builder,
         ordered_landmarks_explicit_prompt_builder,
+        ordered_landmarks_exact_prompt_builder,
         delete_relaxed_plan_prompt_builder
     ]
     for prompt_builder in available_prompt_builders:

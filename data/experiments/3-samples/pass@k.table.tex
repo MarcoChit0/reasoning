@@ -3,28 +3,28 @@
 \begin{tabular}{lll|ccccc}
 \toprule
  &  &  & \multicolumn{5}{c}{templates} \\
- &  &  & pddl & delete\_relaxed\_plan & ordered\_landmark\_explicit & ordered\_landmark\_omitted & random\_new\_landmark \\
+ &  &  & pddl & delete\_relaxed\_plan & nonordered\_landmarks & ordered\_landmarks\_explicit & ordered\_landmarks\_omitted \\
 domain & model & metric &  &  &  &  &  \\
 \midrule
 \multirow[t]{9}{*}{blocksworld} & \multirow[t]{9}{*}{gemini-thinking} & number\_of\_instances & 20 & 20 & 20 & 20 & 20 \\
- &  & correct\_samples & 25 & 13 & 0 & 25 & 24 \\
+ &  & correct\_samples & 25 & 13 & 24 & 47 & 50 \\
  &  & total\_samples & 60 & 60 & 60 & 60 & 60 \\
- &  & number\_of\_used\_landmarks & 44.25 & 47.23 & 48.35 & 48.02 & 47.77 \\
+ &  & number\_of\_used\_landmarks & 44.25 & 47.23 & 47.77 & 48.45 & 48.37 \\
  &  & number\_of\_landmarks & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 \\
- &  & Accuracy & 0.42 & 0.22 & 0.00 & 0.42 & 0.40 \\
- &  & pass-at-1 & 0.42 & 0.22 & 0.00 & 0.42 & 0.40 \\
- &  & pass-at-2 & 0.67 & 0.37 & 0.00 & 0.60 & 0.63 \\
- &  & pass-at-3 & 0.80 & 0.45 & 0.00 & 0.70 & 0.80 \\
+ &  & Accuracy & 0.42 & 0.22 & 0.40 & 0.78 & 0.83 \\
+ &  & pass-at-1 & 0.42 & 0.22 & 0.40 & 0.78 & 0.83 \\
+ &  & pass-at-2 & 0.67 & 0.37 & 0.63 & 0.90 & 0.93 \\
+ &  & pass-at-3 & 0.80 & 0.45 & 0.80 & 0.95 & 0.95 \\
 \cline{1-8} \cline{2-8}
 \multirow[t]{9}{*}{logistics} & \multirow[t]{9}{*}{gemini-thinking} & number\_of\_instances & 20 & 20 & 20 & 20 & 20 \\
- &  & correct\_samples & 28 & 22 & 44 & 40 & 30 \\
+ &  & correct\_samples & 28 & 22 & 30 & 44 & 40 \\
  &  & total\_samples & 60 & 60 & 60 & 60 & 60 \\
- &  & number\_of\_used\_landmarks & 83.75 & 95.37 & 96.88 & 98.08 & 96.85 \\
+ &  & number\_of\_used\_landmarks & 83.75 & 95.37 & 96.85 & 96.88 & 98.08 \\
  &  & number\_of\_landmarks & 98.90 & 98.90 & 98.90 & 98.90 & 98.90 \\
- &  & Accuracy & 0.47 & 0.37 & 0.73 & 0.67 & 0.50 \\
- &  & pass-at-1 & 0.47 & 0.37 & 0.73 & 0.67 & 0.50 \\
- &  & pass-at-2 & 0.65 & 0.57 & 0.92 & 0.87 & 0.73 \\
- &  & pass-at-3 & 0.75 & 0.70 & 1.00 & 0.95 & 0.85 \\
+ &  & Accuracy & 0.47 & 0.37 & 0.50 & 0.73 & 0.67 \\
+ &  & pass-at-1 & 0.47 & 0.37 & 0.50 & 0.73 & 0.67 \\
+ &  & pass-at-2 & 0.65 & 0.57 & 0.73 & 0.92 & 0.87 \\
+ &  & pass-at-3 & 0.75 & 0.70 & 0.85 & 1.00 & 0.95 \\
 \cline{1-8} \cline{2-8}
 \bottomrule
 \end{tabular}

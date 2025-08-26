@@ -1,19 +1,19 @@
 % In your LaTeX preamble, make sure you have: \usepackage{graphicx}
 \scalebox{0.6}{
-\begin{tabular}{lll|ccccc}
+\begin{tabular}{lll|ccc}
 \toprule
- &  &  & \multicolumn{5}{c}{templates} \\
- &  &  & pddl & delete\_relaxed\_plan & nonordered\_landmarks & ordered\_landmarks\_explicit & ordered\_landmarks\_omitted \\
-domain & model & metric &  &  &  &  &  \\
+ &  &  & \multicolumn{3}{c}{templates} \\
+ &  &  & pddl & delete\_relaxed\_plan & nonordered\_landmarks \\
+domain & model & metric &  &  &  \\
 \midrule
-\multirow[t]{7}{*}{blocksworld} & \multirow[t]{7}{*}{gemini-thinking} & number\_of\_instances & 1 & 1 & 1 & 1 & 1 \\
- &  & correct\_samples & 0 & 0 & 0 & 0 & 0 \\
- &  & total\_samples & 1 & 1 & 1 & 1 & 1 \\
- &  & number\_of\_used\_landmarks & 59.00 & 50.00 & 59.00 & 59.00 & 58.00 \\
- &  & number\_of\_landmarks & 59.00 & 59.00 & 59.00 & 59.00 & 59.00 \\
- &  & Accuracy & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
- &  & pass-at-1 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
-\cline{1-8} \cline{2-8}
+\multirow[t]{7}{*}{blocksworld} & \multirow[t]{7}{*}{gemini-thinking} & number\_of\_instances & 1 & 1 & 1 \\
+ &  & correct\_samples & 0 & 0 & 0 \\
+ &  & total\_samples & 1 & 1 & 1 \\
+ &  & number\_of\_used\_landmarks & 59.00 & 50.00 & 59.00 \\
+ &  & number\_of\_landmarks & 59.00 & 59.00 & 59.00 \\
+ &  & Accuracy & 0.00 & 0.00 & 0.00 \\
+ &  & pass-at-1 & 0.00 & 0.00 & 0.00 \\
+\cline{1-6} \cline{2-6}
 \bottomrule
 \end{tabular}
 }

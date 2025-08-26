@@ -1,6 +1,4 @@
 ,experiment,model,template,domain,instance,sample_id,valid,error,num_action_landmarks,num_action_landmarks_used
-0,test,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
-1,test,gemini-thinking,delete_relaxed_plan,blocksworld,p44,1,False,Error: Plan failed to execute.,59,50
-2,test,gemini-thinking,nonordered_landmarks,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
-3,test,gemini-thinking,pddl,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
-4,test,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,1,False,Error: Plan failed to execute.,59,58
+0,test,gemini-thinking,delete_relaxed_plan,blocksworld,p44,1,False,Error: Plan failed to execute.,59,50
+1,test,gemini-thinking,nonordered_landmarks,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
+2,test,gemini-thinking,pddl,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59

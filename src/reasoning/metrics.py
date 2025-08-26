@@ -259,6 +259,9 @@ def metrics_by_attempt_to_table(df: pd.DataFrame, experiment_path: str):
     )
 
     table_df = table_df.swaplevel(0, 1, axis=1)
+    
+    # --- FIX: Sort the columns to ensure a consistent order ---
+    table_df.sort_index(axis=1, inplace=True)
 
     # --- 2. Define the exact column order and names (MODIFIED SECTION) ---
     
@@ -284,13 +287,6 @@ def metrics_by_attempt_to_table(df: pd.DataFrame, experiment_path: str):
     column_format = 'lll|' + 'cc' * num_templates
 
     # Define the new display names for the templates (MODIFIED SECTION)
-    template_name_map = {
-        'pddl': '-',
-        'random_new_landmark': 'Non-Ordered Landmarks',
-        'delete_relaxed_plan': 'Delete Relaxation',
-        'ordered_landmark_explicit': 'Ordered Landmarks',
-        'ordered_landmark_omitted': 'Ordered Landmarks (Omitted)'
-    }
     from reasoning.prompt import get_tag 
     # --- LaTeX Header Generation ---
     template_headers = [get_tag(t) for t in templates]
