@@ -1,0 +1,683 @@
+[2025-08-26 18:47:04.633006] Generating response for sample 3.
+[2025-08-26 18:48:56.089845] Response for sample 3 generated successfully.
+[2025-08-26 18:48:56.089870] Response:
+<response>
+<plan>
+(load-truck p8 t2 l2-2)
+(load-truck p5 t2 l2-2)
+(load-truck p18 t2 l2-2)
+(load-truck p13 t0 l0-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p8 t2 l2-0)
+(load-truck p19 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p5 t2 l2-1)
+(load-truck p20 t2 l2-1)
+(load-truck p10 t2 l2-1)
+(drive-truck t0 l0-0 l0-2 c0)
+(load-truck p6 t0 l0-2)
+(load-truck p15 t0 l0-2)
+(unload-truck p13 t0 l0-2)
+(drive-truck t0 l0-2 l0-1 c0)
+(load-truck p3 t0 l0-1)
+(load-truck p2 t0 l0-1)
+(load-truck p16 t0 l0-1)
+(unload-truck p15 t0 l0-1)
+(load-truck p14 t0 l0-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p18 t2 l2-0)
+(unload-truck p10 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p20 t2 l2-2)
+(unload-truck p19 t2 l2-2)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p6 t0 l0-0)
+(unload-truck p3 t0 l0-0)
+(unload-truck p2 t0 l0-0)
+(unload-truck p16 t0 l0-0)
+(unload-truck p14 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p7 a0 l0-0)
+(load-airplane p4 a0 l0-0)
+(load-airplane p3 a0 l0-0)
+(load-airplane p22 a0 l0-0)
+(load-airplane p17 a0 l0-0)
+(load-airplane p16 a0 l0-0)
+(load-airplane p14 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p8 a0 l2-0)
+(unload-airplane p3 a0 l2-0)
+(unload-airplane p22 a0 l2-0)
+(load-airplane p21 a0 l2-0)
+(load-airplane p18 a0 l2-0)
+(unload-airplane p17 a0 l2-0)
+(unload-airplane p16 a0 l2-0)
+(load-airplane p10 a0 l2-0)
+(load-airplane p0 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p8 a0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p8 t0 l0-0) ; This action assumes t0 is at l0-0. After (drive-truck t0 l0-0 l0-1 c0), t0 is at l0-1. I must correct this.
+; Corrected sequence from landmark 44:
+; (unload-airplane p8 a0 l0-0) (p8 is at l0-0, a0 is at l0-0)
+; current t0 is at l0-1 (from landmark 45 pre-actions below)
+; Need to bring t0 back to l0-0 before loading p8.
+; Add: (drive-truck t0 l0-1 l0-0 c0)
+; Then: (load-truck p8 t0 l0-0)
+; Then: (drive-truck t0 l0-0 l0-1 c0)
+; Then: (unload-truck p8 t0 l0-1)
+
+; Let's restart from Landmark 43, being careful with truck t0 location.
+; State before L43: t0@l0-0, a0@l2-0, p8 in a0.
+(fly-airplane a0 l2-0 l0-0) ; a0@l0-0
+(unload-airplane p8 a0 l0-0) ; p8@l0-0, a0@l0-0
+(load-truck p8 t0 l0-0) ; t0@l0-0, p8@l0-0, so load is fine. p8 in t0.
+(drive-truck t0 l0-0 l0-1 c0) ; t0@l0-1
+(unload-truck p8 t0 l0-1) ; p8@l0-1, t0@l0-1. Goal for p8 achieved.
+(unload-airplane p21 a0 l0-0) ; p21@l0-0
+(unload-airplane p18 a0 l0-0) ; p18@l0-0
+(load-airplane p1 a0 l0-0) ; p1@l0-0, a0@l0-0. p1 in a0.
+(fly-airplane a0 l0-0 l1-0) ; a0@l1-0
+(drive-truck t1 l1-1 l1-0 c1) ; t1@l1-0
+(unload-airplane p7 a0 l1-0) ; p7@l1-0, a0@l1-0
+(load-truck p7 t1 l1-0) ; p7 in t1.
+(unload-airplane p4 a0 l1-0) ; p4@l1-0
+(load-truck p4 t1 l1-0) ; p4 in t1.
+(unload-airplane p14 a0 l1-0) ; p14@l1-0
+(load-truck p14 t1 l1-0) ; p14 in t1.
+(unload-airplane p10 a0 l1-0) ; p10@l1-0
+(load-truck p10 t1 l1-0) ; p10 in t1.
+(unload-airplane p1 a0 l1-0) ; p1@l1-0
+(load-truck p1 t1 l1-0) ; p1 in t1.
+(unload-airplane p0 a0 l1-0) ; p0@l1-0
+(load-truck p0 t1 l1-0) ; p0 in t1.
+(drive-truck t1 l1-0 l1-1 c1) ; t1@l1-1
+(unload-truck p7 t1 l1-1) ; p7@l1-1. Goal for p7.
+(unload-truck p1 t1 l1-1) ; p1@l1-1. Goal for p1.
+(drive-truck t1 l1-1 l1-2 c1) ; t1@l1-2
+(unload-truck p4 t1 l1-2) ; p4@l1-2. Goal for p4.
+(unload-truck p14 t1 l1-2) ; p14@l1-2. Goal for p14.
+(unload-truck p10 t1 l1-2) ; p10@l1-2. Goal for p10.
+(unload-truck p0 t1 l1-2) ; p0@l1-2. Goal for p0.
+(drive-truck t2 l2-2 l2-0 c2) ; t2@l2-0 (This is redundant or out of order. t2 should be at l2-2 from landmark 21 or subsequent movement.
+; Let's trace t2 again:
+; L21: (unload-truck p19 t2 l2-2) -> t2@l2-2. Correct.
+; L67: (load-truck p3 t2 l2-0). Pre-condition: t2@l2-0. Current: t2@l2-2.
+; So, need (drive-truck t2 l2-2 l2-0 c2) BEFORE (load-truck p3 t2 l2-0)
+
+This implies I need to carefully re-construct the plan from scratch by strictly following landmark order and inserting minimal prerequisites.
+
+Let's re-generate.
+
+**State Tracking Table (simplified):**
+`at(obj, loc)`
+`in(obj, carrier)`
+`at(truck, loc)`
+`at(airplane, loc)`
+
+**Initial State:**
+t0@l0-0, t1@l1-1, t2@l2-2
+a0@l1-0
+p0@l2-0, p1@l0-0, p2@l0-1, p3@l0-1, p4@l0-0, p5@l2-2, p6@l0-2, p7@l0-0, p8@l2-2, p9@l2-2, p10@l2-1, p11@l1-2, p12@l2-0, p13@l0-0, p14@l0-1, p15@l0-2, p16@l0-1, p17@l0-0, p18@l2-2, p19@l2-0, p20@l2-1, p21@l2-0, p22@l0-0
+
+---
+**Plan Generation:**
+
+1.  **(load-truck p8 t2 l2-2)**
+    *   Pre: t2@l2-2, p8@l2-2. (OK)
+    *   Effect: p8 in t2, not p8@l2-2.
+    *   Plan: (load-truck p8 t2 l2-2)
+
+2.  **(load-truck p5 t2 l2-2)**
+    *   Pre: t2@l2-2, p5@l2-2. (OK)
+    *   Effect: p5 in t2, not p5@l2-2.
+    *   Plan: (load-truck p5 t2 l2-2)
+
+3.  **(load-truck p18 t2 l2-2)**
+    *   Pre: t2@l2-2, p18@l2-2. (OK)
+    *   Effect: p18 in t2, not p18@l2-2.
+    *   Plan: (load-truck p18 t2 l2-2)
+
+4.  **(load-truck p13 t0 l0-0)**
+    *   Pre: t0@l0-0, p13@l0-0. (OK)
+    *   Effect: p13 in t0, not p13@l0-0.
+    *   Plan: (load-truck p13 t0 l0-0)
+
+5.  **(unload-truck p8 t2 l2-0)**
+    *   Pre: t2@l2-0, p8 in t2.
+    *   Current: t2@l2-2. p8 in t2.
+    *   Need: (drive-truck t2 l2-2 l2-0 c2)
+    *   Effect of drive: t2@l2-0, not t2@l2-2.
+    *   Effect of landmark: not p8 in t2, p8@l2-0.
+    *   Plan: (drive-truck t2 l2-2 l2-0 c2) (unload-truck p8 t2 l2-0)
+
+6.  **(load-truck p19 t2 l2-0)**
+    *   Pre: t2@l2-0, p19@l2-0. (OK)
+    *   Effect: p19 in t2, not p19@l2-0.
+    *   Plan: (load-truck p19 t2 l2-0)
+
+7.  **(unload-truck p5 t2 l2-1)**
+    *   Pre: t2@l2-1, p5 in t2.
+    *   Current: t2@l2-0. p5 in t2.
+    *   Need: (drive-truck t2 l2-0 l2-1 c2)
+    *   Effect of drive: t2@l2-1, not t2@l2-0.
+    *   Effect of landmark: not p5 in t2, p5@l2-1.
+    *   Plan: (drive-truck t2 l2-0 l2-1 c2) (unload-truck p5 t2 l2-1)
+
+8.  **(load-truck p20 t2 l2-1)**
+    *   Pre: t2@l2-1, p20@l2-1. (OK)
+    *   Effect: p20 in t2, not p20@l2-1.
+    *   Plan: (load-truck p20 t2 l2-1)
+
+9.  **(load-truck p10 t2 l2-1)**
+    *   Pre: t2@l2-1, p10@l2-1. (OK)
+    *   Effect: p10 in t2, not p10@l2-1.
+    *   Plan: (load-truck p10 t2 l2-1)
+
+10. **(load-truck p6 t0 l0-2)**
+    *   Pre: t0@l0-2, p6@l0-2.
+    *   Current: t0@l0-0. p6@l0-2.
+    *   Need: (drive-truck t0 l0-0 l0-2 c0)
+    *   Effect of drive: t0@l0-2, not t0@l0-0.
+    *   Effect of landmark: p6 in t0, not p6@l0-2.
+    *   Plan: (drive-truck t0 l0-0 l0-2 c0) (load-truck p6 t0 l0-2)
+
+11. **(load-truck p15 t0 l0-2)**
+    *   Pre: t0@l0-2, p15@l0-2. (OK)
+    *   Effect: p15 in t0, not p15@l0-2.
+    *   Plan: (load-truck p15 t0 l0-2)
+
+12. **(unload-truck p13 t0 l0-2)**
+    *   Pre: t0@l0-2, p13 in t0. (OK)
+    *   Effect: not p13 in t0, p13@l0-2. (Goal p13 achieved)
+    *   Plan: (unload-truck p13 t0 l0-2)
+
+13. **(load-truck p3 t0 l0-1)**
+    *   Pre: t0@l0-1, p3@l0-1.
+    *   Current: t0@l0-2. p3@l0-1.
+    *   Need: (drive-truck t0 l0-2 l0-1 c0)
+    *   Effect of drive: t0@l0-1, not t0@l0-2.
+    *   Effect of landmark: p3 in t0, not p3@l0-1.
+    *   Plan: (drive-truck t0 l0-2 l0-1 c0) (load-truck p3 t0 l0-1)
+
+14. **(load-truck p2 t0 l0-1)**
+    *   Pre: t0@l0-1, p2@l0-1. (OK)
+    *   Effect: p2 in t0, not p2@l0-1.
+    *   Plan: (load-truck p2 t0 l0-1)
+
+15. **(load-truck p16 t0 l0-1)**
+    *   Pre: t0@l0-1, p16@l0-1. (OK)
+    *   Effect: p16 in t0, not p16@l0-1.
+    *   Plan: (load-truck p16 t0 l0-1)
+
+16. **(unload-truck p15 t0 l0-1)**
+    *   Pre: t0@l0-1, p15 in t0. (OK)
+    *   Effect: not p15 in t0, p15@l0-1. (Goal p15 achieved)
+    *   Plan: (unload-truck p15 t0 l0-1)
+
+17. **(load-truck p14 t0 l0-1)**
+    *   Pre: t0@l0-1, p14@l0-1. (OK)
+    *   Effect: p14 in t0, not p14@l0-1.
+    *   Plan: (load-truck p14 t0 l0-1)
+
+18. **(unload-truck p18 t2 l2-0)**
+    *   Pre: t2@l2-0, p18 in t2.
+    *   Current: t2@l2-1. p18 in t2.
+    *   Need: (drive-truck t2 l2-1 l2-0 c2)
+    *   Effect of drive: t2@l2-0, not t2@l2-1.
+    *   Effect of landmark: not p18 in t2, p18@l2-0.
+    *   Plan: (drive-truck t2 l2-1 l2-0 c2) (unload-truck p18 t2 l2-0)
+
+19. **(unload-truck p10 t2 l2-0)**
+    *   Pre: t2@l2-0, p10 in t2. (OK)
+    *   Effect: not p10 in t2, p10@l2-0.
+    *   Plan: (unload-truck p10 t2 l2-0)
+
+20. **(unload-truck p20 t2 l2-2)**
+    *   Pre: t2@l2-2, p20 in t2.
+    *   Current: t2@l2-0. p20 in t2.
+    *   Need: (drive-truck t2 l2-0 l2-2 c2)
+    *   Effect of drive: t2@l2-2, not t2@l2-0.
+    *   Effect of landmark: not p20 in t2, p20@l2-2. (Goal p20 achieved)
+    *   Plan: (drive-truck t2 l2-0 l2-2 c2) (unload-truck p20 t2 l2-2)
+
+21. **(unload-truck p19 t2 l2-2)**
+    *   Pre: t2@l2-2, p19 in t2. (OK)
+    *   Effect: not p19 in t2, p19@l2-2. (Goal p19 achieved)
+    *   Plan: (unload-truck p19 t2 l2-2)
+
+22. **(unload-truck p6 t0 l0-0)**
+    *   Pre: t0@l0-0, p6 in t0.
+    *   Current: t0@l0-1. p6 in t0.
+    *   Need: (drive-truck t0 l0-1 l0-0 c0)
+    *   Effect of drive: t0@l0-0, not t0@l0-1.
+    *   Effect of landmark: not p6 in t0, p6@l0-0. (Goal p6 achieved)
+    *   Plan: (drive-truck t0 l0-1 l0-0 c0) (unload-truck p6 t0 l0-0)
+
+23. **(unload-truck p3 t0 l0-0)**
+    *   Pre: t0@l0-0, p3 in t0. (OK)
+    *   Effect: not p3 in t0, p3@l0-0.
+    *   Plan: (unload-truck p3 t0 l0-0)
+
+24. **(unload-truck p2 t0 l0-0)**
+    *   Pre: t0@l0-0, p2 in t0. (OK)
+    *   Effect: not p2 in t0, p2@l0-0. (Goal p2 achieved)
+    *   Plan: (unload-truck p2 t0 l0-0)
+
+25. **(unload-truck p16 t0 l0-0)**
+    *   Pre: t0@l0-0, p16 in t0. (OK)
+    *   Effect: not p16 in t0, p16@l0-0.
+    *   Plan: (unload-truck p16 t0 l0-0)
+
+26. **(unload-truck p14 t0 l0-0)**
+    *   Pre: t0@l0-0, p14 in t0. (OK)
+    *   Effect: not p14 in t0, p14@l0-0.
+    *   Plan: (unload-truck p14 t0 l0-0)
+
+27. **(load-airplane p7 a0 l0-0)**
+    *   Pre: a0@l0-0, p7@l0-0.
+    *   Current: a0@l1-0. p7@l0-0.
+    *   Need: (fly-airplane a0 l1-0 l0-0)
+    *   Effect of fly: a0@l0-0, not a0@l1-0.
+    *   Effect of landmark: p7 in a0, not p7@l0-0.
+    *   Plan: (fly-airplane a0 l1-0 l0-0) (load-airplane p7 a0 l0-0)
+
+28. **(load-airplane p4 a0 l0-0)**
+    *   Pre: a0@l0-0, p4@l0-0. (OK)
+    *   Effect: p4 in a0, not p4@l0-0.
+    *   Plan: (load-airplane p4 a0 l0-0)
+
+29. **(load-airplane p3 a0 l0-0)**
+    *   Pre: a0@l0-0, p3@l0-0. (OK)
+    *   Effect: p3 in a0, not p3@l0-0.
+    *   Plan: (load-airplane p3 a0 l0-0)
+
+30. **(load-airplane p22 a0 l0-0)**
+    *   Pre: a0@l0-0, p22@l0-0. (OK)
+    *   Effect: p22 in a0, not p22@l0-0.
+    *   Plan: (load-airplane p22 a0 l0-0)
+
+31. **(load-airplane p17 a0 l0-0)**
+    *   Pre: a0@l0-0, p17@l0-0. (OK)
+    *   Effect: p17 in a0, not p17@l0-0.
+    *   Plan: (load-airplane p17 a0 l0-0)
+
+32. **(load-airplane p16 a0 l0-0)**
+    *   Pre: a0@l0-0, p16@l0-0. (OK)
+    *   Effect: p16 in a0, not p16@l0-0.
+    *   Plan: (load-airplane p16 a0 l0-0)
+
+33. **(load-airplane p14 a0 l0-0)**
+    *   Pre: a0@l0-0, p14@l0-0. (OK)
+    *   Effect: p14 in a0, not p14@l0-0.
+    *   Plan: (load-airplane p14 a0 l0-0)
+
+34. **(load-airplane p8 a0 l2-0)**
+    *   Pre: a0@l2-0, p8@l2-0.
+    *   Current: a0@l0-0. p8@l0-0. (Note: p8 was unloaded at l0-0 at step 23, not l2-0) **This is a problem.**
+    *   The landmark suggests p8 is at l2-0. But my plan put p8 at l0-0. This means the landmark is based on some intermediate state or a different sub-plan for p8.
+    *   Let's check the goals for p8: (at p8 l0-1).
+    *   My trace had:
+        *   L1 (load-truck p8 t2 l2-2) -> p8 in t2
+        *   L5 (unload-truck p8 t2 l2-0) -> p8@l2-0 (at this point, the landmark implies p8 has reached l2-0, which is an intermediate step on its way to l0-1)
+    *   Okay, so p8 is currently at l2-0. So L34 is valid based on the current state.
+
+    *   Need: (fly-airplane a0 l0-0 l2-0)
+    *   Effect of fly: a0@l2-0, not a0@l0-0.
+    *   Effect of landmark: p8 in a0, not p8@l2-0.
+    *   Plan: (fly-airplane a0 l0-0 l2-0) (load-airplane p8 a0 l2-0)
+
+35. **(unload-airplane p3 a0 l2-0)**
+    *   Pre: a0@l2-0, p3 in a0. (OK)
+    *   Effect: not p3 in a0, p3@l2-0.
+    *   Plan: (unload-airplane p3 a0 l2-0)
+
+36. **(unload-airplane p22 a0 l2-0)**
+    *   Pre: a0@l2-0, p22 in a0. (OK)
+    *   Effect: not p22 in a0, p22@l2-0.
+    *   Plan: (unload-airplane p22 a0 l2-0)
+
+37. **(load-airplane p21 a0 l2-0)**
+    *   Pre: a0@l2-0, p21@l2-0. (OK)
+    *   Effect: p21 in a0, not p21@l2-0.
+    *   Plan: (load-airplane p21 a0 l2-0)
+
+38. **(load-airplane p18 a0 l2-0)**
+    *   Pre: a0@l2-0, p18@l2-0. (OK)
+    *   Effect: p18 in a0, not p18@l2-0.
+    *   Plan: (load-airplane p18 a0 l2-0)
+
+39. **(unload-airplane p17 a0 l2-0)**
+    *   Pre: a0@l2-0, p17 in a0. (OK)
+    *   Effect: not p17 in a0, p17@l2-0.
+    *   Plan: (unload-airplane p17 a0 l2-0)
+
+40. **(unload-airplane p16 a0 l2-0)**
+    *   Pre: a0@l2-0, p16 in a0. (OK)
+    *   Effect: not p16 in a0, p16@l2-0.
+    *   Plan: (unload-airplane p16 a0 l2-0)
+
+41. **(load-airplane p10 a0 l2-0)**
+    *   Pre: a0@l2-0, p10@l2-0. (OK)
+    *   Effect: p10 in a0, not p10@l2-0.
+    *   Plan: (load-airplane p10 a0 l2-0)
+
+42. **(load-airplane p0 a0 l2-0)**
+    *   Pre: a0@l2-0, p0@l2-0. (OK)
+    *   Effect: p0 in a0, not p0@l2-0.
+    *   Plan: (load-airplane p0 a0 l2-0)
+
+43. **(unload-airplane p8 a0 l0-0)**
+    *   Pre: a0@l0-0, p8 in a0.
+    *   Current: a0@l2-0. p8 in a0.
+    *   Need: (fly-airplane a0 l2-0 l0-0)
+    *   Effect of fly: a0@l0-0, not a0@l2-0.
+    *   Effect of landmark: not p8 in a0, p8@l0-0.
+    *   Plan: (fly-airplane a0 l2-0 l0-0) (unload-airplane p8 a0 l0-0)
+
+44. **(load-truck p8 t0 l0-0)**
+    *   Pre: t0@l0-0, p8@l0-0.
+    *   Current: t0@l0-0. p8@l0-0. (OK)
+    *   Effect: p8 in t0, not p8@l0-0.
+    *   Plan: (load-truck p8 t0 l0-0)
+
+45. **(unload-truck p8 t0 l0-1)**
+    *   Pre: t0@l0-1, p8 in t0.
+    *   Current: t0@l0-0. p8 in t0.
+    *   Need: (drive-truck t0 l0-0 l0-1 c0)
+    *   Effect of drive: t0@l0-1, not t0@l0-0.
+    *   Effect of landmark: not p8 in t0, p8@l0-1. (Goal p8 achieved)
+    *   Plan: (drive-truck t0 l0-0 l0-1 c0) (unload-truck p8 t0 l0-1)
+
+46. **(unload-airplane p21 a0 l0-0)**
+    *   Pre: a0@l0-0, p21 in a0. (OK)
+    *   Effect: not p21 in a0, p21@l0-0. (Goal p21 achieved)
+    *   Plan: (unload-airplane p21 a0 l0-0)
+
+47. **(unload-airplane p18 a0 l0-0)**
+    *   Pre: a0@l0-0, p18 in a0. (OK)
+    *   Effect: not p18 in a0, p18@l0-0. (Goal p18 achieved)
+    *   Plan: (unload-airplane p18 a0 l0-0)
+
+48. **(load-airplane p1 a0 l0-0)**
+    *   Pre: a0@l0-0, p1@l0-0. (OK)
+    *   Effect: p1 in a0, not p1@l0-0.
+    *   Plan: (load-airplane p1 a0 l0-0)
+
+49. **(unload-airplane p7 a0 l1-0)**
+    *   Pre: a0@l1-0, p7 in a0.
+    *   Current: a0@l0-0. p7 in a0.
+    *   Need: (fly-airplane a0 l0-0 l1-0)
+    *   Effect of fly: a0@l1-0, not a0@l0-0.
+    *   Effect of landmark: not p7 in a0, p7@l1-0.
+    *   Plan: (fly-airplane a0 l0-0 l1-0) (unload-airplane p7 a0 l1-0)
+
+50. **(load-truck p7 t1 l1-0)**
+    *   Pre: t1@l1-0, p7@l1-0.
+    *   Current: t1@l1-1. p7@l1-0.
+    *   Need: (drive-truck t1 l1-1 l1-0 c1)
+    *   Effect of drive: t1@l1-0, not t1@l1-1.
+    *   Effect of landmark: p7 in t1, not p7@l1-0.
+    *   Plan: (drive-truck t1 l1-1 l1-0 c1) (load-truck p7 t1 l1-0)
+
+51. **(unload-airplane p4 a0 l1-0)**
+    *   Pre: a0@l1-0, p4 in a0. (OK)
+    *   Effect: not p4 in a0, p4@l1-0.
+    *   Plan: (unload-airplane p4 a0 l1-0)
+
+52. **(load-truck p4 t1 l1-0)**
+    *   Pre: t1@l1-0, p4@l1-0. (OK)
+    *   Effect: p4 in t1, not p4@l1-0.
+    *   Plan: (load-truck p4 t1 l1-0)
+
+53. **(unload-airplane p14 a0 l1-0)**
+    *   Pre: a0@l1-0, p14 in a0. (OK)
+    *   Effect: not p14 in a0, p14@l1-0.
+    *   Plan: (unload-airplane p14 a0 l1-0)
+
+54. **(load-truck p14 t1 l1-0)**
+    *   Pre: t1@l1-0, p14@l1-0. (OK)
+    *   Effect: p14 in t1, not p14@l1-0.
+    *   Plan: (load-truck p14 t1 l1-0)
+
+55. **(unload-airplane p10 a0 l1-0)**
+    *   Pre: a0@l1-0, p10 in a0. (OK)
+    *   Effect: not p10 in a0, p10@l1-0.
+    *   Plan: (unload-airplane p10 a0 l1-0)
+
+56. **(load-truck p10 t1 l1-0)**
+    *   Pre: t1@l1-0, p10@l1-0. (OK)
+    *   Effect: p10 in t1, not p10@l1-0.
+    *   Plan: (load-truck p10 t1 l1-0)
+
+57. **(unload-airplane p1 a0 l1-0)**
+    *   Pre: a0@l1-0, p1 in a0. (OK)
+    *   Effect: not p1 in a0, p1@l1-0.
+    *   Plan: (unload-airplane p1 a0 l1-0)
+
+58. **(load-truck p1 t1 l1-0)**
+    *   Pre: t1@l1-0, p1@l1-0. (OK)
+    *   Effect: p1 in t1, not p1@l1-0.
+    *   Plan: (load-truck p1 t1 l1-0)
+
+59. **(unload-airplane p0 a0 l1-0)**
+    *   Pre: a0@l1-0, p0 in a0. (OK)
+    *   Effect: not p0 in a0, p0@l1-0.
+    *   Plan: (unload-airplane p0 a0 l1-0)
+
+60. **(load-truck p0 t1 l1-0)**
+    *   Pre: t1@l1-0, p0@l1-0. (OK)
+    *   Effect: p0 in t1, not p0@l1-0.
+    *   Plan: (load-truck p0 t1 l1-0)
+
+61. **(unload-truck p7 t1 l1-1)**
+    *   Pre: t1@l1-1, p7 in t1.
+    *   Current: t1@l1-0. p7 in t1.
+    *   Need: (drive-truck t1 l1-0 l1-1 c1)
+    *   Effect of drive: t1@l1-1, not t1@l1-0.
+    *   Effect of landmark: not p7 in t1, p7@l1-1. (Goal p7 achieved)
+    *   Plan: (drive-truck t1 l1-0 l1-1 c1) (unload-truck p7 t1 l1-1)
+
+62. **(unload-truck p1 t1 l1-1)**
+    *   Pre: t1@l1-1, p1 in t1. (OK)
+    *   Effect: not p1 in t1, p1@l1-1. (Goal p1 achieved)
+    *   Plan: (unload-truck p1 t1 l1-1)
+
+63. **(unload-truck p4 t1 l1-2)**
+    *   Pre: t1@l1-2, p4 in t1.
+    *   Current: t1@l1-1. p4 in t1.
+    *   Need: (drive-truck t1 l1-1 l1-2 c1)
+    *   Effect of drive: t1@l1-2, not t1@l1-1.
+    *   Effect of landmark: not p4 in t1, p4@l1-2. (Goal p4 achieved)
+    *   Plan: (drive-truck t1 l1-1 l1-2 c1) (unload-truck p4 t1 l1-2)
+
+64. **(unload-truck p14 t1 l1-2)**
+    *   Pre: t1@l1-2, p14 in t1. (OK)
+    *   Effect: not p14 in t1, p14@l1-2. (Goal p14 achieved)
+    *   Plan: (unload-truck p14 t1 l1-2)
+
+65. **(unload-truck p10 t1 l1-2)**
+    *   Pre: t1@l1-2, p10 in t1. (OK)
+    *   Effect: not p10 in t1, p10@l1-2. (Goal p10 achieved)
+    *   Plan: (unload-truck p10 t1 l1-2)
+
+66. **(unload-truck p0 t1 l1-2)**
+    *   Pre: t1@l1-2, p0 in t1. (OK)
+    *   Effect: not p0 in t1, p0@l1-2. (Goal p0 achieved)
+    *   Plan: (unload-truck p0 t1 l1-2)
+
+67. **(load-truck p3 t2 l2-0)**
+    *   Pre: t2@l2-0, p3@l2-0.
+    *   Current: t2@l2-2. p3@l2-0.
+    *   Need: (drive-truck t2 l2-2 l2-0 c2)
+    *   Effect of drive: t2@l2-0, not t2@l2-2.
+    *   Effect of landmark: p3 in t2, not p3@l2-0.
+    *   Plan: (drive-truck t2 l2-2 l2-0 c2) (load-truck p3 t2 l2-0)
+
+68. **(load-truck p22 t2 l2-0)**
+    *   Pre: t2@l2-0, p22@l2-0. (OK)
+    *   Effect: p22 in t2, not p22@l2-0.
+    *   Plan: (load-truck p22 t2 l2-0)
+
+69. **(load-truck p17 t2 l2-0)**
+    *   Pre: t2@l2-0, p17@l2-0. (OK)
+    *   Effect: p17 in t2, not p17@l2-0.
+    *   Plan: (load-truck p17 t2 l2-0)
+
+70. **(load-truck p16 t2 l2-0)**
+    *   Pre: t2@l2-0, p16@l2-0. (OK)
+    *   Effect: p16 in t2, not p16@l2-0.
+    *   Plan: (load-truck p16 t2 l2-0)
+
+71. **(unload-truck p16 t2 l2-1)**
+    *   Pre: t2@l2-1, p16 in t2.
+    *   Current: t2@l2-0. p16 in t2.
+    *   Need: (drive-truck t2 l2-0 l2-1 c2)
+    *   Effect of drive: t2@l2-1, not t2@l2-0.
+    *   Effect of landmark: not p16 in t2, p16@l2-1. (Goal p16 achieved)
+    *   Plan: (drive-truck t2 l2-0 l2-1 c2) (unload-truck p16 t2 l2-1)
+
+72. **(unload-truck p3 t2 l2-2)**
+    *   Pre: t2@l2-2, p3 in t2.
+    *   Current: t2@l2-1. p3 in t2.
+    *   Need: (drive-truck t2 l2-1 l2-2 c2)
+    *   Effect of drive: t2@l2-2, not t2@l2-1.
+    *   Effect of landmark: not p3 in t2, p3@l2-2. (Goal p3 achieved)
+    *   Plan: (drive-truck t2 l2-1 l2-2 c2) (unload-truck p3 t2 l2-2)
+
+73. **(unload-truck p22 t2 l2-2)**
+    *   Pre: t2@l2-2, p22 in t2. (OK)
+    *   Effect: not p22 in t2, p22@l2-2. (Goal p22 achieved)
+    *   Plan: (unload-truck p22 t2 l2-2)
+
+74. **(unload-truck p17 t2 l2-2)**
+    *   Pre: t2@l2-2, p17 in t2. (OK)
+    *   Effect: not p17 in t2, p17@l2-2. (Goal p17 achieved)
+    *   Plan: (unload-truck p17 t2 l2-2)
+
+Final check of all goals:
+(at p0 l1-2) - Yes (L66)
+(at p1 l1-1) - Yes (L62)
+(at p2 l0-0) - Yes (L24)
+(at p3 l2-2) - Yes (L72)
+(at p4 l1-2) - Yes (L63)
+(at p5 l2-1) - Yes (L7)
+(at p6 l0-0) - Yes (L22)
+(at p7 l1-1) - Yes (L61)
+(at p8 l0-1) - Yes (L45)
+(at p9 l2-2) - Yes (Initial)
+(at p10 l1-2) - Yes (L65)
+(at p11 l1-2) - Yes (Initial)
+(at p12 l2-0) - Yes (Initial)
+(at p13 l0-2) - Yes (L12)
+(at p14 l1-2) - Yes (L64)
+(at p15 l0-1) - Yes (L16)
+(at p16 l2-1) - Yes (L71)
+(at p17 l2-2) - Yes (L74)
+(at p18 l0-0) - Yes (L47)
+(at p19 l2-2) - Yes (L21)
+(at p20 l2-2) - Yes (L20)
+(at p21 l0-0) - Yes (L46)
+(at p22 l2-2) - Yes (L73)
+
+All goals are satisfied. The plan seems correct now.
+
+</plan><plan>
+(load-truck p8 t2 l2-2)
+(load-truck p5 t2 l2-2)
+(load-truck p18 t2 l2-2)
+(load-truck p13 t0 l0-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p8 t2 l2-0)
+(load-truck p19 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p5 t2 l2-1)
+(load-truck p20 t2 l2-1)
+(load-truck p10 t2 l2-1)
+(drive-truck t0 l0-0 l0-2 c0)
+(load-truck p6 t0 l0-2)
+(load-truck p15 t0 l0-2)
+(unload-truck p13 t0 l0-2)
+(drive-truck t0 l0-2 l0-1 c0)
+(load-truck p3 t0 l0-1)
+(load-truck p2 t0 l0-1)
+(load-truck p16 t0 l0-1)
+(unload-truck p15 t0 l0-1)
+(load-truck p14 t0 l0-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p18 t2 l2-0)
+(unload-truck p10 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p20 t2 l2-2)
+(unload-truck p19 t2 l2-2)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p6 t0 l0-0)
+(unload-truck p3 t0 l0-0)
+(unload-truck p2 t0 l0-0)
+(unload-truck p16 t0 l0-0)
+(unload-truck p14 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p7 a0 l0-0)
+(load-airplane p4 a0 l0-0)
+(load-airplane p3 a0 l0-0)
+(load-airplane p22 a0 l0-0)
+(load-airplane p17 a0 l0-0)
+(load-airplane p16 a0 l0-0)
+(load-airplane p14 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p8 a0 l2-0)
+(unload-airplane p3 a0 l2-0)
+(unload-airplane p22 a0 l2-0)
+(load-airplane p21 a0 l2-0)
+(load-airplane p18 a0 l2-0)
+(unload-airplane p17 a0 l2-0)
+(unload-airplane p16 a0 l2-0)
+(load-airplane p10 a0 l2-0)
+(load-airplane p0 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p8 a0 l0-0)
+(load-truck p8 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p8 t0 l0-1)
+(unload-airplane p21 a0 l0-0)
+(unload-airplane p18 a0 l0-0)
+(load-airplane p1 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-airplane p7 a0 l1-0)
+(load-truck p7 t1 l1-0)
+(unload-airplane p4 a0 l1-0)
+(load-truck p4 t1 l1-0)
+(unload-airplane p14 a0 l1-0)
+(load-truck p14 t1 l1-0)
+(unload-airplane p10 a0 l1-0)
+(load-truck p10 t1 l1-0)
+(unload-airplane p1 a0 l1-0)
+(load-truck p1 t1 l1-0)
+(unload-airplane p0 a0 l1-0)
+(load-truck p0 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p7 t1 l1-1)
+(unload-truck p1 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(unload-truck p4 t1 l1-2)
+(unload-truck p14 t1 l1-2)
+(unload-truck p10 t1 l1-2)
+(unload-truck p0 t1 l1-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(load-truck p3 t2 l2-0)
+(load-truck p22 t2 l2-0)
+(load-truck p17 t2 l2-0)
+(load-truck p16 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p16 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p3 t2 l2-2)
+(unload-truck p22 t2 l2-2)
+(unload-truck p17 t2 l2-2)
+</plan>
+</response>
+[2025-08-26 18:48:56.089998] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_exact', 'domain': 'logistics', 'instance': 'p42', 'sample_id': 3, 'num_requests': 1, 'prompt_token_count': 7227, 'candidates_token_count': 12329, 'total_tokens_count': 34573}
+</metadata>
