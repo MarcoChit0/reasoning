@@ -31,6 +31,9 @@ class GoogleModel(Model):
         chances = 3
         generated = False
         num_requests = 0
+        metadata = {}
+        text = ""
+        thought = ""
         while chances > 0 and not generated:
             try:
                 num_requests += 1
@@ -39,8 +42,26 @@ class GoogleModel(Model):
                     contents=prompt,
                     config=generation_config,
                 )
-                if response and response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
-                    generated = True
+                if  response and \
+                    response.candidates and \
+                    response.candidates[0] and \
+                    response.candidates[0].content and \
+                    response.candidates[0].content.parts:
+                        for part in response.candidates[0].content.parts:
+                            if not part.text:
+                                continue
+                            elif part.thought:
+                                thought = part.text
+                            else:
+                                text += part.text
+    
+                        metadata = {            
+                            "num_requests" : num_requests,
+                            "prompt_token_count" : response.usage_metadata.prompt_token_count,
+                            "candidates_token_count" : response.usage_metadata.candidates_token_count,
+                            "total_tokens_count" : response.usage_metadata.total_token_count,
+                        }
+
             except Exception as e:
                 chances -= 1
                 if wait_time == 0:
@@ -53,22 +74,14 @@ class GoogleModel(Model):
 
         if not generated:
             raise RuntimeError("Error generating response.")
+        
+        return {
+            "response": text,
+            "metadata": metadata,
+            "thought" : thought,
+        }
 
         # print(response)
-
-        candidate_response = "".join(part.text for part in response.candidates[0].content.parts)
-    
-        metadata = {            
-            "num_requests" : num_requests,
-            "prompt_token_count" : response.usage_metadata.prompt_token_count,
-            "candidates_token_count" : response.usage_metadata.candidates_token_count,
-            "total_tokens_count" : response.usage_metadata.total_token_count,
-        }
-
-        return {
-            "response": candidate_response,
-            "metadata": metadata
-        }
 
 
 # from transformers import (

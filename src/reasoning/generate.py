@@ -106,6 +106,11 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
                     sample_file.write(f"[{datetime.now()}] Metadata:\n")
                     sample_file.write(f"<metadata>\n{str(metadata)}\n</metadata>\n")
 
+                    if "thought" in response:
+                        thought = response["thought"]
+                        sample_file.write(f"[{datetime.now()}] Thought Process:\n")
+                        sample_file.write(f"<thought>\n{thought}\n</thought>\n")
+
                 except RuntimeError as e:
                     sample_file.write(f"[{datetime.now()}] Error during sample generation: {e}\n")
 
@@ -125,13 +130,27 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         )
 
 if __name__ == "__main__":
-    experiment = "3-samples"
-    samples = 3
+    experiment = "ablation"
+    samples = 1
+    instances = 1
     templates = ["ordered_landmarks_feasible"]
-    domains = ["blocksworld", "logistics"]
+    tips = [
+        # "unique", 
+        # "optimal", 
+        # "other_actions", 
+        # "first_appearance", 
+        # "use_all", 
+        # "other_actions+first_appearance+use_all", 
+        # "unique+other_actions+first_appearance+use_all", 
+        # "optimal+other_actions+first_appearance+use_all", 
+        "unique+optimal+other_actions+first_appearance+use_all"
+    ]
+    domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]
+    if tips:
+        templates = [template + f"[{tip}]" for tip in tips for template in templates]
 
     for config_path in config_paths:
         config = from_config(config_path)
@@ -142,11 +161,11 @@ if __name__ == "__main__":
             model = models.get_model_from_model_config(**model_config)
         except Exception as e:
             raise ValueError(f"Error initializing model with model_config: {model_config}. Error: {e}")
-        for template in templates:
+        for template in templates:            
             for domain in domains:
                 try:
                     tasks = sorted(get_tasks(domain))
-                    tasks = tasks[-20:]
+                    tasks = tasks[-min(len(tasks), instances):]
                 except ValueError as e:
                     raise ValueError(f"Error getting tasks for domain '{domain}': {e}")
                 print(f"Experiment: {experiment}\nModel: {model.name}\nDomain: {domain}\nTemplate: {template}\nSamples: {samples}\nGeneration Config: {generation_config}\n")

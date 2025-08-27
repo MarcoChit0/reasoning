@@ -1,6 +1,0 @@
-template,domain,instance,sample_id,num_requests,prompt_token_count,candidates_token_count,total_tokens_count
-pddl,blocksworld,p44,1,1,5097,934,43234
-nonordered_landmarks,blocksworld,p44,1,1,6112,1263,29485
-ordered_landmarks_explicit,blocksworld,p44,1,1,6156,802,30036
-ordered_landmarks_omitted,blocksworld,p44,1,1,6112,898,37155
-delete_relaxed_plan,blocksworld,p44,1,1,6232,818,50214

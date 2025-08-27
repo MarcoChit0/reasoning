@@ -1,3 +1,4 @@
+from __future__ import annotations
 from reasoning.task import Domain, Instance, Task
 from reasoning.utils import from_pyperplan, sort_landmarks
 from string import Template
@@ -12,13 +13,14 @@ rover_instance : Instance = Instance(name="p01", path="data/examples/rover/insta
 rover_example : Task = Task(domain=rover_domain, instance=rover_instance)
 
 class PromptBuilder:
-    def __init__(self, template: str, tag:str, examples:list[Task] = [storage_example, rover_example], **kwargs):
+    TEMPLATE_PATTERN = r"([\w\s\d_]+)(?:\[([\w\s\d_+\(<>\)=]+)\])?"
+    def __init__(self, template: str, tag:str, examples:list[Task] = [storage_example, rover_example], **template_kwargs):
         self.template = template
         self.tag = tag
         self.examples = examples
         self.metadata : dict[Task, dict[any, any]] = {}
         self.data : dict[Task, dict[any, any]] = {}
-        self.__dict__.update(kwargs)
+        self.template_kwargs = template_kwargs
 
     def build(self, task: Task) -> str:
         self.process_task(task, is_example=False)
@@ -37,6 +39,23 @@ class PromptBuilder:
 
     def get_metadata(self, task):
         return self.metadata.get(task, {})
+    
+    def get_template(self):
+        template = self.template
+        if self.template_kwargs:
+            kwargs_str = ""
+            for key, value in self.template_kwargs.items():
+                if isinstance(value, bool):
+                    if value:
+                        kwargs_str += f"+{key}"
+                    else:
+                        kwargs_str += f"+not({key})"
+                else:
+                    kwargs_str += f"+({key}={value})"
+            if kwargs_str:
+                kwargs_str = kwargs_str[1:]
+            template += f"[{kwargs_str}]"
+        return template
 
     def process_task(self, task: Task, is_example: bool) -> None:
         if not task in self.data:
@@ -53,7 +72,7 @@ class PromptBuilder:
             self.data[task] = data
         if task not in self.metadata:
             self.metadata[task] = {
-                "template" : self.template
+                "template" : self.get_template(),
             }
 
     @property
@@ -101,44 +120,101 @@ $plan
 4) The plan must be valid, that is, each action must be applicable in the state it is applied, and the plan must end in a goal state.
 </checklist>"""
 
+    def parse_template(self, template: str) -> tuple[str | None, dict[str, str]]:
+        match = re.match(self.TEMPLATE_PATTERN, template)
+        if match:
+            temp = match.group(1)
+            temp_kwargs_str = match.group(2)
+            if temp_kwargs_str:
+                temp_kwargs_data = {}
+                for item in temp_kwargs_str.split("+"):
+                    not_fact_pattern = r"not\(([\w\s\d_]+)\)"
+                    map_pattern = r"\(([\w\s\d_]+)=([\w\s\d_]+)\)"
+                    fact_pattern = r"([\w\s\d_]+)"
+                    if not_match := re.match(not_fact_pattern, item):
+                        key = not_match.group(1)
+                        temp_kwargs_data[key] = False
+                    elif map_match := re.match(map_pattern, item):
+                        key, value = map_match.groups()
+                        temp_kwargs_data[key] = value
+                    elif fact_match := re.match(fact_pattern, item):
+                        key = fact_match.group(1)
+                        temp_kwargs_data[key] = True
+                    else:
+                        raise ValueError(f"Invalid template item: {item}")
+                print(f"Parsed template kwargs: {temp_kwargs_data}")
+            return temp, temp_kwargs_data
+        return None, {}
 
-pddl_prompt_builder = PromptBuilder(template="pddl", tag="-")
+    def set_template_kwargs(self, template: str) -> PromptBuilder | None:
+        if not self.has_matching_template(template):
+            return None
+        _, kwargs = self.parse_template(template)
+        self.template_kwargs = kwargs
+        return self
 
+    def has_matching_template(self, template: str) -> bool:
+        temp, _ = self.parse_template(template)
+        if temp:
+            return temp == self.template
+        return False
+
+import re
 class LandmarksPromptBuilder(PromptBuilder):
-    def __init__(self, template: str, tag: str, ordered:bool, style:str | None = None, **kwargs):
+    def __init__(
+            self, 
+            template: str, 
+            tag: str, 
+            ordered:bool, 
+            description_style: str | None = None, 
+            order_style:str | None = None,
+            **kwargs):
         self.ordered : bool = ordered
-        self.style : str | None = style
+        self.order_style : str | None = order_style
+        self.description_style : str | None = description_style
         super().__init__(template, tag, **kwargs)
-        if not self.ordered and self.style and self.style == "explicit":
+        if not self.ordered and self.order_style and self.order_style == "explicit":
             raise ValueError("For using expliciting landmark order, they should be ordered")
+
     @property
     def description_template(self) -> Template:
-        order = """Note that the action landmarks are provided in arbitrary order and do not necessarily reflect the order in which they must appear in the plan. 
-However, every valid plan must include all action landmarks at some point during execution."""
-        if self.style:
-            if self.style == "explicit":
-                order = """The action landmarks are provided in a partial order; this means that each landmark earlier in the list must appear before in the plan than other landmarks later in the list. 
-Note that there could be other actions that must appear between landmarks in the plan. Also note that the order only needs to be respected for the first appearance of each landmark in the plan.
-Every valid plan must include all action landmarks at some point during execution."""
-            elif self.style == "exact":
-                order = """The action landmarks are provided in the exact order in which they must appear in the plan.
-Every valid plan must include all action landmarks at some point during execution."""
-            elif self.style == "feasible":
-                order = """The action landmarks are provided in a feasible order; this means that there is at least one valid plan that could be built following the action landmarks order.
-Note that this ordering is not necessarily unique; this means that there could exist other valid plans that could be built following the action landmarks from another ordering.
-Note that this ordering is not necessarily optimal; this means that there could exist more efficient plans or optimal plans that could be built following the action landmarks from another ordering.
-Note that there could be other actions that must appear between landmarks in the plan. 
-Note that the order only needs to be respected for the first appearance of each landmark in the plan.
-Every valid plan must include all action landmarks at some point during execution."""
-
-        return Template(f"""<problem-description-with-landmarks>
-You are a highly skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. 
-You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks extracted from the delete relaxation of the instance. 
-Action landmarks are actions that must be part of any valid plan for the task. 
-Since the action landmarks are extracted from the delete relaxation of the instance, they represent a subset of the action landmarks of the instance.
-{order}
-You need to return the plan between the tags <plan> and </plan>. You will receive two examples to help you in generating the plan.
-</problem-description-with-landmarks>""")
+        order = """Note that the action landmarks are provided in arbitrary order and do not necessarily reflect the order in which they must appear in the plan."""
+        description = """Action landmarks are actions that must be part of any valid plan for the instance.
+Since the action landmarks are extracted from the delete relaxation of the instance, they represent a subset of the action landmarks of the instance."""
+        tips = []
+        if self.order_style:
+            if self.order_style == "explicit":
+                order = """The action landmarks are provided in a partial order; this means that each landmark earlier in the list must appear before in the plan than other landmarks later in the list."""
+            elif self.order_style == "exact":
+                order = """The action landmarks are provided in the exact order in which they must appear in the plan."""
+            elif self.order_style == "feasible":
+                order = """The action landmarks are provided in a feasible order; this means that there is at least one valid plan that could be built following the action landmarks order."""
+        if self.template_kwargs:
+            for key, value in self.template_kwargs.items():
+                if key == "unique":
+                    tips.append("Note that this ordering is not necessarily unique; this means that there could exist other valid plans that could be built following the action landmarks from another ordering.")
+                elif key == "optimal":
+                    tips.append("Note that this ordering is not necessarily optimal; this means that there could exist more efficient plans or optimal plans that could be built following the action landmarks from another ordering.")
+                elif key == "other_actions":
+                    tips.append("Note that there could be other actions that must appear between landmarks in the plan.")
+                elif key == "first_appearance":
+                    tips.append("Note that the order only needs to be respected for the first appearance of each landmark in the plan.")
+                elif key == "use_all":
+                    tips.append("Note that every valid plan must include all action landmarks at some point during execution.")
+        template = f"""<problem-description-with-landmarks>
+You are a highly skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>.
+You will be given the PDDL domain file, the PDDL instance file, and the set of action landmarks extracted from the delete relaxation of the instance.\n"""
+        if description:
+            template += f"{description}\n"
+        if order:
+            template += f"{order}\n"
+        if len(tips) > 0:
+            tips_str = '\n'.join(tips)
+            template += f"{tips_str}\n"
+        template += f"""You need to return the plan between the tags <plan> and </plan>.
+You will receive two examples to help you in generating the plan.
+</problem-description-with-landmarks>"""
+        return Template(template)
         
 
     @property
@@ -196,15 +272,6 @@ $plan
             self.metadata[task]["action_landmarks"] = self.data[task]["action_landmarks"]
             self.metadata[task]["num_action_landmarks"] = len(landmarks)
 
-nonordered_landmarks_prompt_builder = LandmarksPromptBuilder(template="nonordered_landmarks", tag="Non-Ordered Landmarks", ordered=False)
-
-ordered_landmarks_omitted_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_omitted", tag="Ordered Landmarks (Omitted)", ordered=True)
-
-ordered_landmarks_explicit_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_explicit", tag="Ordered Landmarks", ordered=True, style="explicit")
-
-ordered_landmarks_exact_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_exact", tag="Ordered Landmarks (Exact)", ordered=True, style="exact")
-
-ordered_landmarks_feasible_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_feasible", tag="Ordered Landmarks (Feasible)", ordered=True, style="feasible")
 
 class DeleteRelaxedPlanPromptBuilder(PromptBuilder):
     @property
@@ -264,22 +331,27 @@ $plan
             self.metadata[task]["delete_relaxed_plan"] = self.data[task]["delete_relaxed_plan"]
             self.metadata[task]["delete_relaxed_plan_length"] = len(delete_relaxed_plan)
 
-delete_relaxed_plan_prompt_builder = DeleteRelaxedPlanPromptBuilder(template="delete_relaxed_plan", tag="Delete Relaxation")
+AVAILABLE_PROMPT_BUILDERS : list[PromptBuilder] = [
+    PromptBuilder(template="pddl", tag="-"),
+    LandmarksPromptBuilder(template="nonordered_landmarks", tag="Non-Ordered Landmarks", ordered=False),
+    LandmarksPromptBuilder(template="ordered_landmarks_omitted", tag="Ordered Landmarks Omitted", ordered=True),
+    LandmarksPromptBuilder(template="ordered_landmarks_explicit", tag="Ordered Landmarks Explicit", ordered=True, order_style="explicit"),
+    LandmarksPromptBuilder(template="ordered_landmarks_exact", tag="Ordered Landmarks Exact", ordered=True, order_style="exact"),
+    LandmarksPromptBuilder(template="ordered_landmarks_feasible", tag="Ordered Landmarks Feasible", ordered=True, order_style="feasible"),
+    DeleteRelaxedPlanPromptBuilder(template="delete_relaxed_plan", tag="Delete Relaxation"),
+]
 
 def get_prompt_builder(template: str) -> PromptBuilder:
-    available_prompt_builders = [
-        pddl_prompt_builder,
-        nonordered_landmarks_prompt_builder,
-        ordered_landmarks_omitted_prompt_builder,
-        ordered_landmarks_explicit_prompt_builder,
-        ordered_landmarks_exact_prompt_builder,
-        ordered_landmarks_feasible_prompt_builder,
-        delete_relaxed_plan_prompt_builder
-    ]
-    for prompt_builder in available_prompt_builders:
-        if prompt_builder.template == template:
-            return prompt_builder
-    raise ValueError(f"No prompt builder found for template: {template}")
+    global AVAILABLE_PROMPT_BUILDERS
+    for pb in AVAILABLE_PROMPT_BUILDERS:
+        if pb.has_matching_template(template):
+            pb.set_template_kwargs(template)
+            return pb
+    return None
 
 def get_tag(template: str) -> str:
-    return get_prompt_builder(template).tag
+    try:
+        pb = get_prompt_builder(template)
+        return pb.tag
+    except ValueError:
+        raise ValueError(f"No tag found for template: {template}")
