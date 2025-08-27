@@ -123,6 +123,13 @@ Every valid plan must include all action landmarks at some point during executio
             elif self.style == "exact":
                 order = """The action landmarks are provided in the exact order in which they must appear in the plan.
 Every valid plan must include all action landmarks at some point during execution."""
+            elif self.style == "feasible":
+                order = """The action landmarks are provided in a feasible order; this means that there is at least one valid plan that could be built following the action landmarks order.
+Note that this ordering is not necessarily unique; this means that there could exist other valid plans that could be built following the action landmarks from another ordering.
+Note that this ordering is not necessarily optimal; this means that there could exist more efficient plans or optimal plans that could be built following the action landmarks from another ordering.
+Note that there could be other actions that must appear between landmarks in the plan. 
+Note that the order only needs to be respected for the first appearance of each landmark in the plan.
+Every valid plan must include all action landmarks at some point during execution."""
 
         return Template(f"""<problem-description-with-landmarks>
 You are a highly skilled professor in AI planning. Your task is to generate a plan for a PDDL instance from the domain <domain>$name</domain>. 
