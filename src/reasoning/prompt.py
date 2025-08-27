@@ -204,6 +204,8 @@ ordered_landmarks_explicit_prompt_builder = LandmarksPromptBuilder(template="ord
 
 ordered_landmarks_exact_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_exact", tag="Ordered Landmarks (Exact)", ordered=True, style="exact")
 
+ordered_landmarks_feasible_prompt_builder = LandmarksPromptBuilder(template="ordered_landmarks_feasible", tag="Ordered Landmarks (Feasible)", ordered=True, style="feasible")
+
 class DeleteRelaxedPlanPromptBuilder(PromptBuilder):
     @property
     def description_template(self) -> Template:
@@ -271,6 +273,7 @@ def get_prompt_builder(template: str) -> PromptBuilder:
         ordered_landmarks_omitted_prompt_builder,
         ordered_landmarks_explicit_prompt_builder,
         ordered_landmarks_exact_prompt_builder,
+        ordered_landmarks_feasible_prompt_builder,
         delete_relaxed_plan_prompt_builder
     ]
     for prompt_builder in available_prompt_builders:
