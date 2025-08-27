@@ -133,11 +133,11 @@ def pass_at_k_to_table(df, experiment_path):
 
     # Define all metrics in the desired order for the table rows.
     all_metrics = [
-        ('num_instances', 'number_of_instances'),
-        ('correct_samples', 'correct_samples'),
-        ('total_samples', 'total_samples'),
-        ('num_action_landmarks_used', 'number_of_used_landmarks'),
-        ('num_action_landmarks', 'number_of_landmarks'),
+        ('num_instances', '#instances'),
+        ('correct_samples', '#correctSamples'),
+        ('total_samples', '#totalSamples'),
+        ('num_action_landmarks_used', '#usedLandmarks'),
+        ('num_action_landmarks', '#landmarks'),
         ('accuracy_samples', 'Accuracy')
     ]
     # --- MODIFICATION 1: Manually replace '@' for LaTeX compatibility ---

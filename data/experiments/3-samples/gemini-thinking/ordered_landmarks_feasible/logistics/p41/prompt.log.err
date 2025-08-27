@@ -1,0 +1,1 @@
+[2025-08-26 21:59:47.615007] Error building prompt for task Task(domain=logistics, instance=p41): No prompt builder found for template: ordered_landmarks_feasible

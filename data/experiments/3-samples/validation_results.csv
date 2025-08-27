@@ -1,601 +1,841 @@
 ,experiment,model,template,domain,instance,sample_id,valid,error,num_action_landmarks,num_action_landmarks_used
-0,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p42,1,True,,61,61
-1,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p42,2,True,,61,61
-2,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p42,3,True,,61,61
-3,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p39,1,True,,56,56
-4,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p39,2,True,,56,56
-5,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p39,3,True,,56,56
-6,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p34,1,True,,48,48
-7,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p34,2,True,,48,48
-8,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p34,3,True,,48,48
-9,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p26,1,True,,36,36
-10,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p26,2,True,,36,36
-11,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p26,3,True,,36,36
-12,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p40,1,True,,54,54
-13,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p40,2,True,,54,54
-14,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p40,3,True,,54,54
-15,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p31,1,True,,44,44
-16,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p31,2,True,,44,44
-17,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p31,3,True,,44,44
-18,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p36,1,True,,46,46
-19,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p36,2,True,,46,46
-20,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p36,3,True,,46,46
-21,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p27,1,True,,36,36
-22,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p27,2,True,,36,36
-23,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p27,3,True,,36,36
-24,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
-25,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,2,True,,59,59
-26,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,3,True,,59,59
-27,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p25,1,True,,35,35
-28,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p25,2,True,,35,35
-29,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p25,3,False,Error: Goal not satisfied.,35,35
-30,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p43,1,False,Error: Plan failed to execute.,63,62
-31,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p43,2,True,,63,63
-32,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p43,3,True,,63,63
-33,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p41,1,False,Error: Goal not satisfied.,62,60
-34,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p41,2,True,,62,62
-35,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p41,3,True,,62,62
-36,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p38,1,True,,52,52
-37,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p38,2,True,,52,52
-38,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p38,3,True,,52,52
-39,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p32,1,True,,45,45
-40,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p32,2,True,,45,45
-41,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p32,3,True,,45,45
-42,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p28,1,True,,34,34
-43,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p28,2,True,,34,34
-44,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p28,3,True,,34,34
-45,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p29,1,True,,46,46
-46,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p29,2,True,,46,46
-47,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p29,3,True,,46,46
-48,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
-49,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p37,2,False,Error: Plan failed to execute.,55,55
-50,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p37,3,False,Error: Goal not satisfied.,55,53
-51,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p33,1,True,,50,50
-52,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p33,2,True,,50,50
-53,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p33,3,False,Error: Goal not satisfied.,50,50
-54,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p35,1,True,,47,47
-55,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p35,2,True,,47,47
-56,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p35,3,True,,47,47
-57,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p30,1,False,Error: Plan failed to execute.,40,40
-58,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p30,2,False,Error: Goal not satisfied.,40,40
-59,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p30,3,True,,40,40
-60,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p42,1,True,,74,74
-61,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p42,2,False,Error: Plan failed to execute.,74,73
-62,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p42,3,True,,74,74
-63,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p47,1,False,Error: Plan failed to execute.,100,100
-64,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p47,2,False,Error: Plan failed to execute.,100,100
-65,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p47,3,True,,100,100
-66,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p48,1,True,,92,92
-67,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p48,2,True,,92,92
-68,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p48,3,True,,92,92
-69,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p55,1,False,Error: Plan failed to execute.,112,111
-70,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p55,2,True,,112,112
-71,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p55,3,False,Error: Plan failed to execute.,112,106
-72,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p51,1,False,Error: Plan failed to execute.,106,106
-73,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p51,2,True,,106,106
-74,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p51,3,False,Error: Plan failed to execute.,106,106
-75,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p45,1,True,,90,90
-76,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p45,2,False,Error: Plan failed to execute.,90,90
-77,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p45,3,True,,90,90
-78,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p46,1,True,,98,98
-79,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p46,2,False,Error: Plan failed to execute.,98,98
-80,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p46,3,True,,98,98
-81,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p60,1,False,Error: Plan failed to execute.,114,114
-82,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p60,2,False,Error: Plan failed to execute.,114,112
-83,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p60,3,False,Error: Plan failed to execute.,114,113
-84,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p44,1,True,,78,78
-85,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p44,2,True,,78,78
-86,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p44,3,True,,78,78
-87,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p54,1,True,,112,85
-88,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p54,2,True,,112,112
-89,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p54,3,False,Error: Plan failed to execute.,112,110
-90,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p56,1,True,,88,88
-91,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p56,2,True,,88,88
-92,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p56,3,True,,88,88
-93,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p43,1,False,Error: Plan failed to execute.,82,82
-94,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p43,2,False,Error: Plan failed to execute.,82,82
-95,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p43,3,True,,82,82
-96,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p41,1,True,,98,98
-97,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p41,2,True,,98,98
-98,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p41,3,True,,98,98
-99,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p49,1,True,,112,112
-100,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p49,2,True,,112,112
-101,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p49,3,True,,112,112
-102,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p58,1,True,,116,116
-103,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p58,2,False,Error: Plan failed to execute.,116,115
-104,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p58,3,False,Error: Plan failed to execute.,116,114
-105,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p59,1,False,Error: Plan failed to execute.,116,110
-106,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p59,2,True,,116,116
-107,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p59,3,True,,116,116
-108,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p53,1,True,,98,98
-109,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p53,2,True,,98,98
-110,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p53,3,False,Error: Plan failed to execute.,98,98
-111,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p52,1,True,,70,70
-112,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p52,2,True,,70,70
-113,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p52,3,True,,70,70
-114,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p57,1,True,,122,122
-115,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p57,2,True,,122,122
-116,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p57,3,True,,122,122
-117,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p50,1,True,,100,100
-118,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p50,2,False,Error: Plan failed to execute.,100,100
-119,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p50,3,True,,100,100
-120,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p42,1,False,Error: Goal not satisfied.,61,58
-121,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p42,2,False,Error: Goal not satisfied.,61,57
-122,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p42,3,False,Error: Plan failed to execute.,61,61
-123,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p39,1,True,,56,56
-124,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p39,2,False,Error: Plan failed to execute.,56,55
-125,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p39,3,False,Error: Plan failed to execute.,56,56
-126,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p34,1,True,,48,48
-127,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p34,2,True,,48,48
-128,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p34,3,False,Error: Plan failed to execute.,48,48
-129,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p26,1,False,Error: Plan failed to execute.,36,36
-130,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p26,2,False,Error: Plan failed to execute.,36,34
-131,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p26,3,False,Error: Plan failed to execute.,36,36
-132,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p40,1,False,Error: Plan failed to execute.,54,54
-133,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p40,2,False,Error: Plan failed to execute.,54,53
-134,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p40,3,False,Error: Plan failed to execute.,54,54
-135,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p31,1,True,,44,44
-136,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p31,2,False,Error: Plan failed to execute.,44,40
-137,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p31,3,False,Error: Goal not satisfied.,44,42
-138,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p36,1,False,Error: Plan failed to execute.,46,45
-139,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p36,2,False,Error: Plan failed to execute.,46,46
-140,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p36,3,False,Error: Plan failed to execute.,46,45
-141,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p27,1,True,,36,36
-142,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p27,2,True,,36,36
-143,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p27,3,False,Error: Plan failed to execute.,36,36
-144,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
-145,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p44,2,False,Error: Plan failed to execute.,59,58
-146,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p44,3,False,Error: Plan failed to execute.,59,54
-147,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p25,1,False,Error: Plan failed to execute.,35,32
-148,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p25,2,True,,35,35
-149,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p25,3,True,,35,35
-150,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p43,1,False,Error: Goal not satisfied.,63,61
-151,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p43,2,False,Error: Plan failed to execute.,63,55
-152,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p43,3,False,Error: Goal not satisfied.,63,61
-153,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p41,1,False,Error: Plan failed to execute.,62,62
-154,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p41,2,False,Error: Plan failed to execute.,62,61
-155,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p41,3,False,Error: Plan failed to execute.,62,59
-156,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p38,1,False,Error: Plan failed to execute.,52,52
-157,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p38,2,False,Error: Plan failed to execute.,52,52
-158,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p38,3,False,Error: Bad operator in plan.,52,51
-159,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p32,1,True,,45,45
-160,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p32,2,False,Error: Plan failed to execute.,45,45
-161,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p32,3,True,,45,45
-162,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p28,1,False,Error: Plan failed to execute.,34,33
-163,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p28,2,True,,34,34
-164,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
-165,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p29,1,True,,46,46
-166,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p29,2,False,Error: Plan failed to execute.,46,46
-167,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p29,3,False,Error: Plan failed to execute.,46,46
-168,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
-169,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p37,2,False,Error: Plan failed to execute.,55,55
-170,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p37,3,False,Error: Plan failed to execute.,55,48
-171,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p33,1,False,Error: Plan failed to execute.,50,46
-172,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p33,2,False,Error: Goal not satisfied.,50,47
-173,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p33,3,False,Error: Plan failed to execute.,50,50
-174,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p35,1,False,Error: Plan failed to execute.,47,44
-175,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p35,2,False,Error: Plan failed to execute.,47,46
-176,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p35,3,False,Error: Plan failed to execute.,47,39
-177,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p30,1,False,Error: Plan failed to execute.,40,40
-178,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p30,2,True,,40,40
-179,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p30,3,False,Error: Plan failed to execute.,40,39
-180,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p42,1,True,,74,74
-181,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p42,2,False,Error: Plan failed to execute.,74,74
-182,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p42,3,False,Error: Plan failed to execute.,74,74
-183,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p47,1,False,Error: Plan failed to execute.,100,98
-184,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p47,2,True,,100,100
-185,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p47,3,False,Error: Plan failed to execute.,100,56
-186,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p48,1,True,,92,92
-187,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p48,2,True,,92,92
-188,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p48,3,True,,92,92
-189,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p55,1,True,,112,112
-190,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p55,2,False,Error: Plan failed to execute.,112,112
-191,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p55,3,True,,112,112
-192,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p51,1,False,Error: Plan failed to execute.,106,103
-193,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p51,2,False,Error: Plan failed to execute.,106,106
-194,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p51,3,False,Error: Plan failed to execute.,106,92
-195,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p45,1,False,Error: Plan failed to execute.,90,81
-196,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p45,2,False,Error: Plan failed to execute.,90,90
-197,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p45,3,False,Error: Plan failed to execute.,90,90
-198,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p46,1,False,Error: Plan failed to execute.,98,97
-199,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p46,2,True,,98,98
-200,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p46,3,True,,98,98
-201,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p60,1,False,Error: Plan failed to execute.,114,114
-202,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p60,2,False,Error: Plan failed to execute.,114,114
-203,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p60,3,False,Error: Plan failed to execute.,114,114
-204,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p44,1,True,,78,78
-205,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p44,2,False,Error: Plan failed to execute.,78,78
-206,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p44,3,False,Error: Goal not satisfied.,78,74
-207,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p54,1,True,,112,112
-208,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p54,2,False,Error: Plan failed to execute.,112,112
-209,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p54,3,False,Error: Plan failed to execute.,112,103
-210,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p56,1,False,Error: Plan failed to execute.,88,88
-211,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p56,2,False,Error: Plan failed to execute.,88,88
-212,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p56,3,True,,88,88
-213,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p43,1,True,,82,82
-214,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p43,2,True,,82,82
-215,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p43,3,True,,82,82
-216,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p41,1,False,Error: Plan failed to execute.,98,98
-217,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p41,2,True,,98,43
-218,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p41,3,True,,98,98
-219,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p49,1,False,Error: Plan failed to execute.,112,112
-220,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p49,2,False,Error: Plan failed to execute.,112,112
-221,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p49,3,False,Error: Plan failed to execute.,112,112
-222,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p58,1,False,Error: Plan failed to execute.,116,116
-223,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p58,2,False,Error: Plan failed to execute.,116,116
-224,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p58,3,False,Error: Plan failed to execute.,116,116
-225,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p59,1,False,Error: Plan failed to execute.,116,105
-226,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p59,2,True,,116,116
-227,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p59,3,False,Error: Plan failed to execute.,116,116
-228,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p53,1,False,Error: Plan failed to execute.,98,95
-229,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p53,2,False,Error: Plan failed to execute.,98,96
-230,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p53,3,False,Error: Plan failed to execute.,98,97
-231,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p52,1,True,,70,70
-232,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p52,2,False,Error: Plan failed to execute.,70,69
-233,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p52,3,True,,70,70
-234,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p57,1,True,,122,122
-235,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p57,2,False,Error: Plan failed to execute.,122,91
-236,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p57,3,False,Error: Plan failed to execute.,122,100
-237,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p50,1,False,Error: Plan failed to execute.,100,100
-238,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p50,2,True,,100,100
-239,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p50,3,False,Error: Plan failed to execute.,100,100
-240,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p42,1,True,,61,61
-241,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p42,2,True,,61,61
-242,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p42,3,True,,61,61
-243,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p39,1,True,,56,56
-244,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p39,2,True,,56,56
-245,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p39,3,True,,56,56
-246,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p34,1,True,,48,48
-247,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p34,2,True,,48,48
-248,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p34,3,False,Error: Goal not satisfied.,48,48
-249,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p26,1,True,,36,36
-250,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p26,2,True,,36,36
-251,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p26,3,True,,36,36
-252,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p40,1,True,,54,54
-253,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p40,2,True,,54,54
-254,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p40,3,True,,54,54
-255,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p31,1,True,,44,44
-256,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p31,2,True,,44,44
-257,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p31,3,True,,44,44
-258,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p36,1,True,,46,46
-259,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p36,2,True,,46,46
-260,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p36,3,True,,46,46
-261,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p27,1,False,Error: Goal not satisfied.,36,36
-262,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p27,2,True,,36,36
-263,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p27,3,False,Error: Plan failed to execute.,36,36
-264,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,1,True,,59,59
-265,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,2,True,,59,59
-266,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,3,True,,59,59
-267,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p25,1,False,Error: Goal not satisfied.,35,35
-268,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p25,2,True,,35,35
-269,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p25,3,False,Error: Plan failed to execute.,35,35
-270,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p43,1,True,,63,63
-271,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p43,2,True,,63,63
-272,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p43,3,True,,63,63
-273,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p41,1,True,,62,62
-274,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p41,2,True,,62,62
-275,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p41,3,True,,62,62
-276,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p38,1,False,Error: Goal not satisfied.,52,52
-277,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p38,2,False,Error: Goal not satisfied.,52,52
-278,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p38,3,True,,52,52
-279,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p32,1,True,,45,45
-280,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p32,2,True,,45,45
-281,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p32,3,True,,45,45
-282,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p28,1,False,Error: Plan failed to execute.,34,34
-283,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p28,2,True,,34,34
-284,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p28,3,True,,34,34
-285,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p29,1,False,Error: Plan failed to execute.,46,46
-286,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p29,2,True,,46,46
-287,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p29,3,True,,46,46
-288,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
-289,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p37,2,True,,55,55
-290,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p37,3,True,,55,55
-291,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p33,1,False,Error: Plan failed to execute.,50,50
-292,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p33,2,False,Error: Goal not satisfied.,50,50
-293,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p33,3,False,Error: Goal not satisfied.,50,50
-294,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p35,1,True,,47,47
-295,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p35,2,True,,47,47
-296,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p35,3,True,,47,47
-297,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p30,1,True,,40,40
-298,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p30,2,True,,40,40
-299,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p30,3,True,,40,40
-300,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p42,1,True,,74,74
-301,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p42,2,True,,74,74
-302,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p42,3,True,,74,74
-303,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p47,1,False,Error: Plan failed to execute.,100,100
-304,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p47,2,True,,100,100
-305,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p47,3,True,,100,100
-306,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p48,1,False,Error: Plan failed to execute.,92,89
-307,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p48,2,True,,92,92
-308,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p48,3,True,,92,92
-309,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p55,1,True,,112,112
-310,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p55,2,True,,112,112
-311,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p55,3,True,,112,112
-312,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p51,1,True,,106,106
-313,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p51,2,False,Error: Plan failed to execute.,106,105
-314,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p51,3,False,Error: Plan failed to execute.,106,106
-315,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p45,1,True,,90,0
-316,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p45,2,True,,90,90
-317,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p45,3,True,,90,90
-318,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p46,1,True,,98,98
-319,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p46,2,True,,98,98
-320,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p46,3,True,,98,98
-321,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p60,1,False,Error: Plan failed to execute.,114,114
-322,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p60,2,False,Error: Plan failed to execute.,114,112
-323,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p60,3,True,,114,114
-324,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p44,1,True,,78,78
-325,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p44,2,True,,78,78
-326,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p44,3,True,,78,78
-327,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p54,1,False,Error: Plan failed to execute.,112,111
-328,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p54,2,False,Error: Plan failed to execute.,112,109
-329,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p54,3,True,,112,112
-330,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p56,1,True,,88,88
-331,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p56,2,False,Error: Plan failed to execute.,88,87
-332,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p56,3,False,Error: Plan failed to execute.,88,88
-333,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p43,1,True,,82,82
-334,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p43,2,True,,82,82
-335,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p43,3,True,,82,82
-336,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p41,1,True,,98,98
-337,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p41,2,True,,98,98
-338,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p41,3,True,,98,98
-339,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p49,1,False,Error: Goal not satisfied.,112,112
-340,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p49,2,True,,112,112
-341,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p49,3,True,,112,112
-342,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p58,1,True,,116,116
-343,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p58,2,False,Error: Plan failed to execute.,116,116
-344,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p58,3,True,,116,116
-345,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p59,1,False,Error: Plan failed to execute.,116,116
-346,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p59,2,True,,116,116
-347,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p59,3,False,Error: Plan failed to execute.,116,105
-348,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p53,1,True,,98,98
-349,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p53,2,True,,98,98
-350,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p53,3,False,Error: Plan failed to execute.,98,91
-351,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p52,1,False,Error: Goal not satisfied.,70,68
-352,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p52,2,True,,70,70
-353,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p52,3,True,,70,70
-354,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p57,1,True,,122,122
-355,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p57,2,True,,122,122
-356,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p57,3,True,,122,122
-357,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p50,1,True,,100,100
-358,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p50,2,True,,100,100
-359,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p50,3,True,,100,100
-360,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p42,1,False,Error: Plan failed to execute.,61,39
-361,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p42,2,True,,61,61
-362,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p42,3,True,,61,61
-363,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p39,1,False,Error: Plan failed to execute.,56,56
-364,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p39,2,False,Error: Plan failed to execute.,56,55
-365,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p39,3,False,Error: Plan failed to execute.,56,56
-366,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p34,1,True,,48,48
-367,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p34,2,False,Error: Plan failed to execute.,48,48
-368,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p34,3,True,,48,48
-369,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p26,1,False,Error: Plan failed to execute.,36,36
-370,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p26,2,False,Error: Plan failed to execute.,36,36
-371,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p26,3,True,,36,36
-372,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p40,1,False,Error: Plan failed to execute.,54,53
-373,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p40,2,True,,54,54
-374,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p40,3,False,Error: Plan failed to execute.,54,52
-375,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p31,1,True,,44,44
-376,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p31,2,True,,44,44
-377,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p31,3,True,,44,44
-378,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p36,1,True,,46,46
-379,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p36,2,False,Error: Plan failed to execute.,46,46
-380,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p36,3,True,,46,46
-381,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p27,1,True,,36,36
-382,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p27,2,False,Error: Plan failed to execute.,36,36
-383,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p27,3,False,Error: Plan failed to execute.,36,36
-384,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p44,1,False,Error: Plan failed to execute.,59,57
-385,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p44,2,False,Error: Plan failed to execute.,59,59
-386,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p44,3,True,,59,59
-387,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p25,1,False,Error: Goal not satisfied.,35,35
-388,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p25,2,False,Error: Plan failed to execute.,35,35
-389,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p25,3,False,Error: Plan failed to execute.,35,35
-390,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p43,1,False,Error: Plan failed to execute.,63,60
-391,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p43,2,False,Error: Plan failed to execute.,63,62
-392,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p43,3,False,Error: Plan failed to execute.,63,62
-393,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p41,1,True,,62,62
-394,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p41,2,True,,62,62
-395,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p41,3,False,Error: Plan failed to execute.,62,59
-396,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p38,1,False,Error: Plan failed to execute.,52,52
-397,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p38,2,True,,52,52
-398,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p38,3,False,Error: Goal not satisfied.,52,51
-399,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p32,1,False,Error: Plan failed to execute.,45,44
-400,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p32,2,True,,45,45
-401,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p32,3,False,Error: Plan failed to execute.,45,45
-402,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p28,1,True,,34,34
-403,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
-404,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
-405,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p29,1,True,,46,46
-406,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p29,2,False,Error: Plan failed to execute.,46,46
-407,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p29,3,False,Error: Plan failed to execute.,46,46
-408,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
-409,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p37,2,False,Error: Plan failed to execute.,55,54
-410,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p37,3,True,,55,55
-411,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p33,1,False,Error: Plan failed to execute.,50,50
-412,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p33,2,False,Error: Plan failed to execute.,50,50
-413,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p33,3,False,Error: Plan failed to execute.,50,49
-414,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p35,1,True,,47,47
-415,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p35,2,False,Error: Plan failed to execute.,47,47
-416,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p35,3,False,Error: Plan failed to execute.,47,46
-417,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p30,1,True,,40,40
-418,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p30,2,True,,40,40
-419,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p30,3,True,,40,40
-420,3-samples,gemini-thinking,nonordered_landmarks,logistics,p42,1,True,,74,74
-421,3-samples,gemini-thinking,nonordered_landmarks,logistics,p42,2,False,Error: Plan failed to execute.,74,73
-422,3-samples,gemini-thinking,nonordered_landmarks,logistics,p42,3,False,Error: Plan failed to execute.,74,74
-423,3-samples,gemini-thinking,nonordered_landmarks,logistics,p47,1,True,,100,100
-424,3-samples,gemini-thinking,nonordered_landmarks,logistics,p47,2,True,,100,100
-425,3-samples,gemini-thinking,nonordered_landmarks,logistics,p47,3,False,Error: Plan failed to execute.,100,100
-426,3-samples,gemini-thinking,nonordered_landmarks,logistics,p48,1,True,,92,92
-427,3-samples,gemini-thinking,nonordered_landmarks,logistics,p48,2,True,,92,92
-428,3-samples,gemini-thinking,nonordered_landmarks,logistics,p48,3,True,,92,92
-429,3-samples,gemini-thinking,nonordered_landmarks,logistics,p55,1,False,Error: Plan failed to execute.,112,111
-430,3-samples,gemini-thinking,nonordered_landmarks,logistics,p55,2,True,,112,112
-431,3-samples,gemini-thinking,nonordered_landmarks,logistics,p55,3,False,Error: Goal not satisfied.,112,110
-432,3-samples,gemini-thinking,nonordered_landmarks,logistics,p51,1,True,,106,106
-433,3-samples,gemini-thinking,nonordered_landmarks,logistics,p51,2,True,,106,106
-434,3-samples,gemini-thinking,nonordered_landmarks,logistics,p51,3,False,Error: Plan failed to execute.,106,106
-435,3-samples,gemini-thinking,nonordered_landmarks,logistics,p45,1,True,,90,90
-436,3-samples,gemini-thinking,nonordered_landmarks,logistics,p45,2,True,,90,90
-437,3-samples,gemini-thinking,nonordered_landmarks,logistics,p45,3,True,,90,90
-438,3-samples,gemini-thinking,nonordered_landmarks,logistics,p46,1,False,Error: Plan failed to execute.,98,84
-439,3-samples,gemini-thinking,nonordered_landmarks,logistics,p46,2,False,Error: Plan failed to execute.,98,96
-440,3-samples,gemini-thinking,nonordered_landmarks,logistics,p46,3,False,Error: Plan failed to execute.,98,97
-441,3-samples,gemini-thinking,nonordered_landmarks,logistics,p60,1,True,,114,114
-442,3-samples,gemini-thinking,nonordered_landmarks,logistics,p60,2,True,,114,114
-443,3-samples,gemini-thinking,nonordered_landmarks,logistics,p60,3,False,Error: Plan failed to execute.,114,114
-444,3-samples,gemini-thinking,nonordered_landmarks,logistics,p44,1,True,,78,78
-445,3-samples,gemini-thinking,nonordered_landmarks,logistics,p44,2,False,Error: Plan failed to execute.,78,74
-446,3-samples,gemini-thinking,nonordered_landmarks,logistics,p44,3,True,,78,78
-447,3-samples,gemini-thinking,nonordered_landmarks,logistics,p54,1,False,Error: Plan failed to execute.,112,106
-448,3-samples,gemini-thinking,nonordered_landmarks,logistics,p54,2,False,Error: Plan failed to execute.,112,85
-449,3-samples,gemini-thinking,nonordered_landmarks,logistics,p54,3,False,Error: Plan failed to execute.,112,110
-450,3-samples,gemini-thinking,nonordered_landmarks,logistics,p56,1,False,Error: Plan failed to execute.,88,84
-451,3-samples,gemini-thinking,nonordered_landmarks,logistics,p56,2,False,Error: Plan failed to execute.,88,88
-452,3-samples,gemini-thinking,nonordered_landmarks,logistics,p56,3,True,,88,88
-453,3-samples,gemini-thinking,nonordered_landmarks,logistics,p43,1,False,Error: Plan failed to execute.,82,82
-454,3-samples,gemini-thinking,nonordered_landmarks,logistics,p43,2,True,,82,82
-455,3-samples,gemini-thinking,nonordered_landmarks,logistics,p43,3,True,,82,82
-456,3-samples,gemini-thinking,nonordered_landmarks,logistics,p41,1,True,,98,98
-457,3-samples,gemini-thinking,nonordered_landmarks,logistics,p41,2,True,,98,98
-458,3-samples,gemini-thinking,nonordered_landmarks,logistics,p41,3,True,,98,98
-459,3-samples,gemini-thinking,nonordered_landmarks,logistics,p49,1,False,Error: Plan failed to execute.,112,103
-460,3-samples,gemini-thinking,nonordered_landmarks,logistics,p49,2,False,Error: Plan failed to execute.,112,104
-461,3-samples,gemini-thinking,nonordered_landmarks,logistics,p49,3,True,,112,112
-462,3-samples,gemini-thinking,nonordered_landmarks,logistics,p58,1,False,Error: Plan failed to execute.,116,110
-463,3-samples,gemini-thinking,nonordered_landmarks,logistics,p58,2,True,,116,116
-464,3-samples,gemini-thinking,nonordered_landmarks,logistics,p58,3,False,Error: Plan failed to execute.,116,88
-465,3-samples,gemini-thinking,nonordered_landmarks,logistics,p59,1,False,Error: Plan failed to execute.,116,116
-466,3-samples,gemini-thinking,nonordered_landmarks,logistics,p59,2,False,Error: Plan failed to execute.,116,112
-467,3-samples,gemini-thinking,nonordered_landmarks,logistics,p59,3,False,Error: Plan failed to execute.,116,116
-468,3-samples,gemini-thinking,nonordered_landmarks,logistics,p53,1,False,Error: Plan failed to execute.,98,98
-469,3-samples,gemini-thinking,nonordered_landmarks,logistics,p53,2,True,,98,98
-470,3-samples,gemini-thinking,nonordered_landmarks,logistics,p53,3,True,,98,98
-471,3-samples,gemini-thinking,nonordered_landmarks,logistics,p52,1,True,,70,70
-472,3-samples,gemini-thinking,nonordered_landmarks,logistics,p52,2,False,Error: Plan failed to execute.,70,70
-473,3-samples,gemini-thinking,nonordered_landmarks,logistics,p52,3,True,,70,70
-474,3-samples,gemini-thinking,nonordered_landmarks,logistics,p57,1,True,,122,122
-475,3-samples,gemini-thinking,nonordered_landmarks,logistics,p57,2,False,Error: Plan failed to execute.,122,122
-476,3-samples,gemini-thinking,nonordered_landmarks,logistics,p57,3,False,Error: Plan failed to execute.,122,122
-477,3-samples,gemini-thinking,nonordered_landmarks,logistics,p50,1,False,Error: Plan failed to execute.,100,96
-478,3-samples,gemini-thinking,nonordered_landmarks,logistics,p50,2,True,,100,100
-479,3-samples,gemini-thinking,nonordered_landmarks,logistics,p50,3,False,Error: Plan failed to execute.,100,100
-480,3-samples,gemini-thinking,pddl,blocksworld,p42,1,True,,61,61
-481,3-samples,gemini-thinking,pddl,blocksworld,p42,2,False,Error: Plan failed to execute.,61,55
-482,3-samples,gemini-thinking,pddl,blocksworld,p42,3,True,,61,61
-483,3-samples,gemini-thinking,pddl,blocksworld,p39,1,True,,56,56
-484,3-samples,gemini-thinking,pddl,blocksworld,p39,2,True,,56,56
-485,3-samples,gemini-thinking,pddl,blocksworld,p39,3,False,Error: Plan failed to execute.,56,55
-486,3-samples,gemini-thinking,pddl,blocksworld,p34,1,True,,48,48
-487,3-samples,gemini-thinking,pddl,blocksworld,p34,2,True,,48,48
-488,3-samples,gemini-thinking,pddl,blocksworld,p34,3,False,Error: Goal not satisfied.,48,47
-489,3-samples,gemini-thinking,pddl,blocksworld,p26,1,True,,36,36
-490,3-samples,gemini-thinking,pddl,blocksworld,p26,2,True,,36,36
-491,3-samples,gemini-thinking,pddl,blocksworld,p26,3,True,,36,36
-492,3-samples,gemini-thinking,pddl,blocksworld,p40,1,True,,54,54
-493,3-samples,gemini-thinking,pddl,blocksworld,p40,2,False,Error: Plan failed to execute.,54,48
-494,3-samples,gemini-thinking,pddl,blocksworld,p40,3,True,,54,54
-495,3-samples,gemini-thinking,pddl,blocksworld,p31,1,False,Error: Plan failed to execute.,44,44
-496,3-samples,gemini-thinking,pddl,blocksworld,p31,2,False,Error: Goal not satisfied.,44,41
-497,3-samples,gemini-thinking,pddl,blocksworld,p31,3,False,Error: Plan failed to execute.,44,43
-498,3-samples,gemini-thinking,pddl,blocksworld,p36,1,False,Error: Goal not satisfied.,46,45
-499,3-samples,gemini-thinking,pddl,blocksworld,p36,2,False,Error: Plan failed to execute.,46,43
-500,3-samples,gemini-thinking,pddl,blocksworld,p36,3,False,Error: Goal not satisfied.,46,45
-501,3-samples,gemini-thinking,pddl,blocksworld,p27,1,False,Error: Plan failed to execute.,36,34
-502,3-samples,gemini-thinking,pddl,blocksworld,p27,2,True,,36,36
-503,3-samples,gemini-thinking,pddl,blocksworld,p27,3,False,Error: Goal not satisfied.,36,35
-504,3-samples,gemini-thinking,pddl,blocksworld,p44,1,True,,59,59
-505,3-samples,gemini-thinking,pddl,blocksworld,p44,2,False,Error: Plan failed to execute.,59,50
-506,3-samples,gemini-thinking,pddl,blocksworld,p44,3,False,Error: Plan failed to execute.,59,48
-507,3-samples,gemini-thinking,pddl,blocksworld,p25,1,True,,35,35
-508,3-samples,gemini-thinking,pddl,blocksworld,p25,2,False,Error: Goal not satisfied.,35,33
-509,3-samples,gemini-thinking,pddl,blocksworld,p25,3,False,Error: Goal not satisfied.,35,33
-510,3-samples,gemini-thinking,pddl,blocksworld,p43,1,False,Error: Goal not satisfied.,63,36
-511,3-samples,gemini-thinking,pddl,blocksworld,p43,2,False,Error: Goal not satisfied.,63,35
-512,3-samples,gemini-thinking,pddl,blocksworld,p43,3,True,,63,63
-513,3-samples,gemini-thinking,pddl,blocksworld,p41,1,False,Error: Goal not satisfied.,62,61
-514,3-samples,gemini-thinking,pddl,blocksworld,p41,2,True,,62,62
-515,3-samples,gemini-thinking,pddl,blocksworld,p41,3,False,Error: Plan failed to execute.,62,62
-516,3-samples,gemini-thinking,pddl,blocksworld,p38,1,False,Error: Plan failed to execute.,52,50
-517,3-samples,gemini-thinking,pddl,blocksworld,p38,2,False,Error: Goal not satisfied.,52,51
-518,3-samples,gemini-thinking,pddl,blocksworld,p38,3,False,Error: Goal not satisfied.,52,39
-519,3-samples,gemini-thinking,pddl,blocksworld,p32,1,True,,45,45
-520,3-samples,gemini-thinking,pddl,blocksworld,p32,2,False,Error: Plan failed to execute.,45,45
-521,3-samples,gemini-thinking,pddl,blocksworld,p32,3,False,Error: Plan failed to execute.,45,44
-522,3-samples,gemini-thinking,pddl,blocksworld,p28,1,True,,34,34
-523,3-samples,gemini-thinking,pddl,blocksworld,p28,2,True,,34,34
-524,3-samples,gemini-thinking,pddl,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
-525,3-samples,gemini-thinking,pddl,blocksworld,p29,1,False,Error: Plan failed to execute.,46,44
-526,3-samples,gemini-thinking,pddl,blocksworld,p29,2,True,,46,46
-527,3-samples,gemini-thinking,pddl,blocksworld,p29,3,False,Error: Goal not satisfied.,46,0
-528,3-samples,gemini-thinking,pddl,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
-529,3-samples,gemini-thinking,pddl,blocksworld,p37,2,False,Error: Goal not satisfied.,55,28
-530,3-samples,gemini-thinking,pddl,blocksworld,p37,3,False,Error: Goal not satisfied.,55,53
-531,3-samples,gemini-thinking,pddl,blocksworld,p33,1,True,,50,50
-532,3-samples,gemini-thinking,pddl,blocksworld,p33,2,False,Error: Plan failed to execute.,50,46
-533,3-samples,gemini-thinking,pddl,blocksworld,p33,3,True,,50,50
-534,3-samples,gemini-thinking,pddl,blocksworld,p35,1,False,Error: Goal not satisfied.,47,0
-535,3-samples,gemini-thinking,pddl,blocksworld,p35,2,True,,47,47
-536,3-samples,gemini-thinking,pddl,blocksworld,p35,3,True,,47,47
-537,3-samples,gemini-thinking,pddl,blocksworld,p30,1,False,Error: Goal not satisfied.,40,39
-538,3-samples,gemini-thinking,pddl,blocksworld,p30,2,True,,40,40
-539,3-samples,gemini-thinking,pddl,blocksworld,p30,3,False,Error: Plan failed to execute.,40,40
-540,3-samples,gemini-thinking,pddl,logistics,p42,1,True,,74,74
-541,3-samples,gemini-thinking,pddl,logistics,p42,2,False,Error: Plan failed to execute.,74,74
-542,3-samples,gemini-thinking,pddl,logistics,p42,3,False,Error: Plan failed to execute.,74,72
-543,3-samples,gemini-thinking,pddl,logistics,p47,1,False,Error: Plan failed to execute.,100,50
-544,3-samples,gemini-thinking,pddl,logistics,p47,2,False,Error: Plan failed to execute.,100,97
-545,3-samples,gemini-thinking,pddl,logistics,p47,3,True,,100,100
-546,3-samples,gemini-thinking,pddl,logistics,p48,1,True,,92,92
-547,3-samples,gemini-thinking,pddl,logistics,p48,2,True,,92,92
-548,3-samples,gemini-thinking,pddl,logistics,p48,3,False,Error: Plan failed to execute.,92,88
-549,3-samples,gemini-thinking,pddl,logistics,p55,1,False,Error: Plan failed to execute.,112,92
-550,3-samples,gemini-thinking,pddl,logistics,p55,2,True,,112,112
-551,3-samples,gemini-thinking,pddl,logistics,p55,3,False,Error: Plan failed to execute.,112,0
-552,3-samples,gemini-thinking,pddl,logistics,p51,1,True,,106,106
-553,3-samples,gemini-thinking,pddl,logistics,p51,2,True,,106,106
-554,3-samples,gemini-thinking,pddl,logistics,p51,3,True,,106,106
-555,3-samples,gemini-thinking,pddl,logistics,p45,1,False,Error: Plan failed to execute.,90,90
-556,3-samples,gemini-thinking,pddl,logistics,p45,2,True,,90,90
-557,3-samples,gemini-thinking,pddl,logistics,p45,3,True,,90,90
-558,3-samples,gemini-thinking,pddl,logistics,p46,1,True,,98,98
-559,3-samples,gemini-thinking,pddl,logistics,p46,2,True,,98,98
-560,3-samples,gemini-thinking,pddl,logistics,p46,3,True,,98,98
-561,3-samples,gemini-thinking,pddl,logistics,p60,1,False,Error: Plan failed to execute.,114,107
-562,3-samples,gemini-thinking,pddl,logistics,p60,2,True,,114,114
-563,3-samples,gemini-thinking,pddl,logistics,p60,3,False,Error: Goal not satisfied.,114,105
-564,3-samples,gemini-thinking,pddl,logistics,p44,1,True,,78,78
-565,3-samples,gemini-thinking,pddl,logistics,p44,2,True,,78,78
-566,3-samples,gemini-thinking,pddl,logistics,p44,3,True,,78,78
-567,3-samples,gemini-thinking,pddl,logistics,p54,1,False,Error: Plan failed to execute.,112,112
-568,3-samples,gemini-thinking,pddl,logistics,p54,2,False,Error: Plan failed to execute.,112,110
-569,3-samples,gemini-thinking,pddl,logistics,p54,3,False,Error: Plan failed to execute.,112,112
-570,3-samples,gemini-thinking,pddl,logistics,p56,1,True,,88,88
-571,3-samples,gemini-thinking,pddl,logistics,p56,2,True,,88,88
-572,3-samples,gemini-thinking,pddl,logistics,p56,3,False,Error: Plan failed to execute.,88,84
-573,3-samples,gemini-thinking,pddl,logistics,p43,1,True,,82,82
-574,3-samples,gemini-thinking,pddl,logistics,p43,2,True,,82,82
-575,3-samples,gemini-thinking,pddl,logistics,p43,3,True,,82,82
-576,3-samples,gemini-thinking,pddl,logistics,p41,1,False,Error: Plan failed to execute.,98,96
-577,3-samples,gemini-thinking,pddl,logistics,p41,2,False,Error: Plan failed to execute.,98,88
-578,3-samples,gemini-thinking,pddl,logistics,p41,3,False,Error: Goal not satisfied.,98,96
-579,3-samples,gemini-thinking,pddl,logistics,p49,1,False,Error: Goal not satisfied.,112,112
-580,3-samples,gemini-thinking,pddl,logistics,p49,2,False,Error: Plan failed to execute.,112,112
-581,3-samples,gemini-thinking,pddl,logistics,p49,3,False,Error: Plan failed to execute.,112,0
-582,3-samples,gemini-thinking,pddl,logistics,p58,1,False,Error: Plan failed to execute.,116,0
-583,3-samples,gemini-thinking,pddl,logistics,p58,2,False,Error: Plan failed to execute.,116,111
-584,3-samples,gemini-thinking,pddl,logistics,p58,3,False,Error: Plan failed to execute.,116,106
-585,3-samples,gemini-thinking,pddl,logistics,p59,1,False,Error: Plan failed to execute.,116,116
-586,3-samples,gemini-thinking,pddl,logistics,p59,2,True,,116,0
-587,3-samples,gemini-thinking,pddl,logistics,p59,3,True,,116,116
-588,3-samples,gemini-thinking,pddl,logistics,p53,1,False,Error: Plan failed to execute.,98,69
-589,3-samples,gemini-thinking,pddl,logistics,p53,2,False,Error: Plan failed to execute.,98,98
-590,3-samples,gemini-thinking,pddl,logistics,p53,3,False,Error: Plan failed to execute.,98,43
-591,3-samples,gemini-thinking,pddl,logistics,p52,1,True,,70,70
-592,3-samples,gemini-thinking,pddl,logistics,p52,2,False,Error: Plan failed to execute.,70,67
-593,3-samples,gemini-thinking,pddl,logistics,p52,3,True,,70,70
-594,3-samples,gemini-thinking,pddl,logistics,p57,1,False,Error: Plan failed to execute.,122,121
-595,3-samples,gemini-thinking,pddl,logistics,p57,2,False,Error: Plan failed to execute.,122,113
-596,3-samples,gemini-thinking,pddl,logistics,p57,3,True,,122,0
-597,3-samples,gemini-thinking,pddl,logistics,p50,1,False,Error: Plan failed to execute.,100,0
-598,3-samples,gemini-thinking,pddl,logistics,p50,2,True,,100,100
-599,3-samples,gemini-thinking,pddl,logistics,p50,3,False,Error: Plan failed to execute.,100,96
+0,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p38,1,False,Error: Goal not satisfied.,52,52
+1,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p38,3,True,,52,52
+2,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p38,2,False,Error: Goal not satisfied.,52,52
+3,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p41,1,True,,62,62
+4,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p41,3,True,,62,62
+5,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p41,2,True,,62,62
+6,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p34,1,True,,48,48
+7,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p34,3,False,Error: Goal not satisfied.,48,48
+8,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p34,2,True,,48,48
+9,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p35,1,True,,47,47
+10,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p35,3,True,,47,47
+11,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p35,2,True,,47,47
+12,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p42,1,True,,61,61
+13,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p42,3,True,,61,61
+14,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p42,2,True,,61,61
+15,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p43,1,True,,63,63
+16,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p43,3,True,,63,63
+17,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p43,2,True,,63,63
+18,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p33,1,False,Error: Plan failed to execute.,50,50
+19,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p33,3,False,Error: Goal not satisfied.,50,50
+20,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p33,2,False,Error: Goal not satisfied.,50,50
+21,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p28,1,False,Error: Plan failed to execute.,34,34
+22,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p28,3,True,,34,34
+23,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p28,2,True,,34,34
+24,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p25,1,False,Error: Goal not satisfied.,35,35
+25,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p25,3,False,Error: Plan failed to execute.,35,35
+26,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p25,2,True,,35,35
+27,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p32,1,True,,45,45
+28,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p32,3,True,,45,45
+29,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p32,2,True,,45,45
+30,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,1,True,,59,59
+31,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,3,True,,59,59
+32,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p44,2,True,,59,59
+33,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p39,1,True,,56,56
+34,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p39,3,True,,56,56
+35,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p39,2,True,,56,56
+36,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p40,1,True,,54,54
+37,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p40,3,True,,54,54
+38,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p40,2,True,,54,54
+39,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p29,1,False,Error: Plan failed to execute.,46,46
+40,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p29,3,True,,46,46
+41,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p29,2,True,,46,46
+42,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
+43,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p37,3,True,,55,55
+44,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p37,2,True,,55,55
+45,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p31,1,True,,44,44
+46,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p31,3,True,,44,44
+47,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p31,2,True,,44,44
+48,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p27,1,False,Error: Goal not satisfied.,36,36
+49,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p27,3,False,Error: Plan failed to execute.,36,36
+50,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p27,2,True,,36,36
+51,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p36,1,True,,46,46
+52,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p36,3,True,,46,46
+53,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p36,2,True,,46,46
+54,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p26,1,True,,36,36
+55,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p26,3,True,,36,36
+56,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p26,2,True,,36,36
+57,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p30,1,True,,40,40
+58,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p30,3,True,,40,40
+59,3-samples,gemini-thinking,ordered_landmarks_explicit,blocksworld,p30,2,True,,40,40
+60,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p48,1,False,Error: Plan failed to execute.,92,89
+61,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p48,3,True,,92,92
+62,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p48,2,True,,92,92
+63,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p47,1,False,Error: Plan failed to execute.,100,100
+64,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p47,3,True,,100,100
+65,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p47,2,True,,100,100
+66,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p41,1,True,,98,98
+67,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p41,3,True,,98,98
+68,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p41,2,True,,98,98
+69,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p42,1,True,,74,74
+70,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p42,3,True,,74,74
+71,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p42,2,True,,74,74
+72,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p49,1,False,Error: Goal not satisfied.,112,112
+73,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p49,3,True,,112,112
+74,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p49,2,True,,112,112
+75,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p43,1,True,,82,82
+76,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p43,3,True,,82,82
+77,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p43,2,True,,82,82
+78,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p58,1,True,,116,116
+79,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p58,3,True,,116,116
+80,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p58,2,False,Error: Plan failed to execute.,116,116
+81,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p59,1,False,Error: Plan failed to execute.,116,116
+82,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p59,3,False,Error: Plan failed to execute.,116,105
+83,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p59,2,True,,116,116
+84,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p55,1,True,,112,112
+85,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p55,3,True,,112,112
+86,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p55,2,True,,112,112
+87,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p60,1,False,Error: Plan failed to execute.,114,114
+88,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p60,3,True,,114,114
+89,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p60,2,False,Error: Plan failed to execute.,114,112
+90,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p44,1,True,,78,78
+91,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p44,3,True,,78,78
+92,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p44,2,True,,78,78
+93,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p57,1,True,,122,122
+94,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p57,3,True,,122,122
+95,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p57,2,True,,122,122
+96,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p53,1,True,,98,98
+97,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p53,3,False,Error: Plan failed to execute.,98,91
+98,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p53,2,True,,98,98
+99,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p45,1,True,,90,0
+100,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p45,3,True,,90,90
+101,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p45,2,True,,90,90
+102,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p51,1,True,,106,106
+103,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p51,3,False,Error: Plan failed to execute.,106,106
+104,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p51,2,False,Error: Plan failed to execute.,106,105
+105,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p54,1,False,Error: Plan failed to execute.,112,111
+106,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p54,3,True,,112,112
+107,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p54,2,False,Error: Plan failed to execute.,112,109
+108,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p56,1,True,,88,88
+109,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p56,3,False,Error: Plan failed to execute.,88,88
+110,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p56,2,False,Error: Plan failed to execute.,88,87
+111,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p50,1,True,,100,100
+112,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p50,3,True,,100,100
+113,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p50,2,True,,100,100
+114,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p52,1,False,Error: Goal not satisfied.,70,68
+115,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p52,3,True,,70,70
+116,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p52,2,True,,70,70
+117,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p46,1,True,,98,98
+118,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p46,3,True,,98,98
+119,3-samples,gemini-thinking,ordered_landmarks_explicit,logistics,p46,2,True,,98,98
+120,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p38,1,True,,52,52
+121,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p38,3,True,,52,52
+122,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p38,2,True,,52,52
+123,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p41,1,True,,62,62
+124,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p41,3,True,,62,62
+125,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p41,2,True,,62,62
+126,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p34,1,True,,48,48
+127,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p34,3,False,Error: Goal not satisfied.,48,48
+128,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p34,2,False,Error: Goal not satisfied.,48,48
+129,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p35,1,True,,47,47
+130,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p35,3,True,,47,47
+131,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p35,2,True,,47,47
+132,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p42,1,True,,61,61
+133,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p42,3,True,,61,61
+134,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p42,2,True,,61,61
+135,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p43,1,True,,63,63
+136,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p43,3,True,,63,63
+137,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p43,2,True,,63,63
+138,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p33,1,True,,50,50
+139,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p33,3,True,,50,50
+140,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p33,2,True,,50,50
+141,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p28,1,False,Error: Goal not satisfied.,34,34
+142,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p28,3,True,,34,34
+143,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
+144,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p25,1,False,Error: Plan failed to execute.,35,35
+145,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p25,3,False,Error: Goal not satisfied.,35,35
+146,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p25,2,True,,35,35
+147,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p32,1,True,,45,45
+148,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p32,3,True,,45,45
+149,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p32,2,True,,45,45
+150,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p44,1,True,,59,59
+151,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p44,3,True,,59,59
+152,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p44,2,True,,59,59
+153,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p39,1,True,,56,56
+154,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p39,3,True,,56,56
+155,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p39,2,True,,56,56
+156,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p40,1,True,,54,54
+157,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p40,3,True,,54,54
+158,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p40,2,True,,54,54
+159,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p29,1,True,,46,46
+160,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p29,3,False,Error: Goal not satisfied.,46,46
+161,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p29,2,True,,46,46
+162,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p37,1,True,,55,55
+163,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p37,3,True,,55,55
+164,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p37,2,True,,55,55
+165,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p31,1,True,,44,44
+166,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p31,3,True,,44,44
+167,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p31,2,True,,44,44
+168,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p27,1,True,,36,36
+169,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p27,3,True,,36,36
+170,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p27,2,False,Error: Plan failed to execute.,36,36
+171,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p36,1,True,,46,46
+172,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p36,3,False,Error: Plan failed to execute.,46,46
+173,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p36,2,True,,46,46
+174,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p26,1,True,,36,36
+175,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p26,3,True,,36,36
+176,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p26,2,True,,36,36
+177,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p30,1,True,,40,40
+178,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p30,3,True,,40,40
+179,3-samples,gemini-thinking,ordered_landmarks_feasible,blocksworld,p30,2,True,,40,40
+180,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p48,1,True,,92,92
+181,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p48,3,True,,92,92
+182,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p48,2,True,,92,92
+183,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p47,1,True,,100,100
+184,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p47,3,True,,100,100
+185,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p47,2,True,,100,100
+186,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p41,1,True,,98,98
+187,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p41,3,True,,98,98
+188,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p41,2,True,,98,98
+189,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p42,1,True,,74,74
+190,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p42,3,True,,74,74
+191,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p42,2,True,,74,74
+192,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p49,1,True,,112,112
+193,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p49,3,True,,112,112
+194,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p49,2,True,,112,112
+195,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p43,1,False,Error: Plan failed to execute.,82,82
+196,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p43,3,True,,82,82
+197,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p43,2,True,,82,82
+198,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p58,1,True,,116,116
+199,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p58,3,True,,116,116
+200,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p58,2,True,,116,116
+201,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p59,1,False,Error: Plan failed to execute.,116,116
+202,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p59,3,True,,116,116
+203,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p59,2,True,,116,116
+204,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p55,1,True,,112,112
+205,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p55,3,True,,112,112
+206,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p55,2,True,,112,112
+207,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p60,1,True,,114,114
+208,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p60,3,False,Error: Plan failed to execute.,114,112
+209,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p60,2,False,Error: Plan failed to execute.,114,111
+210,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p44,1,True,,78,78
+211,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p44,3,True,,78,78
+212,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p44,2,True,,78,78
+213,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p57,1,True,,122,122
+214,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p57,3,True,,122,122
+215,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p57,2,True,,122,122
+216,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p53,1,True,,98,98
+217,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p53,3,False,Error: Plan failed to execute.,98,98
+218,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p53,2,True,,98,98
+219,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p45,1,True,,90,90
+220,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p45,3,True,,90,90
+221,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p45,2,True,,90,90
+222,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p51,1,True,,106,106
+223,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p51,3,True,,106,106
+224,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p51,2,True,,106,106
+225,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p54,1,True,,112,112
+226,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p54,3,True,,112,112
+227,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p54,2,True,,112,112
+228,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p56,1,True,,88,88
+229,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p56,3,True,,88,88
+230,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p56,2,True,,88,88
+231,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p50,1,True,,100,100
+232,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p50,3,False,Error: Plan failed to execute.,100,94
+233,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p50,2,True,,100,100
+234,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p52,1,True,,70,70
+235,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p52,3,True,,70,70
+236,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p52,2,False,Error: Plan failed to execute.,70,69
+237,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p46,1,True,,98,98
+238,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p46,3,False,Error: Plan failed to execute.,98,98
+239,3-samples,gemini-thinking,ordered_landmarks_feasible,logistics,p46,2,False,Error: Plan failed to execute.,98,98
+240,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p38,1,False,Error: Goal not satisfied.,52,52
+241,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p38,3,False,Error: Plan failed to execute.,52,52
+242,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p38,2,False,Error: Plan failed to execute.,52,52
+243,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p41,1,True,,62,62
+244,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p41,3,True,,62,62
+245,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p41,2,True,,62,62
+246,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p34,1,True,,48,48
+247,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p34,3,False,Error: Goal not satisfied.,48,48
+248,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p34,2,True,,48,48
+249,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p35,1,True,,47,47
+250,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p35,3,True,,47,47
+251,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p35,2,True,,47,47
+252,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p42,1,True,,61,61
+253,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p42,3,True,,61,61
+254,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p42,2,True,,61,61
+255,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p43,1,True,,63,63
+256,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p43,3,True,,63,63
+257,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p43,2,True,,63,63
+258,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p33,1,False,Error: Goal not satisfied.,50,50
+259,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p33,3,False,Error: Plan failed to execute.,50,50
+260,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p33,2,False,Error: Plan failed to execute.,50,50
+261,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p28,1,False,Error: Plan failed to execute.,34,34
+262,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
+263,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p28,2,True,,34,34
+264,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p25,1,False,Error: Plan failed to execute.,35,35
+265,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p25,3,False,Error: Plan failed to execute.,35,35
+266,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p25,2,False,Error: Goal not satisfied.,35,35
+267,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p32,1,True,,45,45
+268,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p32,3,True,,45,45
+269,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p32,2,True,,45,45
+270,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p44,1,True,,59,59
+271,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p44,3,True,,59,59
+272,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p44,2,True,,59,59
+273,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p39,1,True,,56,56
+274,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p39,3,True,,56,56
+275,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p39,2,True,,56,56
+276,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p40,1,True,,54,54
+277,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p40,3,True,,54,54
+278,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p40,2,True,,54,54
+279,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p29,1,True,,46,46
+280,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p29,3,False,Error: Plan failed to execute.,46,46
+281,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p29,2,True,,46,46
+282,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p37,1,True,,55,55
+283,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p37,3,True,,55,55
+284,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p37,2,True,,55,55
+285,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p31,1,True,,44,44
+286,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p31,3,True,,44,44
+287,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p31,2,True,,44,44
+288,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p27,1,False,Error: Plan failed to execute.,36,36
+289,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p27,3,True,,36,36
+290,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p27,2,False,Error: Plan failed to execute.,36,36
+291,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p36,1,True,,46,46
+292,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p36,3,False,Error: Goal not satisfied.,46,46
+293,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p36,2,True,,46,46
+294,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p26,1,True,,36,36
+295,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p26,3,False,Error: Goal not satisfied.,36,36
+296,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p26,2,True,,36,36
+297,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p30,1,False,Error: Plan failed to execute.,40,40
+298,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p30,3,False,Error: Goal not satisfied.,40,40
+299,3-samples,gemini-thinking,ordered_landmarks_exact,blocksworld,p30,2,False,Error: Goal not satisfied.,40,40
+300,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p48,1,True,,92,92
+301,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p48,3,True,,92,92
+302,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p48,2,True,,92,92
+303,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p47,1,False,Error: Plan failed to execute.,100,100
+304,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p47,3,True,,100,100
+305,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p47,2,True,,100,100
+306,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p41,1,False,Error: Plan failed to execute.,98,98
+307,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p41,3,True,,98,98
+308,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p41,2,True,,98,98
+309,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p42,1,True,,74,74
+310,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p42,3,False,Error: Plan failed to execute.,74,43
+311,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p42,2,True,,74,74
+312,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p49,1,False,Error: Goal not satisfied.,112,112
+313,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p49,3,False,Error: Goal not satisfied.,112,112
+314,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p49,2,False,Error: Goal not satisfied.,112,112
+315,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p43,1,True,,82,82
+316,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p43,3,True,,82,82
+317,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p43,2,True,,82,82
+318,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p58,1,True,,116,116
+319,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p58,3,False,Error: Plan failed to execute.,116,111
+320,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p58,2,True,,116,116
+321,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p59,1,True,,116,116
+322,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p59,3,False,Error: Plan failed to execute.,116,116
+323,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p59,2,True,,116,116
+324,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p55,1,True,,112,112
+325,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p55,3,True,,112,112
+326,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p55,2,True,,112,112
+327,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p60,1,True,,114,114
+328,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p60,3,True,,114,114
+329,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p60,2,True,,114,114
+330,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p44,1,True,,78,78
+331,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p44,3,True,,78,78
+332,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p44,2,True,,78,78
+333,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p57,1,True,,122,122
+334,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p57,3,False,Error: Plan failed to execute.,122,122
+335,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p57,2,True,,122,122
+336,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p53,1,True,,98,98
+337,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p53,3,True,,98,98
+338,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p53,2,True,,98,98
+339,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p45,1,False,Error: Plan failed to execute.,90,90
+340,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p45,3,True,,90,90
+341,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p45,2,True,,90,90
+342,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p51,1,True,,106,106
+343,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p51,3,True,,106,106
+344,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p51,2,True,,106,106
+345,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p54,1,True,,112,112
+346,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p54,3,True,,112,112
+347,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p54,2,True,,112,112
+348,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p56,1,True,,88,88
+349,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p56,3,True,,88,88
+350,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p56,2,True,,88,88
+351,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p50,1,True,,100,100
+352,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p50,3,True,,100,100
+353,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p50,2,True,,100,100
+354,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p52,1,True,,70,70
+355,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p52,3,True,,70,70
+356,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p52,2,True,,70,70
+357,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p46,1,True,,98,98
+358,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p46,3,True,,98,98
+359,3-samples,gemini-thinking,ordered_landmarks_exact,logistics,p46,2,True,,98,98
+360,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p38,1,False,Error: Plan failed to execute.,52,52
+361,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p38,3,False,Error: Bad operator in plan.,52,51
+362,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p38,2,False,Error: Plan failed to execute.,52,52
+363,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p41,1,False,Error: Plan failed to execute.,62,62
+364,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p41,3,False,Error: Plan failed to execute.,62,59
+365,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p41,2,False,Error: Plan failed to execute.,62,61
+366,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p34,1,True,,48,48
+367,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p34,3,False,Error: Plan failed to execute.,48,48
+368,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p34,2,True,,48,48
+369,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p35,1,False,Error: Plan failed to execute.,47,44
+370,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p35,3,False,Error: Plan failed to execute.,47,39
+371,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p35,2,False,Error: Plan failed to execute.,47,46
+372,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p42,1,False,Error: Goal not satisfied.,61,58
+373,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p42,3,False,Error: Plan failed to execute.,61,61
+374,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p42,2,False,Error: Goal not satisfied.,61,57
+375,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p43,1,False,Error: Goal not satisfied.,63,61
+376,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p43,3,False,Error: Goal not satisfied.,63,61
+377,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p43,2,False,Error: Plan failed to execute.,63,55
+378,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p33,1,False,Error: Plan failed to execute.,50,46
+379,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p33,3,False,Error: Plan failed to execute.,50,50
+380,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p33,2,False,Error: Goal not satisfied.,50,47
+381,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p28,1,False,Error: Plan failed to execute.,34,33
+382,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
+383,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p28,2,True,,34,34
+384,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p25,1,False,Error: Plan failed to execute.,35,32
+385,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p25,3,True,,35,35
+386,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p25,2,True,,35,35
+387,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p32,1,True,,45,45
+388,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p32,3,True,,45,45
+389,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p32,2,False,Error: Plan failed to execute.,45,45
+390,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
+391,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p44,3,False,Error: Plan failed to execute.,59,54
+392,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p44,2,False,Error: Plan failed to execute.,59,58
+393,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p39,1,True,,56,56
+394,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p39,3,False,Error: Plan failed to execute.,56,56
+395,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p39,2,False,Error: Plan failed to execute.,56,55
+396,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p40,1,False,Error: Plan failed to execute.,54,54
+397,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p40,3,False,Error: Plan failed to execute.,54,54
+398,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p40,2,False,Error: Plan failed to execute.,54,53
+399,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p29,1,True,,46,46
+400,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p29,3,False,Error: Plan failed to execute.,46,46
+401,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p29,2,False,Error: Plan failed to execute.,46,46
+402,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
+403,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p37,3,False,Error: Plan failed to execute.,55,48
+404,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p37,2,False,Error: Plan failed to execute.,55,55
+405,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p31,1,True,,44,44
+406,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p31,3,False,Error: Goal not satisfied.,44,42
+407,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p31,2,False,Error: Plan failed to execute.,44,40
+408,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p27,1,True,,36,36
+409,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p27,3,False,Error: Plan failed to execute.,36,36
+410,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p27,2,True,,36,36
+411,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p36,1,False,Error: Plan failed to execute.,46,45
+412,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p36,3,False,Error: Plan failed to execute.,46,45
+413,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p36,2,False,Error: Plan failed to execute.,46,46
+414,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p26,1,False,Error: Plan failed to execute.,36,36
+415,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p26,3,False,Error: Plan failed to execute.,36,36
+416,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p26,2,False,Error: Plan failed to execute.,36,34
+417,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p30,1,False,Error: Plan failed to execute.,40,40
+418,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p30,3,False,Error: Plan failed to execute.,40,39
+419,3-samples,gemini-thinking,delete_relaxed_plan,blocksworld,p30,2,True,,40,40
+420,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p48,1,True,,92,92
+421,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p48,3,True,,92,92
+422,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p48,2,True,,92,92
+423,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p47,1,False,Error: Plan failed to execute.,100,98
+424,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p47,3,False,Error: Plan failed to execute.,100,56
+425,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p47,2,True,,100,100
+426,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p41,1,False,Error: Plan failed to execute.,98,98
+427,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p41,3,True,,98,98
+428,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p41,2,True,,98,43
+429,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p42,1,True,,74,74
+430,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p42,3,False,Error: Plan failed to execute.,74,74
+431,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p42,2,False,Error: Plan failed to execute.,74,74
+432,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p49,1,False,Error: Plan failed to execute.,112,112
+433,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p49,3,False,Error: Plan failed to execute.,112,112
+434,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p49,2,False,Error: Plan failed to execute.,112,112
+435,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p43,1,True,,82,82
+436,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p43,3,True,,82,82
+437,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p43,2,True,,82,82
+438,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p58,1,False,Error: Plan failed to execute.,116,116
+439,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p58,3,False,Error: Plan failed to execute.,116,116
+440,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p58,2,False,Error: Plan failed to execute.,116,116
+441,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p59,1,False,Error: Plan failed to execute.,116,105
+442,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p59,3,False,Error: Plan failed to execute.,116,116
+443,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p59,2,True,,116,116
+444,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p55,1,True,,112,112
+445,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p55,3,True,,112,112
+446,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p55,2,False,Error: Plan failed to execute.,112,112
+447,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p60,1,False,Error: Plan failed to execute.,114,114
+448,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p60,3,False,Error: Plan failed to execute.,114,114
+449,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p60,2,False,Error: Plan failed to execute.,114,114
+450,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p44,1,True,,78,78
+451,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p44,3,False,Error: Goal not satisfied.,78,74
+452,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p44,2,False,Error: Plan failed to execute.,78,78
+453,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p57,1,True,,122,122
+454,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p57,3,False,Error: Plan failed to execute.,122,100
+455,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p57,2,False,Error: Plan failed to execute.,122,91
+456,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p53,1,False,Error: Plan failed to execute.,98,95
+457,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p53,3,False,Error: Plan failed to execute.,98,97
+458,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p53,2,False,Error: Plan failed to execute.,98,96
+459,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p45,1,False,Error: Plan failed to execute.,90,81
+460,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p45,3,False,Error: Plan failed to execute.,90,90
+461,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p45,2,False,Error: Plan failed to execute.,90,90
+462,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p51,1,False,Error: Plan failed to execute.,106,103
+463,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p51,3,False,Error: Plan failed to execute.,106,92
+464,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p51,2,False,Error: Plan failed to execute.,106,106
+465,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p54,1,True,,112,112
+466,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p54,3,False,Error: Plan failed to execute.,112,103
+467,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p54,2,False,Error: Plan failed to execute.,112,112
+468,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p56,1,False,Error: Plan failed to execute.,88,88
+469,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p56,3,True,,88,88
+470,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p56,2,False,Error: Plan failed to execute.,88,88
+471,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p50,1,False,Error: Plan failed to execute.,100,100
+472,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p50,3,False,Error: Plan failed to execute.,100,100
+473,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p50,2,True,,100,100
+474,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p52,1,True,,70,70
+475,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p52,3,True,,70,70
+476,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p52,2,False,Error: Plan failed to execute.,70,69
+477,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p46,1,False,Error: Plan failed to execute.,98,97
+478,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p46,3,True,,98,98
+479,3-samples,gemini-thinking,delete_relaxed_plan,logistics,p46,2,True,,98,98
+480,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p38,1,False,Error: Plan failed to execute.,52,52
+481,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p38,3,False,Error: Goal not satisfied.,52,51
+482,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p38,2,True,,52,52
+483,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p41,1,True,,62,62
+484,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p41,3,False,Error: Plan failed to execute.,62,59
+485,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p41,2,True,,62,62
+486,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p34,1,True,,48,48
+487,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p34,3,True,,48,48
+488,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p34,2,False,Error: Plan failed to execute.,48,48
+489,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p35,1,True,,47,47
+490,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p35,3,False,Error: Plan failed to execute.,47,46
+491,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p35,2,False,Error: Plan failed to execute.,47,47
+492,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p42,1,False,Error: Plan failed to execute.,61,39
+493,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p42,3,True,,61,61
+494,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p42,2,True,,61,61
+495,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p43,1,False,Error: Plan failed to execute.,63,60
+496,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p43,3,False,Error: Plan failed to execute.,63,62
+497,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p43,2,False,Error: Plan failed to execute.,63,62
+498,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p33,1,False,Error: Plan failed to execute.,50,50
+499,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p33,3,False,Error: Plan failed to execute.,50,49
+500,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p33,2,False,Error: Plan failed to execute.,50,50
+501,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p28,1,True,,34,34
+502,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
+503,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
+504,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p25,1,False,Error: Goal not satisfied.,35,35
+505,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p25,3,False,Error: Plan failed to execute.,35,35
+506,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p25,2,False,Error: Plan failed to execute.,35,35
+507,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p32,1,False,Error: Plan failed to execute.,45,44
+508,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p32,3,False,Error: Plan failed to execute.,45,45
+509,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p32,2,True,,45,45
+510,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p44,1,False,Error: Plan failed to execute.,59,57
+511,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p44,3,True,,59,59
+512,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p44,2,False,Error: Plan failed to execute.,59,59
+513,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p39,1,False,Error: Plan failed to execute.,56,56
+514,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p39,3,False,Error: Plan failed to execute.,56,56
+515,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p39,2,False,Error: Plan failed to execute.,56,55
+516,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p40,1,False,Error: Plan failed to execute.,54,53
+517,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p40,3,False,Error: Plan failed to execute.,54,52
+518,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p40,2,True,,54,54
+519,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p29,1,True,,46,46
+520,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p29,3,False,Error: Plan failed to execute.,46,46
+521,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p29,2,False,Error: Plan failed to execute.,46,46
+522,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
+523,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p37,3,True,,55,55
+524,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p37,2,False,Error: Plan failed to execute.,55,54
+525,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p31,1,True,,44,44
+526,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p31,3,True,,44,44
+527,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p31,2,True,,44,44
+528,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p27,1,True,,36,36
+529,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p27,3,False,Error: Plan failed to execute.,36,36
+530,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p27,2,False,Error: Plan failed to execute.,36,36
+531,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p36,1,True,,46,46
+532,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p36,3,True,,46,46
+533,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p36,2,False,Error: Plan failed to execute.,46,46
+534,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p26,1,False,Error: Plan failed to execute.,36,36
+535,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p26,3,True,,36,36
+536,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p26,2,False,Error: Plan failed to execute.,36,36
+537,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p30,1,True,,40,40
+538,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p30,3,True,,40,40
+539,3-samples,gemini-thinking,nonordered_landmarks,blocksworld,p30,2,True,,40,40
+540,3-samples,gemini-thinking,nonordered_landmarks,logistics,p48,1,True,,92,92
+541,3-samples,gemini-thinking,nonordered_landmarks,logistics,p48,3,True,,92,92
+542,3-samples,gemini-thinking,nonordered_landmarks,logistics,p48,2,True,,92,92
+543,3-samples,gemini-thinking,nonordered_landmarks,logistics,p47,1,True,,100,100
+544,3-samples,gemini-thinking,nonordered_landmarks,logistics,p47,3,False,Error: Plan failed to execute.,100,100
+545,3-samples,gemini-thinking,nonordered_landmarks,logistics,p47,2,True,,100,100
+546,3-samples,gemini-thinking,nonordered_landmarks,logistics,p41,1,True,,98,98
+547,3-samples,gemini-thinking,nonordered_landmarks,logistics,p41,3,True,,98,98
+548,3-samples,gemini-thinking,nonordered_landmarks,logistics,p41,2,True,,98,98
+549,3-samples,gemini-thinking,nonordered_landmarks,logistics,p42,1,True,,74,74
+550,3-samples,gemini-thinking,nonordered_landmarks,logistics,p42,3,False,Error: Plan failed to execute.,74,74
+551,3-samples,gemini-thinking,nonordered_landmarks,logistics,p42,2,False,Error: Plan failed to execute.,74,73
+552,3-samples,gemini-thinking,nonordered_landmarks,logistics,p49,1,False,Error: Plan failed to execute.,112,103
+553,3-samples,gemini-thinking,nonordered_landmarks,logistics,p49,3,True,,112,112
+554,3-samples,gemini-thinking,nonordered_landmarks,logistics,p49,2,False,Error: Plan failed to execute.,112,104
+555,3-samples,gemini-thinking,nonordered_landmarks,logistics,p43,1,False,Error: Plan failed to execute.,82,82
+556,3-samples,gemini-thinking,nonordered_landmarks,logistics,p43,3,True,,82,82
+557,3-samples,gemini-thinking,nonordered_landmarks,logistics,p43,2,True,,82,82
+558,3-samples,gemini-thinking,nonordered_landmarks,logistics,p58,1,False,Error: Plan failed to execute.,116,110
+559,3-samples,gemini-thinking,nonordered_landmarks,logistics,p58,3,False,Error: Plan failed to execute.,116,88
+560,3-samples,gemini-thinking,nonordered_landmarks,logistics,p58,2,True,,116,116
+561,3-samples,gemini-thinking,nonordered_landmarks,logistics,p59,1,False,Error: Plan failed to execute.,116,116
+562,3-samples,gemini-thinking,nonordered_landmarks,logistics,p59,3,False,Error: Plan failed to execute.,116,116
+563,3-samples,gemini-thinking,nonordered_landmarks,logistics,p59,2,False,Error: Plan failed to execute.,116,112
+564,3-samples,gemini-thinking,nonordered_landmarks,logistics,p55,1,False,Error: Plan failed to execute.,112,111
+565,3-samples,gemini-thinking,nonordered_landmarks,logistics,p55,3,False,Error: Goal not satisfied.,112,110
+566,3-samples,gemini-thinking,nonordered_landmarks,logistics,p55,2,True,,112,112
+567,3-samples,gemini-thinking,nonordered_landmarks,logistics,p60,1,True,,114,114
+568,3-samples,gemini-thinking,nonordered_landmarks,logistics,p60,3,False,Error: Plan failed to execute.,114,114
+569,3-samples,gemini-thinking,nonordered_landmarks,logistics,p60,2,True,,114,114
+570,3-samples,gemini-thinking,nonordered_landmarks,logistics,p44,1,True,,78,78
+571,3-samples,gemini-thinking,nonordered_landmarks,logistics,p44,3,True,,78,78
+572,3-samples,gemini-thinking,nonordered_landmarks,logistics,p44,2,False,Error: Plan failed to execute.,78,74
+573,3-samples,gemini-thinking,nonordered_landmarks,logistics,p57,1,True,,122,122
+574,3-samples,gemini-thinking,nonordered_landmarks,logistics,p57,3,False,Error: Plan failed to execute.,122,122
+575,3-samples,gemini-thinking,nonordered_landmarks,logistics,p57,2,False,Error: Plan failed to execute.,122,122
+576,3-samples,gemini-thinking,nonordered_landmarks,logistics,p53,1,False,Error: Plan failed to execute.,98,98
+577,3-samples,gemini-thinking,nonordered_landmarks,logistics,p53,3,True,,98,98
+578,3-samples,gemini-thinking,nonordered_landmarks,logistics,p53,2,True,,98,98
+579,3-samples,gemini-thinking,nonordered_landmarks,logistics,p45,1,True,,90,90
+580,3-samples,gemini-thinking,nonordered_landmarks,logistics,p45,3,True,,90,90
+581,3-samples,gemini-thinking,nonordered_landmarks,logistics,p45,2,True,,90,90
+582,3-samples,gemini-thinking,nonordered_landmarks,logistics,p51,1,True,,106,106
+583,3-samples,gemini-thinking,nonordered_landmarks,logistics,p51,3,False,Error: Plan failed to execute.,106,106
+584,3-samples,gemini-thinking,nonordered_landmarks,logistics,p51,2,True,,106,106
+585,3-samples,gemini-thinking,nonordered_landmarks,logistics,p54,1,False,Error: Plan failed to execute.,112,106
+586,3-samples,gemini-thinking,nonordered_landmarks,logistics,p54,3,False,Error: Plan failed to execute.,112,110
+587,3-samples,gemini-thinking,nonordered_landmarks,logistics,p54,2,False,Error: Plan failed to execute.,112,85
+588,3-samples,gemini-thinking,nonordered_landmarks,logistics,p56,1,False,Error: Plan failed to execute.,88,84
+589,3-samples,gemini-thinking,nonordered_landmarks,logistics,p56,3,True,,88,88
+590,3-samples,gemini-thinking,nonordered_landmarks,logistics,p56,2,False,Error: Plan failed to execute.,88,88
+591,3-samples,gemini-thinking,nonordered_landmarks,logistics,p50,1,False,Error: Plan failed to execute.,100,96
+592,3-samples,gemini-thinking,nonordered_landmarks,logistics,p50,3,False,Error: Plan failed to execute.,100,100
+593,3-samples,gemini-thinking,nonordered_landmarks,logistics,p50,2,True,,100,100
+594,3-samples,gemini-thinking,nonordered_landmarks,logistics,p52,1,True,,70,70
+595,3-samples,gemini-thinking,nonordered_landmarks,logistics,p52,3,True,,70,70
+596,3-samples,gemini-thinking,nonordered_landmarks,logistics,p52,2,False,Error: Plan failed to execute.,70,70
+597,3-samples,gemini-thinking,nonordered_landmarks,logistics,p46,1,False,Error: Plan failed to execute.,98,84
+598,3-samples,gemini-thinking,nonordered_landmarks,logistics,p46,3,False,Error: Plan failed to execute.,98,97
+599,3-samples,gemini-thinking,nonordered_landmarks,logistics,p46,2,False,Error: Plan failed to execute.,98,96
+600,3-samples,gemini-thinking,pddl,blocksworld,p38,1,False,Error: Plan failed to execute.,52,50
+601,3-samples,gemini-thinking,pddl,blocksworld,p38,3,False,Error: Goal not satisfied.,52,39
+602,3-samples,gemini-thinking,pddl,blocksworld,p38,2,False,Error: Goal not satisfied.,52,51
+603,3-samples,gemini-thinking,pddl,blocksworld,p41,1,False,Error: Goal not satisfied.,62,61
+604,3-samples,gemini-thinking,pddl,blocksworld,p41,3,False,Error: Plan failed to execute.,62,62
+605,3-samples,gemini-thinking,pddl,blocksworld,p41,2,True,,62,62
+606,3-samples,gemini-thinking,pddl,blocksworld,p34,1,True,,48,48
+607,3-samples,gemini-thinking,pddl,blocksworld,p34,3,False,Error: Goal not satisfied.,48,47
+608,3-samples,gemini-thinking,pddl,blocksworld,p34,2,True,,48,48
+609,3-samples,gemini-thinking,pddl,blocksworld,p35,1,False,Error: Goal not satisfied.,47,0
+610,3-samples,gemini-thinking,pddl,blocksworld,p35,3,True,,47,47
+611,3-samples,gemini-thinking,pddl,blocksworld,p35,2,True,,47,47
+612,3-samples,gemini-thinking,pddl,blocksworld,p42,1,True,,61,61
+613,3-samples,gemini-thinking,pddl,blocksworld,p42,3,True,,61,61
+614,3-samples,gemini-thinking,pddl,blocksworld,p42,2,False,Error: Plan failed to execute.,61,55
+615,3-samples,gemini-thinking,pddl,blocksworld,p43,1,False,Error: Goal not satisfied.,63,36
+616,3-samples,gemini-thinking,pddl,blocksworld,p43,3,True,,63,63
+617,3-samples,gemini-thinking,pddl,blocksworld,p43,2,False,Error: Goal not satisfied.,63,35
+618,3-samples,gemini-thinking,pddl,blocksworld,p33,1,True,,50,50
+619,3-samples,gemini-thinking,pddl,blocksworld,p33,3,True,,50,50
+620,3-samples,gemini-thinking,pddl,blocksworld,p33,2,False,Error: Plan failed to execute.,50,46
+621,3-samples,gemini-thinking,pddl,blocksworld,p28,1,True,,34,34
+622,3-samples,gemini-thinking,pddl,blocksworld,p28,3,False,Error: Plan failed to execute.,34,34
+623,3-samples,gemini-thinking,pddl,blocksworld,p28,2,True,,34,34
+624,3-samples,gemini-thinking,pddl,blocksworld,p25,1,True,,35,35
+625,3-samples,gemini-thinking,pddl,blocksworld,p25,3,False,Error: Goal not satisfied.,35,33
+626,3-samples,gemini-thinking,pddl,blocksworld,p25,2,False,Error: Goal not satisfied.,35,33
+627,3-samples,gemini-thinking,pddl,blocksworld,p32,1,True,,45,45
+628,3-samples,gemini-thinking,pddl,blocksworld,p32,3,False,Error: Plan failed to execute.,45,44
+629,3-samples,gemini-thinking,pddl,blocksworld,p32,2,False,Error: Plan failed to execute.,45,45
+630,3-samples,gemini-thinking,pddl,blocksworld,p44,1,True,,59,59
+631,3-samples,gemini-thinking,pddl,blocksworld,p44,3,False,Error: Plan failed to execute.,59,48
+632,3-samples,gemini-thinking,pddl,blocksworld,p44,2,False,Error: Plan failed to execute.,59,50
+633,3-samples,gemini-thinking,pddl,blocksworld,p39,1,True,,56,56
+634,3-samples,gemini-thinking,pddl,blocksworld,p39,3,False,Error: Plan failed to execute.,56,55
+635,3-samples,gemini-thinking,pddl,blocksworld,p39,2,True,,56,56
+636,3-samples,gemini-thinking,pddl,blocksworld,p40,1,True,,54,54
+637,3-samples,gemini-thinking,pddl,blocksworld,p40,3,True,,54,54
+638,3-samples,gemini-thinking,pddl,blocksworld,p40,2,False,Error: Plan failed to execute.,54,48
+639,3-samples,gemini-thinking,pddl,blocksworld,p29,1,False,Error: Plan failed to execute.,46,44
+640,3-samples,gemini-thinking,pddl,blocksworld,p29,3,False,Error: Goal not satisfied.,46,0
+641,3-samples,gemini-thinking,pddl,blocksworld,p29,2,True,,46,46
+642,3-samples,gemini-thinking,pddl,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
+643,3-samples,gemini-thinking,pddl,blocksworld,p37,3,False,Error: Goal not satisfied.,55,53
+644,3-samples,gemini-thinking,pddl,blocksworld,p37,2,False,Error: Goal not satisfied.,55,28
+645,3-samples,gemini-thinking,pddl,blocksworld,p31,1,False,Error: Plan failed to execute.,44,44
+646,3-samples,gemini-thinking,pddl,blocksworld,p31,3,False,Error: Plan failed to execute.,44,43
+647,3-samples,gemini-thinking,pddl,blocksworld,p31,2,False,Error: Goal not satisfied.,44,41
+648,3-samples,gemini-thinking,pddl,blocksworld,p27,1,False,Error: Plan failed to execute.,36,34
+649,3-samples,gemini-thinking,pddl,blocksworld,p27,3,False,Error: Goal not satisfied.,36,35
+650,3-samples,gemini-thinking,pddl,blocksworld,p27,2,True,,36,36
+651,3-samples,gemini-thinking,pddl,blocksworld,p36,1,False,Error: Goal not satisfied.,46,45
+652,3-samples,gemini-thinking,pddl,blocksworld,p36,3,False,Error: Goal not satisfied.,46,45
+653,3-samples,gemini-thinking,pddl,blocksworld,p36,2,False,Error: Plan failed to execute.,46,43
+654,3-samples,gemini-thinking,pddl,blocksworld,p26,1,True,,36,36
+655,3-samples,gemini-thinking,pddl,blocksworld,p26,3,True,,36,36
+656,3-samples,gemini-thinking,pddl,blocksworld,p26,2,True,,36,36
+657,3-samples,gemini-thinking,pddl,blocksworld,p30,1,False,Error: Goal not satisfied.,40,39
+658,3-samples,gemini-thinking,pddl,blocksworld,p30,3,False,Error: Plan failed to execute.,40,40
+659,3-samples,gemini-thinking,pddl,blocksworld,p30,2,True,,40,40
+660,3-samples,gemini-thinking,pddl,logistics,p48,1,True,,92,92
+661,3-samples,gemini-thinking,pddl,logistics,p48,3,False,Error: Plan failed to execute.,92,88
+662,3-samples,gemini-thinking,pddl,logistics,p48,2,True,,92,92
+663,3-samples,gemini-thinking,pddl,logistics,p47,1,False,Error: Plan failed to execute.,100,50
+664,3-samples,gemini-thinking,pddl,logistics,p47,3,True,,100,100
+665,3-samples,gemini-thinking,pddl,logistics,p47,2,False,Error: Plan failed to execute.,100,97
+666,3-samples,gemini-thinking,pddl,logistics,p41,1,False,Error: Plan failed to execute.,98,96
+667,3-samples,gemini-thinking,pddl,logistics,p41,3,False,Error: Goal not satisfied.,98,96
+668,3-samples,gemini-thinking,pddl,logistics,p41,2,False,Error: Plan failed to execute.,98,88
+669,3-samples,gemini-thinking,pddl,logistics,p42,1,True,,74,74
+670,3-samples,gemini-thinking,pddl,logistics,p42,3,False,Error: Plan failed to execute.,74,72
+671,3-samples,gemini-thinking,pddl,logistics,p42,2,False,Error: Plan failed to execute.,74,74
+672,3-samples,gemini-thinking,pddl,logistics,p49,1,False,Error: Goal not satisfied.,112,112
+673,3-samples,gemini-thinking,pddl,logistics,p49,3,False,Error: Plan failed to execute.,112,0
+674,3-samples,gemini-thinking,pddl,logistics,p49,2,False,Error: Plan failed to execute.,112,112
+675,3-samples,gemini-thinking,pddl,logistics,p43,1,True,,82,82
+676,3-samples,gemini-thinking,pddl,logistics,p43,3,True,,82,82
+677,3-samples,gemini-thinking,pddl,logistics,p43,2,True,,82,82
+678,3-samples,gemini-thinking,pddl,logistics,p58,1,False,Error: Plan failed to execute.,116,0
+679,3-samples,gemini-thinking,pddl,logistics,p58,3,False,Error: Plan failed to execute.,116,106
+680,3-samples,gemini-thinking,pddl,logistics,p58,2,False,Error: Plan failed to execute.,116,111
+681,3-samples,gemini-thinking,pddl,logistics,p59,1,False,Error: Plan failed to execute.,116,116
+682,3-samples,gemini-thinking,pddl,logistics,p59,3,True,,116,116
+683,3-samples,gemini-thinking,pddl,logistics,p59,2,True,,116,0
+684,3-samples,gemini-thinking,pddl,logistics,p55,1,False,Error: Plan failed to execute.,112,92
+685,3-samples,gemini-thinking,pddl,logistics,p55,3,False,Error: Plan failed to execute.,112,0
+686,3-samples,gemini-thinking,pddl,logistics,p55,2,True,,112,112
+687,3-samples,gemini-thinking,pddl,logistics,p60,1,False,Error: Plan failed to execute.,114,107
+688,3-samples,gemini-thinking,pddl,logistics,p60,3,False,Error: Goal not satisfied.,114,105
+689,3-samples,gemini-thinking,pddl,logistics,p60,2,True,,114,114
+690,3-samples,gemini-thinking,pddl,logistics,p44,1,True,,78,78
+691,3-samples,gemini-thinking,pddl,logistics,p44,3,True,,78,78
+692,3-samples,gemini-thinking,pddl,logistics,p44,2,True,,78,78
+693,3-samples,gemini-thinking,pddl,logistics,p57,1,False,Error: Plan failed to execute.,122,121
+694,3-samples,gemini-thinking,pddl,logistics,p57,3,True,,122,0
+695,3-samples,gemini-thinking,pddl,logistics,p57,2,False,Error: Plan failed to execute.,122,113
+696,3-samples,gemini-thinking,pddl,logistics,p53,1,False,Error: Plan failed to execute.,98,69
+697,3-samples,gemini-thinking,pddl,logistics,p53,3,False,Error: Plan failed to execute.,98,43
+698,3-samples,gemini-thinking,pddl,logistics,p53,2,False,Error: Plan failed to execute.,98,98
+699,3-samples,gemini-thinking,pddl,logistics,p45,1,False,Error: Plan failed to execute.,90,90
+700,3-samples,gemini-thinking,pddl,logistics,p45,3,True,,90,90
+701,3-samples,gemini-thinking,pddl,logistics,p45,2,True,,90,90
+702,3-samples,gemini-thinking,pddl,logistics,p51,1,True,,106,106
+703,3-samples,gemini-thinking,pddl,logistics,p51,3,True,,106,106
+704,3-samples,gemini-thinking,pddl,logistics,p51,2,True,,106,106
+705,3-samples,gemini-thinking,pddl,logistics,p54,1,False,Error: Plan failed to execute.,112,112
+706,3-samples,gemini-thinking,pddl,logistics,p54,3,False,Error: Plan failed to execute.,112,112
+707,3-samples,gemini-thinking,pddl,logistics,p54,2,False,Error: Plan failed to execute.,112,110
+708,3-samples,gemini-thinking,pddl,logistics,p56,1,True,,88,88
+709,3-samples,gemini-thinking,pddl,logistics,p56,3,False,Error: Plan failed to execute.,88,84
+710,3-samples,gemini-thinking,pddl,logistics,p56,2,True,,88,88
+711,3-samples,gemini-thinking,pddl,logistics,p50,1,False,Error: Plan failed to execute.,100,0
+712,3-samples,gemini-thinking,pddl,logistics,p50,3,False,Error: Plan failed to execute.,100,96
+713,3-samples,gemini-thinking,pddl,logistics,p50,2,True,,100,100
+714,3-samples,gemini-thinking,pddl,logistics,p52,1,True,,70,70
+715,3-samples,gemini-thinking,pddl,logistics,p52,3,True,,70,70
+716,3-samples,gemini-thinking,pddl,logistics,p52,2,False,Error: Plan failed to execute.,70,67
+717,3-samples,gemini-thinking,pddl,logistics,p46,1,True,,98,98
+718,3-samples,gemini-thinking,pddl,logistics,p46,3,True,,98,98
+719,3-samples,gemini-thinking,pddl,logistics,p46,2,True,,98,98
+720,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p38,1,True,,52,52
+721,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p38,3,True,,52,52
+722,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p38,2,True,,52,52
+723,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p41,1,False,Error: Goal not satisfied.,62,60
+724,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p41,3,True,,62,62
+725,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p41,2,True,,62,62
+726,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p34,1,True,,48,48
+727,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p34,3,True,,48,48
+728,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p34,2,True,,48,48
+729,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p35,1,True,,47,47
+730,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p35,3,True,,47,47
+731,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p35,2,True,,47,47
+732,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p42,1,True,,61,61
+733,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p42,3,True,,61,61
+734,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p42,2,True,,61,61
+735,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p43,1,False,Error: Plan failed to execute.,63,62
+736,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p43,3,True,,63,63
+737,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p43,2,True,,63,63
+738,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p33,1,True,,50,50
+739,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p33,3,False,Error: Goal not satisfied.,50,50
+740,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p33,2,True,,50,50
+741,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p28,1,True,,34,34
+742,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p28,3,True,,34,34
+743,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p28,2,True,,34,34
+744,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p25,1,True,,35,35
+745,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p25,3,False,Error: Goal not satisfied.,35,35
+746,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p25,2,True,,35,35
+747,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p32,1,True,,45,45
+748,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p32,3,True,,45,45
+749,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p32,2,True,,45,45
+750,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,1,False,Error: Plan failed to execute.,59,59
+751,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,3,True,,59,59
+752,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p44,2,True,,59,59
+753,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p39,1,True,,56,56
+754,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p39,3,True,,56,56
+755,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p39,2,True,,56,56
+756,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p40,1,True,,54,54
+757,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p40,3,True,,54,54
+758,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p40,2,True,,54,54
+759,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p29,1,True,,46,46
+760,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p29,3,True,,46,46
+761,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p29,2,True,,46,46
+762,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p37,1,False,Error: Plan failed to execute.,55,55
+763,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p37,3,False,Error: Goal not satisfied.,55,53
+764,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p37,2,False,Error: Plan failed to execute.,55,55
+765,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p31,1,True,,44,44
+766,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p31,3,True,,44,44
+767,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p31,2,True,,44,44
+768,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p27,1,True,,36,36
+769,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p27,3,True,,36,36
+770,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p27,2,True,,36,36
+771,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p36,1,True,,46,46
+772,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p36,3,True,,46,46
+773,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p36,2,True,,46,46
+774,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p26,1,True,,36,36
+775,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p26,3,True,,36,36
+776,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p26,2,True,,36,36
+777,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p30,1,False,Error: Plan failed to execute.,40,40
+778,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p30,3,True,,40,40
+779,3-samples,gemini-thinking,ordered_landmarks_omitted,blocksworld,p30,2,False,Error: Goal not satisfied.,40,40
+780,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p48,1,True,,92,92
+781,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p48,3,True,,92,92
+782,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p48,2,True,,92,92
+783,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p47,1,False,Error: Plan failed to execute.,100,100
+784,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p47,3,True,,100,100
+785,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p47,2,False,Error: Plan failed to execute.,100,100
+786,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p41,1,True,,98,98
+787,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p41,3,True,,98,98
+788,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p41,2,True,,98,98
+789,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p42,1,True,,74,74
+790,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p42,3,True,,74,74
+791,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p42,2,False,Error: Plan failed to execute.,74,73
+792,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p49,1,True,,112,112
+793,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p49,3,True,,112,112
+794,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p49,2,True,,112,112
+795,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p43,1,False,Error: Plan failed to execute.,82,82
+796,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p43,3,True,,82,82
+797,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p43,2,False,Error: Plan failed to execute.,82,82
+798,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p58,1,True,,116,116
+799,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p58,3,False,Error: Plan failed to execute.,116,114
+800,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p58,2,False,Error: Plan failed to execute.,116,115
+801,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p59,1,False,Error: Plan failed to execute.,116,110
+802,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p59,3,True,,116,116
+803,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p59,2,True,,116,116
+804,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p55,1,False,Error: Plan failed to execute.,112,111
+805,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p55,3,False,Error: Plan failed to execute.,112,106
+806,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p55,2,True,,112,112
+807,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p60,1,False,Error: Plan failed to execute.,114,114
+808,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p60,3,False,Error: Plan failed to execute.,114,113
+809,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p60,2,False,Error: Plan failed to execute.,114,112
+810,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p44,1,True,,78,78
+811,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p44,3,True,,78,78
+812,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p44,2,True,,78,78
+813,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p57,1,True,,122,122
+814,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p57,3,True,,122,122
+815,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p57,2,True,,122,122
+816,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p53,1,True,,98,98
+817,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p53,3,False,Error: Plan failed to execute.,98,98
+818,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p53,2,True,,98,98
+819,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p45,1,True,,90,90
+820,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p45,3,True,,90,90
+821,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p45,2,False,Error: Plan failed to execute.,90,90
+822,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p51,1,False,Error: Plan failed to execute.,106,106
+823,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p51,3,False,Error: Plan failed to execute.,106,106
+824,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p51,2,True,,106,106
+825,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p54,1,True,,112,85
+826,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p54,3,False,Error: Plan failed to execute.,112,110
+827,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p54,2,True,,112,112
+828,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p56,1,True,,88,88
+829,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p56,3,True,,88,88
+830,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p56,2,True,,88,88
+831,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p50,1,True,,100,100
+832,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p50,3,True,,100,100
+833,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p50,2,False,Error: Plan failed to execute.,100,100
+834,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p52,1,True,,70,70
+835,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p52,3,True,,70,70
+836,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p52,2,True,,70,70
+837,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p46,1,True,,98,98
+838,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p46,3,True,,98,98
+839,3-samples,gemini-thinking,ordered_landmarks_omitted,logistics,p46,2,False,Error: Plan failed to execute.,98,98
