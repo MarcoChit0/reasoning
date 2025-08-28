@@ -1,0 +1,27 @@
+[2025-08-27 19:02:21.245810] Generating response for sample 1.
+[2025-08-27 19:06:51.010888] Response for sample 1 generated successfully.
+[2025-08-27 19:06:51.010913] Response:
+<response>
+<plan>
+(unstack b8 b5)
+(putdown b8)
+(unstack b5 b4)
+(putdown b5)
+(unstack b9 b18)
+(putdown b9)
+(pickup b9)
+(stack b9 b18)
+(unstack b18 b25)
+(putdown b18)
+(unstack b25 b15)
+(putdown b25)
+(unstack b15 b2)
+(putdown b15)
+(unstack b2 b16)
+(putdown b2)
+(un
+</response>
+[2025-08-27 19:06:51.010921] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[use_all]', 'domain': 'blocksworld', 'instance': 'p38', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 5955, 'candidates_token_count': 143, 'total_tokens_count': 71488}
+</metadata>

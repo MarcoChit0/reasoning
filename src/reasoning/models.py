@@ -35,6 +35,7 @@ class GoogleModel(Model):
         text = ""
         thought = ""
         while chances > 0 and not generated:
+            chances -= 1
             try:
                 num_requests += 1
                 response = self.client.models.generate_content(
@@ -61,9 +62,9 @@ class GoogleModel(Model):
                             "candidates_token_count" : response.usage_metadata.candidates_token_count,
                             "total_tokens_count" : response.usage_metadata.total_token_count,
                         }
+                        if text: generated = True
 
             except Exception as e:
-                chances -= 1
                 if wait_time == 0:
                     wait_time = 1
                 # Exponential backoff
@@ -75,11 +76,13 @@ class GoogleModel(Model):
         if not generated:
             raise RuntimeError("Error generating response.")
         
-        return {
+        data = {
             "response": text,
             "metadata": metadata,
-            "thought" : thought,
         }
+        if thought:
+            data["thought"] = thought
+        return data
 
         # print(response)
 

@@ -8,4 +8,5 @@ generation_config:
   top_k: 64
   thinking_config:
     thinking_budget: -1
+    include_thoughts: true
   wait_time: 8

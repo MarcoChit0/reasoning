@@ -142,7 +142,6 @@ $plan
                         temp_kwargs_data[key] = True
                     else:
                         raise ValueError(f"Invalid template item: {item}")
-                print(f"Parsed template kwargs: {temp_kwargs_data}")
             return temp, temp_kwargs_data
         return None, {}
 
