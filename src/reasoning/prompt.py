@@ -115,8 +115,8 @@ $plan
         if match:
             temp = match.group(1)
             temp_kwargs_str = match.group(2)
+            temp_kwargs_data = {}
             if temp_kwargs_str:
-                temp_kwargs_data = {}
                 for item in temp_kwargs_str.split("+"):
                     not_fact_pattern = r"not\(([\w\s\d_]+)\)"
                     map_pattern = r"\(([\w\s\d_]+)=([\w\s\d_]+)\)"

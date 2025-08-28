@@ -143,7 +143,8 @@ if __name__ == "__main__":
         "other_actions+first_appearance+use_all", 
         "unique+other_actions+first_appearance+use_all", 
         "optimal+other_actions+first_appearance+use_all", 
-        "unique+optimal+other_actions+first_appearance+use_all"
+        "unique+optimal+other_actions+first_appearance+use_all",
+        "unique+first_appearance"
     ]
     domains = ["blocksworld"]
     config_paths = [
