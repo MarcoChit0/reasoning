@@ -289,7 +289,7 @@ def metrics_by_attempt_to_table(df: pd.DataFrame, experiment_path: str):
     # Define the new display names for the templates (MODIFIED SECTION)
     from reasoning.prompt import get_tag 
     # --- LaTeX Header Generation ---
-    template_headers = [get_tag(t) for t in templates]
+    template_headers = [get_tag(t).replace("_", " ").strip() for t in templates]
     template_header_str = ' & '.join([f"\\multicolumn{{2}}{{c}}{{{name}}}" for name in template_headers])
     
     metric_header_str = ' & '.join(["Coverage & Landmarks"] * num_templates)

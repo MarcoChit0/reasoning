@@ -42,19 +42,9 @@ class PromptBuilder:
     
     def get_template(self):
         template = self.template
-        if self.template_kwargs:
-            kwargs_str = ""
-            for key, value in self.template_kwargs.items():
-                if isinstance(value, bool):
-                    if value:
-                        kwargs_str += f"+{key}"
-                    else:
-                        kwargs_str += f"+not({key})"
-                else:
-                    kwargs_str += f"+({key}={value})"
-            if kwargs_str:
-                kwargs_str = kwargs_str[1:]
-            template += f"[{kwargs_str}]"
+        kwargs = self.get_template_kwargs()
+        if kwargs:
+            template += f"[{kwargs}]"
         return template
 
     def process_task(self, task: Task, is_example: bool) -> None:
@@ -157,6 +147,27 @@ $plan
         if temp:
             return temp == self.template
         return False
+    
+    def get_tag(self):
+        tag = self.tag
+        kwargs = self.get_template_kwargs()
+        if kwargs:
+            tag += f" [{kwargs}]"
+        return tag
+    
+    def get_template_kwargs(self):
+        kwargs_str = ""
+        for key, value in self.template_kwargs.items():
+            if isinstance(value, bool):
+                if value:
+                    kwargs_str += f"+{key}"
+                else:
+                    kwargs_str += f"+not({key})"
+            else:
+                kwargs_str += f"+({key}={value})"
+        if kwargs_str:
+            kwargs_str = kwargs_str[1:]
+        return kwargs_str
 
 import re
 class LandmarksPromptBuilder(PromptBuilder):
@@ -351,6 +362,6 @@ def get_prompt_builder(template: str) -> PromptBuilder:
 def get_tag(template: str) -> str:
     try:
         pb = get_prompt_builder(template)
-        return pb.tag
+        return pb.get_tag()
     except ValueError:
         raise ValueError(f"No tag found for template: {template}")

@@ -131,7 +131,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 
 if __name__ == "__main__":
     experiment = "ablation"
-    samples = 1
+    samples = 2
     instances = 20
     templates = ["ordered_landmarks_feasible"]
     tips = [
@@ -150,7 +150,12 @@ if __name__ == "__main__":
         "src/configs/gemini-thinking.yaml",
     ]
     if tips:
-        templates = [template + f"[{tip}]" for tip in tips for template in templates]
+        new_templates = []
+        for template in templates:
+            new_templates.append(template)
+            for tip in tips:
+                new_templates.append(f"{template}[{tip}]")
+        templates = new_templates
 
     for config_path in config_paths:
         config = from_config(config_path)

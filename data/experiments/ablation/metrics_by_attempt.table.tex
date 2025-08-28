@@ -1,0 +1,17 @@
+% In your LaTeX preamble, use: \usepackage{graphicx}, \usepackage{multirow}, \usepackage{booktabs}
+\begin{table}[H] % Using [H] from 'float' package to place table here
+\centering
+\scalebox{0.6}{
+\begin{tabular}{lll|cccccccccccccccccc}
+\toprule
+domain & model & attempt & \multicolumn{2}{c}{first appearance} & \multicolumn{2}{c}{optimal+BLOCK} & \multicolumn{2}{c}{optimal} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{other actions} & \multicolumn{2}{c}{unique+optimal+BLOCK} & \multicolumn{2}{c}{unique+BLOCK} & \multicolumn{2}{c}{unique} & \multicolumn{2}{c}{use all} \\
+\cmidrule(lr){4-21}
+& & & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks \\
+\midrule
+\multirow[t]{1}{*}{blocksworld} & \multirow[t]{1}{*}{gemini-thinking} & 1 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.75 & 0.95 \\
+\bottomrule
+\end{tabular}
+}
+\caption{Metrics by Attempt}
+\label{tab:metrics_by_attempt}
+\end{table}

@@ -1,0 +1,10 @@
+experiment,domain,model,template,attempt,total_instances,coverage,landmarks
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[first_appearance],1,20,0.9,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],1,20,0.8,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[optimal],1,20,0.7,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[other_actions+first_appearance+use_all],1,20,0.75,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[other_actions],1,20,0.8,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],1,20,0.75,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique+other_actions+first_appearance+use_all],1,20,0.8,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique],1,20,0.9,1.0
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[use_all],1,20,0.75,0.95

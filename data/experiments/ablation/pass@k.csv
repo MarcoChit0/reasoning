@@ -1,0 +1,10 @@
+experiment,domain,model,template,num_instances,total_samples,correct_samples,num_action_landmarks,num_action_landmarks_used,accuracy_samples,pass@1
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[first_appearance],20,20,18,48.45,48.45,0.9,0.9
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],20,20,16,48.45,48.45,0.8,0.8
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[optimal],20,20,14,48.45,48.45,0.7,0.7
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[other_actions+first_appearance+use_all],20,20,15,48.45,48.45,0.75,0.75
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[other_actions],20,20,16,48.45,48.45,0.8,0.8
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],20,20,15,48.45,48.45,0.75,0.75
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique+other_actions+first_appearance+use_all],20,20,16,48.45,48.45,0.8,0.8
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique],20,20,18,48.45,48.45,0.9,0.9
+ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[use_all],20,20,15,48.45,45.85,0.75,0.75

@@ -1,0 +1,11 @@
+experiment,model,template,domain,Error: Goal not satisfied.,Error: Plan failed to execute.,Plan extraction failed : Ob...,Valid Plan,Total
+ablation,gemini-thinking,ordered_landmarks_feasible[first_appearance],blocksworld,1,1,0,18,20
+ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,2,2,0,16,20
+ablation,gemini-thinking,ordered_landmarks_feasible[optimal],blocksworld,2,4,0,14,20
+ablation,gemini-thinking,ordered_landmarks_feasible[other_actions+first_appearance+use_all],blocksworld,2,3,0,15,20
+ablation,gemini-thinking,ordered_landmarks_feasible[other_actions],blocksworld,2,2,0,16,20
+ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,4,1,0,15,20
+ablation,gemini-thinking,ordered_landmarks_feasible[unique+other_actions+first_appearance+use_all],blocksworld,2,2,0,16,20
+ablation,gemini-thinking,ordered_landmarks_feasible[unique],blocksworld,1,1,0,18,20
+ablation,gemini-thinking,ordered_landmarks_feasible[use_all],blocksworld,3,1,1,15,20
+Total,,,,19,17,1,143,180
