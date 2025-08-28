@@ -146,7 +146,7 @@ if __name__ == "__main__":
         "unique+optimal+other_actions+first_appearance+use_all",
         "unique+first_appearance"
     ]
-    domains = ["logistics"]
+    domains = ["blocksworld"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]

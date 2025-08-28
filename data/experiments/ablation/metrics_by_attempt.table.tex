@@ -2,13 +2,14 @@
 \begin{table}[H] % Using [H] from 'float' package to place table here
 \centering
 \scalebox{0.6}{
-\begin{tabular}{lll|cccccccccccccccccc}
+\begin{tabular}{lll|cccccccccccccccccccccc}
 \toprule
-domain & model & attempt & \multicolumn{2}{c}{first appearance} & \multicolumn{2}{c}{optimal+BLOCK} & \multicolumn{2}{c}{optimal} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{other actions} & \multicolumn{2}{c}{unique+optimal+BLOCK} & \multicolumn{2}{c}{unique+BLOCK} & \multicolumn{2}{c}{unique} & \multicolumn{2}{c}{use all} \\
-\cmidrule(lr){4-21}
-& & & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks \\
+domain & model & attempt & \multicolumn{2}{c}{Ordered Landmarks Feasible} & \multicolumn{2}{c}{first appearance} & \multicolumn{2}{c}{optimal+BLOCK} & \multicolumn{2}{c}{optimal} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{other actions} & \multicolumn{2}{c}{unique+first appearance} & \multicolumn{2}{c}{unique+optimal+BLOCK} & \multicolumn{2}{c}{unique+BLOCK} & \multicolumn{2}{c}{unique} & \multicolumn{2}{c}{use all} \\
+\cmidrule(lr){4-25}
+& & & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks \\
 \midrule
-\multirow[t]{1}{*}{blocksworld} & \multirow[t]{1}{*}{gemini-thinking} & 1 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.75 & 0.95 \\
+\multirow[t]{2}{*}{blocksworld} & \multirow[t]{2}{*}{gemini-thinking} & 1 & 0.55 & 0.95 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.00 & 0.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.75 & 0.95 \\
+ & & 2 & 0.65 & 0.95 & 0.85 & 1.00 & 0.80 & 1.00 & 0.75 & 0.95 & 0.75 & 1.00 & 0.80 & 1.00 & 0.05 & 0.10 & 0.80 & 0.90 & 0.75 & 1.00 & 0.65 & 0.95 & 0.65 & 0.95 \\
 \bottomrule
 \end{tabular}
 }

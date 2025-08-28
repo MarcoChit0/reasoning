@@ -1,19 +1,20 @@
 % In your LaTeX preamble, make sure you have: \usepackage{graphicx}
 \scalebox{0.6}{
-\begin{tabular}{lll|ccccccccc}
+\begin{tabular}{lll|ccccccccccc}
 \toprule
- &  &  & \multicolumn{9}{c}{templates} \\
- &  &  & ordered\_landmarks\_feasible[first\_appearance] & ordered\_landmarks\_feasible[optimal+other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[optimal] & ordered\_landmarks\_feasible[other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[other\_actions] & ordered\_landmarks\_feasible[unique+optimal+other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[unique+other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[unique] & ordered\_landmarks\_feasible[use\_all] \\
-domain & model & metric &  &  &  &  &  &  &  &  &  \\
+ &  &  & \multicolumn{11}{c}{templates} \\
+ &  &  & ordered\_landmarks\_feasible & ordered\_landmarks\_feasible[first\_appearance] & ordered\_landmarks\_feasible[optimal+other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[optimal] & ordered\_landmarks\_feasible[other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[other\_actions] & ordered\_landmarks\_feasible[unique+first\_appearance] & ordered\_landmarks\_feasible[unique+optimal+other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[unique+other\_actions+first\_appearance+use\_all] & ordered\_landmarks\_feasible[unique] & ordered\_landmarks\_feasible[use\_all] \\
+domain & model & metric &  &  &  &  &  &  &  &  &  &  &  \\
 \midrule
-\multirow[t]{7}{*}{blocksworld} & \multirow[t]{7}{*}{gemini-thinking} & \#instances & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 \\
- &  & \#correctSamples & 18 & 16 & 14 & 15 & 16 & 15 & 16 & 18 & 15 \\
- &  & \#totalSamples & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 \\
- &  & \#usedLandmarks & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 45.85 \\
- &  & \#landmarks & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 \\
- &  & Accuracy & 0.90 & 0.80 & 0.70 & 0.75 & 0.80 & 0.75 & 0.80 & 0.90 & 0.75 \\
- &  & pass-at-1 & 0.90 & 0.80 & 0.70 & 0.75 & 0.80 & 0.75 & 0.80 & 0.90 & 0.75 \\
-\cline{1-12} \cline{2-12}
+\multirow[t]{8}{*}{blocksworld} & \multirow[t]{8}{*}{gemini-thinking} & \#instances & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 & 20 \\
+ &  & \#correctSamples & 24 & 35 & 32 & 29 & 30 & 32 & 1 & 31 & 31 & 31 & 28 \\
+ &  & \#totalSamples & 40 & 40 & 40 & 40 & 40 & 40 & 40 & 40 & 40 & 40 & 40 \\
+ &  & \#usedLandmarks & 45.35 & 48.45 & 48.45 & 47.45 & 48.45 & 48.45 & 2.45 & 45.40 & 48.42 & 46.88 & 46.00 \\
+ &  & \#landmarks & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 & 48.45 \\
+ &  & Accuracy & 0.60 & 0.88 & 0.80 & 0.72 & 0.75 & 0.80 & 0.02 & 0.78 & 0.78 & 0.78 & 0.70 \\
+ &  & pass-at-1 & 0.60 & 0.88 & 0.80 & 0.72 & 0.75 & 0.80 & 0.02 & 0.78 & 0.78 & 0.78 & 0.70 \\
+ &  & pass-at-2 & 0.75 & 0.95 & 0.85 & 0.85 & 0.85 & 0.90 & 0.05 & 0.95 & 0.95 & 0.90 & 0.85 \\
+\cline{1-14} \cline{2-14}
 \bottomrule
 \end{tabular}
 }
