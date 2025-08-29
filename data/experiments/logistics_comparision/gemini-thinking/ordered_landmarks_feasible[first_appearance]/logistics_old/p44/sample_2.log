@@ -1,0 +1,148 @@
+[2025-08-29 13:05:07.772465] Generating response for sample 2.
+[2025-08-29 13:06:31.946323] Response for sample 2 generated successfully.
+[2025-08-29 13:06:31.946368] Response:
+<response>
+<plan>
+(load-truck p5 t2 l2-1)
+(load-truck p21 t2 l2-1)
+(load-truck p15 t2 l2-1)
+(load-truck p14 t2 l2-1)
+(load-truck p0 t2 l2-1)
+(load-truck p2 t1 l1-2)
+(load-truck p17 t1 l1-2)
+(load-truck p6 t0 l0-1)
+(load-truck p4 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p6 t0 l0-0)
+(unload-truck p4 t0 l0-0)
+(load-truck p10 t0 l0-0)
+(load-airplane p7 a0 l1-0)
+(load-airplane p22 a0 l1-0)
+(load-airplane p13 a0 l1-0)
+(load-airplane p11 a0 l1-0)
+(load-airplane p1 a0 l1-0)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-truck p9 t2 l2-0)
+(unload-truck p5 t2 l2-0)
+(unload-truck p21 t2 l2-0)
+(load-truck p19 t2 l2-0)
+(unload-truck p15 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p9 t2 l2-1)
+(unload-truck p19 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p8 t2 l2-2)
+(load-truck p3 t2 l2-2)
+(load-truck p20 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p8 t2 l2-0)
+(unload-truck p3 t2 l2-0)
+(unload-truck p20 t2 l2-0)
+(unload-truck p14 t2 l2-0)
+(unload-truck p0 t2 l2-0)
+(drive-truck t1 l1-2 l1-1 c1)
+(unload-truck p2 t1 l1-1)
+(unload-truck p17 t1 l1-1)
+(drive-truck t0 l0-0 l0-2 c0)
+(drive-truck t0 l0-2 l0-1 c0)
+(load-truck p18 t0 l0-1)
+(load-truck p16 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p18 t0 l0-0)
+(unload-truck p16 t0 l0-0)
+(unload-truck p10 t0 l0-2)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p7 a0 l0-0)
+(load-airplane p6 a0 l0-0)
+(load-airplane p4 a0 l0-0)
+(unload-airplane p22 a0 l0-0)
+(load-airplane p18 a0 l0-0)
+(load-airplane p16 a0 l0-0)
+(unload-airplane p13 a0 l0-0)
+(unload-airplane p11 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p5 a0 l2-0)
+(unload-airplane p4 a0 l2-0)
+(load-truck p4 t2 l2-0)
+(load-airplane p3 a0 l2-0)
+(load-airplane p21 a0 l2-0)
+(load-airplane p20 a0 l2-0)
+(unload-airplane p16 a0 l2-0)
+(load-truck p16 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p4 t2 l2-2)
+(unload-truck p16 t2 l2-2)
+(load-airplane p14 a0 l2-0)
+(unload-airplane p1 a0 l2-0)
+(load-airplane p0 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p5 a0 l0-0)
+(unload-airplane p21 a0 l0-0)
+(unload-airplane p20 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p6 a0 l1-0)
+(unload-airplane p3 a0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(unload-airplane p14 a0 l1-0)
+(unload-airplane p0 a0 l1-0)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p14 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p14 t1 l1-1)
+(load-truck p5 t0 l0-0)
+(load-truck p22 t0 l0-0)
+(load-truck p21 t0 l0-0)
+(load-truck p13 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p5 t0 l0-1)
+(unload-truck p22 t0 l0-1)
+(unload-truck p13 t0 l0-1)
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p21 t0 l0-2)
+</plan>
+</response>
+[2025-08-29 13:06:31.946393] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[first_appearance]', 'domain': 'logistics_old', 'instance': 'p44', 'sample_id': 2, 'num_requests': 1, 'prompt_token_count': 7307, 'candidates_token_count': 1459, 'total_tokens_count': 25148}
+</metadata>
+[2025-08-29 13:06:31.946423] Thought Process:
+<thought>
+**Final PDDL Plan**
+
+Okay, here's my final PDDL plan for the `logistics_old` domain, taking into account the initial state, the goal state, and the provided landmarks, ensuring a feasible order of operations. I've broken down each step, considering preconditions and effects. There might be simpler plans, but this is the most direct one, following the landmarks.
+
+```pddl
+(DRIVE-TRUCK t2 l2-1 l2-0 c2)  ; Interim: T2 from L2-1 to L2-0. Prep
+(LOAD-TRUCK p5 t2 l2-0)      ; LM1: Load P5 onto T2
+(LOAD-TRUCK p21 t2 l2-0)     ; LM2: Load P21 onto T2
+(LOAD-TRUCK p15 t2 l2-0)     ; LM3: Load P15 onto T2
+(LOAD-TRUCK p14 t2 l2-0)     ; LM4: Load P14 onto T2
+(LOAD-TRUCK p0 t2 l2-0)      ; LM5: Load P0 onto T2
+(DRIVE-TRUCK t1 l1-2 l1-1 c1)  ; Interim: T1 from L1-2 to L1-1.
+(LOAD-TRUCK p2 t1 l1-1)      ; LM6: Load P2 onto T1
+(LOAD-TRUCK p17 t1 l1-1)     ; LM7: Load P17 onto T1
+(DRIVE-TRUCK t0 l0-1 l0-0 c0)  ; Interim: T0 from L0-1 to L0-0.
+(LOAD-TRUCK p6 t0 l0-0)      ; LM8: Load P6 onto T0
+(LOAD-TRUCK p4 t0 l0-0)      ; LM9: Load P4 onto T0
+(DRIVE-TRUCK t0 l0-0 l0-2 c0)  ; Interim: T0 from L0-0 to L0-2
+(UNLOAD-TRUCK p6 t0 l0-0)    ; LM10: Unload P6 from T0
+(UNLOAD-TRUCK p4 t0 l0-0)    ; LM11: Unload P4 from T0
+(LOAD-TRUCK p10 t0 l0-2)     ; LM12: Load P10
+(LOAD-AIRPLANE p7 a0 l1-0)    ; LM13: Load P7 onto A0
+(LOAD-AIRPLANE p22 a0 l1-0)   ; LM14: Load P22 onto A0
+(LOAD-AIRPLANE p13 a0 l1-0)   ; LM15: Load P13 onto A0
+(LOAD-AIRPLANE p11 a0 l1-0)   ; LM16: Load P11 onto A0
+(LOAD-AIRPLANE p1 a0 l1-0)    ; LM17: Load P1 onto A0
+(DRIVE-TRUCK t2 l2-0 l2-1 c2)  ; Interim: T2 from L2-0 to L2-1
+(LOAD-TRUCK p9 t2 l2-1)      ; LM18: Load P9
+(UNLOAD-TRUCK p5 t2 l2-1)    ; LM19: Unload P5 from T2
+(UNLOAD-TRUCK p21 t2 l2-1)   ; LM20: Unload P21 from T2
+(LOAD-TRUCK p19 t2 l2-1)     ; LM21: Load P19
+(UNLOAD-TRUCK p15 t2 l2-1)   ; LM22: Unload P15 from T2.
+(DRIVE-TRUCK t2 l2-1 l2-2 c2)  ; Interim: T2 from L2-1 to L2-2
+(UNLOAD-TRUCK p9 t2 l2-1)    ; LM23: Unload P9.
+(UNLOAD-TRUCK p19 t2 l2-1)   ; LM24: Unload P19
+(LOAD-TRUCK p8 t2 l2-2)      ; LM25: Load P8
+(LOAD-TRUCK p3 t2 l2-2)      ; LM26: Load P3
+(LOAD-
+</thought>

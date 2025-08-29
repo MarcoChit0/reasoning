@@ -137,7 +137,7 @@ if __name__ == "__main__":
     tips = [
         "first_appearance", 
     ]
-    domains = ["logistics"]
+    domains = ["logistics_old"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]

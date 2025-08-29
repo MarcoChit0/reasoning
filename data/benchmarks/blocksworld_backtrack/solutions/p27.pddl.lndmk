@@ -1,0 +1,51 @@
+2025-08-09 19:09:20,898 INFO     using search: greedy_best_first_search
+2025-08-09 19:09:20,898 INFO     using heuristic: ActionLandmarkHeuristic
+2025-08-09 19:09:20,898 INFO     Parsing Domain /home/macsilva/reasoning/data/benchmarks/blocksworld/domain.pddl
+2025-08-09 19:09:20,898 INFO     Parsing Problem /home/macsilva/reasoning/data/benchmarks/blocksworld/instances/22-blocks/p27.pddl
+2025-08-09 19:09:20,898 INFO     5 Predicates parsed
+2025-08-09 19:09:20,898 INFO     4 Actions parsed
+2025-08-09 19:09:20,898 INFO     22 Objects parsed
+2025-08-09 19:09:20,898 INFO     0 Constants parsed
+2025-08-09 19:09:20,898 INFO     Grounding start: bw-rand-22
+2025-08-09 19:09:20,903 INFO     Relevance analysis removed 0 facts
+2025-08-09 19:09:20,903 INFO     Grounding end: bw-rand-22
+2025-08-09 19:09:20,903 INFO     551 Variables created
+2025-08-09 19:09:20,903 INFO     1012 Operators created
+<action-landmarks-set>
+(pickup b12)
+(pickup b8)
+(pickup b16)
+(pickup b11)
+(stack b22 b20)
+(stack b12 b15)
+(stack b4 b14)
+(stack b1 b22)
+(stack b20 b11)
+(stack b21 b19)
+(stack b18 b16)
+(stack b13 b9)
+(stack b9 b17)
+(stack b5 b1)
+(stack b8 b12)
+(stack b7 b6)
+(stack b16 b8)
+(stack b11 b7)
+(stack b3 b13)
+(unstack b22 b16)
+(unstack b4 b20)
+(unstack b1 b12)
+(unstack b20 b3)
+(unstack b14 b21)
+(unstack b21 b17)
+(unstack b17 b5)
+(unstack b18 b7)
+(unstack b13 b6)
+(unstack b15 b22)
+(unstack b9 b4)
+(unstack b19 b2)
+(unstack b5 b8)
+(unstack b7 b14)
+(unstack b10 b9)
+(unstack b2 b1)
+(unstack b3 b15)
+</action-landmarks-set>

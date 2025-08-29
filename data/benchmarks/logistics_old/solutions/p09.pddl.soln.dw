@@ -1,0 +1,337 @@
+INFO     planner time limit: None
+INFO     planner memory limit: None
+
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /home/macsilva/anaconda3/envs/reasoning/bin/python3 -m translate ../reasoning/data/benchmarks/logistics/domain.pddl ../reasoning/data/benchmarks/logistics/instances/7-packages/p09.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 51 rules.
+Computing model... [0.000s CPU, 0.002s wall-clock]
+389 relevant atoms
+498 auxiliary atoms
+887 final queue length
+999 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.000s CPU, 0.005s wall-clock]
+Computing fact groups...
+Finding invariants...
+6 initial candidates
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+11 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.001s wall-clock]
+Reordering and filtering variables...
+11 of 11 variables necessary.
+0 of 11 mutex groups necessary.
+192 of 192 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 11
+Translator derived variables: 0
+Translator facts: 103
+Translator goal facts: 7
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 192
+Translator axioms: 0
+Translator task size: 865
+Translator peak memory: 34748 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.010s wall-clock]
+Parsing...
+Parsing: [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 51 rules.
+Computing model... [0.000s CPU, 0.003s wall-clock]
+389 relevant atoms
+498 auxiliary atoms
+887 final queue length
+999 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.000s CPU, 0.005s wall-clock]
+Computing fact groups...
+Finding invariants...
+6 initial candidates
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+11 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.001s wall-clock]
+Reordering and filtering variables...
+11 of 11 variables necessary.
+0 of 11 mutex groups necessary.
+192 of 192 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 11
+Translator derived variables: 0
+Translator facts: 103
+Translator goal facts: 7
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 192
+Translator axioms: 0
+Translator task size: 865
+Translator peak memory: 34748 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.009s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/macsilva/downward/builds/release/bin/downward --search 'let(hlm,landmark_sum(lm_factory=lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one),pref=false),let(hff,ff(transform=adapt_costs(one)),lazy_greedy([hff,hlm],preferred=[hff,hlm],cost_type=one,reopen_closed=false)))' --internal-plan-file sas_plan < output.sas
+[t=0.000076s, 10060 KB] Search code revision: ba6ffb797
+[t=0.000143s, 10060 KB] reading input...
+[t=0.000777s, 10060 KB] done reading input!
+[t=0.001768s, 10448 KB] Initializing landmark sum heuristic...
+[t=0.001810s, 10448 KB] Generating landmark graph...
+[t=0.001833s, 10448 KB] Building a landmark graph with reasonable orders.
+[t=0.001853s, 10448 KB] Initializing Exploration...
+[t=0.001895s, 10448 KB] Generating landmarks using the RPG/SAS+ approach
+[t=0.002484s, 10448 KB] Landmarks generation time: 0.000656s
+[t=0.002504s, 10448 KB] Discovered 44 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.002516s, 10448 KB] There are 150 landmark orderings.
+[t=0.002528s, 10448 KB] approx. reasonable orders
+[t=0.002600s, 10448 KB] Landmarks generation time: 0.000787s
+[t=0.002612s, 10448 KB] Discovered 44 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.002623s, 10448 KB] There are 157 landmark orderings.
+[t=0.002634s, 10448 KB] Landmark graph generation time: 0.000834s
+[t=0.002645s, 10448 KB] Landmark graph contains 44 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.002656s, 10448 KB] Landmark graph contains 157 orderings.
+[t=0.002724s, 10448 KB] Simplifying 192 unary operators... done! [192 unary operators]
+[t=0.002788s, 10448 KB] time to simplify: 0.000080s
+[t=0.002813s, 10448 KB] Initializing additive heuristic...
+[t=0.002825s, 10448 KB] Initializing FF heuristic...
+[t=0.002859s, 10448 KB] Building successor generator...done!
+[t=0.002944s, 10448 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.002955s, 10448 KB] time for successor generation creation: 0.000052s
+[t=0.002967s, 10448 KB] Variables: 11
+[t=0.002978s, 10448 KB] FactPairs: 103
+[t=0.002988s, 10448 KB] Bytes per state: 8
+[t=0.003014s, 10448 KB] Conducting lazy best first search, (real) bound = 2147483647
+[t=0.003058s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 36
+[t=0.003074s, 10448 KB] New best heuristic value for ff: 33
+[t=0.003086s, 10448 KB] g=0, 1 evaluated, 0 expanded
+[t=0.003103s, 10448 KB] Initial heuristic value for landmark_sum_heuristic: 36
+[t=0.003115s, 10448 KB] Initial heuristic value for ff: 33
+[t=0.003188s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 35
+[t=0.003201s, 10448 KB] New best heuristic value for ff: 32
+[t=0.003213s, 10448 KB] g=1, 6 evaluated, 5 expanded
+[t=0.003274s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 34
+[t=0.003292s, 10448 KB] g=2, 10 evaluated, 9 expanded
+[t=0.003392s, 10448 KB] New best heuristic value for ff: 31
+[t=0.003406s, 10448 KB] g=2, 17 evaluated, 16 expanded
+[t=0.003437s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 33
+[t=0.003449s, 10448 KB] g=3, 19 evaluated, 18 expanded
+[t=0.003672s, 10448 KB] New best heuristic value for ff: 30
+[t=0.003684s, 10448 KB] g=4, 42 evaluated, 41 expanded
+[t=0.003716s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 32
+[t=0.003728s, 10448 KB] g=5, 44 evaluated, 43 expanded
+[t=0.003796s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 31
+[t=0.003808s, 10448 KB] g=6, 50 evaluated, 49 expanded
+[t=0.003866s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 30
+[t=0.003878s, 10448 KB] g=7, 55 evaluated, 54 expanded
+[t=0.003964s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 29
+[t=0.003976s, 10448 KB] New best heuristic value for ff: 29
+[t=0.003987s, 10448 KB] g=8, 63 evaluated, 62 expanded
+[t=0.004043s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 28
+[t=0.004055s, 10448 KB] New best heuristic value for ff: 28
+[t=0.004066s, 10448 KB] g=9, 67 evaluated, 66 expanded
+[t=0.004117s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 27
+[t=0.004129s, 10448 KB] New best heuristic value for ff: 27
+[t=0.004140s, 10448 KB] g=10, 71 evaluated, 70 expanded
+[t=0.004190s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 26
+[t=0.004202s, 10448 KB] New best heuristic value for ff: 26
+[t=0.004213s, 10448 KB] g=11, 75 evaluated, 74 expanded
+[t=0.004262s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 25
+[t=0.004273s, 10448 KB] New best heuristic value for ff: 25
+[t=0.004284s, 10448 KB] g=12, 79 evaluated, 78 expanded
+[t=0.004319s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 24
+[t=0.004331s, 10448 KB] New best heuristic value for ff: 24
+[t=0.004342s, 10448 KB] g=13, 81 evaluated, 80 expanded
+[t=0.004491s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 23
+[t=0.004524s, 10448 KB] New best heuristic value for ff: 23
+[t=0.004530s, 10448 KB] g=14, 84 evaluated, 83 expanded
+[t=0.004557s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 22
+[t=0.004563s, 10448 KB] New best heuristic value for ff: 22
+[t=0.004567s, 10448 KB] g=15, 87 evaluated, 86 expanded
+[t=0.004593s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 21
+[t=0.004598s, 10448 KB] New best heuristic value for ff: 21
+[t=0.004603s, 10448 KB] g=16, 90 evaluated, 89 expanded
+[t=0.004621s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 20
+[t=0.004626s, 10448 KB] New best heuristic value for ff: 20
+[t=0.004631s, 10448 KB] g=17, 92 evaluated, 91 expanded
+[t=0.004648s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 19
+[t=0.004653s, 10448 KB] New best heuristic value for ff: 19
+[t=0.004658s, 10448 KB] g=18, 94 evaluated, 93 expanded
+[t=0.004697s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 18
+[t=0.004702s, 10448 KB] New best heuristic value for ff: 18
+[t=0.004707s, 10448 KB] g=19, 100 evaluated, 99 expanded
+[t=0.004744s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 17
+[t=0.004749s, 10448 KB] New best heuristic value for ff: 17
+[t=0.004754s, 10448 KB] g=20, 106 evaluated, 105 expanded
+[t=0.004795s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 16
+[t=0.004800s, 10448 KB] New best heuristic value for ff: 16
+[t=0.004805s, 10448 KB] g=21, 112 evaluated, 111 expanded
+[t=0.004831s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 15
+[t=0.004836s, 10448 KB] New best heuristic value for ff: 15
+[t=0.004841s, 10448 KB] g=22, 116 evaluated, 115 expanded
+[t=0.004872s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 14
+[t=0.004877s, 10448 KB] New best heuristic value for ff: 14
+[t=0.004882s, 10448 KB] g=23, 121 evaluated, 120 expanded
+[t=0.004908s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 13
+[t=0.004913s, 10448 KB] New best heuristic value for ff: 13
+[t=0.004921s, 10448 KB] g=24, 125 evaluated, 124 expanded
+[t=0.004958s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 12
+[t=0.004963s, 10448 KB] New best heuristic value for ff: 12
+[t=0.004968s, 10448 KB] g=25, 130 evaluated, 129 expanded
+[t=0.004998s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 11
+[t=0.005003s, 10448 KB] New best heuristic value for ff: 11
+[t=0.005008s, 10448 KB] g=26, 135 evaluated, 134 expanded
+[t=0.005033s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 10
+[t=0.005038s, 10448 KB] New best heuristic value for ff: 10
+[t=0.005043s, 10448 KB] g=27, 139 evaluated, 138 expanded
+[t=0.005058s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 9
+[t=0.005063s, 10448 KB] New best heuristic value for ff: 9
+[t=0.005067s, 10448 KB] g=28, 141 evaluated, 140 expanded
+[t=0.005086s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 8
+[t=0.005091s, 10448 KB] New best heuristic value for ff: 8
+[t=0.005096s, 10448 KB] g=29, 144 evaluated, 143 expanded
+[t=0.005110s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 7
+[t=0.005115s, 10448 KB] New best heuristic value for ff: 7
+[t=0.005120s, 10448 KB] g=30, 146 evaluated, 145 expanded
+[t=0.005134s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 6
+[t=0.005139s, 10448 KB] New best heuristic value for ff: 6
+[t=0.005144s, 10448 KB] g=31, 148 evaluated, 147 expanded
+[t=0.005157s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 5
+[t=0.005162s, 10448 KB] New best heuristic value for ff: 5
+[t=0.005167s, 10448 KB] g=32, 150 evaluated, 149 expanded
+[t=0.005180s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 4
+[t=0.005185s, 10448 KB] New best heuristic value for ff: 4
+[t=0.005190s, 10448 KB] g=33, 152 evaluated, 151 expanded
+[t=0.005204s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 3
+[t=0.005208s, 10448 KB] New best heuristic value for ff: 3
+[t=0.005213s, 10448 KB] g=34, 154 evaluated, 153 expanded
+[t=0.005222s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 2
+[t=0.005227s, 10448 KB] New best heuristic value for ff: 2
+[t=0.005232s, 10448 KB] g=35, 155 evaluated, 154 expanded
+[t=0.005241s, 10448 KB] New best heuristic value for landmark_sum_heuristic: 1
+[t=0.005246s, 10448 KB] New best heuristic value for ff: 1
+[t=0.005250s, 10448 KB] g=36, 156 evaluated, 155 expanded
+[t=0.005259s, 10448 KB] Solution found!
+[t=0.005267s, 10448 KB] Actual search time: 0.002232s
+load-truck p1 t1 l1-1 (1)
+drive-truck t0 l0-1 l0-0 c0 (1)
+fly-airplane a0 l0-0 l1-0 (1)
+drive-truck t1 l1-1 l1-0 c1 (1)
+load-truck p6 t1 l1-0 (1)
+drive-truck t1 l1-0 l1-2 c1 (1)
+unload-truck p6 t1 l1-2 (1)
+load-truck p5 t1 l1-2 (1)
+load-truck p4 t1 l1-2 (1)
+load-truck p3 t1 l1-2 (1)
+unload-truck p1 t1 l1-2 (1)
+load-truck p0 t1 l1-2 (1)
+drive-truck t1 l1-2 l1-0 c1 (1)
+unload-truck p4 t1 l1-0 (1)
+unload-truck p3 t1 l1-0 (1)
+unload-truck p0 t1 l1-0 (1)
+drive-truck t1 l1-0 l1-1 c1 (1)
+unload-truck p5 t1 l1-1 (1)
+load-airplane p4 a0 l1-0 (1)
+load-airplane p3 a0 l1-0 (1)
+load-airplane p0 a0 l1-0 (1)
+fly-airplane a0 l1-0 l0-0 (1)
+unload-airplane p3 a0 l0-0 (1)
+load-truck p3 t0 l0-0 (1)
+load-airplane p2 a0 l0-0 (1)
+unload-airplane p0 a0 l0-0 (1)
+load-truck p0 t0 l0-0 (1)
+drive-truck t0 l0-0 l0-1 c0 (1)
+unload-truck p0 t0 l0-1 (1)
+drive-truck t0 l0-1 l0-2 c0 (1)
+unload-truck p3 t0 l0-2 (1)
+fly-airplane a0 l0-0 l2-0 (1)
+unload-airplane p4 a0 l2-0 (1)
+load-truck p4 t2 l2-0 (1)
+drive-truck t2 l2-0 l2-2 c2 (1)
+unload-truck p4 t2 l2-2 (1)
+unload-airplane p2 a0 l2-0 (1)
+[t=0.005272s, 10448 KB] Plan length: 37 step(s).
+[t=0.005272s, 10448 KB] Plan cost: 37
+[t=0.005272s, 10448 KB] Expanded 156 state(s).
+[t=0.005272s, 10448 KB] Reopened 0 state(s).
+[t=0.005272s, 10448 KB] Evaluated 157 state(s).
+[t=0.005272s, 10448 KB] Evaluations: 314
+[t=0.005272s, 10448 KB] Generated 1936 state(s).
+[t=0.005272s, 10448 KB] Dead ends: 0 state(s).
+[t=0.005272s, 10448 KB] Number of registered states: 157
+[t=0.005272s, 10448 KB] Int hash set load factor: 157/256 = 0.613281
+[t=0.005272s, 10448 KB] Int hash set resizes: 8
+[t=0.005272s, 10448 KB] Search time: 0.002260s
+[t=0.005272s, 10448 KB] Total time: 0.005272s
+Solution found.
+Peak memory: 10448 KB
+Remove intermediate file output.sas
+search exit code: 0
+
+INFO     Planner time: 0.06s
