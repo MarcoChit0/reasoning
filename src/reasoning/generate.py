@@ -130,7 +130,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         )
 
 if __name__ == "__main__":
-    experiment = "ablation"
+    experiment = "logistics_comparision"
     samples = 3
     instances = 20
     templates = ["ordered_landmarks_feasible"]
