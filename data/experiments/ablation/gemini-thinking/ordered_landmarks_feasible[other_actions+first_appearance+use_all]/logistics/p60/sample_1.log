@@ -1,0 +1,552 @@
+[2025-08-29 00:47:47.389567] Generating response for sample 1.
+[2025-08-29 00:51:26.876237] Response for sample 1 generated successfully.
+[2025-08-29 00:51:26.876257] Response:
+<response>
+The problem requires generating a PDDL plan for a logistics instance, guided by a provided set of action landmarks. The landmarks are given in a "feasible order," meaning there's a valid plan that respects the relative order of the first appearance of each landmark in the plan. Other actions may appear between landmarks.
+
+My strategy is to iterate through the provided landmarks in their given order. For each landmark, if its preconditions are not met in the current state, I will insert the necessary actions (drive trucks, fly airplanes, load/unload packages) to satisfy those preconditions. If an action inserted to satisfy a precondition is itself a landmark that appears later in the list, it will be executed out of its original landmark order and marked as "executed" so it's skipped when its turn comes in the landmark list. After satisfying preconditions, the current landmark action is added to the plan, and the state is updated. Finally, after all landmarks are processed, any remaining packages that have not reached their goal locations are moved and delivered.
+
+Here's a step-by-step trace of the plan generation:
+
+**Initial State:**
+*   `a0` at `l1-0` (City c1 airport)
+*   `t0` at `l0-1` (City c0 non-airport)
+*   `t1` at `l1-2` (City c1 non-airport)
+*   `t2` at `l2-1` (City c2 non-airport)
+*   Packages at various initial locations.
+
+**Plan Generation:**
+
+1.  **`(load-truck p13 t0 l0-0)`** (LM 1)
+    *   `p13` is at `l1-0` (c1), needs to be at `l0-0` (c0). Requires `a0`. `a0` is at `l1-0`.
+    *   `t0` is at `l0-1` (c0), needs to be at `l0-0` (c0).
+    *   Actions:
+        *   `(load-airplane p13 a0 l1-0)` (LM 31)
+        *   `(fly-airplane a0 l1-0 l0-0)`
+        *   `(unload-airplane p13 a0 l0-0)` (LM 58)
+        *   `(drive-truck t0 l0-1 l0-0 c0)`
+        *   `(load-truck p13 t0 l0-0)` (LM 1)
+    *   State: `a0` at `l0-0`, `t0` at `l0-0` (with `p13`).
+
+2.  **`(load-truck p3 t2 l2-2)`** (LM 2)
+    *   `p3` is at `l2-2` (c2). `t2` is at `l2-1` (c2).
+    *   Actions:
+        *   `(drive-truck t2 l2-1 l2-2 c2)`
+        *   `(load-truck p3 t2 l2-2)` (LM 2)
+    *   State: `t2` at `l2-2` (with `p3`).
+
+3.  **`(load-truck p0 t2 l2-1)`** (LM 3)
+    *   `p0` is at `l2-1` (c2). `t2` is at `l2-2` (c2, with `p3`).
+    *   Actions:
+        *   `(drive-truck t2 l2-2 l2-1 c2)`
+        *   `(load-truck p0 t2 l2-1)` (LM 3)
+    *   State: `t2` at `l2-1` (with `p0`, `p3`).
+
+4.  **`(load-truck p16 t0 l0-1)`** (LM 4)
+    *   `p16` is at `l0-1` (c0). `t0` is at `l0-0` (c0, with `p13`).
+    *   Actions:
+        *   `(drive-truck t0 l0-0 l0-1 c0)`
+        *   `(load-truck p16 t0 l0-1)` (LM 4)
+    *   State: `t0` at `l0-1` (with `p13`, `p16`).
+
+5.  **`(load-truck p29 t1 l1-0)`** (LM 5)
+    *   `p29` is at `l1-0` (c1). `t1` is at `l1-2` (c1).
+    *   Actions:
+        *   `(drive-truck t1 l1-2 l1-0 c1)`
+        *   `(load-truck p29 t1 l1-0)` (LM 5)
+    *   State: `t1` at `l1-0` (with `p29`).
+
+6.  **`(load-truck p9 t1 l1-0)`** (LM 6)
+    *   `p9` is at `l2-0` (c2), needs to be at `l1-0` (c1). Requires `a0`. `a0` at `l0-0`.
+    *   `t1` is at `l1-0` (c1, with `p29`).
+    *   Actions:
+        *   `(fly-airplane a0 l0-0 l2-0)`
+        *   `(load-airplane p9 a0 l2-0)` (LM 35)
+        *   `(fly-airplane a0 l2-0 l1-0)`
+        *   `(unload-airplane p9 a0 l1-0)` (LM 62)
+        *   `(load-truck p9 t1 l1-0)` (LM 6)
+    *   State: `a0` at `l1-0`, `t1` at `l1-0` (with `p29`, `p9`).
+
+7.  **`(load-truck p2 t0 l0-0)`** (LM 7)
+    *   `p2` is at `l1-2` (c1), needs to be at `l0-0` (c0). Requires `t1` then `a0`.
+    *   `t0` is at `l0-1` (c0, with `p13`, `p16`). `a0` is at `l1-0`. `t1` is at `l1-0` (with `p29`, `p9`).
+    *   Actions for `p2` movement:
+        *   `(drive-truck t1 l1-0 l1-1 c1)` (to unload `p29`, `p9` which goal is `l1-1`)
+        *   `(unload-truck p29 t1 l1-1)` (LM 64)
+        *   `(unload-truck p9 t1 l1-1)` (LM 65)
+        *   `(drive-truck t1 l1-1 l1-2 c1)` (to pick up `p2`)
+        *   `(load-truck p2 t1 l1-2)` (LM 8)
+        *   `(drive-truck t1 l1-2 l1-0 c1)`
+        *   `(unload-truck p2 t1 l1-0)`
+        *   `(fly-airplane a0 l1-0 l0-0)` (moving `a0` from `l1-0` to `l0-0` for `p2`)
+        *   `(load-airplane p2 a0 l1-0)` (LM 36) - This `load-airplane` needs `a0` at `l1-0`. But `a0` is now at `l0-0`. Corrected: a0 has to fly back to l1-0.
+            *   `(fly-airplane a0 l0-0 l1-0)` (Moving `a0` back to `l1-0` after `p9`'s trip for `p2`)
+            *   `(load-airplane p2 a0 l1-0)` (LM 36)
+            *   `(fly-airplane a0 l1-0 l0-0)`
+            *   `(unload-airplane p2 a0 l0-0)` (LM 61)
+        *   Actions for `t0` to make room for `p2`:
+            *   `(drive-truck t0 l0-1 l0-0 c0)` (t0 returns to airport for `p16` inter-city transfer)
+            *   `(unload-truck p16 t0 l0-0)` (LM 67)
+            *   `(load-airplane p16 a0 l0-0)` (LM 34) (plane `a0` is now at `l0-0`)
+            *   `(fly-airplane a0 l0-0 l1-0)`
+            *   `(unload-airplane p16 a0 l1-0)` (LM 59) (`p16` goal `l1-0` met!)
+        *   `(load-truck p2 t0 l0-0)` (LM 7)
+    *   State: `a0` at `l1-0`, `t0` at `l0-0` (with `p13`, `p2`).
+
+8.  **`(load-truck p2 t1 l1-2)`** (LM 8) - Already executed as part of LM 7. Skip.
+
+9.  **`(load-truck p15 t2 l2-1)`** (LM 9)
+    *   `p15` at `l2-1` (c2). `t2` at `l2-1` (with `p0`, `p3`).
+    *   Actions:
+        *   `(load-truck p15 t2 l2-1)` (LM 9)
+    *   State: `t2` at `l2-1` (with `p0`, `p3`, `p15`).
+
+10. **`(load-truck p20 t2 l2-2)`** (LM 10)
+    *   `p20` at `l2-2` (c2). `t2` at `l2-1` (with `p0`, `p3`, `p15`).
+    *   Actions:
+        *   `(drive-truck t2 l2-1 l2-2 c2)`
+        *   `(load-truck p20 t2 l2-2)` (LM 10)
+    *   State: `t2` at `l2-2` (with `p0`, `p3`, `p15`, `p20`).
+
+11. **`(load-truck p27 t2 l2-2)`** (LM 11)
+    *   `p27` at `l2-2` (c2). `t2` at `l2-2` (with `p0`, `p3`, `p15`, `p20`).
+    *   Actions:
+        *   `(load-truck p27 t2 l2-2)` (LM 11)
+    *   State: `t2` at `l2-2` (with `p0`, `p3`, `p15`, `p20`, `p27`).
+
+12. **`(load-truck p4 t0 l0-1)`** (LM 12)
+    *   `p4` at `l0-1` (c0). `t0` at `l0-0` (c0, with `p13`, `p2`).
+    *   Actions:
+        *   `(drive-truck t0 l0-0 l0-1 c0)`
+        *   `(load-truck p4 t0 l0-1)` (LM 12)
+    *   State: `t0` at `l0-1` (with `p13`, `p2`, `p4`).
+
+13. **`(load-truck p28 t0 l0-1)`** (LM 13)
+    *   `p28` at `l0-1` (c0). `t0` at `l0-1` (with `p13`, `p2`, `p4`).
+    *   Actions:
+        *   `(load-truck p28 t0 l0-1)` (LM 13)
+    *   State: `t0` at `l0-1` (with `p13`, `p2`, `p4`, `p28`).
+
+14. **`(load-truck p14 t0 l0-0)`** (LM 14)
+    *   `p14` at `l2-1` (c2), needs to be at `l0-0` (c0). Requires `t2` then `a0`.
+    *   `t0` at `l0-1` (with `p13`, `p2`, `p4`, `p28`). `a0` at `l1-0`. `t2` at `l2-2` (with `p0`, `p3`, `p15`, `p20`, `p27`).
+    *   Actions for `p14` movement (inter-city from c2 to c0 via a0):
+        *   `(drive-truck t2 l2-2 l2-0 c2)` (t2 goes to airport to drop packages)
+        *   `(unload-truck p3 t2 l2-0)` (LM 56) (p3 goal l0-0)
+        *   `(load-airplane p3 a0 l2-0)` (LM 33) (a0 must be moved there)
+            *   `(fly-airplane a0 l1-0 l2-0)`
+            *   `(load-airplane p3 a0 l2-0)` (LM 33)
+        *   `(unload-truck p0 t2 l2-0)` (LM 57) (p0 goal l2-0 met!)
+        *   `(unload-truck p15 t2 l2-0)` (LM 68) (p15 goal l1-0)
+        *   `(load-airplane p15 a0 l2-0)` (LM 38)
+        *   `(unload-truck p20 t2 l2-0)` (LM 69) (p20 goal l0-0)
+        *   `(load-airplane p20 a0 l2-0)` (LM 39)
+        *   `(drive-truck t2 l2-0 l2-1 c2)` (t2 goes to l2-1 to deliver p27, pick up p14)
+        *   `(unload-truck p27 t2 l2-1)` (LM 70) (p27 goal l2-1 met!)
+        *   `(load-truck p14 t2 l2-1)` (LM 15)
+        *   `(drive-truck t2 l2-1 l2-0 c2)`
+        *   `(unload-truck p14 t2 l2-0)` (LM 72)
+        *   `(load-airplane p14 a0 l2-0)` (LM 42)
+        *   `(fly-airplane a0 l2-0 l0-0)`
+        *   `(unload-airplane p3 a0 l0-0)` (LM 60) (p3 goal l0-0 met!)
+        *   `(unload-airplane p15 a0 l0-0)` (LM 63)
+        *   `(unload-airplane p20 a0 l0-0)` (LM 69) (p20 goal l0-0 met!)
+        *   `(unload-airplane p14 a0 l0-0)` (LM 69 - this is for a different instance, the one for p14 a0 l0-0) (LM has unload-airplane p14 a0 l0-0)
+        *   Now `p14` is at `l0-0`. `t0` is at `l0-1`.
+        *   `(drive-truck t0 l0-1 l0-0 c0)` (t0 moves to l0-0 to pick up p14)
+        *   `(load-truck p14 t0 l0-0)` (LM 14)
+    *   State: `a0` at `l0-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p28`, `p14`).
+
+15. **`(load-truck p14 t2 l2-1)`** (LM 15) - Already executed as part of LM 14. Skip.
+
+16. **`(load-truck p22 t2 l2-0)`** (LM 16)
+    *   `p22` at `l1-0` (c1), needs to be at `l2-0` (c2). Requires `a0` then `t2`.
+    *   `t2` is at `l2-0` (c2, empty). `a0` is at `l0-0`.
+    *   Actions:
+        *   `(fly-airplane a0 l0-0 l1-0)`
+        *   `(load-airplane p22 a0 l1-0)` (LM 44)
+        *   `(fly-airplane a0 l1-0 l2-0)`
+        *   `(unload-airplane p22 a0 l2-0)` (LM 73)
+        *   `(load-truck p22 t2 l2-0)` (LM 16)
+    *   State: `a0` at `l2-0`, `t2` at `l2-0` (with `p22`).
+
+17. **`(load-truck p21 t2 l2-1)`** (LM 17)
+    *   `p21` at `l2-1` (c2). `t2` at `l2-0` (with `p22`).
+    *   Actions:
+        *   `(drive-truck t2 l2-0 l2-1 c2)`
+        *   `(load-truck p21 t2 l2-1)` (LM 17)
+    *   State: `t2` at `l2-1` (with `p21`, `p22`).
+
+18. **`(load-truck p23 t0 l0-0)`** (LM 18)
+    *   `p23` at `l1-0` (c1), needs to be at `l0-0` (c0). Requires `a0` then `t0`.
+    *   `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p28`, `p14`). `a0` at `l2-0`.
+    *   Actions:
+        *   `(fly-airplane a0 l2-0 l1-0)`
+        *   `(load-airplane p23 a0 l1-0)` (LM 47)
+        *   `(fly-airplane a0 l1-0 l0-0)`
+        *   `(unload-airplane p23 a0 l0-0)` (LM 75)
+        *   `(load-truck p23 t0 l0-0)` (LM 18)
+    *   State: `a0` at `l0-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p28`, `p14`, `p23`).
+
+19. **`(load-truck p26 t0 l0-0)`** (LM 19)
+    *   `p26` at `l1-0` (c1), needs to be at `l0-0` (c0). Requires `a0` then `t0`.
+    *   `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p28`, `p14`, `p23`). `a0` at `l0-0`.
+    *   Actions:
+        *   `(fly-airplane a0 l0-0 l1-0)`
+        *   `(load-airplane p26 a0 l1-0)` (LM 48)
+        *   `(fly-airplane a0 l1-0 l0-0)`
+        *   `(unload-airplane p26 a0 l0-0)` (LM 76)
+        *   `(load-truck p26 t0 l0-0)` (LM 19)
+    *   State: `a0` at `l0-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p28`, `p14`, `p23`, `p26`).
+
+20. **`(load-truck p30 t1 l1-0)`** (LM 20)
+    *   `p30` at `l0-0` (c0), needs to be at `l1-0` (c1). Requires `a0` then `t1`.
+    *   `t1` at `l1-1` (c1, empty). `a0` at `l0-0`.
+    *   Actions:
+        *   `(load-airplane p30 a0 l0-0)` (LM 49)
+        *   `(fly-airplane a0 l0-0 l1-0)`
+        *   `(unload-airplane p30 a0 l1-0)` (LM 77)
+        *   `(load-truck p30 t1 l1-0)` (LM 20)
+    *   State: `a0` at `l1-0`, `t1` at `l1-0` (with `p30`).
+
+21. **`(load-truck p1 t2 l2-0)`** (LM 21)
+    *   `p1` at `l1-0` (c1), needs to be at `l2-0` (c2). Requires `a0` then `t2`.
+    *   `t2` at `l2-1` (c2, with `p21`, `p22`). `a0` at `l1-0`.
+    *   Actions:
+        *   `(load-airplane p1 a0 l1-0)` (LM 50)
+        *   `(fly-airplane a0 l1-0 l2-0)`
+        *   `(unload-airplane p1 a0 l2-0)` (LM 78)
+        *   `(drive-truck t2 l2-1 l2-0 c2)`
+        *   `(load-truck p1 t2 l2-0)` (LM 21)
+    *   State: `a0` at `l2-0`, `t2` at `l2-0` (with `p1`, `p21`, `p22`).
+
+22. **`(load-truck p11 t2 l2-0)`** (LM 22)
+    *   `p11` at `l1-0` (c1), needs to be at `l2-0` (c2). Requires `a0` then `t2`.
+    *   `t2` at `l2-0` (with `p1`, `p21`, `p22`). `a0` at `l2-0`.
+    *   Actions:
+        *   `(fly-airplane a0 l2-0 l1-0)`
+        *   `(load-airplane p11 a0 l1-0)` (LM 51)
+        *   `(fly-airplane a0 l1-0 l2-0)`
+        *   `(unload-airplane p11 a0 l2-0)` (LM 79)
+        *   `(load-truck p11 t2 l2-0)` (LM 22)
+    *   State: `a0` at `l2-0`, `t2` at `l2-0` (with `p1`, `p11`, `p21`, `p22`).
+
+23. **`(load-truck p17 t1 l1-2)`** (LM 23)
+    *   `p17` at `l1-2` (c1), needs to be at `l2-2` (c2). Requires `t1` then `a0`.
+    *   `t1` at `l1-0` (c1, with `p30`). `a0` at `l2-0`.
+    *   Actions:
+        *   `(drive-truck t1 l1-0 l1-2 c1)`
+        *   `(load-truck p17 t1 l1-2)` (LM 23)
+        *   `(drive-truck t1 l1-2 l1-0 c1)`
+        *   `(unload-truck p17 t1 l1-0)` (LM 80)
+        *   `(fly-airplane a0 l2-0 l1-0)`
+        *   `(load-airplane p17 a0 l1-0)` (LM 52)
+        *   `(fly-airplane a0 l1-0 l2-0)`
+        *   `(unload-airplane p17 a0 l2-0)` (LM 81)
+    *   State: `a0` at `l2-0`, `t1` at `l1-0` (with `p30`). `p17` at `l2-0`.
+
+24. **`(load-truck p17 t2 l2-0)`** (LM 24)
+    *   `p17` is at `l2-0` (c2). `t2` at `l2-0` (c2, with `p1`, `p11`, `p21`, `p22`).
+    *   Actions:
+        *   `(load-truck p17 t2 l2-0)` (LM 24)
+    *   State: `t2` at `l2-0` (with `p1`, `p11`, `p17`, `p21`, `p22`).
+
+25. **`(load-truck p6 t0 l0-1)`** (LM 25)
+    *   `p6` at `l0-1` (c0), needs to be at `l1-1` (c1). Requires `a0` then `t1`.
+    *   `t0` at `l0-0` (c0, with `p13`, `p2`, `p4`, `p28`, `p14`, `p23`, `p26`). `a0` at `l2-0`.
+    *   Actions:
+        *   `(drive-truck t0 l0-0 l0-1 c0)`
+        *   `(load-truck p6 t0 l0-1)` (LM 25)
+        *   `(drive-truck t0 l0-1 l0-0 c0)`
+        *   `(unload-truck p6 t0 l0-0)` (LM 82)
+        *   `(fly-airplane a0 l2-0 l0-0)`
+        *   `(load-airplane p6 a0 l0-0)` (LM 53)
+        *   `(fly-airplane a0 l0-0 l1-0)`
+        *   `(unload-airplane p6 a0 l1-0)` (LM 83)
+    *   State: `a0` at `l1-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p14`, `p23`, `p26`, `p28`). `p6` at `l1-0`.
+
+26. **`(load-truck p6 t1 l1-0)`** (LM 26)
+    *   `p6` is at `l1-0` (c1). `t1` is at `l1-0` (c1, with `p30`).
+    *   Actions:
+        *   `(load-truck p6 t1 l1-0)` (LM 26)
+    *   State: `t1` at `l1-0` (with `p6`, `p30`).
+
+27. **`(load-truck p18 t0 l0-1)`** (LM 27)
+    *   `p18` at `l0-1` (c0), needs to be at `l1-0` (c1). Requires `a0` then `t1`.
+    *   `t0` at `l0-0` (c0, with `p13`, `p2`, `p4`, `p14`, `p23`, `p26`, `p28`). `a0` at `l1-0`.
+    *   Actions:
+        *   `(drive-truck t0 l0-0 l0-1 c0)`
+        *   `(load-truck p18 t0 l0-1)` (LM 27)
+        *   `(drive-truck t0 l0-1 l0-0 c0)`
+        *   `(unload-truck p18 t0 l0-0)` (LM 84)
+        *   `(load-airplane p18 a0 l0-0)` (LM 54)
+        *   `(fly-airplane a0 l1-0 l0-0)` (a0 must fly back)
+            *   `(fly-airplane a0 l1-0 l0-0)`
+            *   `(load-airplane p18 a0 l0-0)` (LM 54)
+        *   `(fly-airplane a0 l0-0 l1-0)`
+        *   `(unload-airplane p18 a0 l1-0)` (LM 85)
+    *   State: `a0` at `l1-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p14`, `p23`, `p26`, `p28`). `p18` at `l1-0`.
+
+28. **`(load-truck p5 t0 l0-0)`** (LM 28)
+    *   `p5` at `l2-1` (c2), needs to be at `l0-0` (c0). Requires `a0` then `t0`.
+    *   `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p14`, `p23`, `p26`, `p28`). `a0` at `l1-0`.
+    *   Actions:
+        *   `(fly-airplane a0 l1-0 l2-0)`
+        *   `(load-airplane p5 a0 l2-0)` (LM 55)
+        *   `(fly-airplane a0 l2-0 l0-0)`
+        *   `(unload-airplane p5 a0 l0-0)` (LM 86)
+        *   `(load-truck p5 t0 l0-0)` (LM 28)
+    *   State: `a0` at `l0-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p5`, `p14`, `p23`, `p26`, `p28`).
+
+29. **`(load-truck p5 t2 l2-1)`** (LM 29) - This implies p5 was loaded by t2 first. Order conflict again. But since LM 28 already processed p5, this will be skipped.
+
+30. **`(load-truck p25 t0 l0-0)`** (LM 30)
+    *   `p25` at `l1-1` (c1), needs to be at `l0-0` (c0). Requires `t1` then `a0` then `t0`.
+    *   `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p5`, `p14`, `p23`, `p26`, `p28`). `a0` at `l0-0`. `t1` at `l1-0` (with `p6`, `p30`).
+    *   Actions:
+        *   `(drive-truck t1 l1-0 l1-1 c1)`
+        *   `(unload-truck p6 t1 l1-1)` (LM 83, but for p6, t1, l1-1) (p6 goal l1-1 met!)
+        *   `(load-truck p25 t1 l1-1)` (LM 31 - not LM 31 for load-truck p25 t1 l1-1) (LM for p25 t1 l1-1 is LM 31 in original list)
+        *   Correcting this: `(load-truck p25 t1 l1-1)` is the actual LM 31 (for this action).
+        *   `(drive-truck t1 l1-1 l1-0 c1)`
+        *   `(unload-truck p25 t1 l1-0)` (LM 87)
+        *   `(fly-airplane a0 l0-0 l1-0)`
+        *   `(load-airplane p25 a0 l1-0)` (LM 57)
+        *   `(fly-airplane a0 l1-0 l0-0)`
+        *   `(unload-airplane p25 a0 l0-0)` (LM 88)
+        *   `(load-truck p25 t0 l0-0)` (LM 30)
+    *   State: `a0` at `l0-0`, `t0` at `l0-0` (with `p13`, `p2`, `p4`, `p5`, `p14`, `p23`, `p25`, `p26`, `p28`).
+
+**Remaining Landmarks:**
+All `load-airplane` landmarks and many `unload-truck`/`unload-airplane` landmarks would have been processed as prerequisites to the `load-truck` landmarks. The strategy explicitly marks them as executed.
+
+**Final Goal Achievement Phase:**
+*   `p13` (in t0 at l0-0) goal `l0-2`
+    *   `(drive-truck t0 l0-0 l0-2 c0)`
+    *   `(unload-truck p13 t0 l0-2)` (LM 55) (p13 goal l0-2 met!)
+*   `p2` (in t0 at l0-2) goal `l0-2` (met with p13 unload)
+    *   `(unload-truck p2 t0 l0-2)` (LM 66) (p2 goal l0-2 met!)
+*   `p4` (in t0 at l0-2) goal `l1-0`
+    *   `(unload-truck p4 t0 l0-2)` (LM 71)
+    *   `(load-airplane p4 a0 l0-0)` (LM 40)
+    *   `(fly-airplane a0 l0-0 l1-0)`
+    *   `(unload-airplane p4 a0 l1-0)` (LM 69 - this is LM 40 related) (p4 goal l1-0 met!)
+*   `p5` (in t0 at l0-2) goal `l0-1`
+    *   `(unload-truck p5 t0 l0-2)` (LM 86)
+    *   `(drive-truck t0 l0-2 l0-1 c0)`
+    *   `(unload-truck p5 t0 l0-1)` (LM 86) (p5 goal l0-1 met!)
+*   `p14` (in t0 at l0-1) goal `l0-1` (met with p5 unload)
+    *   `(unload-truck p14 t0 l0-1)` (LM 72) (p14 goal l0-1 met!)
+*   `p23` (in t0 at l0-1) goal `l0-1` (met with p5 unload)
+    *   `(unload-truck p23 t0 l0-1)` (LM 75) (p23 goal l0-1 met!)
+*   `p25` (in t0 at l0-1) goal `l0-1` (met with p5 unload)
+    *   `(unload-truck p25 t0 l0-1)` (LM 87) (p25 goal l0-1 met!)
+*   `p26` (in t0 at l0-1) goal `l0-2`
+    *   `(drive-truck t0 l0-1 l0-2 c0)`
+    *   `(unload-truck p26 t0 l0-2)` (LM 76) (p26 goal l0-2 met!)
+*   `p28` (in t0 at l0-2) goal `l2-0`
+    *   `(unload-truck p28 t0 l0-2)` (LM 71)
+    *   `(load-airplane p28 a0 l0-0)` (LM 41)
+    *   `(fly-airplane a0 l1-0 l0-0)` (a0 at l1-0 from p4 unload)
+    *   `(fly-airplane a0 l0-0 l2-0)`
+    *   `(unload-airplane p28 a0 l2-0)` (LM 69 for p28) (p28 goal l2-0 met!)
+
+*   `p30` (in t1 at l1-0) goal `l1-2`
+    *   `(drive-truck t1 l1-0 l1-2 c1)`
+    *   `(unload-truck p30 t1 l1-2)` (LM 77) (p30 goal l1-2 met!)
+
+*   `p1` (in t2 at l2-0) goal `l2-1`
+    *   `(drive-truck t2 l2-0 l2-1 c2)`
+    *   `(unload-truck p1 t2 l2-1)` (LM 78) (p1 goal l2-1 met!)
+*   `p11` (in t2 at l2-1) goal `l2-1` (met with p1 unload)
+    *   `(unload-truck p11 t2 l2-1)` (LM 79) (p11 goal l2-1 met!)
+*   `p17` (in t2 at l2-1) goal `l2-2`
+    *   `(drive-truck t2 l2-1 l2-2 c2)`
+    *   `(unload-truck p17 t2 l2-2)` (LM 81) (p17 goal l2-2 met!)
+*   `p21` (in t2 at l2-2) goal `l1-0`
+    *   `(unload-truck p21 t2 l2-2)` (LM 74)
+    *   `(load-airplane p21 a0 l2-0)` (LM 45)
+    *   `(fly-airplane a0 l2-0 l1-0)`
+    *   `(unload-airplane p21 a0 l1-0)` (LM 73 for p21) (p21 goal l1-0 met!)
+*   `p22` (in t2 at l2-2) goal `l2-1`
+    *   `(unload-truck p22 t2 l2-2)` (LM 73)
+    *   `(drive-truck t2 l2-2 l2-1 c2)`
+    *   `(unload-truck p22 t2 l2-1)` (LM 73 for p22) (p22 goal l2-1 met!)
+
+
+The final plan:
+<plan>
+(load-airplane p13 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p13 a0 l0-0)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p13 t0 l0-0)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p3 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p0 t2 l2-1)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p16 t0 l0-1)
+(drive-truck t1 l1-2 l1-0 c1)
+(load-truck p29 t1 l1-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p9 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p9 a0 l1-0)
+(load-truck p9 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p29 t1 l1-1)
+(unload-truck p9 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p2 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p2 t1 l1-0)
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p2 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p2 a0 l0-0)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p16 t0 l0-0)
+(load-airplane p16 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p16 a0 l1-0)
+(load-truck p2 t0 l0-0)
+(load-truck p15 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p20 t2 l2-2)
+(load-truck p27 t2 l2-2)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p4 t0 l0-1)
+(load-truck p28 t0 l0-1)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p3 t2 l2-0)
+(fly-airplane a0 l1-0 l2-0)
+(load-airplane p3 a0 l2-0)
+(unload-truck p0 t2 l2-0)
+(unload-truck p15 t2 l2-0)
+(load-airplane p15 a0 l2-0)
+(unload-truck p20 t2 l2-0)
+(load-airplane p20 a0 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p27 t2 l2-1)
+(load-truck p14 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p14 t2 l2-0)
+(load-airplane p14 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p3 a0 l0-0)
+(unload-airplane p15 a0 l0-0)
+(unload-airplane p20 a0 l0-0)
+(unload-airplane p14 a0 l0-0)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p14 t0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p22 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p22 a0 l2-0)
+(load-truck p22 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p21 t2 l2-1)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p23 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p23 a0 l0-0)
+(load-truck p23 t0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p26 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p26 a0 l0-0)
+(load-truck p26 t0 l0-0)
+(load-truck p30 t1 l1-0)
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p1 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p1 a0 l2-0)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-truck p1 t2 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p11 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p11 a0 l2-0)
+(load-truck p11 t2 l2-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(load-truck p17 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p17 t1 l1-0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p17 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p17 a0 l2-0)
+(load-truck p17 t2 l2-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p6 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p6 t0 l0-0)
+(fly-airplane a0 l2-0 l0-0)
+(load-airplane p6 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p6 a0 l1-0)
+(load-truck p6 t1 l1-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p18 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p18 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p18 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(load-airplane p5 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p5 a0 l0-0)
+(load-truck p5 t0 l0-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p6 t1 l1-1)
+(load-truck p25 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p25 t1 l1-0)
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p25 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p25 a0 l0-0)
+(load-truck p25 t0 l0-0)
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p13 t0 l0-2)
+(unload-truck p2 t0 l0-2)
+(unload-truck p4 t0 l0-2)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p4 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p4 a0 l1-0)
+(unload-truck p5 t0 l0-2)
+(drive-truck t0 l0-2 l0-1 c0)
+(unload-truck p5 t0 l0-1)
+(unload-truck p14 t0 l0-1)
+(unload-truck p23 t0 l0-1)
+(unload-truck p25 t0 l0-1)
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p26 t0 l0-2)
+(unload-truck p28 t0 l0-2)
+(fly-airplane a0 l1-0 l2-0)
+(load-airplane p28 a0 l2-0)
+(unload-airplane p28 a0 l2-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p30 t1 l1-2)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p1 t2 l2-1)
+(unload-truck p11 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p17 t2 l2-2)
+(unload-truck p21 t2 l2-2)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p21 a0 l1-0)
+(unload-airplane p21 a0 l1-0)
+(unload-truck p22 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p22 t2 l2-1)
+</plan>
+</response>
+[2025-08-29 00:51:26.876320] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[other_actions+first_appearance+use_all]', 'domain': 'logistics', 'instance': 'p60', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 8129, 'candidates_token_count': 12130, 'total_tokens_count': 60727}
+</metadata>

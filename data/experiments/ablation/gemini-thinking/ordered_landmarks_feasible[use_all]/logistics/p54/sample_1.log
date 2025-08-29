@@ -1,0 +1,936 @@
+[2025-08-28 23:27:00.527656] Generating response for sample 1.
+[2025-08-28 23:31:03.840104] Response for sample 1 generated successfully.
+[2025-08-28 23:31:03.840127] Response:
+<response>
+The provided action landmarks present a challenge due to their "feasible order" constraint. Specifically, for several packages (e.g., `p11`, `p23`, `p14`, `p16`, `p19`), a `load-truck` landmark action in one city (e.g., `(load-truck p11 t2 l2-0)`) appears earlier in the landmark list than the necessary preceding actions for the same package to reach that city (e.g., `(load-truck p11 t1 l1-2)`). This creates a logical contradiction if interpreted strictly, as an object cannot be at an intermediate destination without having completed earlier transport steps.
+
+To adhere to the problem statement "there is at least one valid plan that could be built following the action landmarks order," I've adopted the following interpretation:
+1.  All actions listed in the `action-landmarks-set` must appear in the plan *in the exact order they are given*.
+2.  Any action (including `LOAD-TRUCK`, `UNLOAD-TRUCK`, `LOAD-AIRPLANE`, `UNLOAD-AIRPLANE`, `DRIVE-TRUCK`, `FLY-AIRPLANE`) can be used as a non-landmark action to fulfill preconditions for an upcoming landmark. If a non-landmark action happens to have the exact parameters of a landmark action that appears *later* in the list, it is considered a distinct, non-landmark instance for the purpose of pre-conditioning. When the actual landmark action from the list is encountered, it is then executed. This leads to a plan that may appear redundant or inefficient, with objects moving back and forth, but it is the only way to satisfy the strict ordering of the given landmarks.
+
+This approach ensures that the "feasible order" is strictly followed, and all landmarks are present, even if it implies a very specific and non-optimal journey for some packages.
+
+<plan>
+; --- Setup for LM1: (load-truck p11 t2 l2-0) ---
+; p11 starts at l1-2. t2 starts at l2-2. Goal: p11 to l2-2.
+; To execute LM1, p11 needs to be at l2-0 and t2 at l2-0.
+(drive-truck t2 l2-2 l2-0 c2) ; t2 moves to airport l2-0
+(drive-truck t1 l1-1 l1-2 c1) ; t1 moves to l1-2 to pick up p11
+(load-truck p11 t1 l1-2) ; NLM instance for p11 to t1 (LM2 is this, but later)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to airport l1-0
+(unload-truck p11 t1 l1-0) ; NLM instance for p11 from t1 (LM56 is this, but later)
+(fly-airplane a0 l2-0 l1-0) ; a0 flies to l1-0 (from its start l2-0)
+(load-airplane p11 a0 l1-0) ; NLM instance for p11 into a0 (LM34 is this, but later)
+(fly-airplane a0 l1-0 l2-0) ; a0 flies p11 to l2-0
+(unload-airplane p11 a0 l2-0) ; NLM instance for p11 from a0 (LM60 is this, but later)
+; Now p11 is at l2-0 and t2 is at l2-0.
+(load-truck p11 t2 l2-0) ; LM1
+
+; --- Setup for LM2: (load-truck p11 t1 l1-2) ---
+; p11 is currently in t2 at l2-0. For LM2, p11 needs to be at l1-2.
+(unload-truck p11 t2 l2-0) ; NLM instance for p11 from t2
+(fly-airplane a0 l2-0 l1-0) ; a0 flies to l1-0
+(load-airplane p11 a0 l1-0) ; NLM instance for p11 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 flies p11 to l2-0
+(unload-airplane p11 a0 l2-0) ; NLM instance for p11 from a0
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves to l1-2
+; p11 is at l1-2 and t1 is at l1-2.
+(load-truck p11 t1 l1-2) ; LM2
+
+; --- Setup for LM3: (load-truck p23 t2 l2-0) ---
+; p23 starts at l1-2. t2 is at l2-0. For LM3, p23 needs to be at l2-0.
+(load-truck p23 t1 l1-2) ; NLM instance for p23 into t1 (LM4 is this, but later)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p23 t1 l1-0) ; NLM instance for p23 from t1 (LM57 is this, but later)
+(fly-airplane a0 l2-0 l1-0) ; a0 flies to l1-0
+(load-airplane p23 a0 l1-0) ; NLM instance for p23 into a0 (LM35 is this, but later)
+(fly-airplane a0 l1-0 l2-0) ; a0 flies p23 to l2-0
+(unload-airplane p23 a0 l2-0) ; NLM instance for p23 from a0 (LM60 is this, but later)
+; p23 is at l2-0 and t2 is at l2-0.
+(load-truck p23 t2 l2-0) ; LM3
+
+; --- Setup for LM4: (load-truck p23 t1 l1-2) ---
+; p23 is currently in t2 at l2-0. For LM4, p23 needs to be at l1-2.
+(unload-truck p23 t2 l2-0) ; NLM instance for p23 from t2
+(fly-airplane a0 l2-0 l1-0) ; a0 flies to l1-0
+(load-airplane p23 a0 l1-0) ; NLM instance for p23 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 flies p23 to l2-0
+(unload-airplane p23 a0 l2-0) ; NLM instance for p23 from a0
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves to l1-2
+; p23 is at l1-2 and t1 is at l1-2.
+(load-truck p23 t1 l1-2) ; LM4
+
+; --- Setup for LM5: (load-truck p5 t2 l2-2) ---
+; p5 starts at l2-2. t2 is currently at l2-0.
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+; p5 is at l2-2 and t2 is at l2-2.
+(load-truck p5 t2 l2-2) ; LM5
+
+; --- Setup for LM6: (load-truck p5 t1 l1-0) ---
+; p5 is in t2 at l2-2. For LM6, p5 needs to be at l1-0.
+(unload-truck p5 t2 l2-2) ; NLM instance for p5 from t2
+(drive-truck t2 l2-2 l2-0 c2) ; t2 moves to airport l2-0
+(load-airplane p5 a0 l2-0) ; NLM instance for p5 into a0 (LM36 is this, but later)
+(fly-airplane a0 l2-0 l1-0) ; a0 flies p5 to l1-0
+(unload-airplane p5 a0 l1-0) ; NLM instance for p5 from a0 (LM61 is this, but later)
+; p5 is at l1-0 and t1 is at l1-2. t1 needs to go to l1-0.
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+; p5 is at l1-0 and t1 is at l1-0.
+(load-truck p5 t1 l1-0) ; LM6
+
+; --- Setup for LM7: (load-truck p19 t0 l0-0) ---
+; p19 starts at l2-0. t0 starts at l0-0. For LM7, p19 needs to be at l0-0.
+(load-airplane p19 a0 l2-0) ; NLM instance for p19 into a0 (LM36 is this, but later)
+(fly-airplane a0 l2-0 l0-0) ; a0 flies p19 to l0-0
+(unload-airplane p19 a0 l0-0) ; NLM instance for p19 from a0 (LM61 is this, but later)
+; p19 is at l0-0 and t0 is at l0-0.
+(load-truck p19 t0 l0-0) ; LM7
+
+; --- Setup for LM8: (load-truck p7 t0 l0-0) ---
+; p7 starts at l0-0. t0 is at l0-0.
+(load-truck p7 t0 l0-0) ; LM8
+
+; --- Setup for LM9: (load-truck p13 t2 l2-0) ---
+; p13 starts at l0-0. t2 is at l2-0. For LM9, p13 needs to be at l2-0.
+(load-airplane p13 a0 l0-0) ; NLM instance for p13 into a0 (LM37 is this, but later)
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p13 to l2-0
+(unload-airplane p13 a0 l2-0) ; NLM instance for p13 from a0 (LM60 is this, but later)
+; p13 is at l2-0 and t2 is at l2-0.
+(load-truck p13 t2 l2-0) ; LM9
+
+; --- Setup for LM10: (load-truck p8 t2 l2-2) ---
+; p8 starts at l2-2. t2 is at l2-0. For LM10, t2 needs to be at l2-2.
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+; p8 is at l2-2 and t2 is at l2-2.
+(load-truck p8 t2 l2-2) ; LM10
+
+; --- Setup for LM11: (load-truck p8 t1 l1-0) ---
+; p8 is in t2 at l2-2. For LM11, p8 needs to be at l1-0.
+(unload-truck p8 t2 l2-2) ; NLM instance for p8 from t2
+(drive-truck t2 l2-2 l2-0 c2) ; t2 moves to airport l2-0
+(load-airplane p8 a0 l2-0) ; NLM instance for p8 into a0 (LM39 is this, but later)
+(fly-airplane a0 l2-0 l1-0) ; a0 flies p8 to l1-0
+(unload-airplane p8 a0 l1-0) ; NLM instance for p8 from a0 (LM63 is this, but later)
+; p8 is at l1-0 and t1 is at l1-0.
+(load-truck p8 t1 l1-0) ; LM11
+
+; --- Setup for LM12: (load-truck p27 t1 l1-2) ---
+; p27 starts at l1-2. t1 is at l1-0. For LM12, t1 needs to be at l1-2.
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves to l1-2
+; p27 is at l1-2 and t1 is at l1-2.
+(load-truck p27 t1 l1-2) ; LM12
+
+; --- Setup for LM13: (load-truck p28 t2 l2-1) ---
+; p28 starts at l2-1. t2 is at l2-0. For LM13, t2 needs to be at l2-1.
+(drive-truck t2 l2-0 l2-1 c2) ; t2 moves to l2-1
+; p28 is at l2-1 and t2 is at l2-1.
+(load-truck p28 t2 l2-1) ; LM13
+
+; --- Setup for LM14: (load-truck p14 t2 l2-0) ---
+; p14 starts at l0-1. t2 is at l2-1. For LM14, p14 needs to be at l2-0, t2 at l2-0.
+(drive-truck t2 l2-1 l2-0 c2) ; t2 moves to l2-0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(load-truck p14 t0 l0-1) ; NLM instance for p14 into t0 (LM15 is this, but later)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 moves to l0-0
+(unload-truck p14 t0 l0-0) ; NLM instance for p14 from t0 (LM61 is this, but later)
+(load-airplane p14 a0 l0-0) ; NLM instance for p14 into a0 (LM43 is this, but later)
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p14 to l2-0
+(unload-airplane p14 a0 l2-0) ; NLM instance for p14 from a0 (LM60 is this, but later)
+; p14 is at l2-0 and t2 is at l2-0.
+(load-truck p14 t2 l2-0) ; LM14
+
+; --- Setup for LM15: (load-truck p14 t0 l0-1) ---
+; p14 is in t2 at l2-0. For LM15, p14 needs to be at l0-1.
+(unload-truck p14 t2 l2-0) ; NLM instance for p14 from t2
+(load-airplane p14 a0 l0-0) ; NLM instance for p14 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p14 to l2-0
+(unload-airplane p14 a0 l2-0) ; NLM instance for p14 from a0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(load-truck p14 t0 l0-1) ; LM15
+
+; --- Setup for LM16: (load-truck p16 t2 l2-0) ---
+; p16 starts at l0-1. t2 is at l2-0. For LM16, p16 needs to be at l2-0.
+(drive-truck t0 l0-1 l0-0 c0) ; t0 at l0-0
+(load-truck p16 t0 l0-1) ; NLM instance for p16 into t0 (LM17 is this, but later)
+(drive-truck t0 l0-0 l0-1 c0) ; t0 at l0-1
+(unload-truck p16 t0 l0-0) ; NLM instance for p16 from t0 (LM61 is this, but later)
+(load-airplane p16 a0 l0-0) ; NLM instance for p16 into a0 (LM44 is this, but later)
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p16 to l2-0
+(unload-airplane p16 a0 l2-0) ; NLM instance for p16 from a0 (LM60 is this, but later)
+; p16 is at l2-0 and t2 is at l2-0.
+(load-truck p16 t2 l2-0) ; LM16
+
+; --- Setup for LM17: (load-truck p16 t0 l0-1) ---
+; p16 is in t2 at l2-0. For LM17, p16 needs to be at l0-1.
+(unload-truck p16 t2 l2-0) ; NLM instance for p16 from t2
+(load-airplane p16 a0 l0-0) ; NLM instance for p16 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p16 to l2-0
+(unload-airplane p16 a0 l2-0) ; NLM instance for p16 from a0
+(drive-truck t0 l0-1 l0-0 c0) ; t0 at l0-0
+(load-truck p16 t0 l0-1) ; LM17
+
+; --- Setup for LM18: (load-truck p6 t0 l0-2) ---
+; p6 starts at l0-2. t0 is at l0-1. For LM18, t0 needs to be at l0-2.
+(drive-truck t0 l0-1 l0-2 c0) ; t0 moves to l0-2
+; p6 is at l0-2 and t0 is at l0-2.
+(load-truck p6 t0 l0-2) ; LM18
+
+; --- Setup for LM19: (load-truck p15 t0 l0-2) ---
+; p15 starts at l0-2. t0 is at l0-2.
+(load-truck p15 t0 l0-2) ; LM19
+
+; --- Setup for LM20: (load-truck p20 t2 l2-1) ---
+; p20 starts at l2-1. t2 is at l2-0. For LM20, t2 needs to be at l2-1.
+(drive-truck t2 l2-0 l2-1 c2) ; t2 moves to l2-1
+; p20 is at l2-1 and t2 is at l2-1.
+(load-truck p20 t2 l2-1) ; LM20
+
+; --- Setup for LM21: (load-truck p20 t0 l0-0) ---
+; p20 is in t2 at l2-1. For LM21, p20 needs to be at l0-0.
+(unload-truck p20 t2 l2-1) ; NLM instance for p20 from t2
+(drive-truck t2 l2-1 l2-0 c2) ; t2 moves to l2-0
+(load-airplane p20 a0 l2-0) ; NLM instance for p20 into a0 (LM49 is this, but later)
+(fly-airplane a0 l2-0 l0-0) ; a0 flies p20 to l0-0
+(unload-airplane p20 a0 l0-0) ; NLM instance for p20 from a0 (LM73 is this, but later)
+; p20 is at l0-0 and t0 is at l0-2. For LM21, t0 needs to be at l0-0.
+(drive-truck t0 l0-2 l0-0 c0) ; t0 moves to l0-0
+; p20 is at l0-0 and t0 is at l0-0.
+(load-truck p20 t0 l0-0) ; LM21
+
+; --- Setup for LM22: (load-truck p1 t1 l1-0) ---
+; p1 starts at l0-0. t1 is at l1-0. For LM22, p1 needs to be at l1-0.
+(load-airplane p1 a0 l0-0) ; NLM instance for p1 into a0 (LM50 is this, but later)
+(fly-airplane a0 l0-0 l1-0) ; a0 flies p1 to l1-0
+(unload-airplane p1 a0 l1-0) ; NLM instance for p1 from a0 (LM74 is this, but later)
+; p1 is at l1-0 and t1 is at l1-0.
+(load-truck p1 t1 l1-0) ; LM22
+
+; --- Setup for LM23: (load-truck p4 t1 l1-0) ---
+; p4 starts at l0-0. t1 is at l1-0. For LM23, p4 needs to be at l1-0.
+(load-airplane p4 a0 l0-0) ; NLM instance for p4 into a0 (LM51 is this, but later)
+(fly-airplane a0 l0-0 l1-0) ; a0 flies p4 to l1-0
+(unload-airplane p4 a0 l1-0) ; NLM instance for p4 from a0 (LM75 is this, but later)
+; p4 is at l1-0 and t1 is at l1-0.
+(load-truck p4 t1 l1-0) ; LM23
+
+; --- Setup for LM24: (load-truck p9 t2 l2-2) ---
+; p9 starts at l2-2. t2 is at l2-0. For LM24, t2 needs to be at l2-2.
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+; p9 is at l2-2 and t2 is at l2-2.
+(load-truck p9 t2 l2-2) ; LM24
+
+; --- Setup for LM25: (load-truck p9 t0 l0-0) ---
+; p9 is in t2 at l2-2. For LM25, p9 needs to be at l0-0.
+(unload-truck p9 t2 l2-2) ; NLM instance for p9 from t2
+(drive-truck t2 l2-2 l2-0 c2) ; t2 moves to l2-0
+(load-airplane p9 a0 l2-0) ; NLM instance for p9 into a0 (LM52 is this, but later)
+(fly-airplane a0 l2-0 l0-0) ; a0 flies p9 to l0-0
+(unload-airplane p9 a0 l0-0) ; NLM instance for p9 from a0 (LM73 is this, but later)
+; p9 is at l0-0 and t0 is at l0-0.
+(load-truck p9 t0 l0-0) ; LM25
+
+; --- Setup for LM26: (load-truck p24 t1 l1-1) ---
+; p24 starts at l1-1. t1 is at l1-0. For LM26, t1 needs to be at l1-1.
+(drive-truck t1 l1-0 l1-1 c1) ; t1 moves to l1-1
+; p24 is at l1-1 and t1 is at l1-1.
+(load-truck p24 t1 l1-1) ; LM26
+
+; --- Setup for LM27: (load-truck p18 t2 l2-2) ---
+; p18 starts at l2-2. t2 is at l2-0. For LM27, t2 needs to be at l2-2.
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+; p18 is at l2-2 and t2 is at l2-2.
+(load-truck p18 t2 l2-2) ; LM27
+
+; --- Setup for LM28: (load-truck p18 t1 l1-0) ---
+; p18 is in t2 at l2-2. For LM28, p18 needs to be at l1-0.
+(unload-truck p18 t2 l2-2) ; NLM instance for p18 from t2
+(drive-truck t2 l2-2 l2-0 c2) ; t2 moves to l2-0
+(load-airplane p18 a0 l2-0) ; NLM instance for p18 into a0 (LM52 is this, but later)
+(fly-airplane a0 l2-0 l1-0) ; a0 flies p18 to l1-0
+(unload-airplane p18 a0 l1-0) ; NLM instance for p18 from a0 (LM75 is this, but later)
+; p18 is at l1-0 and t1 is at l1-1. For LM28, t1 needs to be at l1-0.
+(drive-truck t1 l1-1 l1-0 c1) ; t1 moves to l1-0
+; p18 is at l1-0 and t1 is at l1-0.
+(load-truck p18 t1 l1-0) ; LM28
+
+; --- Setup for LM29: (load-truck p3 t2 l2-0) ---
+; p3 starts at l0-1. t2 is at l2-0. For LM29, p3 needs to be at l2-0.
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(load-truck p3 t0 l0-1) ; NLM instance for p3 into t0 (LM30 is this, but later)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 moves to l0-0
+(unload-truck p3 t0 l0-0) ; NLM instance for p3 from t0 (LM72 is this, but later)
+(load-airplane p3 a0 l0-0) ; NLM instance for p3 into a0 (LM53 is this, but later)
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p3 to l2-0
+(unload-airplane p3 a0 l2-0) ; NLM instance for p3 from a0 (LM76 is this, but later)
+; p3 is at l2-0 and t2 is at l2-0.
+(load-truck p3 t2 l2-0) ; LM29
+
+; --- Setup for LM30: (load-truck p3 t0 l0-1) ---
+; p3 is in t2 at l2-0. For LM30, p3 needs to be at l0-1.
+(unload-truck p3 t2 l2-0) ; NLM instance for p3 from t2
+(load-airplane p3 a0 l0-0) ; NLM instance for p3 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 flies p3 to l2-0
+(unload-airplane p3 a0 l2-0) ; NLM instance for p3 from a0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(load-truck p3 t0 l0-1) ; LM30
+
+; --- Setup for LM31: (load-truck p26 t2 l2-2) ---
+; p26 starts at l2-2. t2 is at l2-0. For LM31, t2 needs to be at l2-2.
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+; p26 is at l2-2 and t2 is at l2-2.
+(load-truck p26 t2 l2-2) ; LM31
+
+; --- Setup for LM32: (load-truck p17 t1 l1-0) ---
+; p17 starts at l0-0. t1 is at l1-0. For LM32, p17 needs to be at l1-0.
+(load-airplane p17 a0 l0-0) ; NLM instance for p17 into a0 (LM54 is this, but later)
+(fly-airplane a0 l0-0 l1-0) ; a0 flies p17 to l1-0
+(unload-airplane p17 a0 l1-0) ; NLM instance for p17 from a0 (LM77 is this, but later)
+; p17 is at l1-0 and t1 is at l1-0.
+(load-truck p17 t1 l1-0) ; LM32
+
+; --- Setup for LM33: (load-airplane p22 a0 l0-0) ---
+; p22 starts at l0-0. a0 is at l1-0. For LM33, a0 needs to be at l0-0.
+(fly-airplane a0 l1-0 l0-0) ; a0 moves to l0-0
+; p22 is at l0-0 and a0 is at l0-0.
+(load-airplane p22 a0 l0-0) ; LM33
+
+; --- Setup for LM34: (load-airplane p11 a0 l1-0) ---
+; p11 is in t1 at l1-2. a0 is at l0-0. For LM34, p11 needs to be at l1-0 and a0 at l1-0.
+(unload-truck p11 t1 l1-2) ; NLM instance for p11 from t1
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+(fly-airplane a0 l0-0 l1-0) ; a0 moves to l1-0
+; p11 is at l1-0 and a0 is at l1-0.
+(load-airplane p11 a0 l1-0) ; LM34
+
+; --- Setup for LM35: (load-airplane p23 a0 l1-0) ---
+; p23 is in t1 at l1-2. a0 is at l1-0. For LM35, p23 needs to be at l1-0.
+(unload-truck p23 t1 l1-2) ; NLM instance for p23 from t1
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves to l1-2
+(load-truck p23 t1 l1-2) ; NLM
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p23 t1 l1-0)
+; p23 is at l1-0 and a0 is at l1-0.
+(load-airplane p23 a0 l1-0) ; LM35
+
+; --- Setup for LM36: (load-airplane p5 a0 l2-0) ---
+; p5 is in t1 at l1-0. a0 is at l1-0. For LM36, p5 needs to be at l2-0 and a0 at l2-0.
+(unload-truck p5 t1 l1-0) ; NLM instance for p5 from t1
+(fly-airplane a0 l1-0 l2-0) ; a0 moves p5 to l2-0
+(unload-airplane p5 a0 l2-0) ; NLM instance for p5 from a0
+(load-airplane p5 a0 l2-0) ; LM36
+
+; --- Setup for LM37: (load-airplane p19 a0 l2-0) ---
+; p19 is in t0 at l0-0. a0 is at l2-0. For LM37, p19 needs to be at l2-0.
+(unload-truck p19 t0 l0-0) ; NLM instance for p19 from t0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(load-airplane p19 a0 l0-0) ; NLM instance for p19 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves p19 to l2-0
+(unload-airplane p19 a0 l2-0) ; NLM instance for p19 from a0
+(load-airplane p19 a0 l2-0) ; LM37
+
+; --- Setup for LM38: (load-airplane p13 a0 l0-0) ---
+; p13 is in t2 at l2-0. a0 is at l2-0. For LM38, p13 needs to be at l0-0.
+(unload-truck p13 t2 l2-0) ; NLM instance for p13 from t2
+(load-airplane p13 a0 l2-0) ; NLM instance for p13 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves p13 to l0-0
+(unload-airplane p13 a0 l0-0) ; NLM instance for p13 from a0
+(load-airplane p13 a0 l0-0) ; LM38
+
+; --- Setup for LM39: (load-airplane p12 a0 l2-0) ---
+; p12 starts at l2-0. a0 is at l0-0. For LM39, a0 needs to be at l2-0.
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+; p12 is at l2-0 and a0 is at l2-0.
+(load-airplane p12 a0 l2-0) ; LM39
+
+; --- Setup for LM40: (load-airplane p8 a0 l2-0) ---
+; p8 is in t1 at l1-0. a0 is at l2-0. For LM40, p8 needs to be at l2-0.
+(unload-truck p8 t1 l1-0) ; NLM instance for p8 from t1
+(fly-airplane a0 l2-0 l1-0) ; a0 moves to l1-0
+(load-airplane p8 a0 l1-0) ; NLM instance for p8 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 moves p8 to l2-0
+(unload-airplane p8 a0 l2-0) ; NLM instance for p8 from a0
+(load-airplane p8 a0 l2-0) ; LM40
+
+; --- Setup for LM41: (load-airplane p21 a0 l2-0) ---
+; p21 starts at l2-0. a0 is at l2-0.
+(load-airplane p21 a0 l2-0) ; LM41
+
+; --- Setup for LM42: (load-airplane p27 a0 l1-0) ---
+; p27 is in t1 at l1-2. a0 is at l2-0. For LM42, p27 needs to be at l1-0.
+(unload-truck p27 t1 l1-2) ; NLM instance for p27 from t1
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+(fly-airplane a0 l2-0 l1-0) ; a0 moves to l1-0
+(load-airplane p27 a0 l1-0) ; LM42
+
+; --- Setup for LM43: (load-airplane p28 a0 l2-0) ---
+; p28 is in t2 at l2-1. a0 is at l1-0. For LM43, p28 needs to be at l2-0.
+(unload-truck p28 t2 l2-1) ; NLM instance for p28 from t2
+(drive-truck t2 l2-1 l2-0 c2) ; t2 moves to l2-0
+(fly-airplane a0 l1-0 l2-0) ; a0 moves to l2-0
+(load-airplane p28 a0 l2-0) ; LM43
+
+; --- Setup for LM44: (load-airplane p14 a0 l0-0) ---
+; p14 is in t0 at l0-1. a0 is at l2-0. For LM44, p14 needs to be at l0-0.
+(unload-truck p14 t0 l0-1) ; NLM instance for p14 from t0
+(drive-truck t0 l0-1 l0-0 c0) ; t0 moves to l0-0
+(load-airplane p14 a0 l0-0) ; NLM instance for p14 into a0 (LM43 is this, but later)
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(load-airplane p14 a0 l0-0) ; LM44
+
+; --- Setup for LM45: (load-airplane p16 a0 l0-0) ---
+; p16 is in t0 at l0-1. a0 is at l0-0. For LM45, p16 needs to be at l0-0.
+(unload-truck p16 t0 l0-1) ; NLM instance for p16 from t0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(load-truck p16 t0 l0-1) ; NLM instance
+(drive-truck t0 l0-1 l0-0 c0) ; t0 moves to l0-0
+(unload-truck p16 t0 l0-0) ; NLM instance
+; p16 is at l0-0 and a0 is at l0-0.
+(load-airplane p16 a0 l0-0) ; LM45
+
+; --- Setup for LM46: (load-airplane p0 a0 l2-0) ---
+; p0 starts at l2-0. a0 is at l0-0. For LM46, a0 needs to be at l2-0.
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+; p0 is at l2-0 and a0 is at l2-0.
+(load-airplane p0 a0 l2-0) ; LM46
+
+; --- Setup for LM47: (load-airplane p6 a0 l0-0) ---
+; p6 is in t0 at l0-2. a0 is at l2-0. For LM47, p6 needs to be at l0-0 and a0 at l0-0.
+(unload-truck p6 t0 l0-2) ; NLM instance for p6 from t0
+(drive-truck t0 l0-2 l0-0 c0) ; t0 moves to l0-0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+; p6 is at l0-0 and a0 is at l0-0.
+(load-airplane p6 a0 l0-0) ; LM47
+
+; --- Setup for LM48: (load-airplane p25 a0 l0-0) ---
+; p25 starts at l0-0. a0 is at l0-0.
+(load-airplane p25 a0 l0-0) ; LM48
+
+; --- Setup for LM49: (load-airplane p20 a0 l2-0) ---
+; p20 is in t0 at l0-0. a0 is at l0-0. For LM49, p20 needs to be at l2-0 and a0 at l2-0.
+(unload-truck p20 t0 l0-0) ; NLM instance for p20 from t0
+(load-airplane p20 a0 l0-0) ; NLM instance for p20 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p20 a0 l2-0) ; NLM instance for p20 from a0
+(load-airplane p20 a0 l2-0) ; LM49
+
+; --- Setup for LM50: (load-airplane p1 a0 l0-0) ---
+; p1 starts at l0-0. a0 is at l2-0. For LM50, a0 needs to be at l0-0.
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+; p1 is at l0-0 and a0 is at l0-0.
+(load-airplane p1 a0 l0-0) ; LM50
+
+; --- Setup for LM51: (load-airplane p4 a0 l0-0) ---
+; p4 starts at l0-0. a0 is at l0-0.
+(load-airplane p4 a0 l0-0) ; LM51
+
+; --- Setup for LM52: (load-airplane p9 a0 l2-0) ---
+; p9 is in t0 at l0-0. a0 is at l0-0. For LM52, p9 needs to be at l2-0 and a0 at l2-0.
+(unload-truck p9 t0 l0-0) ; NLM instance for p9 from t0
+(load-airplane p9 a0 l0-0) ; NLM instance for p9 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p9 a0 l2-0) ; NLM instance for p9 from a0
+(load-airplane p9 a0 l2-0) ; LM52
+
+; --- Setup for LM53: (load-airplane p24 a0 l1-0) ---
+; p24 is in t1 at l1-1. a0 is at l2-0. For LM53, p24 needs to be at l1-0 and a0 at l1-0.
+(unload-truck p24 t1 l1-1) ; NLM instance for p24 from t1
+(drive-truck t1 l1-1 l1-0 c1) ; t1 moves to l1-0
+(fly-airplane a0 l2-0 l1-0) ; a0 moves to l1-0
+(load-airplane p24 a0 l1-0) ; LM53
+
+; --- Setup for LM54: (load-airplane p18 a0 l2-0) ---
+; p18 is in t1 at l1-0. a0 is at l1-0. For LM54, p18 needs to be at l2-0 and a0 at l2-0.
+(unload-truck p18 t1 l1-0) ; NLM instance for p18 from t1
+(fly-airplane a0 l1-0 l2-0) ; a0 moves to l2-0
+(load-airplane p18 a0 l2-0) ; LM54
+
+; --- Setup for LM55: (load-airplane p3 a0 l0-0) ---
+; p3 is in t0 at l0-1. a0 is at l2-0. For LM55, p3 needs to be at l0-0 and a0 at l0-0.
+(unload-truck p3 t0 l0-1) ; NLM instance for p3 from t0
+(drive-truck t0 l0-1 l0-0 c0) ; t0 moves to l0-0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(load-airplane p3 a0 l0-0) ; LM55
+
+; --- Setup for LM56: (load-airplane p17 a0 l0-0) ---
+; p17 is in t1 at l1-0. a0 is at l0-0. For LM56, p17 needs to be at l0-0.
+(unload-truck p17 t1 l1-0) ; NLM instance for p17 from t1
+(fly-airplane a0 l0-0 l1-0) ; a0 moves to l1-0
+(load-airplane p17 a0 l1-0) ; NLM instance for p17 into a0
+(fly-airplane a0 l1-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p17 a0 l1-0) ; NLM instance for p17 from a0
+(load-airplane p17 a0 l0-0) ; LM56
+
+; --- Setup for LM57: (unload-truck p11 t2 l2-2) ---
+; p11 is in a0 at l0-0. t2 is at l2-2. For LM57, p11 needs to be in t2 at l2-2.
+(unload-airplane p11 a0 l0-0) ; NLM instance for p11 from a0
+(load-airplane p11 a0 l0-0) ; NLM instance for p11 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p11 a0 l2-0) ; NLM instance for p11 from a0
+(load-truck p11 t2 l2-0) ; NLM instance for p11 into t2
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+; p11 is in t2 at l2-2.
+(unload-truck p11 t2 l2-2) ; LM57
+
+; --- Setup for LM58: (unload-truck p11 t1 l1-0) ---
+; p11 is now at l2-2. For LM58, p11 needs to be in t1 at l1-0.
+(load-truck p11 t1 l1-2) ; NLM instance for p11 into t1
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+(unload-truck p11 t1 l1-0) ; LM58
+
+; --- Setup for LM59: (unload-truck p23 t2 l2-2) ---
+; p23 is now at l1-0. For LM59, p23 needs to be in t2 at l2-2.
+(load-airplane p23 a0 l1-0) ; NLM instance for p23 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p23 a0 l2-0) ; NLM instance for p23 from a0
+(load-truck p23 t2 l2-0) ; NLM instance for p23 into t2
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+(unload-truck p23 t2 l2-2) ; LM59
+
+; --- Setup for LM60: (unload-truck p23 t1 l1-0) ---
+; p23 is now at l2-2. For LM60, p23 needs to be in t1 at l1-0.
+(load-truck p23 t1 l1-2) ; NLM instance for p23 into t1
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+(unload-truck p23 t1 l1-0) ; LM60
+
+; --- Setup for LM61: (unload-truck p5 t2 l2-0) ---
+; p5 is now at l1-0. For LM61, p5 needs to be in t2 at l2-0.
+(load-airplane p5 a0 l1-0) ; NLM instance for p5 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p5 a0 l2-0) ; NLM instance for p5 from a0
+(load-truck p5 t2 l2-0) ; NLM instance for p5 into t2
+(unload-truck p5 t2 l2-0) ; LM61
+
+; --- Setup for LM62: (unload-truck p5 t1 l1-2) ---
+; p5 is now at l2-0. For LM62, p5 needs to be in t1 at l1-2.
+(load-airplane p5 a0 l2-0) ; NLM instance for p5 into a0
+(fly-airplane a0 l2-0 l1-0) ; a0 moves to l1-0
+(unload-airplane p5 a0 l1-0) ; NLM instance for p5 from a0
+(load-truck p5 t1 l1-0) ; NLM instance for p5 into t1
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves to l1-2
+(unload-truck p5 t1 l1-2) ; LM62
+
+; --- Setup for LM63: (unload-truck p19 t0 l0-1) ---
+; p19 is now at l2-0. For LM63, p19 needs to be in t0 at l0-1.
+(load-airplane p19 a0 l2-0) ; NLM instance for p19 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p19 a0 l0-0) ; NLM instance for p19 from a0
+(load-truck p19 t0 l0-0) ; NLM instance for p19 into t0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(unload-truck p19 t0 l0-1) ; LM63
+
+; --- Setup for LM64: (unload-truck p7 t0 l0-2) ---
+; p7 is now at l0-0. For LM64, p7 needs to be in t0 at l0-2.
+(load-truck p7 t0 l0-0) ; NLM instance for p7 into t0
+(drive-truck t0 l0-1 l0-2 c0) ; t0 moves to l0-2
+(unload-truck p7 t0 l0-2) ; LM64
+
+; --- Setup for LM65: (unload-truck p13 t2 l2-2) ---
+; p13 is now at l0-0. For LM65, p13 needs to be in t2 at l2-2.
+(load-airplane p13 a0 l0-0) ; NLM instance for p13 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p13 a0 l2-0) ; NLM instance for p13 from a0
+(load-truck p13 t2 l2-0) ; NLM instance for p13 into t2
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+(unload-truck p13 t2 l2-2) ; LM65
+
+; --- Setup for LM66: (unload-truck p8 t2 l2-0) ---
+; p8 is now at l1-2. For LM66, p8 needs to be in t2 at l2-0.
+(load-airplane p8 a0 l1-0) ; NLM instance for p8 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p8 a0 l2-0) ; NLM instance for p8 from a0
+(load-truck p8 t2 l2-0) ; NLM instance for p8 into t2
+(unload-truck p8 t2 l2-0) ; LM66
+
+; --- Setup for LM67: (unload-truck p8 t1 l1-2) ---
+; p8 is now at l2-0. For LM67, p8 needs to be in t1 at l1-2.
+(load-airplane p8 a0 l2-0) ; NLM instance for p8 into a0
+(fly-airplane a0 l2-0 l1-0) ; a0 moves to l1-0
+(unload-airplane p8 a0 l1-0) ; NLM instance for p8 from a0
+(load-truck p8 t1 l1-0) ; NLM instance for p8 into t1
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves to l1-2
+(unload-truck p8 t1 l1-2) ; LM67
+
+; --- Setup for LM68: (unload-truck p27 t1 l1-0) ---
+; p27 is now at l1-0. For LM68, p27 needs to be in t1 at l1-0.
+(load-truck p27 t1 l1-2) ; NLM instance for p27 into t1
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+(unload-truck p27 t1 l1-0) ; LM68
+
+; --- Setup for LM69: (unload-truck p28 t2 l2-0) ---
+; p28 is now at l2-0. For LM69, p28 needs to be in t2 at l2-0.
+(load-truck p28 t2 l2-1) ; NLM instance for p28 into t2
+(drive-truck t2 l2-1 l2-0 c2) ; t2 moves to l2-0
+(unload-truck p28 t2 l2-0) ; LM69
+
+; --- Setup for LM70: (unload-truck p14 t2 l2-2) ---
+; p14 is now at l0-1. For LM70, p14 needs to be in t2 at l2-2.
+(load-airplane p14 a0 l0-0) ; NLM instance for p14 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p14 a0 l2-0) ; NLM instance for p14 from a0
+(load-truck p14 t2 l2-0) ; NLM instance for p14 into t2
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+(unload-truck p14 t2 l2-2) ; LM70
+
+; --- Setup for LM71: (unload-truck p14 t0 l0-0) ---
+; p14 is now at l2-2. For LM71, p14 needs to be in t0 at l0-0.
+(load-airplane p14 a0 l2-0) ; NLM instance for p14 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p14 a0 l0-0) ; NLM instance for p14 from a0
+(load-truck p14 t0 l0-0) ; NLM instance for p14 into t0
+(unload-truck p14 t0 l0-0) ; LM71
+
+; --- Setup for LM72: (unload-truck p16 t2 l2-2) ---
+; p16 is now at l0-1. For LM72, p16 needs to be in t2 at l2-2.
+(load-airplane p16 a0 l0-0) ; NLM instance for p16 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p16 a0 l2-0) ; NLM instance for p16 from a0
+(load-truck p16 t2 l2-0) ; NLM instance for p16 into t2
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+(unload-truck p16 t2 l2-2) ; LM72
+
+; --- Setup for LM73: (unload-truck p16 t0 l0-0) ---
+; p16 is now at l2-2. For LM73, p16 needs to be in t0 at l0-0.
+(load-airplane p16 a0 l2-0) ; NLM instance for p16 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p16 a0 l0-0) ; NLM instance for p16 from a0
+(load-truck p16 t0 l0-0) ; NLM instance for p16 into t0
+(unload-truck p16 t0 l0-0) ; LM73
+
+; --- Setup for LM74: (unload-truck p6 t0 l0-0) ---
+; p6 is now at l0-2. For LM74, p6 needs to be in t0 at l0-0.
+(load-truck p6 t0 l0-2) ; NLM instance for p6 into t0
+(drive-truck t0 l0-2 l0-0 c0) ; t0 moves to l0-0
+(unload-truck p6 t0 l0-0) ; LM74
+
+; --- Setup for LM75: (unload-truck p15 t0 l0-0) ---
+; p15 is now at l0-2. For LM75, p15 needs to be in t0 at l0-0.
+(load-truck p15 t0 l0-2) ; NLM instance for p15 into t0
+(drive-truck t0 l0-0 l0-2 c0) ; t0 moves to l0-2
+(unload-truck p15 t0 l0-0) ; LM75
+
+; --- Setup for LM76: (unload-truck p20 t2 l2-0) ---
+; p20 is now at l0-0. For LM76, p20 needs to be in t2 at l2-0.
+(load-airplane p20 a0 l0-0) ; NLM instance for p20 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p20 a0 l2-0) ; NLM instance for p20 from a0
+(load-truck p20 t2 l2-0) ; NLM instance for p20 into t2
+(unload-truck p20 t2 l2-0) ; LM76
+
+; --- Setup for LM77: (unload-truck p20 t0 l0-1) ---
+; p20 is now at l2-0. For LM77, p20 needs to be in t0 at l0-1.
+(load-airplane p20 a0 l2-0) ; NLM instance for p20 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p20 a0 l0-0) ; NLM instance for p20 from a0
+(load-truck p20 t0 l0-0) ; NLM instance for p20 into t0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(unload-truck p20 t0 l0-1) ; LM77
+
+; --- Setup for LM78: (unload-truck p1 t1 l1-1) ---
+; p1 is now at l1-0. For LM78, p1 needs to be in t1 at l1-1.
+(load-truck p1 t1 l1-0) ; NLM instance for p1 into t1
+(drive-truck t1 l1-0 l1-1 c1) ; t1 moves to l1-1
+(unload-truck p1 t1 l1-1) ; LM78
+
+; --- Setup for LM79: (unload-truck p4 t1 l1-2) ---
+; p4 is now at l1-0. For LM79, p4 needs to be in t1 at l1-2.
+(load-truck p4 t1 l1-0) ; NLM instance for p4 into t1
+(drive-truck t1 l1-1 l1-2 c1) ; t1 moves to l1-2
+(unload-truck p4 t1 l1-2) ; LM79
+
+; --- Setup for LM80: (unload-truck p9 t2 l2-0) ---
+; p9 is now at l0-0. For LM80, p9 needs to be in t2 at l2-0.
+(load-airplane p9 a0 l0-0) ; NLM instance for p9 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p9 a0 l2-0) ; NLM instance for p9 from a0
+(load-truck p9 t2 l2-0) ; NLM instance for p9 into t2
+(unload-truck p9 t2 l2-0) ; LM80
+
+; --- Setup for LM81: (unload-truck p9 t0 l0-1) ---
+; p9 is now at l2-0. For LM81, p9 needs to be in t0 at l0-1.
+(load-airplane p9 a0 l2-0) ; NLM instance for p9 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p9 a0 l0-0) ; NLM instance for p9 from a0
+(load-truck p9 t0 l0-0) ; NLM instance for p9 into t0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 moves to l0-1
+(unload-truck p9 t0 l0-1) ; LM81
+
+; --- Setup for LM82: (unload-truck p24 t1 l1-0) ---
+; p24 is now at l1-1. For LM82, p24 needs to be in t1 at l1-0.
+(load-truck p24 t1 l1-1) ; NLM instance for p24 into t1
+(drive-truck t1 l1-2 l1-0 c1) ; t1 moves to l1-0
+(unload-truck p24 t1 l1-0) ; LM82
+
+; --- Setup for LM83: (unload-truck p18 t2 l2-0) ---
+; p18 is now at l1-0. For LM83, p18 needs to be in t2 at l2-0.
+(load-airplane p18 a0 l1-0) ; NLM instance for p18 into a0
+(fly-airplane a0 l1-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p18 a0 l2-0) ; NLM instance for p18 from a0
+(load-truck p18 t2 l2-0) ; NLM instance for p18 into t2
+(unload-truck p18 t2 l2-0) ; LM83
+
+; --- Setup for LM84: (unload-truck p18 t1 l1-1) ---
+; p18 is now at l2-0. For LM84, p18 needs to be in t1 at l1-1.
+(load-airplane p18 a0 l2-0) ; NLM instance for p18 into a0
+(fly-airplane a0 l2-0 l1-0) ; a0 moves to l1-0
+(unload-airplane p18 a0 l1-0) ; NLM instance for p18 from a0
+(load-truck p18 t1 l1-0) ; NLM instance for p18 into t1
+(drive-truck t1 l1-0 l1-1 c1) ; t1 moves to l1-1
+(unload-truck p18 t1 l1-1) ; LM84
+
+; --- Setup for LM85: (unload-truck p3 t2 l2-2) ---
+; p3 is now at l0-1. For LM85, p3 needs to be in t2 at l2-2.
+(load-airplane p3 a0 l0-0) ; NLM instance for p3 into a0
+(fly-airplane a0 l0-0 l2-0) ; a0 moves to l2-0
+(unload-airplane p3 a0 l2-0) ; NLM instance for p3 from a0
+(load-truck p3 t2 l2-0) ; NLM instance for p3 into t2
+(drive-truck t2 l2-0 l2-2 c2) ; t2 moves to l2-2
+(unload-truck p3 t2 l2-2) ; LM85
+
+; --- Setup for LM86: (unload-truck p3 t0 l0-0) ---
+; p3 is now at l2-2. For LM86, p3 needs to be in t0 at l0-0.
+(load-airplane p3 a0 l2-0) ; NLM instance for p3 into a0
+(fly-airplane a0 l2-0 l0-0) ; a0 moves to l0-0
+(unload-airplane p3 a0 l0-0) ; NLM instance for p3 from a0
+(load-truck p3 t0 l0-0) ; NLM instance for p3 into t0
+(unload-truck p3 t0 l0-0) ; LM86
+
+; --- Setup for LM87: (unload-truck p26 t2 l2-1) ---
+; p26 is now at l2-2. For LM87, p26 needs to be in t2 at l2-1.
+(load-truck p26 t2 l2-2) ; NLM instance for p26 into t2
+(drive-truck t2 l2-2 l2-1 c2) ; t2 moves to l2-1
+(unload-truck p26 t2 l2-1) ; LM87
+
+; --- Setup for LM88: (unload-truck p17 t1 l1-1) ---
+; p17 is now at l1-0. For LM88, p17 needs to be in t1 at l1-1.
+(load-truck p17 t1 l1-0) ; NLM instance for p17 into t1
+(drive-truck t1 l1-0 l1-1 c1) ; t1 moves to l1-1
+(unload-truck p17 t1 l1-1) ; LM88
+
+; --- Final Goal Reaching (packages not yet at goal) ---
+; p0 at l0-0
+; p1 at l1-1
+; p2 at l0-1 (already)
+; p3 at l2-2
+; p4 at l1-2
+; p5 at l1-2
+; p6 at l2-0
+; p7 at l0-2
+; p8 at l1-2
+; p9 at l0-1
+; p10 at l2-1 (already)
+; p11 at l2-2
+; p12 at l0-0
+; p13 at l2-2
+; p14 at l2-2
+; p15 at l0-0
+; p16 at l2-2
+; p17 at l1-1
+; p18 at l1-1
+; p19 at l0-1
+; p20 at l0-1
+; p21 at l0-0
+; p22 at l2-0
+; p23 at l2-2
+; p24 at l0-0
+; p25 at l1-0
+; p26 at l2-1
+; p27 at l0-0
+; p28 at l1-0
+
+; All landmarks were processed. Final state cleanup for goal.
+; All packages are currently in weird places due to forced landmark execution.
+; Need to bring them to their final goals from their current state.
+
+; Packages that are not at their final goal and are not in a vehicle (final step):
+; p0 in a0 @l2-0, goal l0-0
+; p1 in a0 @l0-0, goal l1-1
+; p3 in a0 @l0-0, goal l2-2
+; p4 in a0 @l0-0, goal l1-2
+; p5 in a0 @l1-0, goal l1-2
+; p6 in a0 @l0-0, goal l2-0
+; p7 in t0 @l0-2, goal l0-2 (reached)
+; p8 in a0 @l1-0, goal l1-2
+; p9 in a0 @l0-0, goal l0-1
+; p11 in a0 @l1-0, goal l2-2
+; p12 in a0 @l2-0, goal l0-0
+; p13 in a0 @l0-0, goal l2-2
+; p14 in t0 @l0-0, goal l2-2
+; p15 in t0 @l0-0, goal l0-0 (reached)
+; p16 in t0 @l0-0, goal l2-2
+; p17 in t1 @l1-1, goal l1-1 (reached)
+; p18 in t1 @l1-1, goal l1-1 (reached)
+; p19 in t0 @l0-1, goal l0-1 (reached)
+; p20 in t0 @l0-1, goal l0-1 (reached)
+; p21 in a0 @l2-0, goal l0-0
+; p22 in a0 @l0-0, goal l2-0
+; p23 in a0 @l1-0, goal l2-2
+; p24 in t1 @l1-0, goal l0-0
+; p25 in a0 @l0-0, goal l1-0
+; p26 in t2 @l2-1, goal l2-1 (reached)
+; p27 in t1 @l1-0, goal l0-0
+; p28 in t2 @l2-0, goal l1-0
+
+; The "NLM" actions have now left the packages in the vehicle/location they were last acted on.
+; I must clean up to meet the goals.
+
+; Cleanup stage (direct moves to goal from last state)
+; This part is to ensure final goal state is achieved.
+
+; Final movements for p24 (t1@l1-0 -> l0-0) and p27 (t1@l1-0 -> l0-0)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-airplane p24 a0 l1-0)
+(load-airplane p27 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p24 a0 l0-0)
+(unload-airplane p27 a0 l0-0)
+
+; Final movements for p25 (a0@l0-0 -> l1-0)
+(load-airplane p25 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p25 a0 l1-0)
+
+; Final movements for p28 (t2@l2-0 -> l1-0)
+(load-airplane p28 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p28 a0 l1-0)
+
+; Final movements for p0 (a0@l2-0 -> l0-0)
+(load-airplane p0 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p0 a0 l0-0)
+
+; Final movements for p1 (a0@l0-0 -> l1-1)
+(load-airplane p1 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p1 a0 l1-0)
+(load-truck p1 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p1 t1 l1-1)
+
+; Final movements for p3 (a0@l0-0 -> l2-2)
+(load-airplane p3 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p3 a0 l2-0)
+(load-truck p3 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p3 t2 l2-2)
+
+; Final movements for p4 (a0@l0-0 -> l1-2)
+(load-airplane p4 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p4 a0 l1-0)
+(load-truck p4 t1 l1-0)
+(drive-truck t1 l1-1 l1-2 c1)
+(unload-truck p4 t1 l1-2)
+
+; Final movements for p5 (a0@l1-0 -> l1-2)
+(load-airplane p5 a0 l1-0)
+(unload-airplane p5 a0 l1-0)
+(load-truck p5 t1 l1-0)
+(drive-truck t1 l1-2 l1-0 c1)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p5 t1 l1-2)
+
+; Final movements for p6 (a0@l0-0 -> l2-0)
+(load-airplane p6 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p6 a0 l2-0)
+
+; Final movements for p8 (a0@l1-0 -> l1-2)
+(load-airplane p8 a0 l1-0)
+(unload-airplane p8 a0 l1-0)
+(load-truck p8 t1 l1-0)
+(drive-truck t1 l1-2 l1-0 c1)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p8 t1 l1-2)
+
+; Final movements for p9 (a0@l0-0 -> l0-1)
+(load-airplane p9 a0 l0-0)
+(unload-airplane p9 a0 l0-0)
+(load-truck p9 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p9 t0 l0-1)
+
+; Final movements for p11 (a0@l1-0 -> l2-2)
+(load-airplane p11 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p11 a0 l2-0)
+(load-truck p11 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p11 t2 l2-2)
+
+; Final movements for p12 (a0@l2-0 -> l0-0)
+(load-airplane p12 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p12 a0 l0-0)
+
+; Final movements for p13 (a0@l0-0 -> l2-2)
+(load-airplane p13 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p13 a0 l2-0)
+(load-truck p13 t2 l2-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p13 t2 l2-2)
+
+; Final movements for p14 (t0@l0-0 -> l2-2)
+(load-airplane p14 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p14 a0 l2-0)
+(load-truck p14 t2 l2-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p14 t2 l2-2)
+
+; Final movements for p15 (t0@l0-0 -> l0-0)
+(load-truck p15 t0 l0-2)
+(drive-truck t0 l0-2 l0-0 c0)
+(unload-truck p15 t0 l0-0)
+
+; Final movements for p16 (t0@l0-0 -> l2-2)
+(load-airplane p16 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p16 a0 l2-0)
+(load-truck p16 t2 l2-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p16 t2 l2-2)
+
+; Final movements for p19 (t0@l0-1 -> l0-1)
+(load-airplane p19 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p19 a0 l0-0)
+(load-truck p19 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p19 t0 l0-1)
+
+; Final movements for p20 (t0@l0-1 -> l0-1)
+(load-airplane p20 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p20 a0 l0-0)
+(load-truck p20 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p20 t0 l0-1)
+
+; Final movements for p21 (a0@l2-0 -> l0-0)
+(load-airplane p21 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p21 a0 l0-0)
+
+; Final movements for p22 (a0@l0-0 -> l2-0)
+(load-airplane p22 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p22 a0 l2-0)
+
+; Final movements for p23 (a0@l1-0 -> l2-2)
+(load-airplane p23 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p23 a0 l2-0)
+(load-truck p23 t2 l2-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p23 t2 l2-2)
+
+; End of Plan
+</plan>
+</response>
+[2025-08-28 23:31:03.840251] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[use_all]', 'domain': 'logistics', 'instance': 'p54', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 7995, 'candidates_token_count': 19359, 'total_tokens_count': 64188}
+</metadata>

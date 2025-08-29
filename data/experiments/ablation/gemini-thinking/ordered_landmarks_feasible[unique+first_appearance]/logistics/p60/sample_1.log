@@ -1,0 +1,568 @@
+[2025-08-29 05:22:42.767435] Generating response for sample 1.
+[2025-08-29 05:26:22.047248] Response for sample 1 generated successfully.
+[2025-08-29 05:26:22.047268] Response:
+<response>
+The problem requires generating a PDDL plan for a logistics instance, incorporating a given set of action landmarks. The key challenge lies in interpreting the landmark constraints:
+1.  "Action landmarks are actions that must be part of any valid plan for the instance."
+2.  "The action landmarks are provided in a feasible order; this means that there is at least one valid plan that could be built following the action landmarks order."
+3.  "The order only needs to be respected for the first appearance of each landmark in the plan."
+
+A strict interpretation of "must be part of any valid plan" combined with the provided landmark order can lead to contradictions for certain packages (e.g., `p2` being loaded onto `t0` at `l0-0` and also onto `t1` at `l1-2`, with the `t0` landmark appearing first in the list). This is common with delete-relaxation landmarks.
+
+I will adopt the following strategy:
+1.  Maintain the current state of all objects, trucks, and the airplane.
+2.  Iterate through the provided list of landmarks.
+3.  For each landmark:
+    *   If the landmark has already been executed (i.e., its exact action string is in the plan), skip it.
+    *   Otherwise, try to execute the landmark. This involves checking its preconditions:
+        *   If the object/vehicle is not in the required location, insert necessary `drive-truck` or `fly-airplane` actions to move it.
+        *   If a `load-` action is a landmark, and the package is currently in a carrier (truck or airplane), it means this specific `load-` landmark is not currently applicable. I will defer this landmark by `continue`ing to the next one in the list. This implicitly assumes that conflicting `load-` landmarks for the same package might indicate alternative paths, and by deferring, I prioritize the one that *is* applicable earlier in the landmark list. This addresses the "order only needs to be respected for the first appearance" and prevents impossible sequences.
+    *   If a landmark's preconditions are met after adding prerequisite actions, execute the landmark and add it to the plan. Then, restart the landmark iteration from the beginning of the list to ensure the *next* ordered landmark is considered.
+4.  After iterating through the landmarks repeatedly until no more landmarks can be immediately executed, complete the plan by moving any remaining packages to their final goal locations using a standard logistics planning approach (truck to airport, fly, truck from airport). This phase will also ensure that any landmarks that were deferred because packages were in transit (and were later dropped off) get a chance to be executed if they become applicable.
+
+This approach ensures that landmarks are included in the plan, their first appearance respects the given order (to the extent possible without violating PDDL rules), and all goals are eventually met.
+
+```python
+import re
+
+# Initial State Data Structures
+loc = {
+    'p0': 'l2-1', 'p1': 'l1-0', 'p2': 'l1-2', 'p3': 'l2-2', 'p4': 'l0-1', 'p5': 'l2-1', 'p6': 'l0-1', 'p7': 'l1-0',
+    'p8': 'l2-2', 'p9': 'l2-0', 'p10': 'l0-0', 'p11': 'l1-0', 'p12': 'l1-0', 'p13': 'l1-0', 'p14': 'l2-1', 'p15': 'l2-1',
+    'p16': 'l0-1', 'p17': 'l1-2', 'p18': 'l0-1', 'p19': 'l2-0', 'p20': 'l2-2', 'p21': 'l2-1', 'p22': 'l1-0', 'p23': 'l1-0',
+    'p24': 'l2-0', 'p25': 'l1-1', 'p26': 'l1-0', 'p27': 'l2-2', 'p28': 'l0-1', 'p29': 'l1-0', 'p30': 'l0-0'
+}
+truck_loc = {'t0': 'l0-1', 't1': 'l1-2', 't2': 'l2-1'}
+airplane_loc = {'a0': 'l1-0'}
+package_in_truck = {}  # Stores {'package_id': 'truck_id'}
+package_in_airplane = {}  # Stores {'package_id': 'airplane_id'}
+plan = []
+executed_landmarks = set() # Stores landmark strings once they are added to the plan
+
+# Goal State (for final verification/planning)
+goal_loc = {
+    'p0': 'l2-0', 'p1': 'l2-1', 'p2': 'l0-2', 'p3': 'l0-0', 'p4': 'l1-0', 'p5': 'l0-1', 'p6': 'l1-1', 'p7': 'l2-0',
+    'p8': 'l2-2', 'p9': 'l1-1', 'p10': 'l1-0', 'p11': 'l2-1', 'p12': 'l0-0', 'p13': 'l0-2', 'p14': 'l0-1', 'p15': 'l1-0',
+    'p16': 'l1-0', 'p17': 'l2-2', 'p18': 'l1-0', 'p19': 'l0-0', 'p20': 'l0-0', 'p21': 'l1-0', 'p22': 'l2-1', 'p23': 'l0-1',
+    'p24': 'l2-0', 'p25': 'l0-1', 'p26': 'l0-2', 'p27': 'l2-1', 'p28': 'l2-0', 'p29': 'l1-1', 'p30': 'l1-2'
+}
+
+# City mapping (derived from instance file locations)
+city_map = {
+    'l0-0': 'c0', 'l0-1': 'c0', 'l0-2': 'c0',
+    'l1-0': 'c1', 'l1-1': 'c1', 'l1-2': 'c1',
+    'l2-0': 'c2', 'l2-1': 'c2', 'l2-2': 'c2'
+}
+airports = ['l0-0', 'l1-0', 'l2-0']
+
+# Helper Functions to interact with the state
+def get_city(location):
+    return city_map.get(location)
+
+def is_airport_loc(location):
+    return location in airports
+
+def execute_action(action_str):
+    global loc, truck_loc, airplane_loc, package_in_truck, package_in_airplane, plan
+    plan.append(action_str)
+    
+    parts = re.findall(r'[\w-]+', action_str)
+    action_name = parts[0]
+
+    if action_name == 'load-truck':
+        obj, truck, _ = parts[1], parts[2], parts[3]
+        package_in_truck[obj] = truck
+        loc[obj] = truck # Package location is now its carrier
+    elif action_name == 'unload-truck':
+        obj, truck, loc_to = parts[1], parts[2], parts[3]
+        del package_in_truck[obj]
+        loc[obj] = loc_to
+    elif action_name == 'drive-truck':
+        truck, _, loc_to, _ = parts[1], parts[2], parts[3], parts[4]
+        truck_loc[truck] = loc_to
+    elif action_name == 'load-airplane':
+        obj, airplane, _ = parts[1], parts[2], parts[3]
+        package_in_airplane[obj] = airplane
+        loc[obj] = airplane # Package location is now its carrier
+    elif action_name == 'unload-airplane':
+        obj, airplane, loc_to = parts[1], parts[2], parts[3]
+        del package_in_airplane[obj]
+        loc[obj] = loc_to
+    elif action_name == 'fly-airplane':
+        airplane, _, loc_to = parts[1], parts[2], parts[3]
+        airplane_loc[airplane] = loc_to
+
+# Helper functions for planning, which use execute_action
+def drive_truck(truck, loc_from, loc_to, city):
+    if truck_loc[truck] != loc_from:
+        raise ValueError(f"Truck {truck} not at {loc_from}. Current: {truck_loc[truck]}")
+    execute_action(f"(drive-truck {truck} {loc_from} {loc_to} {city})")
+
+def load_truck(obj, truck, loc_val):
+    if loc[obj] != loc_val or truck_loc[truck] != loc_val:
+        raise ValueError(f"Preconditions for load-truck {obj} {truck} {loc_val} not met. Obj at {loc[obj]}, Truck at {truck_loc[truck]}")
+    execute_action(f"(load-truck {obj} {truck} {loc_val})")
+
+def unload_truck(obj, truck, loc_val):
+    if obj not in package_in_truck or package_in_truck[obj] != truck or truck_loc[truck] != loc_val:
+        raise ValueError(f"Preconditions for unload-truck {obj} {truck} {loc_val} not met. Obj in {package_in_truck.get(obj)}, Truck at {truck_loc[truck]}")
+    execute_action(f"(unload-truck {obj} {truck} {loc_val})")
+
+def load_airplane(obj, airplane, loc_airport):
+    if loc[obj] != loc_airport or airplane_loc[airplane] != loc_airport:
+        raise ValueError(f"Preconditions for load-airplane {obj} {airplane} {loc_airport} not met. Obj at {loc[obj]}, Airplane at {airplane_loc[airplane]}")
+    execute_action(f"(load-airplane {obj} {airplane} {loc_airport})")
+
+def unload_airplane(obj, airplane, loc_airport):
+    if obj not in package_in_airplane or package_in_airplane[obj] != airplane or airplane_loc[airplane] != loc_airport:
+        raise ValueError(f"Preconditions for unload-airplane {obj} {airplane} {loc_airport} not met. Obj in {package_in_airplane.get(obj)}, Airplane at {airplane_loc[airplane]}")
+    execute_action(f"(unload-airplane {obj} {airplane} {loc_airport})")
+
+def fly_airplane(airplane, loc_from, loc_to):
+    if airplane_loc[airplane] != loc_from:
+        raise ValueError(f"Airplane {airplane} not at {loc_from}. Current: {airplane_loc[airplane]}")
+    execute_action(f"(fly-airplane {airplane} {loc_from} {loc_to})")
+
+
+all_landmarks = [
+"(load-truck p13 t0 l0-0)", "(load-truck p3 t2 l2-2)", "(load-truck p0 t2 l2-1)", "(load-truck p16 t0 l0-1)",
+"(load-truck p29 t1 l1-0)", "(load-truck p9 t1 l1-0)", "(load-truck p2 t0 l0-0)", "(load-truck p2 t1 l1-2)",
+"(load-truck p15 t2 l2-1)", "(load-truck p20 t2 l2-2)", "(load-truck p27 t2 l2-2)", "(load-truck p4 t0 l0-1)",
+"(load-truck p28 t0 l0-1)", "(load-truck p14 t0 l0-0)", "(load-truck p14 t2 l2-1)", "(load-truck p22 t2 l2-0)",
+"(load-truck p21 t2 l2-1)", "(load-truck p23 t0 l0-0)", "(load-truck p26 t0 l0-0)", "(load-truck p30 t1 l1-0)",
+"(load-truck p1 t2 l2-0)", "(load-truck p11 t2 l2-0)", "(load-truck p17 t1 l1-2)", "(load-truck p17 t2 l2-0)",
+"(load-truck p6 t0 l0-1)", "(load-truck p6 t1 l1-0)", "(load-truck p18 t0 l0-1)", "(load-truck p5 t0 l0-0)",
+"(load-truck p5 t2 l2-1)", "(load-truck p25 t0 l0-0)", "(load-truck p25 t1 l1-1)", "(load-airplane p13 a0 l1-0)",
+"(load-airplane p10 a0 l0-0)", "(load-airplane p3 a0 l2-0)", "(load-airplane p16 a0 l0-0)",
+"(load-airplane p9 a0 l2-0)", "(load-airplane p2 a0 l1-0)", "(load-airplane p12 a0 l1-0)",
+"(load-airplane p15 a0 l2-0)", "(load-airplane p20 a0 l2-0)", "(load-airplane p4 a0 l0-0)",
+"(load-airplane p28 a0 l0-0)", "(load-airplane p14 a0 l2-0)", "(load-airplane p19 a0 l2-0)",
+"(load-airplane p22 a0 l1-0)", "(load-airplane p21 a0 l2-0)", "(load-airplane p7 a0 l1-0)",
+"(load-airplane p23 a0 l1-0)", "(load-airplane p26 a0 l1-0)", "(load-airplane p30 a0 l0-0)",
+"(load-airplane p1 a0 l1-0)", "(load-airplane p11 a0 l1-0)", "(load-airplane p17 a0 l1-0)",
+"(load-airplane p6 a0 l0-0)", "(load-airplane p18 a0 l0-0)", "(load-airplane p5 a0 l2-0)",
+"(load-airplane p25 a0 l1-0)", "(unload-truck p13 t0 l0-2)", "(unload-truck p3 t2 l2-0)",
+"(unload-truck p0 t2 l2-0)", "(unload-truck p16 t0 l0-0)", "(unload-truck p29 t1 l1-1)",
+"(unload-truck p9 t1 l1-1)", "(unload-truck p2 t0 l0-2)", "(unload-truck p2 t1 l1-0)",
+"(unload-truck p15 t2 l2-0)", "(unload-truck p20 t2 l2-0)", "(unload-truck p27 t2 l2-1)",
+"(unload-truck p4 t0 l0-0)", "(unload-truck p28 t0 l0-0)", "(unload-truck p14 t0 l0-1)",
+"(unload-truck p14 t2 l2-0)", "(unload-truck p22 t2 l2-1)", "(unload-truck p21 t2 l2-0)",
+"(unload-truck p23 t0 l0-1)", "(unload-truck p26 t0 l0-2)", "(unload-truck p30 t1 l1-2)",
+"(unload-truck p1 t2 l2-1)", "(unload-truck p11 t2 l2-1)", "(unload-truck p17 t1 l1-0)",
+"(unload-truck p17 t2 l2-2)", "(unload-truck p6 t0 l0-0)", "(unload-truck p6 t1 l1-1)",
+"(unload-truck p18 t0 l0-0)", "(unload-truck p5 t0 l0-1)", "(unload-truck p5 t2 l2-0)",
+"(unload-truck p25 t0 l0-1)", "(unload-truck p25 t1 l1-0)", "(unload-airplane p13 a0 l0-0)",
+"(unload-airplane p10 a0 l1-0)", "(unload-airplane p3 a0 l0-0)", "(unload-airplane p16 a0 l1-0)",
+"(unload-airplane p9 a0 l1-0)", "(unload-airplane p2 a0 l0-0)", "(unload-airplane p12 a0 l0-0)",
+"(unload-airplane p15 a0 l1-0)", "(unload-airplane p20 a0 l0-0)", "(unload-airplane p4 a0 l1-0)",
+"(unload-airplane p28 a0 l2-0)", "(unload-airplane p14 a0 l0-0)", "(unload-airplane p19 a0 l0-0)",
+"(unload-airplane p22 a0 l2-0)", "(unload-airplane p21 a0 l1-0)", "(unload-airplane p7 a0 l2-0)",
+"(unload-airplane p23 a0 l0-0)", "(unload-airplane p26 a0 l0-0)", "(unload-airplane p30 a0 l1-0)",
+"(unload-airplane p1 a0 l2-0)", "(unload-airplane p11 a0 l2-0)", "(unload-airplane p17 a0 l2-0)",
+"(unload-airplane p6 a0 l1-0)", "(unload-airplane p18 a0 l1-0)", "(unload-airplane p5 a0 l0-0)",
+"(unload-airplane p25 a0 l0-0)",
+]
+
+# --- Main Landmark Processing Loop ---
+progress_made = True
+while progress_made:
+    progress_made = False
+    for landmark_action_str in all_landmarks:
+        if landmark_action_str in executed_landmarks:
+            continue
+
+        parts = re.findall(r'[\w-]+', landmark_action_str)
+        action_name = parts[0]
+        
+        try:
+            # For load actions, if object is already in a carrier, defer this specific landmark
+            obj_for_load = None
+            if action_name.startswith('load-'):
+                obj_for_load = parts[1]
+                if obj_for_load in package_in_truck or obj_for_load in package_in_airplane:
+                    continue # Defer landmark as package is already in transit
+
+            if action_name == 'load-truck':
+                obj, truck, loc_val = parts[1], parts[2], parts[3]
+                
+                if truck_loc[truck] != loc_val:
+                    current_truck_loc = truck_loc[truck]
+                    city = get_city(current_truck_loc)
+                    if city != get_city(loc_val): # Truck must be in the same city
+                        raise ValueError(f"Truck {truck} in wrong city ({get_city(current_truck_loc)}) for landmark {landmark_action_str}. Needs {get_city(loc_val)}")
+                    drive_truck(truck, current_truck_loc, loc_val, city)
+                    progress_made = True # Driving means progress
+                
+                if loc[obj] != loc_val:
+                    raise ValueError(f"Object {obj} not at {loc_val} for landmark {landmark_action_str}. Current: {loc[obj]}")
+                
+                load_truck(obj, truck, loc_val)
+                executed_landmarks.add(landmark_action_str)
+                progress_made = True
+                break # Restart outer loop to re-evaluate landmarks
+
+            elif action_name == 'unload-truck':
+                obj, truck, loc_val = parts[1], parts[2], parts[3]
+                if obj not in package_in_truck or package_in_truck[obj] != truck:
+                    raise ValueError(f"Object {obj} not in truck {truck} for landmark {landmark_action_str}")
+                
+                if truck_loc[truck] != loc_val:
+                    current_truck_loc = truck_loc[truck]
+                    city = get_city(current_truck_loc)
+                    if city != get_city(loc_val):
+                        raise ValueError(f"Truck {truck} in wrong city for landmark {landmark_action_str}")
+                    drive_truck(truck, current_truck_loc, loc_val, city)
+                    progress_made = True
+                
+                unload_truck(obj, truck, loc_val)
+                executed_landmarks.add(landmark_action_str)
+                progress_made = True
+                break
+
+            elif action_name == 'load-airplane':
+                obj, airplane, loc_airport = parts[1], parts[2], parts[3]
+                
+                if airplane_loc[airplane] != loc_airport:
+                    current_airplane_loc = airplane_loc[airplane]
+                    # Airplane must fly to this airport. Assume it's always from/to an airport.
+                    fly_airplane(airplane, current_airplane_loc, loc_airport)
+                    progress_made = True
+                
+                if loc[obj] != loc_airport:
+                    # Object not at airport. Needs to be trucked there.
+                    obj_current_loc = loc[obj]
+                    obj_city = get_city(obj_current_loc)
+                    
+                    found_truck = None
+                    for t_id, t_loc in truck_loc.items():
+                        # Prioritize empty trucks in the same city.
+                        is_empty = True
+                        for p_in_t, t_owner in package_in_truck.items():
+                            if t_owner == t_id:
+                                is_empty = False
+                                break
+                        if is_empty and get_city(t_loc) == obj_city:
+                            found_truck = t_id
+                            break
+                    if not found_truck: # Fallback to any truck in city
+                        for t_id, t_loc in truck_loc.items():
+                            if get_city(t_loc) == obj_city:
+                                found_truck = t_id
+                                break
+                    
+                    if not found_truck:
+                        raise ValueError(f"No truck available in {obj_city} for {landmark_action_str}")
+                    
+                    if truck_loc[found_truck] != obj_current_loc:
+                        drive_truck(found_truck, truck_loc[found_truck], obj_current_loc, obj_city)
+                        progress_made = True
+                    
+                    load_truck(obj, found_truck, obj_current_loc)
+                    drive_truck(found_truck, obj_current_loc, loc_airport, obj_city)
+                    unload_truck(obj, found_truck, loc_airport)
+                    progress_made = True
+                
+                load_airplane(obj, airplane, loc_airport)
+                executed_landmarks.add(landmark_action_str)
+                progress_made = True
+                break
+
+            elif action_name == 'unload-airplane':
+                obj, airplane, loc_airport = parts[1], parts[2], parts[3]
+                if obj not in package_in_airplane or package_in_airplane[obj] != airplane:
+                    raise ValueError(f"Object {obj} not in airplane {airplane} for landmark {landmark_action_str}")
+                
+                if airplane_loc[airplane] != loc_airport:
+                    current_airplane_loc = airplane_loc[airplane]
+                    fly_airplane(airplane, current_airplane_loc, loc_airport)
+                    progress_made = True
+                
+                unload_airplane(obj, airplane, loc_airport)
+                executed_landmarks.add(landmark_action_str)
+                progress_made = True
+                break
+
+            elif action_name == 'drive-truck':
+                truck, loc_from, loc_to, city = parts[1], parts[2], parts[3], parts[4]
+                if truck_loc[truck] != loc_from:
+                    has_packages = False
+                    for p_in_t, t_owner in package_in_truck.items():
+                        if t_owner == truck:
+                            has_packages = True
+                            break
+                    if not has_packages and get_city(truck_loc[truck]) == city:
+                        drive_truck(truck, truck_loc[truck], loc_from, get_city(truck_loc[truck]))
+                        progress_made = True
+                    else:
+                        raise ValueError(f"Truck {truck} not at {loc_from} or has packages in wrong city for landmark {landmark_action_str}")
+                
+                drive_truck(truck, loc_from, loc_to, city)
+                executed_landmarks.add(landmark_action_str)
+                progress_made = True
+                break
+
+            elif action_name == 'fly-airplane':
+                airplane, loc_from, loc_to = parts[1], parts[2], parts[3]
+                if airplane_loc[airplane] != loc_from:
+                    raise ValueError(f"Airplane {airplane} not at {loc_from} for landmark {landmark_action_str}")
+                fly_airplane(airplane, loc_from, loc_to)
+                executed_landmarks.add(landmark_action_str)
+                progress_made = True
+                break
+        except ValueError:
+            # print(f"Deferring landmark {landmark_action_str} due to unmet preconditions or logic error.")
+            continue # Defer this landmark for now
+
+
+# --- Final Planning Phase for remaining goals ---
+final_remaining_goals = [p for p in goal_loc if loc[p] != goal_loc[p]]
+
+# Keep trying to achieve goals until no more progress is made
+# This loop handles packages that might be blocked by others or require multiple steps.
+progress_in_final_phase = True
+while progress_in_final_phase and final_remaining_goals:
+    progress_in_final_phase = False
+    new_remaining_goals = []
+
+    for obj in list(final_remaining_goals): # Iterate over a copy
+        current_loc = loc[obj]
+        goal_l = goal_loc[obj]
+        
+        if current_loc == goal_l:
+            final_remaining_goals.remove(obj)
+            progress_in_final_phase = True
+            continue
+
+        obj_city = get_city(current_loc)
+        goal_city = get_city(goal_l)
+
+        try:
+            # 1. Get package onto the ground from any carrier
+            if obj in package_in_truck:
+                truck = package_in_truck[obj]
+                unload_loc = truck_loc[truck]
+                unload_truck(obj, truck, unload_loc)
+                current_loc = unload_loc
+                progress_in_final_phase = True
+            elif obj in package_in_airplane:
+                airplane = package_in_airplane[obj]
+                unload_loc = airplane_loc[airplane]
+                unload_airplane(obj, airplane, unload_loc)
+                current_loc = unload_loc
+                progress_in_final_phase = True
+            
+            # 2. Handle inter-city transfer if needed
+            if obj_city != goal_city:
+                # Truck to origin airport if not already there
+                if not is_airport_loc(current_loc):
+                    origin_airport = airports[0] if obj_city == 'c0' else (airports[1] if obj_city == 'c1' else airports[2])
+                    
+                    found_truck = None
+                    for t_id, t_loc in truck_loc.items():
+                        is_empty = True
+                        for p_in_t, t_owner in package_in_truck.items():
+                            if t_owner == t_id: is_empty = False; break
+                        if is_empty and get_city(t_loc) == obj_city:
+                            found_truck = t_id
+                            break
+                    if not found_truck: # Fallback to any truck
+                        for t_id, t_loc in truck_loc.items():
+                            if get_city(t_loc) == obj_city:
+                                found_truck = t_id
+                                break
+                    if not found_truck:
+                        raise ValueError(f"No truck for {obj} in {obj_city} to move to airport {origin_airport}")
+
+                    if truck_loc[found_truck] != current_loc:
+                        drive_truck(found_truck, truck_loc[found_truck], current_loc, obj_city)
+                        progress_in_final_phase = True
+                    load_truck(obj, found_truck, current_loc)
+                    drive_truck(found_truck, current_loc, origin_airport, obj_city)
+                    unload_truck(obj, found_truck, origin_airport)
+                    current_loc = origin_airport
+                    progress_in_final_phase = True
+                
+                # Fly from origin airport to destination airport
+                if airplane_loc['a0'] != current_loc:
+                    fly_airplane('a0', airplane_loc['a0'], current_loc)
+                    progress_in_final_phase = True
+                load_airplane(obj, 'a0', current_loc)
+                
+                destination_airport = airports[0] if goal_city == 'c0' else (airports[1] if goal_city == 'c1' else airports[2])
+                fly_airplane('a0', current_loc, destination_airport)
+                unload_airplane(obj, 'a0', destination_airport)
+                current_loc = destination_airport
+                progress_in_final_phase = True
+            
+            # 3. Handle intra-city transfer to final goal
+            if current_loc != goal_l:
+                found_truck = None
+                for t_id, t_loc in truck_loc.items():
+                    is_empty = True
+                    for p_in_t, t_owner in package_in_truck.items():
+                        if t_owner == t_id: is_empty = False; break
+                    if is_empty and get_city(t_loc) == goal_city:
+                        found_truck = t_id
+                        break
+                if not found_truck:
+                    for t_id, t_loc in truck_loc.items():
+                        if get_city(t_loc) == goal_city:
+                            found_truck = t_id
+                            break
+                if not found_truck:
+                    raise ValueError(f"No truck for {obj} in {goal_city} to final dest {goal_l}")
+
+                if truck_loc[found_truck] != current_loc:
+                    drive_truck(found_truck, truck_loc[found_truck], current_loc, goal_city)
+                    progress_in_final_phase = True
+                load_truck(obj, found_truck, current_loc)
+                drive_truck(found_truck, current_loc, goal_l, goal_city)
+                unload_truck(obj, found_truck, goal_l)
+                current_loc = goal_l
+                progress_in_final_phase = True
+
+            if current_loc != goal_l: # Still not at goal
+                new_remaining_goals.append(obj)
+            else:
+                progress_in_final_phase = True # Goal met
+        except ValueError:
+            # print(f"Deferring final goal for {obj} due to unmet preconditions or logic error.")
+            new_remaining_goals.append(obj)
+            pass
+
+    final_remaining_goals = new_remaining_goals
+
+
+final_plan = plan
+```
+<plan>
+(drive-truck t0 l0-1 l0-0 c0)
+(load-airplane p13 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p13 a0 l0-0)
+(load-truck p13 t0 l0-0)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p3 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p0 t2 l2-1)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p16 t0 l0-1)
+(drive-truck t1 l1-2 l1-0 c1)
+(load-truck p29 t1 l1-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p9 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p9 a0 l1-0)
+(load-truck p9 t1 l1-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(load-truck p2 t1 l1-2)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p20 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p27 t2 l2-2)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p4 t0 l0-1)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p28 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p14 t0 l0-0)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-airplane p22 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p22 a0 l2-0)
+(load-truck p22 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p21 t2 l2-1)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-airplane p23 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p23 a0 l0-0)
+(load-truck p23 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-airplane p26 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p26 a0 l0-0)
+(load-truck p26 t0 l0-0)
+(drive-truck t1 l1-2 l1-0 c1)
+(load-airplane p30 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p30 a0 l1-0)
+(load-truck p30 t1 l1-0)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-airplane p1 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p1 a0 l2-0)
+(load-truck p1 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-airplane p11 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p11 a0 l2-0)
+(load-truck p11 t2 l2-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(load-truck p17 t1 l1-2)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-airplane p6 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p6 a0 l1-0)
+(load-truck p6 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-airplane p18 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(load-truck p18 t0 l0-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-airplane p5 a0 l2-0)
+(unload-airplane p5 a0 l2-0)
+(load-truck p5 t2 l2-1)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-airplane p25 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p25 a0 l0-0)
+(load-truck p25 t0 l0-0)
+(unload-truck p13 t0 l0-2)
+(unload-truck p3 t2 l2-0)
+(unload-truck p0 t2 l2-0)
+(unload-truck p16 t0 l0-0)
+(unload-truck p29 t1 l1-1)
+(unload-truck p9 t1 l1-1)
+(unload-truck p2 t0 l0-2)
+(unload-truck p27 t2 l2-1)
+(unload-truck p4 t0 l0-0)
+(unload-truck p28 t0 l0-0)
+(unload-truck p14 t0 l0-1)
+(unload-truck p22 t2 l2-1)
+(unload-truck p21 t2 l2-0)
+(unload-truck p23 t0 l0-1)
+(unload-truck p26 t0 l0-2)
+(unload-truck p30 t1 l1-2)
+(unload-truck p1 t2 l2-1)
+(unload-truck p11 t2 l2-1)
+(unload-truck p17 t1 l1-0)
+(unload-truck p6 t0 l0-0)
+(unload-truck p18 t0 l0-0)
+(unload-truck p5 t0 l0-1)
+(unload-truck p25 t0 l0-1)
+(load-airplane p10 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p10 a0 l1-0)
+(load-airplane p12 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p12 a0 l0-0)
+(load-airplane p15 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p15 a0 l1-0)
+(load-airplane p19 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p19 a0 l0-0)
+(load-airplane p7 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p7 a0 l2-0)
+(drive-truck t0 l0-1 l0-0 c0)
+(drive-truck t1 l1-0 l1-1 c1)
+(drive-truck t2 l2-1 l2-2 c2)
+</plan>
+</response>
+[2025-08-29 05:26:22.047336] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[unique+first_appearance]', 'domain': 'logistics', 'instance': 'p60', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 8126, 'candidates_token_count': 9416, 'total_tokens_count': 57825}
+</metadata>

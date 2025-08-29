@@ -1,0 +1,203 @@
+[2025-08-28 23:58:28.876086] Generating response for sample 1.
+[2025-08-29 00:01:34.068457] Response for sample 1 generated successfully.
+[2025-08-29 00:01:34.068486] Response:
+<response>
+<plan>
+(drive-truck t2 l2-1 l2-0 c2)
+(load-truck p19 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p15 t2 l2-1)
+(load-truck p4 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p4 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p4 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p4 a0 l2-0)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-truck p4 t2 l2-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p18 t0 l0-1)
+(load-truck p2 t1 l1-2)
+(drive-truck t2 l2-0 l2-2 c2)
+(load-truck p8 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p0 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p3 t2 l2-2)
+(drive-truck t0 l0-1 l0-0 c0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p22 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p22 a0 l0-0)
+(load-truck p22 t0 l0-0)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p5 t2 l2-1) ; This is a necessary intermediate action for p5 to reach l0-0 for LM11.
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p5 t2 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 to c2 airport for p5
+(load-airplane p5 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p5 a0 l0-0)
+(load-truck p5 t0 l0-0) ; LM11: p5 in t0
+(load-truck p6 t0 l0-1) ; LM13: p6 at l0-1, t0 at l0-0 -> t0 to l0-1.
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p9 t2 l2-0) ; LM14: p9 at l2-0, t2 at l2-0
+(drive-truck t2 l2-0 l2-2 c2) ; t2 to l2-2 for p20
+(load-truck p20 t2 l2-2) ; LM15: p20 in t2
+(drive-truck t0 l0-1 l0-0 c0) ; t0 to l0-0 for p13
+(fly-airplane a0 l0-0 l1-0) ; a0 to l1-0 for p13
+(load-airplane p13 a0 l1-0) ; LM: load-airplane p13
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p13 a0 l0-0)
+(load-truck p13 t0 l0-0) ; LM16: p13 in t0
+(drive-truck t2 l2-2 l2-1 c2) ; t2 to l2-1 for p21
+(load-truck p21 t2 l2-1) ; This is LM18 `(load-truck p21 t2 l2-1)`. It is performed here.
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p21 t2 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0 for p21
+(load-airplane p21 a0 l2-0) ; LM: load-airplane p21
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p21 a0 l0-0)
+(load-truck p21 t0 l0-0) ; LM17: p21 in t0 (This comes after LM18 now, due to 'first appearance' interpretation for feasibility)
+(drive-truck t2 l2-0 l2-1 c2) ; t2 to l2-1 for p14
+(load-truck p14 t2 l2-1) ; LM19: p14 in t2
+(drive-truck t2 l2-1 l2-0 c2) ; t2 with p14 to airport
+(unload-truck p14 t2 l2-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 to l1-0 for p14
+(load-airplane p14 a0 l2-0) ; LM: load-airplane p14 (a0 is at l1-0. Need to fly to l2-0)
+(fly-airplane a0 l1-0 l2-0)
+(load-airplane p14 a0 l2-0) ; Actual load-airplane p14
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p14 a0 l1-0)
+(load-truck p14 t1 l1-0) ; LM20: p14 in t1
+(drive-truck t0 l0-0 l0-0 c0) ; t0 to l0-0 for p10 (t0 is at l0-0)
+(load-truck p10 t0 l0-0) ; LM21: p10 in t0
+(load-truck p17 t1 l1-2) ; LM22: p17 at l1-2, t1 at l1-0 -> t1 to l1-2
+(drive-truck t1 l1-0 l1-2 c1)
+(load-truck p16 t0 l0-1) ; LM23: p16 at l0-1, t0 at l0-0 -> t0 to l0-1
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p16 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 with p16 to airport
+(unload-truck p16 t0 l0-0)
+(fly-airplane a0 l1-0 l2-0) ; a0 to l2-0 for p16 (a0 was at l1-0)
+(load-airplane p16 a0 l0-0) ; LM: load-airplane p16 (a0 is at l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p16 a0 l2-0)
+(drive-truck t2 l2-1 l2-0 c2) ; t2 to l2-0 for p16 (t2 was at l2-1)
+(load-truck p16 t2 l2-0) ; LM24: p16 in t2
+
+; All load-truck landmarks are completed. Now deliver all packages to their goals, flying when needed.
+; Some packages might need to be unloaded from a truck to be flown, then loaded to another truck.
+; Consolidate movements.
+
+; Current t0: at l0-0 (with p10, p13, p21)
+; Current t1: at l1-2 (with p2, p17, p14)
+; Current t2: at l2-0 (with p4, p8, p15, p16, p19, p20, p0, p3)
+; Current a0: at l0-0 (empty)
+
+; Deliver p10, p13, p21 (from t0 at l0-0)
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p10 t0 l0-2) ; p10 goal!
+(unload-truck p21 t0 l0-2) ; p21 goal!
+(drive-truck t0 l0-2 l0-1 c0)
+(unload-truck p13 t0 l0-1) ; p13 goal!
+
+; Deliver p2, p17, p14 (from t1 at l1-2)
+(drive-truck t1 l1-2 l1-1 c1)
+(unload-truck p2 t1 l1-1) ; p2 goal!
+(unload-truck p17 t1 l1-1) ; p17 goal!
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p14 t1 l1-1) ; (p14 goal is l1-1, was unloaded at l1-1)
+
+; Deliver p4, p8, p15, p16, p19, p20, p0, p3 (from t2 at l2-0)
+; Intra-city goals for t2: p8 to l2-0, p15 to l2-0, p19 to l2-1, p4 to l2-2, p9 to l2-1, p16 to l2-2.
+(unload-truck p8 t2 l2-0) ; p8 goal!
+(unload-truck p15 t2 l2-0) ; p15 goal!
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p19 t2 l2-1) ; p19 goal!
+(load-truck p9 t2 l2-0) ; p9 (was at l2-0, loaded earlier into t2 at l2-0). t2 is at l2-1. Need p9 to be at l2-0 again.
+
+; Re-doing t2 delivery sequence more carefully
+; t2 is at l2-0, with: p4, p8, p15, p16, p19, p20, p0, p3, p9
+; Goals for packages in t2:
+; p4: l2-2 (unload)
+; p8: l2-0 (unload)
+; p15: l2-0 (unload)
+; p16: l2-2 (unload)
+; p19: l2-1 (unload)
+; p20: l0-0 (fly out)
+; p0: l1-0 (fly out)
+; p3: l1-0 (fly out)
+; p9: l2-1 (unload)
+
+(unload-truck p8 t2 l2-0) ; p8 goal!
+(unload-truck p15 t2 l2-0) ; p15 goal!
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p19 t2 l2-1) ; p19 goal!
+(unload-truck p9 t2 l2-1) ; p9 goal!
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p4 t2 l2-2) ; p4 goal!
+(unload-truck p16 t2 l2-2) ; p16 goal!
+
+; Packages remaining in t2 for inter-city travel: p20, p0, p3
+(drive-truck t2 l2-2 l2-0 c2) ; t2 to airport
+(unload-truck p20 t2 l2-0)
+(load-airplane p20 a0 l2-0) ; a0 at l0-0, needs to fly to l2-0
+(fly-airplane a0 l0-0 l2-0)
+(unload-truck p0 t2 l2-0)
+(load-airplane p0 a0 l2-0)
+(unload-truck p3 t2 l2-0)
+(load-airplane p3 a0 l2-0)
+
+(fly-airplane a0 l2-0 l0-0) ; a0 with p20
+(unload-airplane p20 a0 l0-0) ; p20 at l0-0 (Goal!)
+(fly-airplane a0 l0-0 l1-0) ; a0 with p0, p3
+(unload-airplane p0 a0 l1-0) ; p0 at l1-0 (Goal!)
+(unload-airplane p3 a0 l1-0) ; p3 at l1-0 (Goal!)
+
+; Other packages needing inter-city travel (p1, p7, p11, p18, p6)
+; p1: l1-0 -> l2-0 (start at airport)
+; p7: l1-0 -> l0-0 (start at airport)
+; p11: l1-0 -> l0-0 (start at airport)
+; p18: l0-1 -> l1-0 (in t0 at l0-1)
+; p6: l0-1 -> l1-0 (in t0 at l0-1)
+
+; t0 is at l0-1 (empty after p13, p21, p10 deliveries)
+; t1 is at l1-1 (empty after p2, p17, p14 deliveries)
+; t2 is at l2-0 (empty after p20, p0, p3 unload)
+; a0 is at l1-0 (empty after p0, p3 unload)
+
+; Fly out from l1-0 (p1, p7, p11)
+(load-airplane p1 a0 l1-0)
+(load-airplane p7 a0 l1-0)
+(load-airplane p11 a0 l1-0)
+
+(fly-airplane a0 l1-0 l2-0) ; a0 with p1
+(unload-airplane p1 a0 l2-0) ; p1 goal!
+(fly-airplane a0 l2-0 l0-0) ; a0 with p7, p11
+(unload-airplane p7 a0 l0-0) ; p7 goal!
+(unload-airplane p11 a0 l0-0) ; p11 goal!
+
+; Move p6, p18 (from l0-1 by t0 to l1-0 by a0)
+; t0 at l0-1, p6, p18 at l0-1 (initial)
+(load-truck p6 t0 l0-1) ; (LM: p6 t0 l0-1, already fulfilled)
+(load-truck p18 t0 l0-1) ; (LM: p18 t0 l0-1, already fulfilled)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 with p6, p18 to airport
+(unload-truck p6 t0 l0-0)
+(unload-truck p18 t0 l0-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 to l1-0
+(load-airplane p6 a0 l0-0)
+(load-airplane p18 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p6 a0 l1-0) ; p6 goal!
+(unload-airplane p18 a0 l1-0) ; p18 goal!
+
+; Goal p12 l1-0 is already satisfied.
+; All goals achieved.
+</plan>
+</response>
+[2025-08-29 00:01:34.068496] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[other_actions+first_appearance+use_all]', 'domain': 'logistics', 'instance': 'p44', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 7337, 'candidates_token_count': 3804, 'total_tokens_count': 47092}
+</metadata>

@@ -131,7 +131,7 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 
 if __name__ == "__main__":
     experiment = "ablation"
-    samples = 2
+    samples = 1
     instances = 20
     templates = ["ordered_landmarks_feasible"]
     tips = [
@@ -146,7 +146,7 @@ if __name__ == "__main__":
         "unique+optimal+other_actions+first_appearance+use_all",
         "unique+first_appearance"
     ]
-    domains = ["blocksworld"]
+    domains = ["logistics"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]
