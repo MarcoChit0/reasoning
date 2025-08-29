@@ -1,0 +1,174 @@
+[2025-08-29 16:50:10.791197] Generating response for sample 2.
+[2025-08-29 16:55:38.882444] Response for sample 2 generated successfully.
+[2025-08-29 16:55:38.882466] Response:
+<response>
+<plan>
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p10 t0 l0-1)
+(drive-truck t2 l2-0 l2-2 c2)
+(load-truck p27 t2 l2-2)
+(drive-truck t0 l0-1 l0-2 c0)
+(load-truck p25 t0 l0-2)
+(drive-truck t0 l0-2 l0-0 c0)
+(unload-truck p25 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p25 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p25 a0 l2-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(load-truck p25 t2 l2-0)
+(load-truck p5 t1 l1-1)
+(load-airplane p26 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p26 a0 l1-0)
+(load-truck p26 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p16 t1 l1-1)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p18 t0 l0-1)
+(load-truck p8 t0 l0-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p23 t1 l1-2)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p30 t2 l2-1)
+(drive-truck t1 l1-2 l1-1 c1)
+(load-truck p7 t1 l1-1)
+(load-truck p28 t1 l1-1)
+(load-truck p9 t0 l0-1)
+(load-truck p12 t2 l2-1)
+(load-truck p13 t1 l1-1)
+(load-truck p17 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p15 t2 l2-2)
+(load-truck p3 t1 l1-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p0 t0 l0-0)
+(load-truck p24 t1 l1-1)
+(load-truck p2 t1 l1-1)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p19 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p11 t2 l2-2)
+
+; Unload trucks at airports/intermediate points, load airplanes
+(unload-truck p10 t0 l0-0)
+(unload-truck p8 t0 l0-0)
+(unload-truck p18 t0 l0-0)
+(unload-truck p9 t0 l0-0)
+(unload-truck p5 t1 l1-0)
+(unload-truck p16 t1 l1-0)
+(unload-truck p7 t1 l1-0)
+(unload-truck p28 t1 l1-0)
+(unload-truck p13 t1 l1-0)
+(unload-truck p3 t1 l1-0)
+(unload-truck p24 t1 l1-0)
+(unload-truck p2 t1 l1-0)
+(unload-truck p23 t1 l1-0)
+(unload-truck p27 t2 l2-1) ; Unload p27 now as its goal l2-1 is accessible
+(unload-truck p12 t2 l2-0) ; p12 unloaded at airport for airplane
+(unload-truck p30 t2 l2-0) ; p30 unloaded at airport for airplane
+(unload-truck p17 t2 l2-0) ; p17 unloaded at airport for airplane
+(unload-truck p15 t2 l2-0) ; p15 unloaded at airport for airplane
+(unload-truck p11 t2 l2-0) ; p11 unloaded at airport for airplane
+
+; Move trucks to correct positions for final deliveries
+(drive-truck t1 l1-1 l1-0 c1) ; t1 to l1-0 airport
+(drive-truck t2 l2-0 l2-1 c2) ; t2 to l2-1 (goal for p27)
+(unload-truck p27 t2 l2-1) ; p27 at goal l2-1
+
+; Airplane operations
+; a0 currently at l1-0 (from previous fly)
+(load-airplane p1 a0 l1-0)
+(load-airplane p4 a0 l1-0)
+(load-airplane p21 a0 l1-0)
+(load-airplane p5 a0 l1-0)
+(load-airplane p7 a0 l1-0)
+(load-airplane p28 a0 l1-0)
+(load-airplane p13 a0 l1-0)
+(load-airplane p3 a0 l1-0)
+(load-airplane p2 a0 l1-0)
+(load-airplane p23 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p5 a0 l0-0)
+(unload-airplane p21 a0 l0-0)
+(unload-airplane p7 a0 l0-0)
+(unload-airplane p28 a0 l0-0)
+(load-airplane p10 a0 l0-0)
+(load-airplane p8 a0 l0-0)
+(load-airplane p6 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p1 a0 l2-0)
+(unload-airplane p4 a0 l2-0)
+(unload-airplane p13 a0 l2-0)
+(unload-airplane p3 a0 l2-0)
+(unload-airplane p2 a0 l2-0)
+(unload-airplane p23 a0 l2-0)
+(unload-airplane p10 a0 l2-0)
+(unload-airplane p8 a0 l2-0)
+(load-airplane p12 a0 l2-0)
+(load-airplane p17 a0 l2-0)
+(load-airplane p15 a0 l2-0)
+(load-airplane p11 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0) ; Fly to l0-0 for unloading
+(unload-airplane p12 a0 l0-0)
+(unload-airplane p17 a0 l0-0)
+(unload-airplane p15 a0 l0-0)
+(unload-airplane p11 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0) ; Fly to l1-0 for unloading p6, p30
+
+; Final truck deliveries
+; t0 at l0-0 (has p0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p0 t0 l0-1) ; p0 at l0-1 (goal)
+
+(load-truck p7 t0 l0-0)
+(load-truck p28 t0 l0-0)
+(load-truck p11 t0 l0-0)
+(load-truck p15 t0 l0-0)
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p7 t0 l0-2) ; p7 at l0-2 (goal)
+(unload-truck p28 t0 l0-2) ; p28 at l0-2 (goal)
+(drive-truck t0 l0-2 l0-1 c0)
+(unload-truck p11 t0 l0-1) ; p11 at l0-1 (goal)
+(unload-truck p15 t0 l0-1) ; p15 at l0-1 (goal)
+
+; t1 at l1-0 (has p14)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p14 t1 l1-2) ; p14 at l1-2 (goal)
+(load-truck p6 t1 l1-0) ; p6 at l1-0 from a0
+(load-truck p30 t1 l1-0) ; p30 at l1-0 from a0
+(drive-truck t1 l1-2 l1-0 c1) ; t1 returns for p6, p30
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p6 t1 l1-2) ; p6 at l1-2 (goal)
+(unload-truck p30 t1 l1-2) ; p30 at l1-2 (goal)
+
+; t2 at l2-1 (has p19)
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p19 t2 l2-2) ; p19 at l2-2 (goal)
+
+(load-truck p1 t2 l2-0) ; p1 at l2-0 from a0
+(load-truck p4 t2 l2-0) ; p4 at l2-0 from a0
+(load-truck p13 t2 l2-0) ; p13 at l2-0 from a0
+(load-truck p3 t2 l2-0) ; p3 at l2-0 from a0
+(load-truck p2 t2 l2-0) ; p2 at l2-0 from a0
+(load-truck p23 t2 l2-0) ; p23 at l2-0 from a0
+(load-truck p8 t2 l2-0) ; p8 at l2-0 from a0
+; (load-truck p25 t2 l2-0) was already done for p25's path
+
+(drive-truck t2 l2-2 l2-0 c2) ; t2 returns for packages at airport l2-0
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p1 t2 l2-1) ; p1 at l2-1 (goal)
+(unload-truck p4 t2 l2-1) ; p4 at l2-1 (goal)
+(unload-truck p23 t2 l2-1) ; p23 at l2-1 (goal)
+(unload-truck p25 t2 l2-1) ; p25 at l2-1 (goal) (LM64)
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p13 t2 l2-2) ; p13 at l2-2 (goal)
+(unload-truck p3 t2 l2-2) ; p3 at l2-2 (goal)
+(unload-truck p2 t2 l2-2) ; p2 at l2-2 (goal)
+(unload-truck p8 t2 l2-2) ; p8 at l2-2 (goal)
+</plan>
+</response>
+[2025-08-29 16:55:38.882475] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[first_appearance]', 'domain': 'logistics', 'instance': 'p59', 'sample_id': 2, 'num_requests': 1, 'prompt_token_count': 8119, 'candidates_token_count': 2786, 'total_tokens_count': 51157}
+</metadata>

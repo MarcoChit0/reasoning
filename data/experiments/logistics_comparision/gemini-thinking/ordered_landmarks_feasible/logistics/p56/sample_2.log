@@ -1,0 +1,298 @@
+[2025-08-29 12:51:35.940685] Generating response for sample 2.
+[2025-08-29 12:55:00.329499] Response for sample 2 generated successfully.
+[2025-08-29 12:55:00.329525] Response:
+<response>
+<plan>
+(load-truck p6 t0 l0-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p3 t2 l2-2)
+(load-truck p17 t1 l1-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p15 t2 l2-1)
+(unload-truck p15 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-airplane p15 a0 l2-0) ; Pre-emptively loading for later LM and needed for p15's destination.
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p15 a0 l0-0) ; Pre-emptively unloading for later LM and needed for p15's destination.
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p15 t0 l0-0) ; Landmark
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p18 t0 l0-1)
+(load-truck p19 t2 l2-0)
+(load-truck p28 t0 l0-1)
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p13 a0 l1-0) ; Pre-emptively loading for later LM and needed for p13's destination.
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p13 a0 l2-0) ; Pre-emptively unloading for later LM and needed for p13's destination.
+(load-truck p13 t2 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p7 a0 l1-0) ; Pre-emptively loading for later LM and needed for p7's destination.
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p7 a0 l0-0) ; Pre-emptively unloading for later LM and needed for p7's destination.
+(drive-truck t0 l0-1 l0-0 c0)
+(load-truck p7 t0 l0-0)
+(load-truck p24 t2 l2-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p4 t0 l0-1)
+(fly-airplane a0 l0-0 l0-0) ; a0 already at l0-0
+(load-airplane p10 a0 l0-0) ; Pre-emptively loading for later LM and needed for p10's destination.
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p10 a0 l2-0) ; Pre-emptively unloading for later LM and needed for p10's destination.
+(load-truck p10 t2 l2-0)
+(drive-truck t1 l1-2 l1-1 c1)
+(load-truck p25 t1 l1-1)
+(unload-truck p25 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(fly-airplane a0 l2-0 l1-0) ; a0 was at l2-0, now moving to l1-0
+(load-airplane p25 a0 l1-0) ; Pre-emptively loading for later LM and needed for p25's destination.
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p25 a0 l0-0) ; Pre-emptively unloading for later LM and needed for p25's destination.
+(drive-truck t0 l0-1 l0-0 c0) ; t0 was at l0-1, now moving to l0-0
+(load-truck p25 t0 l0-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p21 t2 l2-1)
+(drive-truck t1 l1-0 l1-0 c1) ; t1 at l1-0, no-op
+(load-truck p11 t1 l1-0)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p20 t2 l2-2)
+(drive-truck t1 l1-0 l1-2 c1) ; t1 at l1-0, now moving to l1-2
+(load-truck p2 t1 l1-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p14 t2 l2-1)
+(load-truck p5 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p8 t2 l2-2) ; Pre-emptively loading for later LM and needed for p8's destination.
+(unload-truck p8 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(fly-airplane a0 l0-0 l2-0) ; a0 was at l0-0, now moving to l2-0
+(load-airplane p8 a0 l2-0) ; Pre-emptively loading for later LM and needed for p8's destination.
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p8 a0 l1-0) ; Pre-emptively unloading for later LM and needed for p8's destination.
+(drive-truck t1 l1-2 l1-0 c1) ; t1 was at l1-2, now moving to l1-0
+(load-truck p8 t1 l1-0)
+(unload-truck p8 t1 l1-0) ; Force unload p8 for next LM
+(drive-truck t1 l1-0 l1-2 c1) ; t1 moves away
+(fly-airplane a0 l1-0 l2-0) ; a0 from l1-0 to l2-0
+(load-airplane p8 a0 l1-0) ; p8 from l1-0 loaded into a0
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p8 a0 l2-0) ; p8 at l2-0
+(drive-truck t2 l2-0 l2-2 c2) ; t2 from l2-0 to l2-2
+(load-truck p8 t2 l2-2) ; Landmark: p8 is in t2 at l2-2 now.
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p0 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p27 t2 l2-2)
+(unload-truck p27 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(fly-airplane a0 l2-0 l0-0) ; a0 from l2-0 to l0-0
+(load-airplane p27 a0 l2-0) ; Pre-emptively loading for later LM and needed for p27's destination.
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p27 a0 l0-0) ; Pre-emptively unloading for later LM and needed for p27's destination.
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0, no-op
+(load-truck p27 t0 l0-0)
+
+; All load-truck LMs are done. Now, process remaining load-airplane LMs (if any are left due to strict order).
+; All the load-airplane LMs related to cross-city travel were already 'pre-empted' above.
+; So, I now list all the load-airplane landmarks. If an object is already loaded, then it's a no-op, but the problem demands the LM to be in the plan.
+; However, PDDL semantics require preconditions. So I must handle it.
+; The provided landmarks for load-airplane/unload-airplane are the complete path.
+
+(unload-truck p6 t0 l0-1) ; p6 in t0. Need to load airplane with p6 at l0-0.
+(drive-truck t0 l0-1 l0-0 c0)
+(load-airplane p6 a0 l0-0) ; a0 is at l0-0. p6 at l0-0. OK.
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p6 a0 l1-0)
+
+(fly-airplane a0 l1-0 l1-0) ; a0 is at l1-0, no-op
+(load-airplane p1 a0 l1-0) ; p1 is at l1-0. OK.
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p1 a0 l0-0)
+
+(fly-airplane a0 l0-0 l2-0) ; a0 is at l0-0, now moving to l2-0.
+(load-airplane p2 a0 l1-0) ; p2 is in t1 at l1-2. Need to get it to l1-0.
+(unload-truck p2 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(fly-airplane a0 l2-0 l1-0) ; a0 is at l2-0. Moving to l1-0.
+(load-airplane p2 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p2 a0 l2-0)
+
+(fly-airplane a0 l2-0 l2-0) ; a0 is at l2-0, no-op
+(load-airplane p20 a0 l2-0) ; p20 is in t2 at l2-2. Need to get it to l2-0.
+(unload-truck p20 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(load-airplane p20 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p20 a0 l1-0)
+
+(fly-airplane a0 l1-0 l2-0) ; a0 is at l1-0, moving to l2-0
+(load-airplane p26 a0 l1-0) ; p26 is at l1-0.
+(fly-airplane a0 l2-0 l1-0) ; a0 is at l2-0. moving to l1-0.
+(load-airplane p26 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p26 a0 l2-0)
+
+(fly-airplane a0 l2-0 l0-0) ; a0 is at l2-0, moving to l0-0
+(load-airplane p22 a0 l1-0) ; p22 is at l1-0.
+(fly-airplane a0 l0-0 l1-0) ; a0 is at l0-0. moving to l1-0.
+(load-airplane p22 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p22 a0 l0-0)
+
+; All load-airplane landmarks done. Now unload-truck / unload-airplane landmarks.
+; Most unload-airplane LMs were used early. If an object is already at its goal, then unloading again is a no-op but it must be applied.
+
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0.
+(unload-truck p6 t0 l0-0) ; p6 goal l1-0. (This LM is wrong - it must be from plane to truck).
+; I need to find the right truck and location for p6 to reach l1-0.
+; The LM (unload-truck p6 t0 l0-0) is given. But p6 needs to go to l1-0. This means this LM is likely an intermediate step.
+; P6 in A0 at l1-0 (from previous airplane moves)
+
+; Let's re-verify all packages current location and goal after the (pre-empted) airplane moves and (strict) load-truck actions.
+; This list of landmarks implies a lot of back-and-forth movement.
+
+; Rebuilding the final phase with unload landmarks
+; Final deliveries based on goal state for each package (not just landmarks)
+
+; Unload p15: goal (at p15 l0-2)
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p15 t0 l0-2) ; LM
+
+; Unload p3: goal (at p3 l2-1)
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p3 t2 l2-1)
+
+; Unload p17: goal (at p17 l1-0)
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p17 t1 l1-0)
+
+; Unload p18: goal (at p18 l1-0)
+(unload-truck p18 t0 l0-1)
+(load-airplane p18 a0 l0-0) ; a0 from l0-0 to l1-0
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p18 a0 l1-0) ; LM
+
+; Unload p19: goal (at p19 l2-2)
+(drive-truck t2 l2-1 l2-2 c2) ; t2 from l2-1 to l2-2.
+(unload-truck p19 t2 l2-2) ; LM
+
+; Unload p28: goal (at p28 l0-2)
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p28 t0 l0-2) ; LM
+
+; Unload p13: goal (at p13 l2-1)
+(drive-truck t2 l2-2 l2-1 c2) ; t2 from l2-2 to l2-1
+(unload-truck p13 t2 l2-1) ; LM
+
+; Unload p7: goal (at p7 l0-1)
+(drive-truck t0 l0-2 l0-1 c0) ; t0 from l0-2 to l0-1
+(unload-truck p7 t0 l0-1) ; LM
+
+; Unload p24: goal (at p24 l2-1)
+(drive-truck t2 l2-1 l2-1 c2) ; t2 at l2-1, no-op
+(unload-truck p24 t2 l2-1) ; LM
+
+; Unload p4: goal (at p4 l0-2)
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p4 t0 l0-2) ; LM
+
+; Unload p10: goal (at p10 l2-2)
+(drive-truck t2 l2-1 l2-2 c2) ; t2 from l2-1 to l2-2
+(unload-truck p10 t2 l2-2) ; LM
+
+; Unload p25: goal (at p25 l0-1)
+(drive-truck t0 l0-2 l0-1 c0) ; t0 from l0-2 to l0-1
+(unload-truck p25 t0 l0-1) ; LM
+
+; Unload p21: goal (at p21 l0-0)
+(unload-truck p21 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(fly-airplane a0 l1-0 l2-0) ; a0 from l1-0 to l2-0
+(load-airplane p21 a0 l2-0) ; LM
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p21 a0 l0-0) ; LM
+
+; Unload p11: goal (at p11 l1-1)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p11 t1 l1-1) ; LM
+
+; Unload p20: goal (at p20 l1-0)
+(unload-truck p20 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(fly-airplane a0 l0-0 l2-0) ; a0 from l0-0 to l2-0
+(load-airplane p20 a0 l2-0) ; LM
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p20 a0 l1-0) ; LM
+
+; Unload p2: goal (at p2 l2-0)
+(unload-truck p2 t1 l1-2)
+(drive-truck t1 l1-2 l1-0 c1)
+(fly-airplane a0 l1-0 l1-0) ; a0 at l1-0. no-op
+(load-airplane p2 a0 l1-0) ; LM
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p2 a0 l2-0) ; LM
+
+; Unload p14: goal (at p14 l0-0)
+(unload-truck p14 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(fly-airplane a0 l2-0 l2-0) ; a0 at l2-0. no-op
+(load-airplane p14 a0 l2-0) ; LM
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p14 a0 l0-0) ; LM
+
+; Unload p5: goal (at p5 l0-0)
+(unload-truck p5 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(fly-airplane a0 l0-0 l2-0) ; a0 at l0-0 to l2-0
+(load-airplane p5 a0 l2-0) ; LM
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p5 a0 l0-0) ; LM
+
+; Unload p8 (final goal l1-1): p8 is in t2 at l2-2. Need to get it to l1-1.
+(unload-truck p8 t2 l2-2) ; LM
+(drive-truck t2 l2-2 l2-0 c2)
+(fly-airplane a0 l0-0 l2-0) ; a0 at l0-0 to l2-0
+(load-airplane p8 a0 l2-0) ; LM
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p8 a0 l1-0) ; LM
+(drive-truck t1 l1-2 l1-1 c1)
+(load-truck p8 t1 l1-1)
+(unload-truck p8 t1 l1-1) ; LM is not for this one.
+
+; Unload p0 (final goal l1-0): p0 is in t2 at l2-1.
+(unload-truck p0 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(fly-airplane a0 l1-0 l2-0) ; a0 at l1-0 to l2-0
+(load-airplane p0 a0 l2-0) ; LM
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p0 a0 l1-0) ; LM
+
+; Unload p27 (final goal l0-1): p27 is in t0 at l0-0.
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p27 t0 l0-1) ; LM
+
+; Remaining airplane landmarks (already executed pre-emptively but needed to appear)
+(fly-airplane a0 l1-0 l0-0) ; a0 from l1-0 to l0-0 (for p1)
+(fly-airplane a0 l0-0 l2-0) ; a0 from l0-0 to l2-0 (for p2)
+(fly-airplane a0 l2-0 l1-0) ; a0 from l2-0 to l1-0 (for p20)
+(fly-airplane a0 l1-0 l2-0) ; a0 from l1-0 to l2-0 (for p26)
+(fly-airplane a0 l2-0 l1-0) ; a0 from l2-0 to l1-0 (for p22)
+
+; P1, P22, P26, P18, P6 final destinations need to be checked.
+; P1: l0-0
+(unload-airplane p1 a0 l0-0)
+; P22: l0-0
+(unload-airplane p22 a0 l0-0)
+; P26: l2-0
+(unload-airplane p26 a0 l2-0)
+; P18: l1-0
+(unload-airplane p18 a0 l1-0)
+; P6: l1-0
+(unload-airplane p6 a0 l1-0)
+
+</plan>
+</response>
+[2025-08-29 12:55:00.329606] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible', 'domain': 'logistics', 'instance': 'p56', 'sample_id': 2, 'num_requests': 1, 'prompt_token_count': 7626, 'candidates_token_count': 5264, 'total_tokens_count': 53448}
+</metadata>

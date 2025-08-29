@@ -1,0 +1,169 @@
+[2025-08-29 15:36:18.753683] Generating response for sample 3.
+[2025-08-29 15:39:05.866654] Response for sample 3 generated successfully.
+[2025-08-29 15:39:05.866678] Response:
+<response>
+<plan>
+(load-truck p5 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p1 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p16 t1 l1-1)
+(load-truck p13 t1 l1-1)
+(load-truck p20 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p22 t1 l1-2)
+(drive-truck t1 l1-2 l1-1 c1)
+(load-truck p7 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p23 t1 l1-2)
+(drive-truck t1 l1-2 l1-1 c1)
+(load-truck p14 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1) ; t1 now at l1-0, carrying p1,p3,p5,p7,p13,p14,p16,p20,p22,p23
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p3 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1) ; All packages from c1 for airplane/t1 local delivery are consolidated in t1 at l1-0
+
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p19 t2 l2-1)
+(load-truck p17 t2 l2-1)
+(load-truck p12 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p11 t2 l2-2)
+(load-truck p15 t2 l2-2)
+(unload-truck p17 t2 l2-2) ; Goal for p17
+(unload-truck p12 t2 l2-2) ; Goal for p12
+(drive-truck t2 l2-2 l2-0 c2) ; t2 now at l2-0, carrying p11,p15,p19
+
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p10 t0 l0-1)
+(load-truck p9 t0 l0-1)
+(load-truck p8 t0 l0-1)
+(load-truck p18 t0 l0-1)
+(drive-truck t0 l0-1 l0-2 c0)
+(load-truck p25 t0 l0-2)
+(drive-truck t0 l0-2 l0-0 c0) ; t0 now at l0-0, carrying p8,p9,p10,p18,p25
+
+; All initial truck movements done, local goals delivered by trucks. Packages for airplane are in trucks at airports or at airports directly.
+
+; Airplane a0 starts at l2-0. Load packages from t2 and p26 (at l2-0).
+(unload-truck p19 t2 l2-0)
+(load-airplane p19 a0 l2-0)
+(unload-truck p11 t2 l2-0)
+(load-airplane p11 a0 l2-0)
+(unload-truck p15 t2 l2-0)
+(load-airplane p15 a0 l2-0)
+(load-airplane p26 a0 l2-0) ; p26 is at l2-0
+
+; Fly airplane to l0-0. Load packages from t0 and p0, p6 (at l0-0).
+(fly-airplane a0 l2-0 l0-0)
+(unload-truck p10 t0 l0-0)
+(load-airplane p10 a0 l0-0)
+(unload-truck p8 t0 l0-0)
+(load-airplane p8 a0 l0-0)
+(unload-truck p18 t0 l0-0)
+(load-airplane p18 a0 l0-0)
+(load-airplane p6 a0 l0-0) ; p6 is at l0-0
+(load-airplane p0 a0 l0-0) ; p0 is at l0-0
+
+; Fly airplane to l1-0. Load packages from t1 and p4, p21 (at l1-0).
+(fly-airplane a0 l0-0 l1-0)
+(unload-truck p5 t1 l1-0)
+(load-airplane p5 a0 l1-0)
+(load-airplane p21 a0 l1-0) ; p21 is at l1-0
+(unload-truck p16 t1 l1-0)
+(load-airplane p16 a0 l1-0)
+(unload-truck p13 t1 l1-0)
+(load-airplane p13 a0 l1-0)
+(unload-truck p22 t1 l1-0)
+(load-airplane p22 a0 l1-0)
+(unload-truck p7 t1 l1-0)
+(load-airplane p7 a0 l1-0)
+(unload-truck p23 t1 l1-0)
+(load-airplane p23 a0 l1-0)
+(unload-truck p14 t1 l1-0)
+(load-airplane p14 a0 l1-0)
+(unload-truck p3 t1 l1-0)
+(load-airplane p3 a0 l1-0)
+(load-airplane p4 a0 l1-0) ; p4 is at l1-0
+
+; All packages requiring airplane travel are now in a0. Begin distribution.
+
+; Fly a0 to l0-0. Unload packages for l0-0 or for t0 delivery.
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p21 a0 l0-0) ; Goal for p21
+(unload-airplane p19 a0 l0-0)
+(unload-airplane p16 a0 l0-0) ; Goal for p16
+(unload-airplane p11 a0 l0-0)
+(unload-airplane p13 a0 l0-0) ; Goal for p13
+(unload-airplane p22 a0 l0-0) ; Goal for p22
+(unload-airplane p15 a0 l0-0)
+(unload-airplane p4 a0 l0-0)
+
+; Truck t0 (at l0-0) delivers local goals (p9, p25 already delivered) and newly arrived packages.
+(unload-truck p9 t0 l0-0) ; Goal for p9
+(unload-truck p25 t0 l0-0) ; Goal for p25
+(load-truck p19 t0 l0-0)
+(load-truck p11 t0 l0-0)
+(load-truck p15 t0 l0-0)
+(load-truck p4 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p4 t0 l0-1) ; Goal for p4
+(unload-truck p19 t0 l0-1) ; Goal for p19
+(unload-truck p15 t0 l0-1) ; Goal for p15
+(drive-truck t0 l0-1 l0-2 c0)
+(unload-truck p11 t0 l0-2) ; Goal for p11
+
+; Fly a0 to l1-0. Unload packages for l1-0 or for t1 delivery.
+(fly-airplane a0 l0-0 l1-0)
+(unload-airplane p10 a0 l1-0)
+(unload-airplane p18 a0 l1-0)
+(unload-airplane p26 a0 l1-0)
+
+; Truck t1 (at l1-0, with p1 in it) delivers local goals (p20) and newly arrived packages.
+(unload-truck p1 t1 l1-0)
+(unload-truck p20 t1 l1-0) ; Goal for p20
+(load-truck p10 t1 l1-0)
+(load-truck p26 t1 l1-0)
+(load-truck p18 t1 l1-0)
+(load-truck p1 t1 l1-0) ; Reload p1 for final delivery
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p1 t1 l1-1) ; Goal for p1
+(drive-truck t1 l1-1 l1-2 c1)
+(unload-truck p10 t1 l1-2) ; Goal for p10
+(unload-truck p18 t1 l1-2) ; Goal for p18
+(unload-truck p26 t1 l1-2) ; Goal for p26
+
+; Fly a0 to l2-0. Unload packages for l2-0 or for t2 delivery.
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p5 a0 l2-0)
+(unload-airplane p6 a0 l2-0)
+(unload-airplane p7 a0 l2-0)
+(unload-airplane p0 a0 l2-0)
+(unload-airplane p23 a0 l2-0)
+(unload-airplane p8 a0 l2-0)
+(unload-airplane p14 a0 l2-0) ; Goal for p14
+(unload-airplane p3 a0 l2-0)
+
+; Truck t2 (at l2-0) loads packages and delivers.
+(load-truck p5 t2 l2-0)
+(load-truck p6 t2 l2-0)
+(load-truck p7 t2 l2-0)
+(load-truck p0 t2 l2-0)
+(load-truck p23 t2 l2-0)
+(load-truck p8 t2 l2-0)
+(load-truck p3 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p5 t2 l2-1) ; Goal for p5
+(unload-truck p3 t2 l2-1) ; Goal for p3
+(unload-truck p8 t2 l2-1) ; Goal for p8
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p0 t2 l2-2) ; Goal for p0
+(unload-truck p6 t2 l2-2) ; Goal for p6
+(unload-truck p7 t2 l2-2) ; Goal for p7
+(unload-truck p23 t2 l2-2) ; Goal for p23
+</plan>
+</response>
+[2025-08-29 15:39:05.866688] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[first_appearance]', 'domain': 'logistics', 'instance': 'p51', 'sample_id': 3, 'num_requests': 1, 'prompt_token_count': 7845, 'candidates_token_count': 2638, 'total_tokens_count': 44845}
+</metadata>
