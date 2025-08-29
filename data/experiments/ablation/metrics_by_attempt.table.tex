@@ -1,12 +1,12 @@
 % In your LaTeX preamble, use: \usepackage{graphicx}, \usepackage{multirow}, \usepackage{booktabs}
 \begin{table}[H] % Using [H] from 'float' package to place table here
 \centering
-\scalebox{0.3}{
+\scalebox{0.4}{
 \begin{tabular}{lll|cccccccccccccccccccccc}
 \toprule
-domain & model & attempt & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{FA} & \multicolumn{2}{c}{OPT+BLOCK} & \multicolumn{2}{c}{OPT} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{OA} & \multicolumn{2}{c}{U+FA} & \multicolumn{2}{c}{U+OPT+BLOCK} & \multicolumn{2}{c}{U+BLOCK} & \multicolumn{2}{c}{U} & \multicolumn{2}{c}{UA} \\
+domain & model & attempt & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{FA} & \multicolumn{2}{c}{OPT+BLOCK} & \multicolumn{2}{c}{OPT} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{OA} & \multicolumn{2}{c}{U+FA} & \multicolumn{2}{c}{U+OPT+BLOCK} & \multicolumn{2}{c}{U+BLOCK} & \multicolumn{2}{c}{U} & \multicolumn{2}{c}{use all} \\
 \cmidrule(lr){4-25}
-& & & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk \\
+& & & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk \\
 \midrule
 \multirow[t]{2}{*}{blocksworld} & \multirow[t]{2}{*}{gemini-thinking} & 1 & 0.60 & 1.00 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.85 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.70 & 1.00 \\
  & & 2 & 0.70 & 1.00 & 0.85 & 1.00 & 0.80 & 1.00 & 0.80 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.85 & 1.00 & 0.90 & 1.00 & 0.75 & 1.00 & 0.70 & 1.00 & 0.70 & 1.00 \\

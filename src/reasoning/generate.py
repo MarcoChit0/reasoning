@@ -131,20 +131,11 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
 
 if __name__ == "__main__":
     experiment = "ablation"
-    samples = 1
+    samples = 3
     instances = 20
     templates = ["ordered_landmarks_feasible"]
     tips = [
-        "unique", 
-        "optimal", 
-        "other_actions", 
         "first_appearance", 
-        "use_all", 
-        "other_actions+first_appearance+use_all", 
-        "unique+other_actions+first_appearance+use_all", 
-        "optimal+other_actions+first_appearance+use_all", 
-        "unique+optimal+other_actions+first_appearance+use_all",
-        "unique+first_appearance"
     ]
     domains = ["logistics"]
     config_paths = [
