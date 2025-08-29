@@ -1,0 +1,156 @@
+[2025-08-29 00:47:13.423823] Generating response for sample 1.
+[2025-08-29 00:49:57.610801] Response for sample 1 generated successfully.
+[2025-08-29 00:49:57.610841] Response:
+<response>
+<plan>
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p3 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p3 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p3 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p3 a0 l2-0)
+(drive-truck t2 l2-2 l2-0 c2)
+(load-truck p3 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p3 t2 l2-2)
+(load-truck p8 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p8 t2 l2-0)
+(load-airplane p8 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p8 a0 l0-0)
+(load-truck p8 t0 l0-0)
+(drive-truck t0 l0-0 l0-1 c0)
+(unload-truck p8 t0 l0-1)
+(drive-truck t2 l2-0 l2-2 c2)
+(load-truck p18 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p18 t2 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 must fly from l0-0 (after p8 dropoff) to l2-0 (for p18 pickup)
+(load-airplane p18 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 must fly from l2-0 to l0-0 (for p18 dropoff)
+(unload-airplane p18 a0 l0-0)
+(load-airplane p7 a0 l0-0) ; p7 at l0-0, a0 at l0-0
+(fly-airplane a0 l0-0 l1-0) ; a0 from l0-0 (after p18 dropoff) to l1-0 (for p7 dropoff)
+(unload-airplane p7 a0 l1-0)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p7 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p7 t1 l1-1)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 from p8 delivery to l0-0
+(drive-truck t0 l0-0 l0-1 c0) ; t0 to p14 initial loc
+(load-truck p14 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p14 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0) ; a0 from l1-0 (after p7 dropoff) to l0-0 (for p14 pickup)
+(load-airplane p14 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 from l0-0 to l1-0 (for p14 dropoff)
+(unload-airplane p14 a0 l1-0)
+(drive-truck t1 l1-1 l1-0 c1) ; t1 from p7 delivery to l1-0
+(load-truck p14 t1 l1-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p14 t1 l1-2)
+(drive-truck t2 l2-0 l2-0 c2) ; t2 at l2-0 (from p18 to airport). p19 at l2-0.
+(load-truck p19 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p19 t2 l2-2)
+(fly-airplane a0 l1-0 l0-0) ; a0 from l1-0 (after p14 dropoff) to l0-0 (for p17 pickup)
+(load-airplane p17 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 from l0-0 to l2-0 (for p17 dropoff)
+(unload-airplane p17 a0 l2-0)
+(drive-truck t2 l2-2 l2-0 c2) ; t2 from p19 delivery to l2-0
+(load-truck p17 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p17 t2 l2-2)
+(fly-airplane a0 l2-0 l0-0) ; a0 from l2-0 (after p17 dropoff) to l0-0 (for p22 pickup)
+(load-airplane p22 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 from l0-0 to l2-0 (for p22 dropoff)
+(unload-airplane p22 a0 l2-0)
+(drive-truck t2 l2-2 l2-0 c2) ; t2 from p17 delivery to l2-0
+(load-truck p22 t2 l2-0)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p22 t2 l2-2)
+(drive-truck t0 l0-0 l0-1 c0) ; t0 from p14 delivery to l0-1
+(load-truck p16 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p16 t0 l0-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 from l2-0 (after p22 dropoff) to l0-0 (for p16 pickup)
+(load-airplane p16 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 from l0-0 to l2-0 (for p16 dropoff)
+(unload-airplane p16 a0 l2-0)
+(drive-truck t2 l2-2 l2-0 c2) ; t2 from p22 delivery to l2-0
+(load-truck p16 t2 l2-0)
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p16 t2 l2-1)
+(fly-airplane a0 l2-0 l0-0) ; a0 from l2-0 (after p16 dropoff) to l0-0 (for p1 pickup)
+(load-airplane p1 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 from l0-0 to l1-0 (for p1 dropoff)
+(unload-airplane p1 a0 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 from p14 delivery to l1-0
+(load-truck p1 t1 l1-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p1 t1 l1-1)
+(fly-airplane a0 l1-0 l0-0) ; a0 from l1-0 (after p1 dropoff) to l0-0 (for p4 pickup)
+(load-airplane p4 a0 l0-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 from l0-0 to l1-0 (for p4 dropoff)
+(unload-airplane p4 a0 l1-0)
+(drive-truck t1 l1-1 l1-0 c1) ; t1 from p1 delivery to l1-0
+(load-truck p4 t1 l1-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p4 t1 l1-2)
+(drive-truck t2 l2-1 l2-1 c2) ; t2 at l2-1 (from p16 delivery). p10 at l2-1.
+(load-truck p10 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p10 t2 l2-0)
+(fly-airplane a0 l1-0 l2-0) ; a0 from l1-0 (after p4 dropoff) to l2-0 (for p10 pickup)
+(load-airplane p10 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0) ; a0 from l2-0 to l1-0 (for p10 dropoff)
+(unload-airplane p10 a0 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 from p4 delivery to l1-0
+(load-truck p10 t1 l1-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p10 t1 l1-2)
+(drive-truck t0 l0-0 l0-2 c0) ; t0 from p16 delivery to l0-2
+(load-truck p6 t0 l0-2)
+(drive-truck t0 l0-2 l0-0 c0)
+(unload-truck p6 t0 l0-0)
+(drive-truck t2 l2-0 l2-1 c2) ; t2 from p10 to airport to l2-1
+(load-truck p20 t2 l2-1)
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p20 t2 l2-2)
+(fly-airplane a0 l1-0 l2-0) ; a0 from l1-0 (after p10 dropoff) to l2-0 (for p0 pickup)
+(load-airplane p0 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0) ; a0 from l2-0 to l1-0 (for p0 dropoff)
+(unload-airplane p0 a0 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 from p10 delivery to l1-0
+(load-truck p0 t1 l1-0)
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p0 t1 l1-2)
+(fly-airplane a0 l1-0 l2-0) ; a0 from l1-0 (after p0 dropoff) to l2-0 (for p21 pickup)
+(load-airplane p21 a0 l2-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 from l2-0 to l0-0 (for p21 dropoff)
+(unload-airplane p21 a0 l0-0)
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0. p13 at l0-0.
+(load-truck p13 t0 l0-0)
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p13 t0 l0-2)
+(drive-truck t0 l0-2 l0-2 c0) ; t0 at l0-2. p15 at l0-2.
+(load-truck p15 t0 l0-2)
+(drive-truck t0 l0-2 l0-1 c0)
+(unload-truck p15 t0 l0-1)
+(drive-truck t2 l2-2 l2-2 c2) ; t2 at l2-2. p5 at l2-2.
+(load-truck p5 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p5 t2 l2-1)
+(drive-truck t0 l0-1 l0-1 c0) ; t0 at l0-1. p2 at l0-1.
+(load-truck p2 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p2 t0 l0-0)
+</plan>
+</response>
+[2025-08-29 00:49:57.610862] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[first_appearance]', 'domain': 'logistics', 'instance': 'p42', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 7243, 'candidates_token_count': 3121, 'total_tokens_count': 46933}
+</metadata>

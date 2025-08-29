@@ -1,15 +1,15 @@
 % In your LaTeX preamble, use: \usepackage{graphicx}, \usepackage{multirow}, \usepackage{booktabs}
 \begin{table}[H] % Using [H] from 'float' package to place table here
 \centering
-\scalebox{0.6}{
+\scalebox{0.3}{
 \begin{tabular}{lll|cccccccccccccccccccccc}
 \toprule
-domain & model & attempt & \multicolumn{2}{c}{Ordered Landmarks Feasible} & \multicolumn{2}{c}{first appearance} & \multicolumn{2}{c}{optimal+BLOCK} & \multicolumn{2}{c}{optimal} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{other actions} & \multicolumn{2}{c}{unique+first appearance} & \multicolumn{2}{c}{unique+optimal+BLOCK} & \multicolumn{2}{c}{unique+BLOCK} & \multicolumn{2}{c}{unique} & \multicolumn{2}{c}{use all} \\
+domain & model & attempt & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{FA} & \multicolumn{2}{c}{OPT+BLOCK} & \multicolumn{2}{c}{OPT} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{OA} & \multicolumn{2}{c}{U+FA} & \multicolumn{2}{c}{U+OPT+BLOCK} & \multicolumn{2}{c}{U+BLOCK} & \multicolumn{2}{c}{U} & \multicolumn{2}{c}{UA} \\
 \cmidrule(lr){4-25}
-& & & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks \\
+& & & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk & Cov & Lndmk \\
 \midrule
-\multirow[t]{2}{*}{blocksworld} & \multirow[t]{2}{*}{gemini-thinking} & 1 & 0.55 & 0.95 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.00 & 0.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.75 & 0.95 \\
- & & 2 & 0.65 & 0.95 & 0.85 & 1.00 & 0.80 & 1.00 & 0.75 & 0.95 & 0.75 & 1.00 & 0.80 & 1.00 & 0.05 & 0.10 & 0.80 & 0.90 & 0.75 & 1.00 & 0.65 & 0.95 & 0.65 & 0.95 \\
+\multirow[t]{2}{*}{blocksworld} & \multirow[t]{2}{*}{gemini-thinking} & 1 & 0.60 & 1.00 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.85 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.70 & 1.00 \\
+ & & 2 & 0.70 & 1.00 & 0.85 & 1.00 & 0.80 & 1.00 & 0.80 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.85 & 1.00 & 0.90 & 1.00 & 0.75 & 1.00 & 0.70 & 1.00 & 0.70 & 1.00 \\
 \bottomrule
 \end{tabular}
 }

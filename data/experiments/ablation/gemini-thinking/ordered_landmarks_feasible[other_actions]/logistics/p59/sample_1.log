@@ -1,0 +1,480 @@
+[2025-08-29 00:37:27.620970] Generating response for sample 1.
+[2025-08-29 00:40:48.864412] Response for sample 1 generated successfully.
+[2025-08-29 00:40:48.864441] Response:
+<response>
+<plan>
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p10 t0 l0-1)
+(load-truck p14 t1 l1-1)
+(drive-truck t2 l2-0 l2-2 c2)
+(load-truck p27 t2 l2-2)
+; Preconditions for (load-truck p25 t2 l2-0): p25 must be at l2-0, t2 at l2-0.
+; p25 starts at l0-2, needs to go to l2-1. This requires airplane.
+; t2 is at l2-2 with p27. p27 needs to go to l2-1.
+(drive-truck t0 l0-1 l0-2 c0)
+(load-truck p25 t0 l0-2)
+(drive-truck t0 l0-2 l0-0 c0)
+(unload-truck p25 t0 l0-0)
+(unload-truck p10 t0 l0-0) ; p10 also needs to fly to l2-0
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p25 a0 l0-0) ; Intermediate action for p25's flight
+(load-airplane p10 a0 l0-0) ; Intermediate action for p10's flight
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p25 a0 l2-0) ; Intermediate action for p25's flight
+(unload-airplane p10 a0 l2-0) ; Intermediate action for p10's flight
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p27 t2 l2-1) ; Intermediate action to deliver p27
+(drive-truck t2 l2-1 l2-0 c2)
+(load-truck p25 t2 l2-0) ; Landmark
+; Preconditions for (load-truck p25 t0 l0-2): p25 at l0-2, t0 at l0-2.
+; p25 is now in t2 at l2-0. It must return to l0-2.
+(unload-truck p25 t2 l2-0)
+(load-airplane p25 a0 l2-0) ; Intermediate action for p25's return flight
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p25 a0 l0-0) ; Intermediate action for p25's return flight
+(drive-truck t0 l0-0 l0-2 c0)
+(load-truck p25 t0 l0-2) ; Landmark
+(load-truck p5 t1 l1-1)
+; Preconditions for (load-truck p26 t1 l1-0): p26 at l1-0, t1 at l1-0.
+; p26 starts at l2-0, needs to go to l1-2.
+; t1 is at l1-1 with p14,p5.
+(drive-truck t2 l2-0 l2-0 c2) ; t2 is empty at l2-0
+(load-truck p26 t2 l2-0) ; Intermediate action
+(unload-truck p26 t2 l2-0) ; Intermediate action
+(fly-airplane a0 l0-0 l2-0) ; a0 to pick up p26
+(load-airplane p26 a0 l2-0) ; Intermediate action for p26's flight
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p26 a0 l1-0) ; Intermediate action for p26's flight
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p26 t1 l1-0) ; Landmark
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p16 t1 l1-1) ; Landmark
+(drive-truck t0 l0-2 l0-1 c0)
+(load-truck p18 t0 l0-1) ; Landmark
+; Preconditions for (load-truck p8 t2 l2-0): p8 at l2-0, t2 at l2-0.
+; p8 starts at l0-1, needs to go to l2-2.
+; t2 is at l2-0, empty.
+(drive-truck t0 l0-1 l0-1 c0) ; t0 (with p25,p18) at l0-1
+(load-truck p8 t0 l0-1) ; Intermediate action
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p8 t0 l0-0) ; Intermediate action
+(unload-truck p18 t0 l0-0) ; Intermediate action for p18's local delivery
+(unload-truck p25 t0 l0-0) ; Intermediate action for p25's local delivery
+(fly-airplane a0 l1-0 l0-0) ; a0 to pick up p8
+(load-airplane p8 a0 l0-0) ; Intermediate action for p8's flight
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p8 a0 l2-0) ; Intermediate action for p8's flight
+(drive-truck t2 l2-0 l2-0 c2) ; t2 is at l2-0
+(load-truck p8 t2 l2-0) ; Landmark
+; Preconditions for (load-truck p8 t0 l0-1): p8 at l0-1, t0 at l0-1.
+; p8 is in t2 at l2-0. It must return to l0-1.
+(unload-truck p8 t2 l2-0)
+(load-airplane p8 a0 l2-0) ; Intermediate action for p8's return flight
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p8 a0 l0-0) ; Intermediate action for p8's return flight
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p8 t0 l0-1) ; Landmark
+(load-truck p9 t0 l0-1) ; Landmark (t0 has p8, p9 is at l0-1)
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p12 t2 l2-1) ; Landmark
+(load-truck p13 t1 l1-1) ; Landmark (t1 has p14,p5,p26,p16, p13 is at l1-1)
+; Preconditions for (load-truck p13 t2 l2-0): p13 at l2-0, t2 at l2-0.
+; p13 (l1-1 -> l2-2).
+(unload-truck p13 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p13 t1 l1-0) ; Intermediate action
+(unload-truck p13 t1 l1-0) ; Intermediate action
+(fly-airplane a0 l0-0 l1-0) ; a0 to pick up p13
+(load-airplane p13 a0 l1-0) ; Intermediate action
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p13 a0 l2-0) ; Intermediate action
+(drive-truck t2 l2-1 l2-0 c2) ; t2 (with p12) to l2-0
+(load-truck p13 t2 l2-0) ; Landmark
+; Preconditions for (load-truck p1 t2 l2-0): p1 at l2-0, t2 at l2-0.
+; p1 (l1-0 -> l2-1).
+(drive-truck t1 l1-0 l1-0 c1) ; t1 to p1's origin l1-0
+(load-truck p1 t1 l1-0) ; Intermediate action
+(unload-truck p1 t1 l1-0) ; Intermediate action
+(fly-airplane a0 l2-0 l1-0) ; a0 to pick up p1
+(load-airplane p1 a0 l1-0) ; Intermediate action
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p1 a0 l2-0) ; Intermediate action
+(drive-truck t2 l2-0 l2-0 c2) ; t2 (with p12,p13) at l2-0
+(load-truck p1 t2 l2-0) ; Landmark
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p17 t2 l2-1) ; Landmark
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p15 t2 l2-2) ; Landmark
+; Preconditions for (load-truck p15 t0 l0-0): p15 at l0-0, t0 at l0-0.
+; p15 (l2-2 -> l0-1).
+(unload-truck p15 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(load-airplane p15 a0 l2-0) ; Intermediate action
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p15 a0 l0-0) ; Intermediate action
+(drive-truck t0 l0-1 l0-0 c0) ; t0 to l0-0
+(load-truck p15 t0 l0-0) ; Landmark
+; Preconditions for (load-truck p4 t2 l2-0): p4 at l2-0, t2 at l2-0.
+; p4 (l1-0 -> l2-1).
+(drive-truck t1 l1-0 l1-0 c1) ; t1 to p4's origin
+(load-truck p4 t1 l1-0) ; Intermediate action
+(unload-truck p4 t1 l1-0) ; Intermediate action
+(fly-airplane a0 l0-0 l1-0) ; a0 to pick up p4
+(load-airplane p4 a0 l1-0) ; Intermediate action
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p4 a0 l2-0) ; Intermediate action
+(drive-truck t2 l2-0 l2-0 c2) ; t2 at l2-0
+(load-truck p4 t2 l2-0) ; Landmark
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p3 t1 l1-1) ; Landmark
+; Preconditions for (load-truck p3 t2 l2-0): p3 at l2-0, t2 at l2-0.
+; p3 (l1-1 -> l2-2).
+(unload-truck p3 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p3 t1 l1-0) ; Intermediate action
+(unload-truck p3 t1 l1-0) ; Intermediate action
+(fly-airplane a0 l2-0 l1-0) ; a0 to pick up p3
+(load-airplane p3 a0 l1-0) ; Intermediate action
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p3 a0 l2-0) ; Intermediate action
+(drive-truck t2 l2-0 l2-0 c2) ; t2 at l2-0
+(load-truck p3 t2 l2-0) ; Landmark
+(load-truck p0 t0 l0-0) ; Landmark (t0 at l0-0)
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p24 t1 l1-1) ; Landmark
+(load-truck p2 t1 l1-1) ; Landmark (t1 at l1-1, p2 at l1-1)
+; Preconditions for (load-truck p2 t2 l2-0): p2 at l2-0, t2 at l2-0.
+; p2 (l1-1 -> l2-2).
+(unload-truck p2 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-truck p2 t1 l1-0) ; Intermediate action
+(unload-truck p2 t1 l1-0) ; Intermediate action
+(fly-airplane a0 l2-0 l1-0) ; a0 to pick up p2
+(load-airplane p2 a0 l1-0) ; Intermediate action
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p2 a0 l2-0) ; Intermediate action
+(drive-truck t2 l2-0 l2-0 c2) ; t2 at l2-0
+(load-truck p2 t2 l2-0) ; Landmark
+(drive-truck t2 l2-0 l2-1 c2)
+(load-truck p19 t2 l2-1) ; Landmark
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p11 t2 l2-2) ; Landmark
+; Preconditions for (load-truck p11 t0 l0-0): p11 at l0-0, t0 at l0-0.
+; p11 (l2-2 -> l0-1).
+(unload-truck p11 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(load-airplane p11 a0 l2-0) ; Intermediate action
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p11 a0 l0-0) ; Intermediate action
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0
+(load-truck p11 t0 l0-0) ; Landmark
+
+; All load-truck landmarks processed. Now process load-airplane landmarks.
+; All packages for load-airplane should be at source airport.
+; LM 30: (load-airplane p10 a0 l0-0)
+; p10 is at l2-0 currently (from its earlier flight). It needs to be at l0-0.
+(load-airplane p10 a0 l2-0) ; p10 on a0 in c2
+(fly-airplane a0 l2-0 l0-0) ; a0 to c0 airport
+(unload-airplane p10 a0 l0-0) ; p10 off a0 in c0
+(load-airplane p10 a0 l0-0) ; Landmark
+; LM 31: (load-airplane p25 a0 l0-0)
+; p25 is in t0 at l0-2 (from LM 5). It needs to be at l0-0.
+(unload-truck p25 t0 l0-2)
+(drive-truck t0 l0-2 l0-0 c0)
+(load-airplane p25 a0 l0-0) ; Landmark (a0 is at l0-0)
+; LM 32: (load-airplane p5 a0 l1-0)
+; p5 is in t1 at l1-1 (from LM 6). It needs to be at l1-0.
+(unload-truck p5 t1 l1-1)
+(drive-truck t1 l1-1 l1-0 c1)
+(load-airplane p5 a0 l1-0) ; Landmark (a0 from l0-0 to l1-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 to l1-0
+(load-airplane p5 a0 l1-0) ; Landmark
+; LM 33: (load-airplane p26 a0 l2-0)
+; p26 is in t1 at l1-0 (from LM 7). It needs to be at l2-0.
+(unload-truck p26 t1 l1-0)
+(fly-airplane a0 l1-0 l2-0) ; a0 to l2-0
+(load-airplane p26 a0 l2-0) ; Landmark
+; LM 34: (load-airplane p21 a0 l1-0)
+; p21 is at l1-0. Needs a0 at l1-0.
+(unload-airplane p26 a0 l2-0) ; a0 has p26, need to unload
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(load-airplane p21 a0 l1-0) ; Landmark
+; LM 35: (load-airplane p8 a0 l0-0)
+; p8 is in t0 at l0-1 (from LM 11). Needs a0 at l0-0.
+(unload-truck p8 t0 l0-1)
+(drive-truck t0 l0-1 l0-0 c0)
+(fly-airplane a0 l1-0 l0-0) ; a0 to l0-0
+(load-airplane p8 a0 l0-0) ; Landmark
+; LM 36: (load-airplane p6 a0 l0-0)
+; p6 is at l0-0. Needs a0 at l0-0.
+(load-airplane p6 a0 l0-0) ; Landmark
+; LM 37: (load-airplane p23 a0 l1-0)
+; p23 is at l1-2. Needs a0 at l1-0.
+(fly-airplane a0 l0-0 l1-0) ; a0 to l1-0
+(drive-truck t1 l1-1 l1-2 c1) ; t1 to p23's origin
+(load-truck p23 t1 l1-2) ; intermediate
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p23 t1 l1-0) ; intermediate
+(load-airplane p23 a0 l1-0) ; Landmark
+; LM 38: (load-airplane p30 a0 l2-0)
+; p30 is at l2-1. Needs a0 at l2-0.
+(fly-airplane a0 l1-0 l2-0) ; a0 to l2-0
+(drive-truck t2 l2-1 l2-1 c2) ; t2 at l2-1
+(load-truck p30 t2 l2-1) ; intermediate
+(drive-truck t2 l2-1 l2-0 c2)
+(unload-truck p30 t2 l2-0) ; intermediate
+(load-airplane p30 a0 l2-0) ; Landmark
+; LM 39: (load-airplane p7 a0 l1-0)
+; p7 is at l1-1. Needs a0 at l1-0.
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(drive-truck t1 l1-0 l1-1 c1) ; t1 to p7's origin
+(load-truck p7 t1 l1-1) ; intermediate
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p7 t1 l1-0) ; intermediate
+(load-airplane p7 a0 l1-0) ; Landmark
+; LM 40: (load-airplane p28 a0 l1-0)
+; p28 is at l1-1. Needs a0 at l1-0.
+(load-truck p28 t1 l1-1) ; intermediate
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p28 t1 l1-0) ; intermediate
+(load-airplane p28 a0 l1-0) ; Landmark
+; LM 41: (load-airplane p12 a0 l2-0)
+; p12 is in t2 at l2-1 (from LM 13). Needs a0 at l2-0.
+(unload-truck p12 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(fly-airplane a0 l1-0 l2-0) ; a0 to l2-0
+(load-airplane p12 a0 l2-0) ; Landmark
+; LM 42: (load-airplane p13 a0 l1-0)
+; p13 is in t2 at l2-0 (from LM 15). Needs a0 at l1-0.
+(unload-truck p13 t2 l2-0)
+(load-airplane p13 a0 l2-0) ; p13 back on a0 in c2
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(unload-airplane p13 a0 l1-0) ; p13 off a0 in c1
+(load-airplane p13 a0 l1-0) ; Landmark
+; LM 43: (load-airplane p1 a0 l2-0)
+; p1 is in t2 at l2-0 (from LM 16). Needs a0 at l2-0.
+(unload-truck p1 t2 l2-0)
+(load-airplane p1 a0 l2-0) ; Landmark (a0 from l1-0 to l2-0)
+(fly-airplane a0 l1-0 l2-0) ; a0 to l2-0
+(load-airplane p1 a0 l2-0) ; Landmark
+; LM 44: (load-airplane p17 a0 l2-0)
+; p17 is in t2 at l2-1 (from LM 17). Needs a0 at l2-0.
+(unload-truck p17 t2 l2-1)
+(drive-truck t2 l2-1 l2-0 c2)
+(load-airplane p17 a0 l2-0) ; Landmark
+; LM 45: (load-airplane p15 a0 l2-0)
+; p15 is in t0 at l0-0 (from LM 19). Needs a0 at l2-0.
+(unload-truck p15 t0 l0-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 to l0-0
+(load-airplane p15 a0 l0-0) ; p15 onto a0 in c0
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0
+(unload-airplane p15 a0 l2-0) ; p15 off a0 in c2
+(load-airplane p15 a0 l2-0) ; Landmark
+; LM 46: (load-airplane p4 a0 l1-0)
+; p4 is in t2 at l2-0 (from LM 20). Needs a0 at l1-0.
+(unload-truck p4 t2 l2-0)
+(load-airplane p4 a0 l2-0) ; p4 onto a0 in c2
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(unload-airplane p4 a0 l1-0) ; p4 off a0 in c1
+(load-airplane p4 a0 l1-0) ; Landmark
+; LM 47: (load-airplane p3 a0 l1-0)
+; p3 is in t2 at l2-0 (from LM 22). Needs a0 at l1-0.
+(unload-truck p3 t2 l2-0)
+(load-airplane p3 a0 l2-0) ; p3 onto a0 in c2
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(unload-airplane p3 a0 l1-0) ; p3 off a0 in c1
+(load-airplane p3 a0 l1-0) ; Landmark
+; LM 48: (load-airplane p2 a0 l1-0)
+; p2 is in t2 at l2-0 (from LM 26). Needs a0 at l1-0.
+(unload-truck p2 t2 l2-0)
+(load-airplane p2 a0 l2-0) ; p2 onto a0 in c2
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(unload-airplane p2 a0 l1-0) ; p2 off a0 in c1
+(load-airplane p2 a0 l1-0) ; Landmark
+; LM 49: (load-airplane p11 a0 l2-0)
+; p11 is in t0 at l0-0 (from LM 29). Needs a0 at l2-0.
+(unload-truck p11 t0 l0-0)
+(fly-airplane a0 l1-0 l0-0) ; a0 to l0-0
+(load-airplane p11 a0 l0-0) ; p11 onto a0 in c0
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0
+(unload-airplane p11 a0 l2-0) ; p11 off a0 in c2
+(load-airplane p11 a0 l2-0) ; Landmark
+
+; All load-airplane landmarks processed. Now for unload-truck and unload-airplane landmarks.
+; This requires clearing the airplane/trucks and delivering to final goals.
+
+; LM 50: (unload-truck p14 t1 l1-2)
+(drive-truck t1 l1-1 l1-2 c1) ; t1 to l1-2 (t1 contains p14,p16,p24,p28,p7,p6,p30,p22,p23,p2,p3,p4,p5,p13,p1)
+(unload-truck p14 t1 l1-2) ; Landmark
+; LM 51: (unload-truck p10 t0 l0-0)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 to l0-0 (t0 contains p0,p8,p9,p11,p12,p15,p17,p18,p21,p25,p28,p7,p6,p30,p22,p23,p2,p3,p4,p5,p13,p1,p19,p20,p24,p26,p27)
+(unload-truck p10 t0 l0-0) ; Landmark
+; LM 52: (unload-truck p27 t2 l2-1)
+(drive-truck t2 l2-2 l2-1 c2) ; t2 to l2-1
+(unload-truck p27 t2 l2-1) ; Landmark
+; LM 53: (unload-truck p25 t2 l2-1)
+(unload-truck p25 t2 l2-1) ; Landmark
+; LM 54: (unload-truck p25 t0 l0-0)
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0
+(unload-truck p25 t0 l0-0) ; Landmark
+; LM 55: (unload-truck p5 t1 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 to l1-0
+(unload-truck p5 t1 l1-0) ; Landmark
+; LM 56: (unload-truck p26 t1 l1-2)
+(drive-truck t1 l1-0 l1-2 c1) ; t1 to l1-2
+(unload-truck p26 t1 l1-2) ; Landmark
+; LM 57: (unload-truck p16 t1 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 to l1-0
+(unload-truck p16 t1 l1-0) ; Landmark
+; LM 58: (unload-truck p18 t0 l0-0)
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0
+(unload-truck p18 t0 l0-0) ; Landmark
+; LM 59: (unload-truck p8 t2 l2-2)
+(drive-truck t2 l2-1 l2-2 c2) ; t2 to l2-2
+(unload-truck p8 t2 l2-2) ; Landmark
+; LM 60: (unload-truck p8 t0 l0-0)
+(drive-truck t0 l0-0 l0-0 c0) ; t0 at l0-0
+(unload-truck p8 t0 l0-0) ; Landmark
+; LM 61: (unload-truck p6 t1 l1-2)
+(drive-truck t1 l1-0 l1-2 c1) ; t1 to l1-2
+(unload-truck p6 t1 l1-2) ; Landmark
+; LM 62: (unload-truck p23 t1 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 to l1-0
+(unload-truck p23 t1 l1-0) ; Landmark
+; LM 63: (unload-truck p23 t2 l2-1)
+(drive-truck t2 l2-2 l2-1 c2) ; t2 to l2-1
+(unload-truck p23 t2 l2-1) ; Landmark
+; LM 64: (unload-truck p30 t1 l1-2)
+(drive-truck t1 l1-0 l1-2 c1) ; t1 to l1-2
+(unload-truck p30 t1 l1-2) ; Landmark
+; LM 65: (unload-truck p30 t2 l2-0)
+(drive-truck t2 l2-1 l2-0 c2) ; t2 to l2-0
+(unload-truck p30 t2 l2-0) ; Landmark
+; LM 66: (unload-truck p7 t1 l1-0)
+(drive-truck t1 l1-2 l1-0 c1) ; t1 to l1-0
+(unload-truck p7 t1 l1-0) ; Landmark
+; LM 67: (unload-truck p7 t0 l0-2)
+(drive-truck t0 l0-0 l0-2 c0) ; t0 to l0-2
+(unload-truck p7 t0 l0-2) ; Landmark
+; LM 68: (unload-truck p28 t1 l1-0)
+(drive-truck t1 l1-0 l1-0 c1) ; t1 at l1-0
+(unload-truck p28 t1 l1-0) ; Landmark
+; LM 69: (unload-truck p28 t0 l0-2)
+(drive-truck t0 l0-2 l0-2 c0) ; t0 at l0-2
+(unload-truck p28 t0 l0-2) ; Landmark
+; LM 70: (unload-truck p9 t0 l0-0)
+(drive-truck t0 l0-2 l0-0 c0) ; t0 to l0-0
+(unload-truck p9 t0 l0-0) ; Landmark
+; LM 71: (unload-truck p12 t2 l2-0)
+(drive-truck t2 l2-0 l2-0 c2) ; t2 at l2-0
+(unload-truck p12 t2 l2-0) ; Landmark
+; LM 72: (unload-truck p13 t1 l1-0)
+(drive-truck t1 l1-0 l1-0 c1) ; t1 at l1-0
+(unload-truck p13 t1 l1-0) ; Landmark
+; LM 73: (unload-truck p13 t2 l2-2)
+(drive-truck t2 l2-0 l2-2 c2) ; t2 to l2-2
+(unload-truck p13 t2 l2-2) ; Landmark
+; LM 74: (unload-truck p1 t2 l2-1)
+(drive-truck t2 l2-2 l2-1 c2) ; t2 to l2-1
+(unload-truck p1 t2 l2-1) ; Landmark
+; LM 75: (unload-truck p17 t2 l2-0)
+(drive-truck t2 l2-1 l2-0 c2) ; t2 to l2-0
+(unload-truck p17 t2 l2-0) ; Landmark
+; LM 76: (unload-truck p15 t2 l2-0)
+(drive-truck t2 l2-0 l2-0 c2) ; t2 at l2-0
+(unload-truck p15 t2 l2-0) ; Landmark
+; LM 77: (unload-truck p15 t0 l0-1)
+(drive-truck t0 l0-0 l0-1 c0) ; t0 to l0-1
+(unload-truck p15 t0 l0-1) ; Landmark
+; LM 78: (unload-truck p4 t2 l2-1)
+(drive-truck t2 l2-0 l2-1 c2) ; t2 to l2-1
+(unload-truck p4 t2 l2-1) ; Landmark
+; LM 79: (unload-truck p3 t1 l1-0)
+(drive-truck t1 l1-0 l1-0 c1) ; t1 at l1-0
+(unload-truck p3 t1 l1-0) ; Landmark
+; LM 80: (unload-truck p3 t2 l2-2)
+(drive-truck t2 l2-1 l2-2 c2) ; t2 to l2-2
+(unload-truck p3 t2 l2-2) ; Landmark
+; LM 81: (unload-truck p0 t0 l0-1)
+(drive-truck t0 l0-1 l0-1 c0) ; t0 at l0-1
+(unload-truck p0 t0 l0-1) ; Landmark
+; LM 82: (unload-truck p24 t1 l1-0)
+(drive-truck t1 l1-0 l1-0 c1) ; t1 at l1-0
+(unload-truck p24 t1 l1-0) ; Landmark
+; LM 83: (unload-truck p2 t1 l1-0)
+(drive-truck t1 l1-0 l1-0 c1) ; t1 at l1-0
+(unload-truck p2 t1 l1-0) ; Landmark
+; LM 84: (unload-truck p2 t2 l2-2)
+(drive-truck t2 l2-2 l2-2 c2) ; t2 at l2-2
+(unload-truck p2 t2 l2-2) ; Landmark
+; LM 85: (unload-truck p19 t2 l2-2)
+(unload-truck p19 t2 l2-2) ; Landmark
+; LM 86: (unload-truck p11 t2 l2-0)
+(drive-truck t2 l2-2 l2-0 c2) ; t2 to l2-0
+(unload-truck p11 t2 l2-0) ; Landmark
+; LM 87: (unload-truck p11 t0 l0-1)
+(drive-truck t0 l0-1 l0-1 c0) ; t0 at l0-1
+(unload-truck p11 t0 l0-1) ; Landmark
+
+; All unload-truck landmarks processed. Now for unload-airplane landmarks.
+; All packages for unload-airplane should be in the airplane at destination airport.
+
+; LM 88: (unload-airplane p10 a0 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0
+(unload-airplane p10 a0 l2-0) ; Landmark
+; LM 89: (unload-airplane p25 a0 l2-0)
+(unload-airplane p25 a0 l2-0) ; Landmark
+; LM 90: (unload-airplane p5 a0 l0-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 to l0-0
+(unload-airplane p5 a0 l0-0) ; Landmark
+; LM 91: (unload-airplane p26 a0 l1-0)
+(fly-airplane a0 l0-0 l1-0) ; a0 to l1-0
+(unload-airplane p26 a0 l1-0) ; Landmark
+; LM 92: (unload-airplane p21 a0 l0-0)
+(fly-airplane a0 l1-0 l0-0) ; a0 to l0-0
+(unload-airplane p21 a0 l0-0) ; Landmark
+; LM 93: (unload-airplane p8 a0 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0
+(unload-airplane p8 a0 l2-0) ; Landmark
+; LM 94: (unload-airplane p6 a0 l1-0)
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(unload-airplane p6 a0 l1-0) ; Landmark
+; LM 95: (unload-airplane p23 a0 l2-0)
+(fly-airplane a0 l1-0 l2-0) ; a0 to l2-0
+(unload-airplane p23 a0 l2-0) ; Landmark
+; LM 96: (unload-airplane p30 a0 l1-0)
+(fly-airplane a0 l2-0 l1-0) ; a0 to l1-0
+(unload-airplane p30 a0 l1-0) ; Landmark
+; LM 97: (unload-airplane p7 a0 l0-0)
+(fly-airplane a0 l1-0 l0-0) ; a0 to l0-0
+(unload-airplane p7 a0 l0-0) ; Landmark
+; LM 98: (unload-airplane p28 a0 l0-0)
+(unload-airplane p28 a0 l0-0) ; Landmark
+; LM 99: (unload-airplane p12 a0 l0-0)
+(unload-airplane p12 a0 l0-0) ; Landmark
+; LM 100: (unload-airplane p13 a0 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0
+(unload-airplane p13 a0 l2-0) ; Landmark
+; LM 101: (unload-airplane p1 a0 l2-0)
+(unload-airplane p1 a0 l2-0) ; Landmark
+; LM 102: (unload-airplane p17 a0 l0-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 to l0-0
+(unload-airplane p17 a0 l0-0) ; Landmark
+; LM 103: (unload-airplane p15 a0 l0-0)
+(unload-airplane p15 a0 l0-0) ; Landmark
+; LM 104: (unload-airplane p4 a0 l2-0)
+(fly-airplane a0 l0-0 l2-0) ; a0 to l2-0
+(unload-airplane p4 a0 l2-0) ; Landmark
+; LM 105: (unload-airplane p3 a0 l2-0)
+(unload-airplane p3 a0 l2-0) ; Landmark
+; LM 106: (unload-airplane p2 a0 l2-0)
+(unload-airplane p2 a0 l2-0) ; Landmark
+; LM 107: (unload-airplane p11 a0 l0-0)
+(fly-airplane a0 l2-0 l0-0) ; a0 to l0-0
+(unload-airplane p11 a0 l0-0) ; Landmark
+</plan>
+</response>
+[2025-08-29 00:40:48.864545] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[other_actions]', 'domain': 'logistics', 'instance': 'p59', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 8115, 'candidates_token_count': 9814, 'total_tokens_count': 56382}
+</metadata>

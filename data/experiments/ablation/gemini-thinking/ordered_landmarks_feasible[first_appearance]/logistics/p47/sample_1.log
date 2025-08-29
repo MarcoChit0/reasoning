@@ -1,0 +1,213 @@
+[2025-08-29 00:58:00.842310] Generating response for sample 1.
+[2025-08-29 01:01:41.752494] Response for sample 1 generated successfully.
+[2025-08-29 01:01:41.752526] Response:
+<response>
+<plan>
+(load-truck p16 t1 l1-1)
+(drive-truck t2 l2-0 l2-2 c2)
+(load-truck p15 t2 l2-2)
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p10 t0 l0-1)
+(load-truck p14 t1 l1-1)
+(load-truck p13 t1 l1-1)
+(load-truck p0 t0 l0-0)
+(load-truck p2 t1 l1-1)
+(load-truck p4 t1 l1-0)
+(load-truck p7 t1 l1-1)
+(load-truck p21 t0 l0-0) ; p21 is at l1-0. Need to move it to l0-0.
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p21 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p21 a0 l0-0)
+(load-truck p21 t0 l0-0)
+(load-truck p5 t1 l1-1)
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p23 t1 l1-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(load-truck p19 t2 l2-1)
+(load-truck p17 t2 l2-1)
+(load-truck p11 t2 l2-2) ; p11 is at l2-2. t2 is at l2-1.
+(drive-truck t2 l2-1 l2-2 c2)
+(load-truck p11 t2 l2-2)
+(drive-truck t0 l0-1 l0-0 c0) ; t0 is at l0-1 for p10
+(unload-truck p10 t0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p10 a0 l0-0) ; a0 must be at l0-0 for this landmark, but it is at l2-0.
+(fly-airplane a0 l2-0 l0-0)
+(load-airplane p10 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p10 a0 l2-0)
+(drive-truck t2 l2-2 l2-0 c2) ; t2 from l2-2 to l2-0
+(load-truck p10 t2 l2-0)
+(unload-truck p14 t1 l1-0) ; t1 at l1-2, not l1-0. Drive t1 l1-2 l1-0 c1
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p14 t1 l1-0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p14 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p14 a0 l2-0)
+(load-truck p14 t2 l2-0)
+(unload-truck p12 t2 l2-0) ; t2 is at l2-0 for p14. p12 is in t2.
+(load-airplane p12 a0 l2-0)
+(fly-airplane a0 l2-0 l1-0)
+(unload-airplane p12 a0 l1-0)
+(load-truck p12 t1 l1-0)
+(unload-truck p13 t1 l1-0) ; p13 is in t1 at l1-0.
+(fly-airplane a0 l1-0 l0-0)
+(load-airplane p13 a0 l1-0) ; a0 must be at l1-0.
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p13 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p13 a0 l0-0)
+(load-truck p13 t0 l0-0)
+(unload-truck p2 t1 l1-0) ; p2 in t1 at l1-0.
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p2 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p2 a0 l2-0)
+(load-truck p2 t2 l2-0)
+(load-truck p4 t1 l1-1) ; p4 at l1-0. t1 at l1-0.
+(drive-truck t1 l1-0 l1-1 c1)
+(load-truck p4 t1 l1-1)
+(unload-truck p7 t1 l1-0) ; p7 in t1 at l1-1.
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p7 t1 l1-0)
+(fly-airplane a0 l2-0 l1-0) ; a0 at l2-0.
+(fly-airplane a0 l1-0 l2-0) ; a0 back to l2-0
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p7 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p7 a0 l2-0)
+(load-truck p7 t2 l2-0)
+(unload-truck p5 t1 l1-0) ; p5 in t1 at l1-0.
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p5 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p5 a0 l2-0)
+(load-truck p5 t2 l2-0)
+(unload-truck p17 t2 l2-0) ; p17 in t2 at l2-0.
+(fly-airplane a0 l2-0 l0-0)
+(load-airplane p17 a0 l2-0)
+(fly-airplane a0 l0-0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p17 a0 l0-0)
+(load-truck p17 t0 l0-0)
+(load-truck p18 t0 l0-1) ; p18 at l0-1. t0 at l0-0.
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p18 t0 l0-1)
+(load-truck p20 t1 l1-1) ; p20 in t1 at l1-1.
+(load-truck p22 t1 l1-2) ; p22 at l1-2. t1 at l1-1.
+(drive-truck t1 l1-1 l1-2 c1)
+(load-truck p22 t1 l1-2)
+(load-truck p24 t1 l1-1) ; p24 at l1-1. t1 at l1-2.
+(drive-truck t1 l1-2 l1-1 c1)
+(load-truck p24 t1 l1-1)
+(load-truck p9 t0 l0-1) ; p9 at l0-1. t0 at l0-1.
+(unload-truck p9 t0 l0-0) ; p9 in t0 at l0-1.
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p9 t0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(load-airplane p9 a0 l0-0) ; a0 at l0-0.
+(fly-airplane a0 l2-0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p9 a0 l2-0)
+(load-truck p9 t2 l2-0)
+(load-truck p8 t0 l0-1) ; p8 at l0-1. t0 at l0-0.
+(drive-truck t0 l0-0 l0-1 c0)
+(load-truck p8 t0 l0-1)
+(unload-truck p8 t0 l0-0) ; p8 in t0 at l0-1.
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p8 t0 l0-0)
+(fly-airplane a0 l2-0 l0-0)
+(load-airplane p8 a0 l0-0)
+(fly-airplane a0 l0-0 l2-0)
+(unload-airplane p8 a0 l2-0)
+(load-truck p8 t2 l2-0)
+(load-truck p6 t0 l0-0) ; p6 at l0-0. t0 at l0-0.
+(load-airplane p16 a0 l1-0) ; p16 in t1 at l1-1. a0 at l2-0.
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p16 t1 l1-0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p16 a0 l1-0)
+(unload-truck p15 t2 l2-0) ; p15 in t2 at l2-0.
+(fly-airplane a0 l1-0 l2-0)
+(unload-truck p15 t2 l2-0)
+(load-airplane p15 a0 l2-0)
+(load-airplane p1 a0 l1-0) ; p1 at l1-0. a0 at l2-0.
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p1 a0 l1-0)
+(fly-airplane a0 l1-0 l2-0)
+(unload-airplane p1 a0 l2-0)
+(load-truck p1 t2 l2-0) ; p1 to goal l2-0.
+(unload-truck p23 t1 l1-0) ; p23 in t1 at l1-1.
+(drive-truck t1 l1-1 l1-0 c1)
+(unload-truck p23 t1 l1-0)
+(fly-airplane a0 l2-0 l1-0)
+(load-airplane p23 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p23 a0 l0-0)
+(load-truck p23 t0 l0-0) ; p23 to goal l0-0.
+(unload-truck p11 t2 l2-0) ; p11 in t2 at l2-0.
+(load-airplane p11 a0 l2-0)
+(fly-airplane a0 l0-0 l2-0)
+(fly-airplane a0 l2-0 l0-0)
+(unload-airplane p11 a0 l0-0)
+(load-truck p11 t0 l0-0) ; p11 to goal l0-0.
+(unload-truck p24 t1 l1-0) ; p24 in t1 at l1-1.
+(fly-airplane a0 l0-0 l1-0)
+(load-airplane p24 a0 l1-0)
+(fly-airplane a0 l1-0 l0-0)
+(unload-airplane p24 a0 l0-0)
+(load-truck p24 t0 l0-0) ; p24 to goal l0-0.
+
+; Deliver intra-city packages
+(drive-truck t0 l0-0 l0-2 c0)
+(unload-truck p0 t0 l0-2) ; p0 goal l0-2.
+(drive-truck t0 l0-2 l0-1 c0)
+(unload-truck p6 t0 l0-1) ; p6 goal l0-1.
+(drive-truck t0 l0-1 l0-0 c0)
+(unload-truck p18 t0 l0-0) ; p18 goal l0-0.
+
+(drive-truck t1 l1-0 l1-1 c1)
+(unload-truck p4 t1 l1-1) ; p4 goal l1-1.
+(drive-truck t1 l1-1 l1-2 c1)
+(unload-truck p20 t1 l1-2) ; p20 goal l1-2.
+(drive-truck t1 l1-2 l1-0 c1)
+(unload-truck p22 t1 l1-0) ; p22 goal l1-0.
+
+(drive-truck t2 l2-0 l2-1 c2)
+(unload-truck p5 t2 l2-1) ; p5 goal l2-1.
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p19 t2 l2-2) ; p19 goal l2-2.
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p7 t2 l2-1) ; p7 goal l2-1.
+(drive-truck t2 l2-1 l2-2 c2)
+(unload-truck p14 t2 l2-2) ; p14 goal l2-2.
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p2 t2 l2-2) ; p2 goal l2-2. (t2 at l2-0 needs to move)
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p2 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p8 t2 l2-2) ; p8 goal l2-2.
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p8 t2 l2-2)
+(drive-truck t2 l2-2 l2-0 c2)
+(unload-truck p9 t2 l2-2) ; p9 goal l2-2.
+(drive-truck t2 l2-0 l2-2 c2)
+(unload-truck p9 t2 l2-2)
+(drive-truck t2 l2-2 l2-1 c2)
+(unload-truck p10 t2 l2-1) ; p10 goal l2-1.
+
+(drive-truck t1 l1-0 l1-2 c1)
+(unload-truck p12 t1 l1-2) ; p12 goal l1-2.
+
+; p16 (l2-0), p1 (l2-0), p15 (l0-0), p11 (l0-0), p23 (l0-0), p17 (l0-1), p24 (l0-0) delivered by airplane
+; p0 (l0-2), p6 (l0-1), p18 (l0-0), p13 (l0-2) are delivered by t0
+; p4 (l1-1), p20 (l1-2), p22 (l1-0), p12 (l1-2) are delivered by t1
+; p5 (l2-1), p19 (l2-2), p7 (l2-1), p14 (l2-2), p2 (l2-2), p8 (l2-2), p9 (l2-2), p10 (l2-1) are delivered by t2
+</plan>
+</response>
+[2025-08-29 01:01:41.752545] Metadata:
+<metadata>
+{'template': 'ordered_landmarks_feasible[first_appearance]', 'domain': 'logistics', 'instance': 'p47', 'sample_id': 1, 'num_requests': 1, 'prompt_token_count': 7693, 'candidates_token_count': 3901, 'total_tokens_count': 60042}
+</metadata>
