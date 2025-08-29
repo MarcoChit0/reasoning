@@ -1,13 +1,14 @@
-experiment,model,template,domain,Error: Goal not satisfied.,Error: Plan failed to execute.,Valid Plan,Total
-ablation,gemini-thinking,ordered_landmarks_feasible,blocksworld,9,5,26,40
-ablation,gemini-thinking,ordered_landmarks_feasible[first_appearance],blocksworld,3,2,35,40
-ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,5,3,32,40
-ablation,gemini-thinking,ordered_landmarks_feasible[optimal],blocksworld,3,7,30,40
-ablation,gemini-thinking,ordered_landmarks_feasible[other_actions+first_appearance+use_all],blocksworld,4,6,30,40
-ablation,gemini-thinking,ordered_landmarks_feasible[other_actions],blocksworld,4,4,32,40
-ablation,gemini-thinking,ordered_landmarks_feasible[unique+first_appearance],blocksworld,1,5,34,40
-ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,5,2,33,40
-ablation,gemini-thinking,ordered_landmarks_feasible[unique+other_actions+first_appearance+use_all],blocksworld,5,4,31,40
-ablation,gemini-thinking,ordered_landmarks_feasible[unique],blocksworld,3,5,32,40
-ablation,gemini-thinking,ordered_landmarks_feasible[use_all],blocksworld,6,6,28,40
-Total,,,,48,49,343,440
+experiment,model,template,domain,Error: Goal not satisfied.,Error: Plan failed to execute.,Response extraction failed ...,Valid Plan,Total
+ablation,gemini-thinking,ordered_landmarks_feasible,blocksworld,9,5,0,26,40
+ablation,gemini-thinking,ordered_landmarks_feasible,logistics,0,0,1,0,1
+ablation,gemini-thinking,ordered_landmarks_feasible[first_appearance],blocksworld,3,2,0,35,40
+ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,5,3,0,32,40
+ablation,gemini-thinking,ordered_landmarks_feasible[optimal],blocksworld,3,7,0,30,40
+ablation,gemini-thinking,ordered_landmarks_feasible[other_actions+first_appearance+use_all],blocksworld,4,6,0,30,40
+ablation,gemini-thinking,ordered_landmarks_feasible[other_actions],blocksworld,4,4,0,32,40
+ablation,gemini-thinking,ordered_landmarks_feasible[unique+first_appearance],blocksworld,1,5,0,34,40
+ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,5,2,0,33,40
+ablation,gemini-thinking,ordered_landmarks_feasible[unique+other_actions+first_appearance+use_all],blocksworld,5,4,0,31,40
+ablation,gemini-thinking,ordered_landmarks_feasible[unique],blocksworld,3,5,0,32,40
+ablation,gemini-thinking,ordered_landmarks_feasible[use_all],blocksworld,6,6,0,28,40
+Total,,,,48,49,1,343,441

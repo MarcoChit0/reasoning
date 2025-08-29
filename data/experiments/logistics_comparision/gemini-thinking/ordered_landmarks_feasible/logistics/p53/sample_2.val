@@ -1,0 +1,4 @@
+Checking plan: temp_plan.pddl
+No matching action defined for transport-package-on-ground
+
+Errors: 0, warnings: 1

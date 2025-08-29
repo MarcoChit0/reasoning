@@ -1,0 +1,5 @@
+experiment,domain,model,template,num_instances,total_samples,correct_samples,num_action_landmarks,num_action_landmarks_used,accuracy_samples,pass@1,pass@2,pass@3
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible,20,60,9,98.9,82.83,0.15,0.15,0.28,0.4
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible[first_appearance],20,60,16,98.9,86.42,0.27,0.27,0.5,0.7
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible,20,60,50,98.9,97.02,0.83,0.83,1.0,1.0
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible[first_appearance],20,60,52,98.9,98.83,0.87,0.87,0.98,1.0

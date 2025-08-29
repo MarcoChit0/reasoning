@@ -1,15 +1,17 @@
 % In your LaTeX preamble, use: \usepackage{graphicx}, \usepackage{multirow}, \usepackage{booktabs}
 \begin{table}[H] % Using [H] from 'float' package to place table here
 \centering
-\scalebox{0.4}{
+\scalebox{0.6}{
 \begin{tabular}{lll|cccccccccccccccccccccc}
 \toprule
-domain & model & attempt & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{FA} & \multicolumn{2}{c}{OPT+BLOCK} & \multicolumn{2}{c}{OPT} & \multicolumn{2}{c}{BLOCK} & \multicolumn{2}{c}{OA} & \multicolumn{2}{c}{U+FA} & \multicolumn{2}{c}{U+OPT+BLOCK} & \multicolumn{2}{c}{U+BLOCK} & \multicolumn{2}{c}{U} & \multicolumn{2}{c}{use all} \\
+domain & model & attempt & \multicolumn{2}{c}{Ordered Landmarks Feasible} & \multicolumn{2}{c}{Ordered Landmarks Feasible [first appearance]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [optimal+other actions+first appearance+use all]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [optimal]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [other actions+first appearance+use all]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [other actions]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [unique+first appearance]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [unique+optimal+other actions+first appearance+use all]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [unique+other actions+first appearance+use all]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [unique]} & \multicolumn{2}{c}{Ordered Landmarks Feasible [use all]} \\
 \cmidrule(lr){4-25}
-& & & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk & Acc & Lmk \\
+& & & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks & Coverage & Landmarks \\
 \midrule
 \multirow[t]{2}{*}{blocksworld} & \multirow[t]{2}{*}{gemini-thinking} & 1 & 0.60 & 1.00 & 0.90 & 1.00 & 0.80 & 1.00 & 0.70 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.85 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.90 & 1.00 & 0.70 & 1.00 \\
  & & 2 & 0.70 & 1.00 & 0.85 & 1.00 & 0.80 & 1.00 & 0.80 & 1.00 & 0.75 & 1.00 & 0.80 & 1.00 & 0.85 & 1.00 & 0.90 & 1.00 & 0.75 & 1.00 & 0.70 & 1.00 & 0.70 & 1.00 \\
+\midrule
+\multirow[t]{1}{*}{logistics} & \multirow[t]{1}{*}{gemini-thinking} & 1 & 0.00 & 0.00 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
 \bottomrule
 \end{tabular}
 }

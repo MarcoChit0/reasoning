@@ -1,0 +1,6 @@
+experiment,model,template,domain,Error: Bad operator in plan.,Error: Goal not satisfied.,Error: Plan failed to execute.,Plan extraction failed : Ob...,Response extraction failed ...,Valid Plan,Total
+logistics_comparision,gemini-thinking,ordered_landmarks_feasible,logistics,1,4,42,1,3,9,60
+logistics_comparision,gemini-thinking,ordered_landmarks_feasible,logistics_old,0,1,8,0,1,50,60
+logistics_comparision,gemini-thinking,ordered_landmarks_feasible[first_appearance],logistics,1,2,39,0,2,16,60
+logistics_comparision,gemini-thinking,ordered_landmarks_feasible[first_appearance],logistics_old,0,0,8,0,0,52,60
+Total,,,,2,7,97,1,6,127,240

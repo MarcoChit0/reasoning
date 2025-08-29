@@ -1,0 +1,31 @@
+% In your LaTeX preamble, make sure you have: \usepackage{graphicx}
+\scalebox{0.6}{
+\begin{tabular}{lll|cc}
+\toprule
+ &  &  & \multicolumn{2}{c}{templates} \\
+ &  &  & ordered\_landmarks\_feasible & ordered\_landmarks\_feasible[first\_appearance] \\
+domain & model & metric &  &  \\
+\midrule
+\multirow[t]{9}{*}{logistics} & \multirow[t]{9}{*}{gemini-thinking} & \#instances & 20 & 20 \\
+ &  & \#correctSamples & 9 & 16 \\
+ &  & \#totalSamples & 60 & 60 \\
+ &  & \#usedLandmarks & 82.83 & 86.42 \\
+ &  & \#landmarks & 98.90 & 98.90 \\
+ &  & Accuracy & 0.15 & 0.27 \\
+ &  & pass-at-1 & 0.15 & 0.27 \\
+ &  & pass-at-2 & 0.28 & 0.50 \\
+ &  & pass-at-3 & 0.40 & 0.70 \\
+\cline{1-5} \cline{2-5}
+\multirow[t]{9}{*}{logistics\_old} & \multirow[t]{9}{*}{gemini-thinking} & \#instances & 20 & 20 \\
+ &  & \#correctSamples & 50 & 52 \\
+ &  & \#totalSamples & 60 & 60 \\
+ &  & \#usedLandmarks & 97.02 & 98.83 \\
+ &  & \#landmarks & 98.90 & 98.90 \\
+ &  & Accuracy & 0.83 & 0.87 \\
+ &  & pass-at-1 & 0.83 & 0.87 \\
+ &  & pass-at-2 & 1.00 & 0.98 \\
+ &  & pass-at-3 & 1.00 & 1.00 \\
+\cline{1-5} \cline{2-5}
+\bottomrule
+\end{tabular}
+}

@@ -21,3 +21,4 @@ ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique],1,20,0.9
 ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[unique],2,20,0.7,1.0
 ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[use_all],1,20,0.7,1.0
 ablation,blocksworld,gemini-thinking,ordered_landmarks_feasible[use_all],2,20,0.7,1.0
+ablation,logistics,gemini-thinking,ordered_landmarks_feasible,1,1,0.0,0.0

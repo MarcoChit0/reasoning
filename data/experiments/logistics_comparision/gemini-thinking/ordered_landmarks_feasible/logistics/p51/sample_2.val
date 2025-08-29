@@ -1,0 +1,490 @@
+Checking plan: temp_plan.pddl
+Plan to validate:
+
+Plan size: 144
+1:
+(load-truck p5 t1 l1-1)
+ 
+2:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+3:
+(unload-truck p5 t1 l1-0)
+ 
+4:
+(load-truck p1 t1 l1-0)
+ 
+5:
+(drive-truck t1 l1-0 l1-1 c1)
+ 
+6:
+(unload-truck p1 t1 l1-1)
+ 
+7:
+(load-truck p16 t1 l1-1)
+ 
+8:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+9:
+(unload-truck p16 t1 l1-0)
+ 
+10:
+(load-truck p13 t1 l1-1)
+ 
+11:
+(drive-truck t1 l1-0 l1-1 c1)
+ 
+12:
+(unload-truck p13 t1 l1-0)
+ 
+13:
+(load-truck p20 t1 l1-1)
+ 
+14:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+15:
+(unload-truck p20 t1 l1-0)
+ 
+16:
+(load-truck p7 t1 l1-1)
+ 
+17:
+(unload-truck p7 t1 l1-0)
+ 
+18:
+(load-truck p14 t1 l1-1)
+ 
+19:
+(unload-truck p14 t1 l1-0)
+ 
+20:
+(load-truck p3 t1 l1-1)
+ 
+21:
+(unload-truck p3 t1 l1-0)
+ 
+22:
+(load-truck p23 t1 l1-2)
+ 
+23:
+(drive-truck t1 l1-0 l1-2 c1)
+ 
+24:
+(unload-truck p23 t1 l1-0)
+ 
+25:
+(load-truck p22 t1 l1-2)
+ 
+26:
+(unload-truck p22 t1 l1-0)
+ 
+27:
+(load-truck p18 t0 l0-1)
+ 
+28:
+(drive-truck t0 l0-0 l0-1 c0)
+ 
+29:
+(unload-truck p18 t0 l0-0)
+ 
+30:
+(load-truck p9 t0 l0-1)
+ 
+31:
+(unload-truck p9 t0 l0-0)
+ 
+32:
+(load-truck p10 t0 l0-1)
+ 
+33:
+(unload-truck p10 t0 l0-0)
+ 
+34:
+(load-truck p8 t0 l0-1)
+ 
+35:
+(unload-truck p8 t0 l0-0)
+ 
+36:
+(load-truck p4 t0 l0-0)
+ 
+37:
+(load-truck p25 t0 l0-2)
+ 
+38:
+(drive-truck t0 l0-0 l0-2 c0)
+ 
+39:
+(unload-truck p25 t0 l0-0)
+ 
+40:
+(fly-airplane a0 l2-0 l1-0)
+ 
+41:
+(load-airplane p5 a0 l1-0)
+ 
+42:
+(load-airplane p21 a0 l1-0)
+ 
+43:
+(load-airplane p16 a0 l1-0)
+ 
+44:
+(load-airplane p13 a0 l1-0)
+ 
+45:
+(load-airplane p22 a0 l1-0)
+ 
+46:
+(load-airplane p7 a0 l1-0)
+ 
+47:
+(load-airplane p23 a0 l1-0)
+ 
+48:
+(load-airplane p14 a0 l1-0)
+ 
+49:
+(load-airplane p3 a0 l1-0)
+ 
+50:
+(load-airplane p4 a0 l1-0)
+ 
+51:
+(fly-airplane a0 l1-0 l0-0)
+ 
+52:
+(load-airplane p6 a0 l0-0)
+ 
+53:
+(load-airplane p10 a0 l0-0)
+ 
+54:
+(load-airplane p11 a0 l2-0)
+ 
+55:
+(load-truck p11 t2 l2-2)
+ 
+56:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+57:
+(unload-truck p11 t2 l2-0)
+ 
+58:
+(fly-airplane a0 l0-0 l2-0)
+ 
+59:
+(load-airplane p0 a0 l0-0)
+ 
+60:
+(load-airplane p8 a0 l0-0)
+ 
+61:
+(load-airplane p15 a0 l2-0)
+ 
+62:
+(load-truck p15 t2 l2-2)
+ 
+63:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+64:
+(unload-truck p15 t2 l2-0)
+ 
+65:
+(load-airplane p18 a0 l0-0)
+ 
+66:
+(load-airplane p19 a0 l2-0)
+ 
+67:
+(load-airplane p26 a0 l2-0)
+ 
+68:
+(fly-airplane a0 l2-0 l0-0)
+ 
+69:
+(unload-airplane p21 a0 l0-0)
+ 
+70:
+(unload-airplane p19 a0 l0-0)
+ 
+71:
+(load-truck p19 t0 l0-0)
+ 
+72:
+(drive-truck t0 l0-0 l0-1 c0)
+ 
+73:
+(unload-truck p19 t0 l0-1)
+ 
+74:
+(unload-airplane p6 a0 l2-0)
+ 
+75:
+(load-truck p6 t2 l2-0)
+ 
+76:
+(drive-truck t2 l2-0 l2-2 c2)
+ 
+77:
+(unload-truck p6 t2 l2-2)
+ 
+78:
+(unload-airplane p10 a0 l1-0)
+ 
+79:
+(load-truck p10 t1 l1-0)
+ 
+80:
+(drive-truck t1 l1-1 l1-0 c1)
+ 
+81:
+(unload-truck p10 t1 l1-2)
+ 
+82:
+(unload-airplane p16 a0 l0-0)
+ 
+83:
+(load-truck p16 t1 l1-1)
+ 
+84:
+(drive-truck t1 l1-0 l1-1 c1)
+ 
+85:
+(unload-truck p16 t1 l1-0)
+ 
+86:
+(unload-airplane p11 a0 l0-0)
+ 
+87:
+(load-truck p11 t0 l0-0)
+ 
+88:
+(drive-truck t0 l0-1 l0-0 c0)
+ 
+89:
+(unload-truck p11 t0 l0-2)
+ 
+90:
+(unload-airplane p13 a0 l0-0)
+ 
+91:
+(load-truck p13 t1 l1-0)
+ 
+92:
+(drive-truck t1 l1-2 l1-0 c1)
+ 
+93:
+(unload-truck p13 t1 l1-0)
+ 
+94:
+(unload-airplane p22 a0 l0-0)
+ 
+95:
+(load-truck p22 t1 l1-0)
+ 
+96:
+(unload-truck p22 t1 l1-0)
+ 
+97:
+(unload-airplane p26 a0 l1-0)
+ 
+98:
+(load-truck p26 t1 l1-0)
+ 
+99:
+(drive-truck t1 l1-0 l1-2 c1)
+ 
+100:
+(unload-truck p26 t1 l1-2)
+ 
+101:
+(unload-airplane p7 a0 l2-0)
+ 
+102:
+(load-truck p7 t2 l2-0)
+ 
+103:
+(drive-truck t2 l2-2 l2-0 c2)
+ 
+104:
+(unload-truck p7 t2 l2-2)
+ 
+105:
+(unload-airplane p0 a0 l2-0)
+ 
+106:
+(load-truck p0 t2 l2-0)
+ 
+107:
+(unload-truck p0 t2 l2-2)
+ 
+108:
+(unload-airplane p23 a0 l2-0)
+ 
+109:
+(load-truck p23 t2 l2-0)
+ 
+110:
+(unload-truck p23 t2 l2-2)
+ 
+111:
+(unload-airplane p8 a0 l2-0)
+ 
+112:
+(load-truck p8 t2 l2-0)
+ 
+113:
+(drive-truck t2 l2-2 l2-0 c2)
+ 
+114:
+(unload-truck p8 t2 l2-1)
+ 
+115:
+(unload-airplane p14 a0 l2-0)
+ 
+116:
+(load-truck p14 t1 l1-0)
+ 
+117:
+(drive-truck t1 l1-2 l1-0 c1)
+ 
+118:
+(unload-truck p14 t1 l1-0)
+ 
+119:
+(unload-airplane p15 a0 l0-0)
+ 
+120:
+(load-truck p15 t0 l0-0)
+ 
+121:
+(drive-truck t0 l0-2 l0-0 c0)
+ 
+122:
+(unload-truck p15 t0 l0-1)
+ 
+123:
+(unload-airplane p18 a0 l1-0)
+ 
+124:
+(load-truck p18 t1 l1-0)
+ 
+125:
+(drive-truck t1 l1-0 l1-2 c1)
+ 
+126:
+(unload-truck p18 t1 l1-2)
+ 
+127:
+(unload-airplane p3 a0 l2-0)
+ 
+128:
+(load-truck p3 t2 l2-0)
+ 
+129:
+(drive-truck t2 l2-1 l2-0 c2)
+ 
+130:
+(unload-truck p3 t2 l2-1)
+ 
+131:
+(unload-airplane p4 a0 l0-0)
+ 
+132:
+(load-truck p4 t0 l0-0)
+ 
+133:
+(drive-truck t0 l0-1 l0-0 c0)
+ 
+134:
+(unload-truck p4 t0 l0-1)
+ 
+135:
+(load-truck p12 t2 l2-1)
+ 
+136:
+(drive-truck t2 l2-1 l2-2 c2)
+ 
+137:
+(unload-truck p12 t2 l2-2)
+ 
+138:
+(load-truck p17 t2 l2-1)
+ 
+139:
+(unload-truck p17 t2 l2-2)
+ 
+140:
+(fly-airplane a0 l0-0 l2-0)
+ 
+141:
+(unload-airplane p5 a0 l2-0)
+ 
+142:
+(load-truck p5 t2 l2-0)
+ 
+143:
+(drive-truck t2 l2-2 l2-0 c2)
+ 
+144:
+(unload-truck p5 t2 l2-1)
+ 
+
+Plan Validation details
+-----------------------
+
+Checking next happening (time 1)
+Deleting (at p5 l1-1)
+Adding (in p5 t1)
+
+Checking next happening (time 2)
+Deleting (at t1 l1-1)
+Adding (at t1 l1-0)
+
+Checking next happening (time 3)
+Deleting (in p5 t1)
+Adding (at p5 l1-0)
+
+Checking next happening (time 4)
+Deleting (at p1 l1-0)
+Adding (in p1 t1)
+
+Checking next happening (time 5)
+Deleting (at t1 l1-0)
+Adding (at t1 l1-1)
+
+Checking next happening (time 6)
+Deleting (in p1 t1)
+Adding (at p1 l1-1)
+
+Checking next happening (time 7)
+Deleting (at p16 l1-1)
+Adding (in p16 t1)
+
+Checking next happening (time 8)
+Deleting (at t1 l1-1)
+Adding (at t1 l1-0)
+
+Checking next happening (time 9)
+Deleting (in p16 t1)
+Adding (at p16 l1-0)
+
+Checking next happening (time 10)
+Plan failed because of unsatisfied precondition in:
+(load-truck p13 t1 l1-1)
+
+Plan failed to execute
+
+Plan Repair Advice:
+
+(load-truck p13 t1 l1-1) has an unsatisfied precondition at time 10
+(Set (at t1 l1-1) to true)
+
+
+Failed plans:
+ temp_plan.pddl 

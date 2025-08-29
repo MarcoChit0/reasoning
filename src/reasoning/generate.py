@@ -130,23 +130,25 @@ def generate(model: models.Model, tasks: list[Task], template: str, samples: int
         )
 
 if __name__ == "__main__":
-    experiment = "logistics_comparision"
-    samples = 3
+    experiment = "blocksworld_backtracking_reasoning"
+    samples = 1
     instances = 20
     templates = ["ordered_landmarks_feasible"]
     tips = [
-        "first_appearance", 
+        "unique+first_appearance", 
     ]
-    domains = ["logistics_old"]
+    domains = ["blocksworld_backtrack"]
     config_paths = [
         "src/configs/gemini-thinking.yaml",
     ]
     if tips:
         new_templates = []
         for template in templates:
-            new_templates.append(template)
             for tip in tips:
-                new_templates.append(f"{template}[{tip}]")
+                if tip:
+                    new_templates.append(f"{template}[{tip}]")
+                else:
+                    new_templates.append(template)
         templates = new_templates
 
     for config_path in config_paths:

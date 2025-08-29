@@ -359,83 +359,84 @@
 357,ablation,gemini-thinking,ordered_landmarks_feasible,blocksworld,p35,2,True,,47,47
 358,ablation,gemini-thinking,ordered_landmarks_feasible,blocksworld,p30,1,False,Error: Goal not satisfied.,40,40
 359,ablation,gemini-thinking,ordered_landmarks_feasible,blocksworld,p30,2,True,,40,40
-360,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p42,1,True,,61,61
-361,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p42,2,True,,61,61
-362,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p39,1,True,,56,56
-363,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p39,2,True,,56,56
-364,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p34,1,True,,48,48
-365,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p34,2,True,,48,48
-366,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p26,1,False,Error: Goal not satisfied.,36,36
-367,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p26,2,True,,36,36
-368,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p40,1,True,,54,54
-369,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p40,2,True,,54,54
-370,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p31,1,True,,44,44
-371,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p31,2,True,,44,44
-372,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p36,1,True,,46,46
-373,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p36,2,True,,46,46
-374,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p27,1,False,Error: Goal not satisfied.,36,36
-375,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p27,2,True,,36,36
-376,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p44,1,True,,59,59
-377,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p44,2,True,,59,59
-378,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p25,1,True,,35,35
-379,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p25,2,True,,35,35
-380,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p43,1,True,,63,63
-381,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p43,2,True,,63,63
-382,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p41,1,True,,62,62
-383,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p41,2,True,,62,62
-384,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p38,1,True,,52,52
-385,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p38,2,True,,52,52
-386,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p32,1,True,,45,45
-387,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p32,2,True,,45,45
-388,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p28,1,True,,34,34
-389,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
-390,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p29,1,False,Error: Plan failed to execute.,46,46
-391,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p29,2,True,,46,46
-392,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p37,1,True,,55,55
-393,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p37,2,True,,55,55
-394,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p33,1,False,Error: Goal not satisfied.,50,50
-395,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p33,2,False,Error: Goal not satisfied.,50,50
-396,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p35,1,True,,47,47
-397,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p35,2,True,,47,47
-398,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p30,1,False,Error: Goal not satisfied.,40,40
-399,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p30,2,True,,40,40
-400,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p42,1,True,,61,61
-401,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p42,2,True,,61,61
-402,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p39,1,True,,56,56
-403,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p39,2,True,,56,56
-404,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p34,1,True,,48,48
-405,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p34,2,True,,48,48
-406,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p26,1,True,,36,36
-407,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p26,2,True,,36,36
-408,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p40,1,True,,54,54
-409,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p40,2,True,,54,54
-410,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p31,1,True,,44,44
-411,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p31,2,True,,44,44
-412,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p36,1,True,,46,46
-413,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p36,2,False,Error: Goal not satisfied.,46,46
-414,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p27,1,False,Error: Goal not satisfied.,36,36
-415,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p27,2,False,Error: Goal not satisfied.,36,36
-416,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p44,1,True,,59,59
-417,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p44,2,True,,59,59
-418,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p25,1,False,Error: Plan failed to execute.,35,35
-419,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p25,2,False,Error: Goal not satisfied.,35,35
-420,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p43,1,True,,63,63
-421,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p43,2,True,,63,63
-422,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p41,1,True,,62,62
-423,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p41,2,True,,62,62
-424,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p38,1,True,,52,52
-425,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p38,2,True,,52,52
-426,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p32,1,True,,45,45
-427,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p32,2,True,,45,45
-428,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p28,1,False,Error: Plan failed to execute.,34,34
-429,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
-430,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p29,1,True,,46,46
-431,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p29,2,True,,46,46
-432,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p37,1,True,,55,55
-433,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p37,2,True,,55,55
-434,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p33,1,False,Error: Goal not satisfied.,50,50
-435,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p33,2,True,,50,50
-436,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p35,1,True,,47,47
-437,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p35,2,True,,47,47
-438,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p30,1,True,,40,40
-439,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p30,2,True,,40,40
+360,ablation,gemini-thinking,ordered_landmarks_feasible,logistics,p41,1,False,Response extraction failed : Object response not found in the output.,98,0
+361,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p42,1,True,,61,61
+362,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p42,2,True,,61,61
+363,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p39,1,True,,56,56
+364,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p39,2,True,,56,56
+365,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p34,1,True,,48,48
+366,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p34,2,True,,48,48
+367,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p26,1,False,Error: Goal not satisfied.,36,36
+368,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p26,2,True,,36,36
+369,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p40,1,True,,54,54
+370,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p40,2,True,,54,54
+371,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p31,1,True,,44,44
+372,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p31,2,True,,44,44
+373,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p36,1,True,,46,46
+374,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p36,2,True,,46,46
+375,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p27,1,False,Error: Goal not satisfied.,36,36
+376,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p27,2,True,,36,36
+377,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p44,1,True,,59,59
+378,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p44,2,True,,59,59
+379,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p25,1,True,,35,35
+380,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p25,2,True,,35,35
+381,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p43,1,True,,63,63
+382,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p43,2,True,,63,63
+383,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p41,1,True,,62,62
+384,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p41,2,True,,62,62
+385,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p38,1,True,,52,52
+386,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p38,2,True,,52,52
+387,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p32,1,True,,45,45
+388,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p32,2,True,,45,45
+389,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p28,1,True,,34,34
+390,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
+391,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p29,1,False,Error: Plan failed to execute.,46,46
+392,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p29,2,True,,46,46
+393,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p37,1,True,,55,55
+394,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p37,2,True,,55,55
+395,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p33,1,False,Error: Goal not satisfied.,50,50
+396,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p33,2,False,Error: Goal not satisfied.,50,50
+397,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p35,1,True,,47,47
+398,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p35,2,True,,47,47
+399,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p30,1,False,Error: Goal not satisfied.,40,40
+400,ablation,gemini-thinking,ordered_landmarks_feasible[unique+optimal+other_actions+first_appearance+use_all],blocksworld,p30,2,True,,40,40
+401,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p42,1,True,,61,61
+402,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p42,2,True,,61,61
+403,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p39,1,True,,56,56
+404,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p39,2,True,,56,56
+405,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p34,1,True,,48,48
+406,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p34,2,True,,48,48
+407,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p26,1,True,,36,36
+408,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p26,2,True,,36,36
+409,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p40,1,True,,54,54
+410,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p40,2,True,,54,54
+411,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p31,1,True,,44,44
+412,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p31,2,True,,44,44
+413,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p36,1,True,,46,46
+414,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p36,2,False,Error: Goal not satisfied.,46,46
+415,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p27,1,False,Error: Goal not satisfied.,36,36
+416,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p27,2,False,Error: Goal not satisfied.,36,36
+417,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p44,1,True,,59,59
+418,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p44,2,True,,59,59
+419,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p25,1,False,Error: Plan failed to execute.,35,35
+420,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p25,2,False,Error: Goal not satisfied.,35,35
+421,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p43,1,True,,63,63
+422,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p43,2,True,,63,63
+423,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p41,1,True,,62,62
+424,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p41,2,True,,62,62
+425,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p38,1,True,,52,52
+426,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p38,2,True,,52,52
+427,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p32,1,True,,45,45
+428,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p32,2,True,,45,45
+429,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p28,1,False,Error: Plan failed to execute.,34,34
+430,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p28,2,False,Error: Plan failed to execute.,34,34
+431,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p29,1,True,,46,46
+432,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p29,2,True,,46,46
+433,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p37,1,True,,55,55
+434,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p37,2,True,,55,55
+435,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p33,1,False,Error: Goal not satisfied.,50,50
+436,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p33,2,True,,50,50
+437,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p35,1,True,,47,47
+438,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p35,2,True,,47,47
+439,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p30,1,True,,40,40
+440,ablation,gemini-thinking,ordered_landmarks_feasible[optimal+other_actions+first_appearance+use_all],blocksworld,p30,2,True,,40,40

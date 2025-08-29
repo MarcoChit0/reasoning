@@ -243,6 +243,11 @@ def sort_landmarks(task: Task, action_landmarks: list[str]) -> list[str]:
     with open(soln_path, 'r') as f:
         soln = f.read()
 
+    def landmarks_value(landmark: str, soln: str) -> int:
+        if landmark in soln:
+            return soln.index(landmark)
+        else:
+            raise ValueError(f"Landmark {landmark} not found in solution.")
     # Sort the action landmarks based on their order in the solution
-    sorted_landmarks = sorted(action_landmarks, key=lambda x: soln.index(x) if x in soln else float('inf'))
+    sorted_landmarks = sorted(action_landmarks, key=lambda x: landmarks_value(x, soln))
     return sorted_landmarks

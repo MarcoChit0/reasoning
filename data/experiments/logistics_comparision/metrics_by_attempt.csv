@@ -1,0 +1,13 @@
+experiment,domain,model,template,attempt,total_instances,coverage,landmarks
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible,1,20,0.2,0.87
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible,2,20,0.05,0.79
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible,3,20,0.2,0.85
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible[first_appearance],1,20,0.35,0.93
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible[first_appearance],2,20,0.2,0.85
+logistics_comparision,logistics,gemini-thinking,ordered_landmarks_feasible[first_appearance],3,20,0.25,0.85
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible,1,20,0.75,1.0
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible,2,20,0.75,0.95
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible,3,20,1.0,1.0
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible[first_appearance],1,20,0.9,1.0
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible[first_appearance],2,20,0.8,1.0
+logistics_comparision,logistics_old,gemini-thinking,ordered_landmarks_feasible[first_appearance],3,20,0.9,1.0
